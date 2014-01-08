@@ -19,6 +19,7 @@
 		7A43B8E7187C46F500725428 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A43B8E5187C46F500725428 /* MainStoryboard_iPhone.storyboard */; };
 		7A43B8EA187C46F500725428 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A43B8E8187C46F500725428 /* MainStoryboard_iPad.storyboard */; };
 		7A43B8ED187C46F500725428 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A43B8EC187C46F500725428 /* ViewController.m */; };
+		7A43B8F4187C519600725428 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8F3187C519600725428 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		7A43B8E9187C46F500725428 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		7A43B8EB187C46F500725428 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7A43B8EC187C46F500725428 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7A43B8F3187C519600725428 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A43B8F4187C519600725428 /* MapKit.framework in Frameworks */,
 				7A43B8CE187C46F500725428 /* UIKit.framework in Frameworks */,
 				7A43B8D0187C46F500725428 /* Foundation.framework in Frameworks */,
 				7A43B8D2187C46F500725428 /* CoreGraphics.framework in Frameworks */,
@@ -58,6 +61,7 @@
 		7A43B8C1187C46F500725428 = {
 			isa = PBXGroup;
 			children = (
+				7A43B8F3187C519600725428 /* MapKit.framework */,
 				7A43B8D3187C46F500725428 /* bcsapat */,
 				7A43B8CC187C46F500725428 /* Frameworks */,
 				7A43B8CB187C46F500725428 /* Products */,
