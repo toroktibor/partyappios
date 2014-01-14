@@ -9,10 +9,28 @@
 #import "AppDelegate.h"
 
 @implementation AppDelegate
+@synthesize dbConnection;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    //az adatbázis eléréséhez szükséges kódrészlet, hiba esetén csak logol
+    
+    NSFileManager *filemanager = [NSFileManager defaultManager];
+    NSError * error = nil;
+    NSArray * paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString * documentsDirectory = [paths objectAtIndex:0];
+    
+    NSString * path = [documentsDirectory stringByAppendingPathComponent:@"partyapp.db"];
+    if( [filemanager fileExistsAtPath:path ] == NO){
+        NSString * resourcePath = [[NSBundle mainBundle] pathForResource:@"partyapp" ofType:@"db"];
+        [filemanager copyItemAtPath:resourcePath toPath:path error:&error];
+        if(error) {
+            NSLog(@"Error: %@",error);
+        }
+    }
+    
+    dbConnection = [[MyDatabase alloc]initWithPath:path];
     return YES;
 }
 							

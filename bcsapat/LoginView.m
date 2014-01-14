@@ -13,6 +13,7 @@
 @end
 
 @implementation LoginView
+@synthesize userName,password;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +27,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    userName.delegate=self;
+    password.delegate=self;
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -33,6 +38,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
