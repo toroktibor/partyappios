@@ -10,6 +10,7 @@
 
 @interface LoginView : UIViewController<UITextFieldDelegate>
 
+- (IBAction)loginButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *password;
 @end
