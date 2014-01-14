@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MenuSearchView : UIViewController<UIActionSheetDelegate>{
-    
+
 }
 
 - (IBAction)showActionSheet:(id)sender;

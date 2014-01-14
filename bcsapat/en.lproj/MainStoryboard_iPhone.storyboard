@@ -2248,12 +2248,11 @@ EEVzZW3DqW55ZWs
         <!--Menu Map View - Térkép-->
         <scene sceneID="gHr-VS-rYC">
             <objects>
-                <viewController storyboardIdentifier="MenuMapView" id="eT2-vY-VFI" customClass="MenuMapView" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuMapView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eT2-vY-VFI" customClass="MenuMapView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WaR-hh-sCF">
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gQu-CB-Spk"/>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AA8-bN-351">
                                 <items>
                                     <navigationItem title="Térkép" id="O54-oL-kCM">
@@ -2277,19 +2276,23 @@ EEVzZW3DqW55ZWs
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uYc-cJ-lUK"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AA8-bN-351" firstAttribute="trailing" secondItem="WaR-hh-sCF" secondAttribute="trailing" type="default" id="0hC-JV-ayc"/>
-                            <constraint firstItem="AA8-bN-351" firstAttribute="bottom" secondItem="gQu-CB-Spk" secondAttribute="top" type="default" id="7Ta-ky-g7g"/>
+                            <constraint firstItem="uYc-cJ-lUK" firstAttribute="top" secondItem="AA8-bN-351" secondAttribute="bottom" type="default" id="2Uf-BA-rsJ"/>
                             <constraint firstItem="AA8-bN-351" firstAttribute="top" secondItem="WaR-hh-sCF" secondAttribute="top" type="default" id="E12-Wg-HuM"/>
-                            <constraint firstItem="gQu-CB-Spk" firstAttribute="bottom" secondItem="WaR-hh-sCF" secondAttribute="bottom" type="default" id="GpV-oS-vaz"/>
-                            <constraint firstItem="gQu-CB-Spk" firstAttribute="trailing" secondItem="WaR-hh-sCF" secondAttribute="trailing" type="default" id="KYE-Sa-Alm"/>
+                            <constraint firstItem="uYc-cJ-lUK" firstAttribute="trailing" secondItem="WaR-hh-sCF" secondAttribute="trailing" type="default" id="ENN-8s-mVH"/>
+                            <constraint firstItem="uYc-cJ-lUK" firstAttribute="leading" secondItem="WaR-hh-sCF" secondAttribute="leading" type="default" id="Gdz-Pt-1ZA"/>
                             <constraint firstItem="AA8-bN-351" firstAttribute="leading" secondItem="WaR-hh-sCF" secondAttribute="leading" type="default" id="OTF-1r-hGq"/>
-                            <constraint firstItem="gQu-CB-Spk" firstAttribute="leading" secondItem="WaR-hh-sCF" secondAttribute="leading" type="default" id="S0N-yi-oCM"/>
+                            <constraint firstItem="uYc-cJ-lUK" firstAttribute="bottom" secondItem="WaR-hh-sCF" secondAttribute="bottom" type="default" id="YMg-Nc-ORN"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Térkép" id="Y90-JL-Br1"/>
+                    <connections>
+                        <outlet property="map" destination="uYc-cJ-lUK" id="01c-U3-jsx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pnu-o9-Q9G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -16,9 +16,14 @@
 
 @interface MenuMapView ()
 
+
+
 @end
 
 @implementation MenuMapView
+@synthesize map;
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +38,30 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+   locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+   // [locationManager startUpdatingLocation];
+    
+    NSString *lat=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.latitude];
+    NSString *lon=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.longitude];
+    NSString *urlstring=[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?latlng=%@,%@&sensor=false",lat,lon];
+    
+   NSURL *url = [NSURL URLWithString:urlstring];
+    
+    NSLog(@"%@",urlstring);
+    
+    NSData *jsonData = [NSData dataWithContentsOfURL:url];
+    NSError *error;
+    NSDictionary *decoded= [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+    
+    NSArray *array=[decoded objectForKey:@"results"];
+   // NSLog(@"%@",[[[[[decoded objectForKey:@"resulst"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
+    
+    NSLog(@"%@",[[[[array objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,6 +69,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 
 //a navigation bar jobb felső sarkában lévő gomb megnyomására az action sheet megjelenítése
