@@ -8,11 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "User.h"
+#import "SillyCommunication.h"
+#import "MyDatabase.h"
 
 @interface Session : NSObject{
-    Session *instance;
+    SillyCommunication * actualCommunication;
+    MyDatabase * databaseConnection;
     User * actualUser;
     NSMutableArray * searchViewCLubs;
+    BOOL * isOnline;
 }
+
++(Session *) instance;
 
 @end

@@ -10,11 +10,13 @@
 
 @implementation Session
 
+static Session * _instance = nil;
+
 -(Session *)getInstance{
-    if (instance == nil) {
-        instance = [[Session alloc] init];
+    if (_instance == nil) {
+        _instance = [[Session alloc] init];
     }
-    return instance;
+    return _instance;
 }
 
 -(User *)getActualUser{
@@ -32,5 +34,25 @@
 -(void)setSearchViewCLubs:(NSMutableArray *) searchViewCLubs_{
     searchViewCLubs = searchViewCLubs_;
 }
+
++(id)alloc {
+    @synchronized([Session class]) {
+        NSAssert(_instance == nil, @"oops... Mar van ilyen peldany");
+        _instance = [super alloc];
+        return _instance;
+    }
+    return nil;
+}
+
+-(id)init {
+    if (self = [super init]) {
+        //id appdelegate = [[UIApplication sharedApplication] delegate];
+        //m_managedObjectContext = [appdelegate managedObjectContext];
+        databaseConnection = [[MyDatabase alloc] initWithPath: @"partyapp.db"];
+        actualCommunication = [[SillyCommunication alloc] init];
+    }
+    return self;
+}
+
 
 @end

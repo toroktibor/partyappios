@@ -41,6 +41,7 @@
 		7AD6858318845A5A00D52D4A /* partyapp.db in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6858218845A5900D52D4A /* partyapp.db */; };
 		7AE0D99718854FE50089CE3D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE0D99618854FE50089CE3D /* RegisterView.m */; };
 		7AE0D99918857CC40089CE3D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE0D99818857CC40089CE3D /* CoreLocation.framework */; };
+		7AFFF40618859CEC000B06FD /* SillyCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFF40518859CEC000B06FD /* SillyCommunication.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,9 @@
 		7AE0D99518854FE50089CE3D /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
 		7AE0D99618854FE50089CE3D /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		7AE0D99818857CC40089CE3D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7AFFF40318859CB0000B06FD /* CommunicationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunicationProtocol.h; sourceTree = "<group>"; };
+		7AFFF40418859CEC000B06FD /* SillyCommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SillyCommunication.h; sourceTree = "<group>"; };
+		7AFFF40518859CEC000B06FD /* SillyCommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SillyCommunication.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +243,7 @@
 		7AD6856F18842C7900D52D4A /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				7AFFF40218859C7B000B06FD /* Communication */,
 				7AD6857018842C9500D52D4A /* User.h */,
 				7AD6857118842C9500D52D4A /* User.m */,
 				7AD6857318842CB100D52D4A /* Club.h */,
@@ -253,6 +258,17 @@
 				7AD6858018842D7D00D52D4A /* Session.m */,
 			);
 			name = Util;
+			sourceTree = "<group>";
+		};
+		7AFFF40218859C7B000B06FD /* Communication */ = {
+			isa = PBXGroup;
+			children = (
+				7AFFF40318859CB0000B06FD /* CommunicationProtocol.h */,
+				7AFFF40418859CEC000B06FD /* SillyCommunication.h */,
+				7AFFF40518859CEC000B06FD /* SillyCommunication.m */,
+			);
+			name = Communication;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +360,7 @@
 				7AD6857E18842CF300D52D4A /* Rating.m in Sources */,
 				7AD6858118842D7D00D52D4A /* Session.m in Sources */,
 				7AE0D99718854FE50089CE3D /* RegisterView.m in Sources */,
+				7AFFF40618859CEC000B06FD /* SillyCommunication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
