@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
+#import "MyAnnotation.h"
 
 @interface MenuMapView : UIViewController<UIActionSheetDelegate,MKMapViewDelegate,CLLocationManagerDelegate>{
     CLLocationManager *locationManager;
@@ -19,4 +20,5 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 - (IBAction)showActionSheet:(id)sender;
+-(MyAnnotation *)getCoordinates:(NSString *)adress;
 @end

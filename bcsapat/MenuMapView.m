@@ -43,126 +43,28 @@
     NSMutableArray * cimek=[[NSMutableArray alloc]init];
     [cimek addObject:@"Debrecen Szombathi István utca 3"];
     [cimek addObject:@"Debrecen Csapó utca 15"];
+    [cimek addObject:@"Debrecen Piac utca 2"];
+    [cimek addObject:@"Debrecen Miklós utca 20"];
     
-    
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    MyAnnotation* myAnnotation=[[MyAnnotation alloc] init];
+    NSMutableArray * annotations=[[NSMutableArray alloc]init];
     
     for (int i=0; i<[cimek count]; ++i) {
-        
-        [geocoder geocodeAddressString:[cimek objectAtIndex:i] completionHandler:^(NSArray* placemarks, NSError* error){
-            for (CLPlacemark* aPlacemark in placemarks)
-            {
-                CLLocationCoordinate2D theCoordinate;
-                theCoordinate.latitude=aPlacemark.location.coordinate.latitude;
-                theCoordinate.longitude=aPlacemark.location.coordinate.longitude;
-                myAnnotation.coordinate=theCoordinate;
-                [map addAnnotation:myAnnotation];
-                NSLog(@"dsklja");
-            }
-        }];
-        
+        [map addAnnotation:[self getCoordinates:[cimek objectAtIndex:i]]];
+        [annotations addObject:[self getCoordinates:[cimek objectAtIndex:i]]];
     }
     
     
-   
-    
-    
-    
-    /*[geocoder geocodeAddressString:@"Vásásrosnamény Orbán Balázs körút 11" completionHandler:^(NSArray* placemarks, NSError* error){
-        for (CLPlacemark* aPlacemark in placemarks)
-        {
-            NSString *latDest1 = [NSString stringWithFormat:@"%f",aPlacemark.location.coordinate.latitude];
-            NSString *lngDest2 = [NSString stringWithFormat:@"%f",aPlacemark.location.coordinate.longitude];
-            NSLog(@"%@ geocoder",latDest1);
-            NSLog(@"%@ geocoder",lngDest2);
-        }
-    }];*/
-    
-    
-    
-  /*
+    MKMapRect zoomRect = MKMapRectNull;
+    for (id <MKAnnotation> annotation in map.annotations)
+    {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(map.userLocation.coordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+        zoomRect = MKMapRectUnion(zoomRect, pointRect);
+    }
+    [map setVisibleMapRect:zoomRect animated:YES];
 
-    NSMutableArray* annotations=[[NSMutableArray alloc] init];
-	
-	CLLocationCoordinate2D theCoordinate1;
-    theCoordinate1.latitude = 37.786996;
-    theCoordinate1.longitude = -122.419281;
-	
-	CLLocationCoordinate2D theCoordinate2;
-    theCoordinate2.latitude = 37.810000;
-    theCoordinate2.longitude = -122.477989;
-	
-	CLLocationCoordinate2D theCoordinate3;
-    theCoordinate3.latitude = 37.760000;
-    theCoordinate3.longitude = -122.447989;
-	
-	CLLocationCoordinate2D theCoordinate4;
-    theCoordinate4.latitude = 37.80000;
-    theCoordinate4.longitude = -122.407989;
-    
-    
-    CLLocationCoordinate2D myLocation;
-    myLocation.latitude=locationManager.location.coordinate.latitude;
-    myLocation.longitude=locationManager.location.coordinate.longitude;
-    
-	
-	MyAnnotation* myAnnotation1=[[MyAnnotation alloc] init];
-	
-	myAnnotation1.coordinate=theCoordinate1;
-	myAnnotation1.title=@"Rohan";
-	myAnnotation1.subtitle=@"in the city";
-	
-	MyAnnotation* myAnnotation2=[[MyAnnotation alloc] init];
-	
-	myAnnotation2.coordinate=theCoordinate2;
-	myAnnotation2.title=@"Vaibhav";
-	myAnnotation2.subtitle=@"on a Bridge";
-	
-	MyAnnotation* myAnnotation3=[[MyAnnotation alloc] init];
-	
-	myAnnotation3.coordinate=theCoordinate3;
-	myAnnotation3.title=@"Rituraj";
-	myAnnotation3.subtitle=@"in the forest";
-	
-	MyAnnotation* myAnnotation4=[[MyAnnotation alloc] init];
-	
-	myAnnotation4.coordinate=theCoordinate4;
-	myAnnotation4.title=@"Sahil";
-	myAnnotation4.subtitle=@"at Russian Hill";
-    
-    
-   
-	
-	[map addAnnotation:myAnnotation1];
-	[map addAnnotation:myAnnotation2];
-	[map addAnnotation:myAnnotation3];
-	[map addAnnotation:myAnnotation4];
-    
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(myLocation, 400, 400);
-    [map setRegion:viewRegion animated: YES];
-    
-   MKPointAnnotation *needle = [[MKPointAnnotation alloc] init];
-    needle.coordinate = myLocation;
-    needle.title = @"az én pozízcióm";
-    needle.subtitle = @"bla bla";
-    [map addAnnotation:needle];
-    
-    
-	
-	[annotations addObject:myAnnotation1];
-	[annotations addObject:myAnnotation2];
-	[annotations addObject:myAnnotation3];
-	[annotations addObject:myAnnotation4];
-   */
-    
-    
-    
-    
-    
-    
     //ha azt akarjuk, hogy a szórakozóhelyeket mutassa a térkép
-   /*MKMapRect flyTo = MKMapRectNull;
+  /* MKMapRect flyTo = MKMapRectNull;
 	for (id annotation  in annotations) {
 		NSLog(@"fly to on");
         MKMapPoint annotationPoint = MKMapPointForCoordinate([annotation coordinate]);
@@ -262,5 +164,25 @@
         // mégse gomb
     }
 }
+
+
+
+
+-(MyAnnotation *)getCoordinates:(NSString*)adress{
+    MyAnnotation* myAnnotation=[[MyAnnotation alloc] init];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:adress completionHandler:^(NSArray* placemarks, NSError* error){
+        for (CLPlacemark* aPlacemark in placemarks)
+        {
+            CLLocationCoordinate2D theCoordinate;
+            theCoordinate.latitude=aPlacemark.location.coordinate.latitude;
+            theCoordinate.longitude=aPlacemark.location.coordinate.longitude;
+            myAnnotation.coordinate=theCoordinate;
+        }
+    }];
+
+    return myAnnotation;
+}
+
 
 @end
