@@ -10,7 +10,10 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
-@interface MenuMapView : UIViewController<UIActionSheetDelegate,MKMapViewDelegate>
+@interface MenuMapView : UIViewController<UIActionSheetDelegate,MKMapViewDelegate,CLLocationManagerDelegate>{
+    CLLocationManager *locationManager;
+}
+
 
 
 

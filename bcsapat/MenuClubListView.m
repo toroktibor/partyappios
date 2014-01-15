@@ -20,6 +20,7 @@
 
 @implementation MenuClubListView
 
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -45,10 +46,6 @@
     NSString *lat=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.latitude];
     NSString *lon=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.longitude];
     
-    [locationManager stopUpdatingLocation];
-    
-    NSLog(@"%@",lat);
-    NSLog(@"%@",lon);
     
     //a meghívandó url string-be behegesztjük a kordinátákat
     NSString *urlstring=[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?latlng=%@,%@&sensor=false",lat,lon];
