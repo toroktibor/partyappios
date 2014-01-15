@@ -39,6 +39,7 @@
 		7AD6857E18842CF300D52D4A /* Rating.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6857D18842CF300D52D4A /* Rating.m */; };
 		7AD6858118842D7D00D52D4A /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6858018842D7D00D52D4A /* Session.m */; };
 		7AD6858318845A5A00D52D4A /* partyapp.db in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6858218845A5900D52D4A /* partyapp.db */; };
+		7AD7E5391886ABA200656FCF /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7E5381886ABA200656FCF /* MyAnnotation.m */; };
 		7AE0D99718854FE50089CE3D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE0D99618854FE50089CE3D /* RegisterView.m */; };
 		7AE0D99918857CC40089CE3D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE0D99818857CC40089CE3D /* CoreLocation.framework */; };
 		7AFFF40618859CEC000B06FD /* SillyCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFF40518859CEC000B06FD /* SillyCommunication.m */; };
@@ -99,6 +100,8 @@
 		7AD6857F18842D7D00D52D4A /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		7AD6858018842D7D00D52D4A /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		7AD6858218845A5900D52D4A /* partyapp.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = partyapp.db; sourceTree = "<group>"; };
+		7AD7E5371886ABA200656FCF /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
+		7AD7E5381886ABA200656FCF /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
 		7AE0D99518854FE50089CE3D /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
 		7AE0D99618854FE50089CE3D /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		7AE0D99818857CC40089CE3D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -182,6 +185,8 @@
 				7A43B8DF187C46F500725428 /* Default.png */,
 				7A43B8E1187C46F500725428 /* Default@2x.png */,
 				7A43B8E3187C46F500725428 /* Default-568h@2x.png */,
+				7AD7E5371886ABA200656FCF /* MyAnnotation.h */,
+				7AD7E5381886ABA200656FCF /* MyAnnotation.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 				7AD6858118842D7D00D52D4A /* Session.m in Sources */,
 				7AE0D99718854FE50089CE3D /* RegisterView.m in Sources */,
 				7AFFF40618859CEC000B06FD /* SillyCommunication.m in Sources */,
+				7AD7E5391886ABA200656FCF /* MyAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

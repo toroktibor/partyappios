@@ -13,6 +13,7 @@
 #import "MyPlacesView.h"
 #import "LoginView.h"
 #import "AddNewClubView.h"
+#import "MyAnnotation.h"
 
 @interface MenuMapView ()
 
@@ -38,29 +39,79 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+
+    NSMutableArray* annotations=[[NSMutableArray alloc] init];
+	
+	CLLocationCoordinate2D theCoordinate1;
+    theCoordinate1.latitude = 37.786996;
+    theCoordinate1.longitude = -122.419281;
+	
+	CLLocationCoordinate2D theCoordinate2;
+    theCoordinate2.latitude = 37.810000;
+    theCoordinate2.longitude = -122.477989;
+	
+	CLLocationCoordinate2D theCoordinate3;
+    theCoordinate3.latitude = 37.760000;
+    theCoordinate3.longitude = -122.447989;
+	
+	CLLocationCoordinate2D theCoordinate4;
+    theCoordinate4.latitude = 37.80000;
+    theCoordinate4.longitude = -122.407989;
     
-   locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    locationManager.distanceFilter = kCLDistanceFilterNone;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-   // [locationManager startUpdatingLocation];
+	
+	MyAnnotation* myAnnotation1=[[MyAnnotation alloc] init];
+	
+	myAnnotation1.coordinate=theCoordinate1;
+	myAnnotation1.title=@"Rohan";
+	myAnnotation1.subtitle=@"in the city";
+	
+	MyAnnotation* myAnnotation2=[[MyAnnotation alloc] init];
+	
+	myAnnotation2.coordinate=theCoordinate2;
+	myAnnotation2.title=@"Vaibhav";
+	myAnnotation2.subtitle=@"on a Bridge";
+	
+	MyAnnotation* myAnnotation3=[[MyAnnotation alloc] init];
+	
+	myAnnotation3.coordinate=theCoordinate3;
+	myAnnotation3.title=@"Rituraj";
+	myAnnotation3.subtitle=@"in the forest";
+	
+	MyAnnotation* myAnnotation4=[[MyAnnotation alloc] init];
+	
+	myAnnotation4.coordinate=theCoordinate4;
+	myAnnotation4.title=@"Sahil";
+	myAnnotation4.subtitle=@"at Russian Hill";
     
-    NSString *lat=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.latitude];
-    NSString *lon=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.longitude];
-    NSString *urlstring=[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?latlng=%@,%@&sensor=false",lat,lon];
+	
+	[map addAnnotation:myAnnotation1];
+	[map addAnnotation:myAnnotation2];
+	[map addAnnotation:myAnnotation3];
+	[map addAnnotation:myAnnotation4];
     
-   NSURL *url = [NSURL URLWithString:urlstring];
+	
+	[annotations addObject:myAnnotation1];
+	[annotations addObject:myAnnotation2];
+	[annotations addObject:myAnnotation3];
+	[annotations addObject:myAnnotation4];
     
-    NSLog(@"%@",urlstring);
     
-    NSData *jsonData = [NSData dataWithContentsOfURL:url];
-    NSError *error;
-    NSDictionary *decoded= [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
     
-    NSArray *array=[decoded objectForKey:@"results"];
-   // NSLog(@"%@",[[[[[decoded objectForKey:@"resulst"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
+    //ha azt akarjuk, hogy a szórakozóhelyeket mutassa a térkép
+   MKMapRect flyTo = MKMapRectNull;
+	for (id annotation  in annotations) {
+		NSLog(@"fly to on");
+        MKMapPoint annotationPoint = MKMapPointForCoordinate([annotation coordinate]);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+        if (MKMapRectIsNull(flyTo)) {
+            flyTo = pointRect;
+        } else {
+            flyTo = MKMapRectUnion(flyTo, pointRect);
+        }
+    }
     
-    NSLog(@"%@",[[[[array objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
+    map.visibleMapRect = flyTo;
+    
 
 }
 
@@ -88,6 +139,7 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
         
+        //ugrás a kedvencek nézetbe
         FavouritesView *FavouritesView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"FavouritesView"];
         
@@ -97,6 +149,8 @@
         
         
     } else if (buttonIndex == 1) {
+        
+        //ugrás az új klubb hozzáadása nézetbe
         AddNewClubView *AddNewClubView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"AddNewClubView"];
         
@@ -104,7 +158,7 @@
         
     } else if (buttonIndex == 2) {
         
-        
+        //ugrás a helyeim nézetbe
         MyPlacesView *MyPlacesView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"MyPlacesView"];
         
@@ -116,6 +170,7 @@
         
     } else if (buttonIndex == 3) {
         
+        //ugrás a helyeim nézetbe
         NotificationsView *NotificationsView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"NotificationsView"];
         
@@ -125,21 +180,22 @@
     }
     else if (buttonIndex == 4) {
         
+        //ugrás a profilom nézetbe
         ProfileFirstView *ProfileFirstView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileFirstView"];
         
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ProfileFirstView];
-        //[self.navigationController pushViewController:ProfileFirstView animated:YES];
-        //[self presentModalViewController:ProfileFirstView animated:YES];
         [self presentViewController:navController animated:YES completion:nil];
     }
     else if (buttonIndex == 5) {
+        
+        //kijelentkezés
         LoginView *LoginView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
         [self presentViewController:LoginView animated:YES completion:nil];
     }
     else if (buttonIndex == 6) {
-        // NSLog(@"Mégse");
+        // mégse gomb
     }
 }
 

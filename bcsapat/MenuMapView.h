@@ -10,9 +10,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 
-@interface MenuMapView : UIViewController<UIActionSheetDelegate,CLLocationManagerDelegate,MKMapViewDelegate>{
-    CLLocationManager *locationManager;
-}
+@interface MenuMapView : UIViewController<UIActionSheetDelegate,MKMapViewDelegate>
+
+
 
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 - (IBAction)showActionSheet:(id)sender;

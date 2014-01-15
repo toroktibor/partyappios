@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface MenuClubListView : UITableViewController<UIActionSheetDelegate>{
-    
+@interface MenuClubListView : UITableViewController<UIActionSheetDelegate,CLLocationManagerDelegate>{
+    CLLocationManager *locationManager;
 }
+
+    
+
 
 - (IBAction)showActionSheet:(id)sender;
 

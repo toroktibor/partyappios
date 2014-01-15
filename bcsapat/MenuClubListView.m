@@ -32,6 +32,42 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //locationmanager a saját helyem meghatározásához
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
+    
+    
+    //location managerből kiszedjük a kordinátákat
+    NSString *lat=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.latitude];
+    NSString *lon=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.longitude];
+    
+    [locationManager stopUpdatingLocation];
+    
+    NSLog(@"%@",lat);
+    NSLog(@"%@",lon);
+    
+    //a meghívandó url string-be behegesztjük a kordinátákat
+    NSString *urlstring=[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?latlng=%@,%@&sensor=false",lat,lon];
+    
+    //az url stringből létrehozunk egy urlt
+    NSURL *url = [NSURL URLWithString:urlstring];
+    
+    //NSLog(@"%@",urlstring);
+    
+    //az url-ből visszakapunk egy egy json-t
+    NSData *jsonData = [NSData dataWithContentsOfURL:url];
+    NSError *error;
+    
+    //json-t átadjuk egy szótárnak
+   NSDictionary *decoded= [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+    
+   NSLog(@"%@",[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
+   
+
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
