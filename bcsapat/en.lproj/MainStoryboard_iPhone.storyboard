@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="13A598" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xnX-3U-ipj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xnX-3U-ipj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -848,7 +848,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="tZT-cE-C4t">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="tZT-cE-C4t">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -881,12 +881,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VCH-Eb-Jjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-661" y="-238"/>
+            <point key="canvasLocation" x="-473" y="-302"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CMV-jl-RO6">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="DGr-eJ-Rbs" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBar" definesPresentationContext="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DGr-eJ-Rbs" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="awx-a8-iwE"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="A4l-ti-QEm">
@@ -1374,10 +1374,10 @@ EEVzZW3DqW55ZWs
             </objects>
             <point key="canvasLocation" x="1720" y="-2265"/>
         </scene>
-        <!--View Controller - Információk-->
+        <!--Information View - Információk-->
         <scene sceneID="otd-55-hDu">
             <objects>
-                <viewController id="r5Z-0c-lJo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InformationView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="r5Z-0c-lJo" customClass="InformationView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e3o-TI-ej2">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1528,6 +1528,9 @@ EEVzZW3DqW55ZWs
                     <navigationItem key="navigationItem" title="Információk" id="KQ0-eH-95v">
                         <barButtonItem key="rightBarButtonItem" title="!" id="kfg-Hc-gxe"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="clubNameText" destination="r1Q-Jb-5YR" id="icK-lk-qlI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E7E-Z7-CNg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2554,76 +2557,6 @@ EEVzZW3DqW55ZWs
             <point key="canvasLocation" x="-1636" y="-1884"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AddNewClubView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewClubView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="clubType" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="FavouritesView" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesView.h"/>
-        </class>
-        <class className="LoginView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginView.h"/>
-            <relationships>
-                <relationship kind="action" name="loginButtonPressed:"/>
-                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="userName" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MenuClubListView" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuClubListView.h"/>
-            <relationships>
-                <relationship kind="action" name="showActionSheet:"/>
-            </relationships>
-        </class>
-        <class className="MenuMapView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuMapView.h"/>
-            <relationships>
-                <relationship kind="action" name="showActionSheet:"/>
-                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
-            </relationships>
-        </class>
-        <class className="MenuSearchView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuSearchView.h"/>
-            <relationships>
-                <relationship kind="action" name="showActionSheet:"/>
-            </relationships>
-        </class>
-        <class className="MyPlacesView" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyPlacesView.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="NewTypePickerView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewTypePickerView.h"/>
-            <relationships>
-                <relationship kind="action" name="ok:"/>
-                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="NotificationsView" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotificationsView.h"/>
-        </class>
-        <class className="ProfileFirstView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileFirstView.h"/>
-        </class>
-        <class className="RegisterView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterView.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="register:"/>
-                <relationship kind="outlet" name="birthdate" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="name" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordAgain" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="segmentControl" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

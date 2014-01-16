@@ -91,13 +91,13 @@
 
 //user beszúrása
 -(NSArray *)insertIntoUserTableWithId:(NSInteger *) identifier andWithNickName:(NSString *) nickname andWithPassword:(NSString *) pw andWithType:(NSInteger *) type{
-    NSString * query = [NSString stringWithFormat:@"INSERT INTO user VALUES(%d,'%@','%@','datetime('now')',%d);",(int)identifier,nickname,pw,(int)type];
+    NSString * query = [NSString stringWithFormat:@"INSERT INTO user VALUES(%d,'%@','%@',%d,datetime('now'));",(int)identifier,nickname,pw,(int)type];
     return [self performQuery:query];
 }
 //user updatelése
 -(NSArray *)updateUserWithUserId:(NSInteger *) userId andNickName:(NSString *) nickName andPassword:(NSString *) password andType:(NSString *) type{
     NSString *query =
-	[NSString stringWithFormat:@"UPDATE user SET nick_name = '%@', password = '%@', type = %@, last_update = 'datetime('now')' WHERE id = %d;",nickName,password,type,(int)userId];
+	[NSString stringWithFormat:@"UPDATE user SET nick_name = '%@', password = '%@', type = %@, last_update = datetime('now') WHERE id = %d;",nickName,password,type,(int)userId];
     return [self performQuery:query];
 }
 

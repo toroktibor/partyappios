@@ -40,6 +40,7 @@
 		7AD6858118842D7D00D52D4A /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6858018842D7D00D52D4A /* Session.m */; };
 		7AD6858318845A5A00D52D4A /* partyapp.db in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6858218845A5900D52D4A /* partyapp.db */; };
 		7AD7E5391886ABA200656FCF /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7E5381886ABA200656FCF /* MyAnnotation.m */; };
+		7AD9411518885EF100EC78C9 /* InformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD9411418885EF100EC78C9 /* InformationView.m */; };
 		7AE0D99718854FE50089CE3D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE0D99618854FE50089CE3D /* RegisterView.m */; };
 		7AE0D99918857CC40089CE3D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE0D99818857CC40089CE3D /* CoreLocation.framework */; };
 		7AFFF40618859CEC000B06FD /* SillyCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFF40518859CEC000B06FD /* SillyCommunication.m */; };
@@ -102,6 +103,8 @@
 		7AD6858218845A5900D52D4A /* partyapp.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = partyapp.db; sourceTree = "<group>"; };
 		7AD7E5371886ABA200656FCF /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
 		7AD7E5381886ABA200656FCF /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
+		7AD9411318885EF100EC78C9 /* InformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationView.h; sourceTree = "<group>"; };
+		7AD9411418885EF100EC78C9 /* InformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationView.m; sourceTree = "<group>"; };
 		7AE0D99518854FE50089CE3D /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
 		7AE0D99618854FE50089CE3D /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		7AE0D99818857CC40089CE3D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -160,6 +163,7 @@
 		7A43B8D3187C46F500725428 /* bcsapat */ = {
 			isa = PBXGroup;
 			children = (
+				7AD9411218885EA600EC78C9 /* BarsAndPubsAndRestaurants */,
 				7AD6856918841F6500D52D4A /* Database */,
 				7AC9ECBA18801EB600DBEEDB /* ReachFromActionSheet */,
 				7AC9ECB918801E8D00DBEEDB /* Login */,
@@ -265,6 +269,15 @@
 			name = Util;
 			sourceTree = "<group>";
 		};
+		7AD9411218885EA600EC78C9 /* BarsAndPubsAndRestaurants */ = {
+			isa = PBXGroup;
+			children = (
+				7AD9411318885EF100EC78C9 /* InformationView.h */,
+				7AD9411418885EF100EC78C9 /* InformationView.m */,
+			);
+			name = BarsAndPubsAndRestaurants;
+			sourceTree = "<group>";
+		};
 		7AFFF40218859C7B000B06FD /* Communication */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +380,7 @@
 				7AE0D99718854FE50089CE3D /* RegisterView.m in Sources */,
 				7AFFF40618859CEC000B06FD /* SillyCommunication.m in Sources */,
 				7AD7E5391886ABA200656FCF /* MyAnnotation.m in Sources */,
+				7AD9411518885EF100EC78C9 /* InformationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

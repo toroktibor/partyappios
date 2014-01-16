@@ -15,10 +15,8 @@
     CLLocationManager *locationManager;
 }
 
-
-
+@property (nonatomic, retain) CLLocation* initialLocation;
 
 @property (weak, nonatomic) IBOutlet MKMapView *map;
 - (IBAction)showActionSheet:(id)sender;
--(MyAnnotation *)getCoordinates:(NSString *)adress;
 @end

@@ -19,5 +19,8 @@
 @property (nonatomic,copy) NSString * title;
 @property (nonatomic, copy) NSString * subtitle;
 
+-(NSString*)getTitle;
+-(CLLocationCoordinate2D)getCoordinate;
+
 
 @end

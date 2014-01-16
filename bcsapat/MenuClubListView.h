@@ -9,13 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface MenuClubListView : UITableViewController<UIActionSheetDelegate,CLLocationManagerDelegate>{
+@interface MenuClubListView : UITableViewController<UIActionSheetDelegate,CLLocationManagerDelegate,UITableViewDataSource>{
     CLLocationManager *locationManager;
 }
 
-    
-
-
+@property NSArray *szh;
+@property NSString *clubName;
 - (IBAction)showActionSheet:(id)sender;
 
 @end

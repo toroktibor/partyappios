@@ -12,4 +12,12 @@
 
 @synthesize coordinate,subtitle,title;
 
+
+-(NSString *)getTitle{
+    return self.title;
+}
+
+-(CLLocationCoordinate2D)getCoordinate{
+    return self.coordinate;
+}
 @end

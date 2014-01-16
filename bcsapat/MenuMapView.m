@@ -22,7 +22,7 @@
 @end
 
 @implementation MenuMapView
-@synthesize map;
+@synthesize map,initialLocation;
 
 
 
@@ -40,44 +40,33 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [map setDelegate:self];
+    
+    map.showsUserLocation=YES;
+    
+    
+    /*CLLocationCoordinate2D userlocation;
+    userlocation.latitude = locationManager.location.coordinate.latitude;
+    userlocation.longitude = locationManager.location.coordinate.longitude;
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(userlocation, 600, 600);
+    [map setRegion:viewRegion animated: YES];*/
+
+    
+    
     NSMutableArray * cimek=[[NSMutableArray alloc]init];
     [cimek addObject:@"Debrecen Szombathi István utca 3"];
     [cimek addObject:@"Debrecen Csapó utca 15"];
     [cimek addObject:@"Debrecen Piac utca 2"];
     [cimek addObject:@"Debrecen Miklós utca 20"];
+    [cimek addObject:@"Debrecen Kishegyesi út 20"];
     
-    NSMutableArray * annotations=[[NSMutableArray alloc]init];
     
     for (int i=0; i<[cimek count]; ++i) {
-        [map addAnnotation:[self getCoordinates:[cimek objectAtIndex:i]]];
-        [annotations addObject:[self getCoordinates:[cimek objectAtIndex:i]]];
+        [self processProperties:[cimek objectAtIndex:i]];
     }
-    
-    
-    MKMapRect zoomRect = MKMapRectNull;
-    for (id <MKAnnotation> annotation in map.annotations)
-    {
-        MKMapPoint annotationPoint = MKMapPointForCoordinate(map.userLocation.coordinate);
-        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
-        zoomRect = MKMapRectUnion(zoomRect, pointRect);
-    }
-    [map setVisibleMapRect:zoomRect animated:YES];
+   
 
-    //ha azt akarjuk, hogy a szórakozóhelyeket mutassa a térkép
-  /* MKMapRect flyTo = MKMapRectNull;
-	for (id annotation  in annotations) {
-		NSLog(@"fly to on");
-        MKMapPoint annotationPoint = MKMapPointForCoordinate([annotation coordinate]);
-        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
-        if (MKMapRectIsNull(flyTo)) {
-            flyTo = pointRect;
-        } else {
-            flyTo = MKMapRectUnion(flyTo, pointRect);
-        }
-    }
-    
-    map.visibleMapRect = flyTo;*/
-    
 
 }
 
@@ -167,22 +156,41 @@
 
 
 
-
--(MyAnnotation *)getCoordinates:(NSString*)adress{
-    MyAnnotation* myAnnotation=[[MyAnnotation alloc] init];
+- (void)processProperties:(NSString *)property {
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder geocodeAddressString:adress completionHandler:^(NSArray* placemarks, NSError* error){
+    [geocoder geocodeAddressString:property completionHandler:^(NSArray* placemarks, NSError* error){
         for (CLPlacemark* aPlacemark in placemarks)
         {
             CLLocationCoordinate2D theCoordinate;
             theCoordinate.latitude=aPlacemark.location.coordinate.latitude;
             theCoordinate.longitude=aPlacemark.location.coordinate.longitude;
-            myAnnotation.coordinate=theCoordinate;
+            MyAnnotation *annotation=[[MyAnnotation alloc]init];
+            annotation.coordinate=theCoordinate;
+            annotation.title=property;
+            [map addAnnotation:annotation];
         }
     }];
 
-    return myAnnotation;
 }
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    if ( !initialLocation )
+    {
+        self.initialLocation = userLocation.location;
+        
+        MKCoordinateRegion region;
+        region.span = MKCoordinateSpanMake(0.15, 0.2);
+        region.center = mapView.userLocation.coordinate;
+        //region.span = MKCoordinateSpanMake(0.1, 0.1);
+        
+         region = [mapView regionThatFits:region];
+        [mapView setRegion:region animated:YES];
+     
+    }
+}
+
+
 
 
 @end

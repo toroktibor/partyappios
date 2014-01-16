@@ -13,13 +13,14 @@
 #import "MyPlacesView.h"
 #import "LoginView.h"
 #import "AddNewClubView.h"
+#import "InformationView.h"
 
 @interface MenuClubListView ()
 
 @end
 
 @implementation MenuClubListView
-
+@synthesize szh;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,6 +34,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    szh = [[NSArray alloc] initWithObjects:@"Ibolya", @"Bárka", @"Roncs",nil];
     
     //locationmanager a saját helyem meghatározásához
     locationManager = [[CLLocationManager alloc] init];
@@ -85,14 +89,13 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [szh count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,7 +103,11 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    cell.textLabel.text=[szh objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -155,6 +162,29 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+
+    NSString *selected=[szh objectAtIndex:indexPath.row];
+    
+    
+    UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"TabBar"];
+    
+    
+    tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController: tabBar animated: YES completion:nil];
+    
+    
+    
+    /*NSString *selected=[szh objectAtIndex:indexPath.row];
+    
+    UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Selected!"
+                                                         message:selected
+                                                        delegate:nil
+                                               cancelButtonTitle:@"Ok"
+                                               otherButtonTitles: nil];
+    
+    [alertview show];*/
+
 }
 
 
