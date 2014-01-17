@@ -19,12 +19,19 @@
 @end
 
 @implementation MenuSearchView
+@synthesize clubType,checkButton,checkBoxSelected;
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [checkButton setBackgroundImage:[UIImage imageNamed:@"1389999128_unchecked_checkbox.png"]
+                           forState:UIControlStateNormal];
+    [checkButton setBackgroundImage:[UIImage imageNamed:@"1389999143_checked_checkbox.png"]
+                        forState:UIControlStateSelected];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,6 +42,11 @@
 
 
 //a navigation bar jobb felső sarkában lévő gomb megnyomására az action sheet megjelenítése
+- (IBAction)isChecked:(id)sender {
+    checkBoxSelected = !checkBoxSelected;
+    [checkButton setSelected:checkBoxSelected];
+}
+
 - (IBAction)showActionSheet:(id)sender {
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
                                               destructiveButtonTitle:nil otherButtonTitles:@"Kedvencek", @"Hozzáadás",@"Helyeim",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];
@@ -49,6 +61,7 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
         
+        //ugrás a kedvencekre
         FavouritesView *FavouritesView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"FavouritesView"];
         
@@ -58,13 +71,15 @@
         
         
     } else if (buttonIndex == 1) {
+        
+        //új klubb hozzáadása nézet
         AddNewClubView *AddNewClubView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"AddNewClubView"];
         [self presentViewController:AddNewClubView animated:YES completion:nil];
         
     } else if (buttonIndex == 2) {
        
-        
+        //helyeim nézet
         MyPlacesView *MyPlacesView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"MyPlacesView"];
         
@@ -76,6 +91,7 @@
         
     } else if (buttonIndex == 3) {
         
+        //értesítések nézet
         NotificationsView *NotificationsView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"NotificationsView"];
         
@@ -85,15 +101,14 @@
     }
     else if (buttonIndex == 4) {
         
+        //ugrás a profilom nézetbe
         ProfileFirstView *ProfileFirstView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileFirstView"];
-        
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ProfileFirstView];
-        //[self.navigationController pushViewController:ProfileFirstView animated:YES];
-        //[self presentModalViewController:ProfileFirstView animated:YES];
-        [self presentViewController:navController animated:YES completion:nil];
+        [self presentViewController:ProfileFirstView animated:YES completion:nil];
     }
     else if (buttonIndex == 5) {
+        
+        //ugrás a bejelentkezés nézetre
         LoginView *LoginView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
         [self presentViewController:LoginView animated:YES completion:nil];
@@ -102,5 +117,6 @@
        // NSLog(@"Mégse");
     }  
 }
+
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface MenuClubListView : UITableViewController<UIActionSheetDelegate,CLLocationManagerDelegate,UITableViewDataSource>{
+@interface MenuClubListView : UITableViewController<UIActionSheetDelegate,CLLocationManagerDelegate,UITableViewDataSource,UITableViewDelegate>{
     CLLocationManager *locationManager;
 }
 

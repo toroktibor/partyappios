@@ -87,7 +87,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
@@ -100,14 +99,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"ClubListViewCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ClubListViewCell"];
     }
     
     cell.textLabel.text=[szh objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text=@"cim";
+    cell.imageView.image=[UIImage imageNamed:@"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"];
     
     return cell;
 }
@@ -166,8 +167,12 @@
 
     NSString *selected=[szh objectAtIndex:indexPath.row];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:selected forKey:@"selected"];
+    [defaults synchronize];
     
-    UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"TabBar"];
+    
+    UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"ClubTabBar"];
     
     
     tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
@@ -232,11 +237,7 @@
         
         ProfileFirstView *ProfileFirstView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileFirstView"];
-        
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ProfileFirstView];
-        //[self.navigationController pushViewController:ProfileFirstView animated:YES];
-        //[self presentModalViewController:ProfileFirstView animated:YES];
-        [self presentViewController:navController animated:YES completion:nil];
+        [self presentViewController:ProfileFirstView animated:YES completion:nil];
     }
     else if (buttonIndex == 5) {
         LoginView *LoginView=

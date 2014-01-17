@@ -11,4 +11,5 @@
 @interface AddNewClubView : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *clubType;
+
 @end

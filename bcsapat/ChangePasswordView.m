@@ -1,18 +1,18 @@
 //
-//  InformationView.m
+//  ChangePasswordView.m
 //  bcsapat
 //
-//  Created by hallgato on 1/16/14.
+//  Created by hallgato on 1/17/14.
 //  Copyright (c) 2014 hallgato. All rights reserved.
 //
 
-#import "InformationView.h"
+#import "ChangePasswordView.h"
 
-@interface InformationView ()
+@interface ChangePasswordView ()
+
 @end
 
-@implementation InformationView
-@synthesize clubNameText;
+@implementation ChangePasswordView
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,8 +27,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [clubNameText setText:[defaults objectForKey:@"selected"]];
 }
 
 - (void)didReceiveMemoryWarning

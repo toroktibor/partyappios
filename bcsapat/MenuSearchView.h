@@ -11,7 +11,11 @@
 @interface MenuSearchView : UIViewController<UIActionSheetDelegate>{
 
 }
+- (IBAction)isChecked:(id)sender;
 
 - (IBAction)showActionSheet:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *checkButton;
+@property (weak, nonatomic) IBOutlet UILabel *clubType;
+@property BOOL checkBoxSelected;
 
 @end

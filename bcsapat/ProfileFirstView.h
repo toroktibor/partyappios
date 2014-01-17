@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileFirstView : UIViewController
+@interface ProfileFirstView : UIViewController<UIActionSheetDelegate>{
+    
+}
 
+
+- (IBAction)showActionSheet:(id)sender;
 @end

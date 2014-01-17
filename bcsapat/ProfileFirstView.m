@@ -7,6 +7,8 @@
 //
 
 #import "ProfileFirstView.h"
+#import "EditProfileView.h"
+#import "ChangePasswordView.h"
 
 @interface ProfileFirstView ()
 
@@ -33,6 +35,34 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)showActionSheet:(id)sender {
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
+                                              destructiveButtonTitle:nil otherButtonTitles:@"Szerkesztés", @"Jelszócsere", nil];
+    
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
+   // popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        
+        EditProfileView *EditProfileView=
+        [self.storyboard instantiateViewControllerWithIdentifier:@"EditProfileView"];
+        [self presentViewController:EditProfileView animated:YES completion:nil];
+        
+    } else if (buttonIndex == 1) {
+        ChangePasswordView *ChangePasswordView=
+        [self.storyboard instantiateViewControllerWithIdentifier:@"ChangePasswordView"];
+         [self presentViewController:ChangePasswordView animated:YES completion:nil];
+ 
+    }
+    
+    else if (buttonIndex == 2) {
+        NSLog(@"Mégse");
+    }
 }
 
 @end

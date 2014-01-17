@@ -139,8 +139,7 @@
         ProfileFirstView *ProfileFirstView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileFirstView"];
         
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ProfileFirstView];
-        [self presentViewController:navController animated:YES completion:nil];
+        [self presentViewController:ProfileFirstView animated:YES completion:nil];
     }
     else if (buttonIndex == 5) {
         

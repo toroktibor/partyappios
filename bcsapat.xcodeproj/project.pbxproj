@@ -30,6 +30,12 @@
 		7AC9ECC3188027A000DBEEDB /* AddNewClubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECC2188027A000DBEEDB /* AddNewClubView.m */; };
 		7AC9ECC618802C0100DBEEDB /* MenuMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECC518802C0100DBEEDB /* MenuMapView.m */; };
 		7ACBD0BA187F1BC50094D2B0 /* MenuSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBD0B9187F1BC50094D2B0 /* MenuSearchView.m */; };
+		7AD05424188959070058B94E /* EditProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD05423188959070058B94E /* EditProfileView.m */; };
+		7AD054271889596C0058B94E /* ChangePasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD054261889596C0058B94E /* ChangePasswordView.m */; };
+		7AD0542A18896F1B0058B94E /* PickerForSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD0542918896F1B0058B94E /* PickerForSearchView.m */; };
+		7AD0542C1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AD0542B1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg */; };
+		7AD05432188997570058B94E /* 1389999143_checked_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AD05431188997570058B94E /* 1389999143_checked_checkbox.png */; };
+		7AD05434188997680058B94E /* 1389999128_unchecked_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AD05433188997680058B94E /* 1389999128_unchecked_checkbox.png */; };
 		7AD6856C18841FCC00D52D4A /* MyDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6856B18841FCC00D52D4A /* MyDatabase.m */; };
 		7AD6856E1884203100D52D4A /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AD6856D1884203100D52D4A /* libsqlite3.0.dylib */; };
 		7AD6857218842C9500D52D4A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6857118842C9500D52D4A /* User.m */; };
@@ -85,6 +91,15 @@
 		7AC9ECC518802C0100DBEEDB /* MenuMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuMapView.m; sourceTree = "<group>"; };
 		7ACBD0B8187F1BC50094D2B0 /* MenuSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuSearchView.h; sourceTree = "<group>"; };
 		7ACBD0B9187F1BC50094D2B0 /* MenuSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuSearchView.m; sourceTree = "<group>"; };
+		7AD05422188959070058B94E /* EditProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileView.h; sourceTree = "<group>"; };
+		7AD05423188959070058B94E /* EditProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileView.m; sourceTree = "<group>"; };
+		7AD054251889596C0058B94E /* ChangePasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordView.h; sourceTree = "<group>"; };
+		7AD054261889596C0058B94E /* ChangePasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordView.m; sourceTree = "<group>"; };
+		7AD0542818896F1B0058B94E /* PickerForSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerForSearchView.h; sourceTree = "<group>"; };
+		7AD0542918896F1B0058B94E /* PickerForSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerForSearchView.m; sourceTree = "<group>"; };
+		7AD0542B1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"; sourceTree = "<group>"; };
+		7AD05431188997570058B94E /* 1389999143_checked_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1389999143_checked_checkbox.png; sourceTree = "<group>"; };
+		7AD05433188997680058B94E /* 1389999128_unchecked_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1389999128_unchecked_checkbox.png; sourceTree = "<group>"; };
 		7AD6856A18841FCC00D52D4A /* MyDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDatabase.h; sourceTree = "<group>"; };
 		7AD6856B18841FCC00D52D4A /* MyDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDatabase.m; sourceTree = "<group>"; };
 		7AD6856D1884203100D52D4A /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -176,6 +191,9 @@
 		7A43B8D4187C46F500725428 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7AD05431188997570058B94E /* 1389999143_checked_checkbox.png */,
+				7AD05433188997680058B94E /* 1389999128_unchecked_checkbox.png */,
+				7AD0542B1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg */,
 				7A43B8DC187C46F500725428 /* AppDelegate.h */,
 				7A43B8DD187C46F500725428 /* AppDelegate.m */,
 				7A43B8E5187C46F500725428 /* MainStoryboard_iPhone.storyboard */,
@@ -204,6 +222,8 @@
 				7AC9ECBF1880202000DBEEDB /* MenuClubListView.m */,
 				7AC9ECC418802C0100DBEEDB /* MenuMapView.h */,
 				7AC9ECC518802C0100DBEEDB /* MenuMapView.m */,
+				7AD0542818896F1B0058B94E /* PickerForSearchView.h */,
+				7AD0542918896F1B0058B94E /* PickerForSearchView.m */,
 			);
 			name = MainMenu;
 			sourceTree = "<group>";
@@ -234,6 +254,10 @@
 				7AC9ECC2188027A000DBEEDB /* AddNewClubView.m */,
 				7A1A412918804B0F0052D859 /* NewTypePickerView.h */,
 				7A1A412A18804B0F0052D859 /* NewTypePickerView.m */,
+				7AD05422188959070058B94E /* EditProfileView.h */,
+				7AD05423188959070058B94E /* EditProfileView.m */,
+				7AD054251889596C0058B94E /* ChangePasswordView.h */,
+				7AD054261889596C0058B94E /* ChangePasswordView.m */,
 			);
 			name = ReachFromActionSheet;
 			sourceTree = "<group>";
@@ -347,6 +371,9 @@
 				7A43B8E7187C46F500725428 /* MainStoryboard_iPhone.storyboard in Resources */,
 				7A43B8EA187C46F500725428 /* MainStoryboard_iPad.storyboard in Resources */,
 				7AD6858318845A5A00D52D4A /* partyapp.db in Resources */,
+				7AD0542C1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg in Resources */,
+				7AD05432188997570058B94E /* 1389999143_checked_checkbox.png in Resources */,
+				7AD05434188997680058B94E /* 1389999128_unchecked_checkbox.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +408,9 @@
 				7AFFF40618859CEC000B06FD /* SillyCommunication.m in Sources */,
 				7AD7E5391886ABA200656FCF /* MyAnnotation.m in Sources */,
 				7AD9411518885EF100EC78C9 /* InformationView.m in Sources */,
+				7AD05424188959070058B94E /* EditProfileView.m in Sources */,
+				7AD054271889596C0058B94E /* ChangePasswordView.m in Sources */,
+				7AD0542A18896F1B0058B94E /* PickerForSearchView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
