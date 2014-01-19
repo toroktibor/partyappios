@@ -8,6 +8,7 @@
 
 #import "LoginView.h"
 #import "Session.h"
+#import "Session.h"
 
 @interface LoginView ()
 
@@ -31,6 +32,17 @@
     
     userName.delegate=self;
     password.delegate=self;
+    
+    if (![[Session getInstance]isNetworAvaiable]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Nincs internet kapcsolat!"
+                                                        message:@"Offline módban tudsz csak bejelentkezni!"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+
+    }
+    
     
 	// Do any additional setup after loading the view.
 }
@@ -79,7 +91,14 @@
         return ;
     }
     
-    [Session ];
+    if ([[Session getInstance]isNetworAvaiable]) {
+      //login online
+        
+    }
+    else{
+        //login offline
+    }
+
     
     UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
     

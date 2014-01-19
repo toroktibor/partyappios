@@ -9,18 +9,23 @@
 #import "Session.h"
 #import "User.h"
 #import "MyDatabase.h"
+#include<unistd.h>
+#include<netdb.h>
 
 
 @implementation Session
 
+
 static Session * _instance = nil;
 
 +(Session *)getInstance{
-    if (_instance == nil) {
-        _instance = [[Session alloc] init];
-        return _instance;
+    @synchronized([Session class]){
+        if (_instance == nil) {
+            [[self alloc] init];
+            return _instance;
+        }
     }
-    return nil;
+    return _instance;
 }
 
 -(User *)getActualUser{
@@ -39,8 +44,39 @@ static Session * _instance = nil;
     [searchViewCLubs addObject:club];
 }
 
+-(void)testAddString:(NSString*)string{
+    [searchViewCLubs addObject:string];
+}
+
 -(Club*)getSelectedClubAtIndex:(int)index{
     return [searchViewCLubs objectAtIndex:index];
+}
+
+-(void)logArray{
+    for (int i=0; i<[searchViewCLubs count]; ++i) {
+        NSLog(@"%@",[searchViewCLubs objectAtIndex:i]);
+    }
+}
+
+
+-(BOOL)isNetworAvaiable{
+    char *hostname;
+    struct hostent *hostinfo;
+    hostname = "google.com";
+    hostinfo = gethostbyname (hostname);
+    if (hostinfo == NULL){
+        NSLog(@"-> no connection!\n");
+        isOnline=NO;
+    }
+    else{
+        NSLog(@"-> connection established!\n");
+        isOnline=YES;
+    }
+    return isOnline;
+}
+
+-(MyDatabase *)getDatabse{
+    return databaseConnection;
 }
 
 
@@ -55,7 +91,11 @@ static Session * _instance = nil;
 
 -(id)init {
     if (self = [super init]) {
-        databaseConnection = [[MyDatabase alloc] initWithPath: @"partyapp.db"];
+        NSArray* paths =NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString* documentsDirectory = [paths objectAtIndex:0];
+        NSString *path =[documentsDirectory stringByAppendingPathComponent:@"partyapp.db"];
+        
+        databaseConnection = [[MyDatabase alloc] initWithPath:path];
         actualCommunication = [[SillyCommunication alloc] init];
         searchViewCLubs = [[NSMutableArray alloc]init];
     }

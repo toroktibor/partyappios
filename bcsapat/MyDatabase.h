@@ -17,6 +17,8 @@
 
 -(id) initWithPath: (NSString *) path;
 
+-(NSArray *)selectAllFromUser;
+
 -(NSArray*) performQuery: (NSString*)query;
 
 -(NSArray *)insertIntoUserTableWithId:(NSInteger *) identifier andWithNickName:(NSString *) nickname andWithPassword:(NSString *) pw andWithType:(NSInteger *) type;

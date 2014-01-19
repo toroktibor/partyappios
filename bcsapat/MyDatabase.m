@@ -76,6 +76,15 @@
     
 }
 
+//teszt select
+-(NSArray *)selectAllFromUser{
+    NSString * query = [NSString stringWithFormat:@"SELECT * FROM user;"];
+    return [self performQuery:query];
+}
+
+
+
+
 
 //bejelentkezés:
 -(NSArray *)loginWithNickName:(NSString *) nickName andPassword:(NSString *) password{

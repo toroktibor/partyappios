@@ -17,10 +17,11 @@
     MyDatabase * databaseConnection;
     User * actualUser;
     NSMutableArray * searchViewCLubs;
-    BOOL * isOnline;
+    BOOL isOnline;
 }
 
-+(Session *) instance;
+
++(Session *) getInstance;
 
 -(User *)getActualUser;
 
@@ -29,6 +30,18 @@
 -(void)addClub:(Club*) club;
 
 -(Club*)getSelectedClubAtIndex:(int) index;
+
+-(BOOL)isNetworAvaiable;
+
+-(MyDatabase*)getDatabse;
+
+-(void)setDatabase;
+
+-(void)logArray;
+
+-(void)testAddString:(NSString*)string;
+
+-(void)checkArray;
 
 
 
