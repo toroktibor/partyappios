@@ -10,6 +10,7 @@
 #import "User.h"
 #import "SillyCommunication.h"
 #import "MyDatabase.h"
+#import "Club.h"
 
 @interface Session : NSObject{
     SillyCommunication * actualCommunication;
@@ -20,5 +21,15 @@
 }
 
 +(Session *) instance;
+
+-(User *)getActualUser;
+
+-(void)setActualUser:(User*) user;
+
+-(void)addClub:(Club*) club;
+
+-(Club*)getSelectedClubAtIndex:(int) index;
+
+
 
 @end

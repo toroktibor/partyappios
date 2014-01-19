@@ -7,23 +7,27 @@
 //
 
 #import "Session.h"
+#import "User.h"
+#import "MyDatabase.h"
+
 
 @implementation Session
 
 static Session * _instance = nil;
 
--(Session *)getInstance{
++(Session *)getInstance{
     if (_instance == nil) {
         _instance = [[Session alloc] init];
+        return _instance;
     }
-    return _instance;
+    return nil;
 }
 
 -(User *)getActualUser{
     return actualUser;
 }
 
--(void)setActualUser:(User *) user{
+-(void)setActualUser:(User *)user{
     actualUser = user;
 }
 
@@ -31,9 +35,14 @@ static Session * _instance = nil;
     return searchViewCLubs;
 }
 
--(void)setSearchViewCLubs:(NSMutableArray *) searchViewCLubs_{
-    searchViewCLubs = searchViewCLubs_;
+-(void)addClub:(Club *)club{
+    [searchViewCLubs addObject:club];
 }
+
+-(Club*)getSelectedClubAtIndex:(int)index{
+    return [searchViewCLubs objectAtIndex:index];
+}
+
 
 +(id)alloc {
     @synchronized([Session class]) {
@@ -46,10 +55,9 @@ static Session * _instance = nil;
 
 -(id)init {
     if (self = [super init]) {
-        //id appdelegate = [[UIApplication sharedApplication] delegate];
-        //m_managedObjectContext = [appdelegate managedObjectContext];
         databaseConnection = [[MyDatabase alloc] initWithPath: @"partyapp.db"];
         actualCommunication = [[SillyCommunication alloc] init];
+        searchViewCLubs = [[NSMutableArray alloc]init];
     }
     return self;
 }
