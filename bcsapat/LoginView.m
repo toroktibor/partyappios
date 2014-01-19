@@ -91,13 +91,8 @@
         return ;
     }
     
-    if ([[Session getInstance]isNetworAvaiable]) {
-      //login online
-        
-    }
-    else{
-        //login offline
-    }
+   
+    //[Session ];
 
     
     UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
