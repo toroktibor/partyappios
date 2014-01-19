@@ -36,6 +36,7 @@
 		7AD0542C1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AD0542B1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg */; };
 		7AD05432188997570058B94E /* 1389999143_checked_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AD05431188997570058B94E /* 1389999143_checked_checkbox.png */; };
 		7AD05434188997680058B94E /* 1389999128_unchecked_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AD05433188997680058B94E /* 1389999128_unchecked_checkbox.png */; };
+		7AD421EB188C510E0028A04B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AD421EA188C510E0028A04B /* MessageUI.framework */; };
 		7AD6856C18841FCC00D52D4A /* MyDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6856B18841FCC00D52D4A /* MyDatabase.m */; };
 		7AD6856E1884203100D52D4A /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AD6856D1884203100D52D4A /* libsqlite3.0.dylib */; };
 		7AD6857218842C9500D52D4A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6857118842C9500D52D4A /* User.m */; };
@@ -100,6 +101,7 @@
 		7AD0542B1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"; sourceTree = "<group>"; };
 		7AD05431188997570058B94E /* 1389999143_checked_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1389999143_checked_checkbox.png; sourceTree = "<group>"; };
 		7AD05433188997680058B94E /* 1389999128_unchecked_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1389999128_unchecked_checkbox.png; sourceTree = "<group>"; };
+		7AD421EA188C510E0028A04B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		7AD6856A18841FCC00D52D4A /* MyDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDatabase.h; sourceTree = "<group>"; };
 		7AD6856B18841FCC00D52D4A /* MyDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDatabase.m; sourceTree = "<group>"; };
 		7AD6856D1884203100D52D4A /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -133,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AD421EB188C510E0028A04B /* MessageUI.framework in Frameworks */,
 				7AE0D99918857CC40089CE3D /* CoreLocation.framework in Frameworks */,
 				7AD6856E1884203100D52D4A /* libsqlite3.0.dylib in Frameworks */,
 				7A43B8F4187C519600725428 /* MapKit.framework in Frameworks */,
@@ -165,6 +168,7 @@
 		7A43B8CC187C46F500725428 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7AD421EA188C510E0028A04B /* MessageUI.framework */,
 				7AE0D99818857CC40089CE3D /* CoreLocation.framework */,
 				7AD6856D1884203100D52D4A /* libsqlite3.0.dylib */,
 				7A43B8F3187C519600725428 /* MapKit.framework */,

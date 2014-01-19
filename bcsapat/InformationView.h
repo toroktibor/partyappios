@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface InformationView : UIViewController
+@interface InformationView : UIViewController <MFMailComposeViewControllerDelegate>
 
+- (IBAction)showEmail:(id)sender;
+- (IBAction)callButtonMethod:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *clubNameText;
 @end

@@ -79,7 +79,7 @@
         return ;
     }
     
-    [Session ];
+    //[Session ];
     
     UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
     
