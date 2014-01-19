@@ -7,6 +7,7 @@
 //
 
 #import "LoginView.h"
+#import "Session.h"
 
 @interface LoginView ()
 
@@ -47,6 +48,47 @@
 }
 
 - (IBAction)loginButtonPressed:(id)sender {
+    NSString * userNameString = [userName text];
+    NSString * passwordString = [password text];
+    if([userNameString isEqualToString:@""]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Nem adtál meg felhasználónevet!"
+                                                        message:@"Kérlek add meg a felhasználóneved a belépéshez."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return ;
+    }
+    if([passwordString isEqualToString:@""]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Nem adtál meg jelszót!"
+                                                        message:@"Kérlek add meg a jelszavad a belépéshez."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return ;
+    }
     
+    if(!([userNameString isEqualToString:@"a"] && [passwordString isEqualToString:@"a"])){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hibás belépési adatok!"
+                                                        message:@"A jelszavad vagy a felhasználóneved helytelen."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return ;
+    }
+    
+    [Session ];
+    
+    UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+    
+    tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController: tabBar animated: YES completion:nil];
 }
+
+-(void) synchronise {
+
+}
+
 @end
