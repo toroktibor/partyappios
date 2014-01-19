@@ -21,7 +21,7 @@
     NSMutableArray * usersClubs;
 }
 
-- (id)initWithId:(NSInteger *) identifier_ andNickName:(NSString *) nick_name_ andPassword:(NSString *) password_ andEmail:(NSString *) email_ andSex:(NSInteger *) sex_ andBirthday:(NSString *) birthday_ andType:(NSInteger *) type_;
+- (id)initWithId:(int) identifier_ andNickName:(NSString *) nick_name_ andPassword:(NSString *) password_ andEmail:(NSString *) email_ andSex:(int) sex_ andBirthday:(NSString *) birthday_ andType:(int) type_;
 
 -(NSMutableArray *) getFavoriteClubs;
 -(NSMutableArray *) getUsersClubs;

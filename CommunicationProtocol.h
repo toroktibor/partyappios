@@ -8,12 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import "User.h"
+#import "Club.h"
 
 @protocol CommunicationProtocol <NSObject>
+@required
 +(User *) authenticationUserWithNickName:(NSString *) nick_name andPassword:(NSString*) password;
 @required
 +(NSMutableArray *) getFavoriteClubsFromUserId:(NSInteger *) user_id;
+@required
 +(NSMutableArray *) getClubsFromCityName:(NSString *) cityname;
 //Elküld egy új hely kérelmet a szervernek, ha a owner_user_id -1 akkor nincs neki tulaj jelöltje
+@required
 +(void) sendANewClubRequestWithClubname:(NSString *) newClubName andAddress: (NSString *) newClubAddress andType:(NSString *) newClubType andOwnerUserId:(NSInteger *) owner_user_id;
+@required
++(NSMutableArray *) getOwnedClubsFromUserId:(NSInteger *) user_id;
+@required
++(Club *) getEverythingFromClubId:(NSInteger *) club_id;
+@required
++(NSMutableArray *) searchClubsWithName:(NSString *) name andCityname:(NSString *) cityname andType:(NSString *) type andOffset:(NSInteger *) offset andLimit:(NSInteger *) limit;
+@required
++(void) modifyPasswordWithId:(NSInteger *) id andPassword:(NSString *) password;
+@required
++(void) modifyUserDataWithId:(NSInteger *) id andEmail:(NSString *) email andBirthday:(NSString *) birthday andSex:(NSInteger *) sex;
 @end

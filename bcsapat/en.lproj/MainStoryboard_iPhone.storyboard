@@ -1606,6 +1606,9 @@ EEVzZW3DqW55ZWs
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="callButtonMethod:" destination="r5Z-0c-lJo" eventType="touchUpInside" id="WPB-Du-tby"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18T-fY-TqS">
                                         <constraints>
@@ -1635,6 +1638,9 @@ EEVzZW3DqW55ZWs
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="showEmail:" destination="r5Z-0c-lJo" eventType="touchUpInside" id="xj7-Uy-2U1"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Szórkozóhely neve" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1Q-Jb-5YR">
                                         <constraints>
@@ -2775,6 +2781,103 @@ EEVzZW3DqW55ZWs
             <point key="canvasLocation" x="-1636" y="-1884"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AddNewClubView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewClubView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="clubType" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ChangePasswordView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChangePasswordView.h"/>
+        </class>
+        <class className="EditProfileView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditProfileView.h"/>
+        </class>
+        <class className="FavouritesView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavouritesView.h"/>
+        </class>
+        <class className="InformationView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InformationView.h"/>
+            <relationships>
+                <relationship kind="action" name="callButtonMethod:"/>
+                <relationship kind="action" name="showEmail:"/>
+                <relationship kind="outlet" name="clubNameText" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="LoginView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginView.h"/>
+            <relationships>
+                <relationship kind="action" name="loginButtonPressed:"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MenuClubListView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuClubListView.h"/>
+            <relationships>
+                <relationship kind="action" name="showActionSheet:"/>
+            </relationships>
+        </class>
+        <class className="MenuMapView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuMapView.h"/>
+            <relationships>
+                <relationship kind="action" name="showActionSheet:"/>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="MenuSearchView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuSearchView.h"/>
+            <relationships>
+                <relationship kind="action" name="isChecked:"/>
+                <relationship kind="action" name="showActionSheet:"/>
+                <relationship kind="outlet" name="checkButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="clubType" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MyPlacesView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyPlacesView.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NewTypePickerView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewTypePickerView.h"/>
+            <relationships>
+                <relationship kind="action" name="ok:"/>
+                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="NotificationsView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotificationsView.h"/>
+        </class>
+        <class className="PickerForSearchView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PickerForSearchView.h"/>
+            <relationships>
+                <relationship kind="action" name="ok:"/>
+                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="ProfileFirstView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileFirstView.h"/>
+            <relationships>
+                <relationship kind="action" name="showActionSheet:"/>
+            </relationships>
+        </class>
+        <class className="RegisterView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterView.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="register:"/>
+                <relationship kind="outlet" name="birthdate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="name" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordAgain" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="segmentControl" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -2782,6 +2885,6 @@ EEVzZW3DqW55ZWs
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="so7-BJ-91f"/>
-        <segue reference="bSp-Uc-3tP"/>
+        <segue reference="5kF-Hc-y1q"/>
     </inferredMetricsTieBreakers>
 </document>

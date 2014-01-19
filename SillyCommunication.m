@@ -13,7 +13,7 @@
 +(User *)authenticationUserWithNickName:(NSString *)nick_name andPassword:(NSString *)password {
     
     if( [nick_name isEqualToString: @"a" ] && [password isEqualToString: @"a"]) {
-        return [[User alloc] initWithId: 1 andNickName:@"a" andPassword:@"a" andEmail:@"a@a.com" andSex:1 andBirthday: @"1991.01.01." andType: 1 ];
+        return [[User alloc] initWithId: 0 andNickName:@"a" andPassword:@"a" andEmail:@"a@a.com" andSex:1 andBirthday: @"1991.01.01." andType:0 ];
     }
     else
         return nil;
@@ -24,13 +24,31 @@
 }
 
 +(NSMutableArray *)getClubsFromCityName:(NSString *)cityname {
-    
+    return nil;
 }
 
 +(NSMutableArray *)getFavoriteClubsFromUserId:(NSInteger *)user_id {
+    return nil;
+}
+
++(NSMutableArray *)getOwnedClubsFromUserId:(NSInteger *)user_id{
+    return nil;
+}
+
++(void)modifyPasswordWithId:(NSInteger *)id andPassword:(NSString *)password{
     
 }
 
++(void)modifyUserDataWithId:(NSInteger *)id andEmail:(NSString *)email andBirthday:(NSString *)birthday andSex:(NSInteger *)sex{
+    
+}
 
++(NSMutableArray *)searchClubsWithName:(NSString *)name andCityname:(NSString *)cityname andType:(NSString *)type andOffset:(NSInteger *)offset andLimit:(NSInteger *)limit{
+    return nil;
+}
+
++(Club *)getEverythingFromClubId:(NSInteger *)club_id{
+    return nil;
+}
 
 @end
