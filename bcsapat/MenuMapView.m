@@ -14,6 +14,7 @@
 #import "LoginView.h"
 #import "AddNewClubView.h"
 #import "MyAnnotation.h"
+#import "Session.h"
 
 @interface MenuMapView ()
 
@@ -95,11 +96,19 @@
     if (buttonIndex == 0) {
         
         //ugrás a kedvencek nézetbe
-        FavouritesView *FavouritesView=
+        /*FavouritesView *FavouritesView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"FavouritesView"];
         
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:FavouritesView];
-        [self presentViewController:navController animated:YES completion:nil];
+        [self presentViewController:navController animated:YES completion:nil];*/
+        
+        [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
+        [[Session getInstance]testAddString:@"Ibolya"];
+        
+        UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+        
+        tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController: tabBar animated: YES completion:nil];
         
         
         
@@ -144,6 +153,7 @@
     else if (buttonIndex == 5) {
         
         //kijelentkezés
+        [Session deleteSession];
         LoginView *LoginView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
         [self presentViewController:LoginView animated:YES completion:nil];

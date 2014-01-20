@@ -21,6 +21,7 @@
     int SelectedIndex;
 }
 
++(void)deleteSession;
 
 +(Session *) getInstance;
 

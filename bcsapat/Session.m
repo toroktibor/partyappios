@@ -28,6 +28,10 @@ static Session * _instance = nil;
     return _instance;
 }
 
++(void)deleteSession{
+    _instance=nil;
+}
+
 
 -(void)setSelectedIndex:(int)index{
     SelectedIndex=index;
