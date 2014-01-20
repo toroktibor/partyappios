@@ -11,4 +11,6 @@
 
 @interface SillyCommunication : NSObject <CommunicationProtocol>
 
+-(User *)authenticationUserWithNickName:(NSString *)nick_name andPassword:(NSString *)password;
+
 @end

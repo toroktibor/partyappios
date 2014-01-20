@@ -8,6 +8,7 @@
 
 #import "RegisterView.h"
 #import "MyDatabase.h"
+#import "Session.h"
 
 @interface RegisterView ()
 
@@ -81,19 +82,12 @@
         [alertview show];
     }
    else{
-        NSArray* paths =NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString* documentsDirectory = [paths objectAtIndex:0];
-        NSString *path =[documentsDirectory stringByAppendingPathComponent:@"partyapp.db"];
+      
         
-        MyDatabase * db=[[MyDatabase alloc]initWithPath:path];
-        NSArray *array=[db insertIntoUserTableWithId:30 andWithNickName:[name text] andWithPassword:[password text] andWithType:1];
-        array = [db performQuery:@"select * from user;"];
-        for (int i=0; i< [array count]; i++){
-            NSLog(@"%@",[array objectAtIndex:i]);
-        }
         
     }
 }
+
 
 
 

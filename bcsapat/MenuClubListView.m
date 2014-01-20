@@ -14,13 +14,14 @@
 #import "LoginView.h"
 #import "AddNewClubView.h"
 #import "InformationView.h"
+#import "Session.h"
 
 @interface MenuClubListView ()
 
 @end
 
 @implementation MenuClubListView
-@synthesize szh;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -36,7 +37,12 @@
     [super viewDidLoad];
     
     
-    szh = [[NSArray alloc] initWithObjects:@"Ibolya", @"Bárka", @"Roncs",nil];
+    /*[[[Session getInstance]getSearchViewCLubs]removeAllObjects];
+    [[Session getInstance]testAddString:@"Ibolya"];
+    [[Session getInstance]testAddString:@"Bárka"];
+    [[Session getInstance]testAddString:@"Roncs"];*/
+    
+    
     
     //locationmanager a saját helyem meghatározásához
     locationManager = [[CLLocationManager alloc] init];
@@ -94,7 +100,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [szh count];
+    return [[[Session getInstance]getSearchViewCLubs]count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -103,10 +109,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"ClubListViewCell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text=[szh objectAtIndex:indexPath.row];
+    cell.textLabel.text=[[[Session getInstance]getSearchViewCLubs]objectAtIndex:indexPath.row];
     cell.detailTextLabel.text=@"cim";
     cell.imageView.image=[UIImage imageNamed:@"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"];
     
@@ -164,12 +170,12 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
     
-
-    NSString *selected=[szh objectAtIndex:indexPath.row];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:selected forKey:@"selected"];
-    [defaults synchronize];
+   /* NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:selectedIndex forKey: @"selectedIndex"];
+    [defaults synchronize];*/
+    
+    [[Session getInstance]setSelectedIndex:indexPath.row];
     
     
     UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"ClubTabBar"];
@@ -251,11 +257,27 @@
 
 //a navigation bar jobb felső sarkában lévő gomb megnyomására az action sheet megjelenítése
 - (IBAction)showActionSheet:(id)sender {
-    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
-                                              destructiveButtonTitle:nil otherButtonTitles:@"Kedvencek", @"Hozzáadás",@"Helyeim",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];
     
-    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-    [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
-    popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
+    //kamu if az adminra és a user-re
+    //a gombok kiosztását is le kell majd if-elni!!!!
+    int szam=1;
+    if (szam==1) {
+        UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
+                                                  destructiveButtonTitle:nil otherButtonTitles:@"Kedvencek", @"Hozzáadás",@"Helyeim",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];
+        
+        popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
+        popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
+    }
+    else{
+        UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
+                                                  destructiveButtonTitle:nil otherButtonTitles:@"Kedvencek", @"Hozzáadás",@"Helyeim",@"Profilom",@"Kijelentkezés", nil];
+        
+        popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
+        popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
+        
+    }
+   
 }
 @end

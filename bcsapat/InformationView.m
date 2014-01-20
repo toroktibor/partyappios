@@ -7,6 +7,7 @@
 //
 
 #import "InformationView.h"
+#import "Session.h"
 
 @interface InformationView ()
 @end
@@ -27,8 +28,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [clubNameText setText:[defaults objectForKey:@"selected"]];
+    [clubNameText setText:[[[Session getInstance]getSearchViewCLubs]objectAtIndex:[[Session getInstance]getSelectedIndex]]];
 }
 
 - (void)didReceiveMemoryWarning

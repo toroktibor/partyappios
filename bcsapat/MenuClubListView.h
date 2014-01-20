@@ -13,7 +13,6 @@
     CLLocationManager *locationManager;
 }
 
-@property NSArray *szh;
 @property NSString *clubName;
 - (IBAction)showActionSheet:(id)sender;
 

@@ -18,6 +18,7 @@
     User * actualUser;
     NSMutableArray * searchViewCLubs;
     BOOL isOnline;
+    int SelectedIndex;
 }
 
 
@@ -42,6 +43,16 @@
 -(void)testAddString:(NSString*)string;
 
 -(void)checkArray;
+
+-(SillyCommunication*)getCommunication;
+
+-(NSMutableArray *) getSearchViewCLubs;
+
+-(void)setSelectedIndex:(int) index;
+
+-(int)getSelectedIndex;
+
+
 
 
 

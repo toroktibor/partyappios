@@ -7,6 +7,7 @@
 //
 
 #import "FavouritesView.h"
+#import "Session.h"
 
 @interface FavouritesView ()
 
@@ -26,6 +27,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
+    [[Session getInstance]testAddString:@"Ibolya"];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -44,24 +49,30 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [[[Session getInstance]getSearchViewCLubs]count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"FavourireClubsCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    
+    cell.textLabel.text=[[[Session getInstance]getSearchViewCLubs]objectAtIndex:indexPath.row];
+    cell.detailTextLabel.text=@"cim";
+    cell.imageView.image=[UIImage imageNamed:@"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"];
     
     return cell;
 }
@@ -116,6 +127,17 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    [[Session getInstance]setSelectedIndex:indexPath.row];
+    
+    
+    UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"ClubTabBar"];
+    
+    
+    tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController: tabBar animated: YES completion:nil];
+
+    
 }
 
 @end

@@ -28,6 +28,15 @@ static Session * _instance = nil;
     return _instance;
 }
 
+
+-(void)setSelectedIndex:(int)index{
+    SelectedIndex=index;
+}
+
+-(int)getSelectedIndex{
+    return SelectedIndex;
+}
+
 -(User *)getActualUser{
     return actualUser;
 }
@@ -77,6 +86,10 @@ static Session * _instance = nil;
 
 -(MyDatabase *)getDatabse{
     return databaseConnection;
+}
+
+-(SillyCommunication *)getCommunication{
+    return actualCommunication;
 }
 
 

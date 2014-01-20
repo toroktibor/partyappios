@@ -23,4 +23,6 @@
 
 -(NSArray *)insertIntoUserTableWithId:(NSInteger *) identifier andWithNickName:(NSString *) nickname andWithPassword:(NSString *) pw andWithType:(NSInteger *) type;
 
+-(NSArray *)loginWithNickName:(NSString *) nickName andPassword:(NSString *) password;
+
 @end
