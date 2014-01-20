@@ -36,46 +36,12 @@
 {
     [super viewDidLoad];
     
-    
-    /*[[[Session getInstance]getSearchViewCLubs]removeAllObjects];
-    [[Session getInstance]testAddString:@"Ibolya"];
-    [[Session getInstance]testAddString:@"Bárka"];
-    [[Session getInstance]testAddString:@"Roncs"];*/
-    
-    
-    
-    //locationmanager a saját helyem meghatározásához
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [locationManager startUpdatingLocation];
     
-    
-    //location managerből kiszedjük a kordinátákat
-    NSString *lat=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.latitude];
-    NSString *lon=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.longitude];
-    
-    
-    //a meghívandó url string-be behegesztjük a kordinátákat
-    NSString *urlstring=[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?latlng=%@,%@&sensor=false",lat,lon];
-    
-    //az url stringből létrehozunk egy urlt
-    NSURL *url = [NSURL URLWithString:urlstring];
-    
-    //NSLog(@"%@",urlstring);
-    
-    //az url-ből visszakapunk egy egy json-t
-    NSData *jsonData = [NSData dataWithContentsOfURL:url];
-    NSError *error;
-    
-    //json-t átadjuk egy szótárnak
-   NSDictionary *decoded= [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
-    
-   NSLog(@"%@",[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
-   
-
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -112,8 +78,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text=[[[Session getInstance]getSearchViewCLubs]objectAtIndex:indexPath.row];
-    cell.detailTextLabel.text=@"cim";
+    cell.textLabel.text=[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:indexPath.row]getClubName];
+    cell.detailTextLabel.text=[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:indexPath.row]getAddress];
     cell.imageView.image=[UIImage imageNamed:@"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"];
     
     return cell;
@@ -202,16 +168,53 @@
 
 //action sheet gombjai váltanak a nézetek között
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
     if (buttonIndex == 0) {
-        
-        /*FavouritesView *FavouritesView=
-        [self.storyboard instantiateViewControllerWithIdentifier:@"FavouritesView"];
-        
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:FavouritesView];
-        [self presentViewController:navController animated:YES completion:nil];*/
+
+        //lista frissitése közeli helyekre
         
         [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
-        [[Session getInstance]testAddString:@"Ibolya"];
+        NSString *lat=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.latitude];
+        NSString *lon=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.longitude];
+        
+        
+        //a meghívandó url string-be behegesztjük a kordinátákat
+        NSString *urlstring=[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?latlng=%@,%@&sensor=false",lat,lon];
+        
+        //az url stringből létrehozunk egy urlt
+        NSURL *url = [NSURL URLWithString:urlstring];
+        
+        //NSLog(@"%@",urlstring);
+        
+        //az url-ből visszakapunk egy egy json-t
+        NSData *jsonData = [NSData dataWithContentsOfURL:url];
+        NSError *error;
+        
+        //json-t átadjuk egy szótárnak
+        NSDictionary *decoded= [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+        
+        NSLog(@"%@",[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
+        
+        NSString* cityName=[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"];
+        
+        NSMutableArray * inputClubList = [[[Session getInstance] getCommunication] getClubsFromCityName:cityName];
+        [[Session getInstance] setSearchViewCLubs:inputClubList];
+        
+        UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+        
+        tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController: tabBar animated: YES completion:nil];
+        
+    }
+
+    if (buttonIndex == 1) {
+        
+
+        //lista frissítése kedvencek nézetre
+        [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
+        NSInteger * user_id = [[[Session getInstance] getActualUser] getID];
+        NSMutableArray * favoriteClubList = [[[Session getInstance] getCommunication] getFavoriteClubsFromUserId:user_id];
+        [[Session getInstance] setSearchViewCLubs:favoriteClubList];
         
         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
         
@@ -220,25 +223,26 @@
         
         
         
-    } else if (buttonIndex == 1) {
+    } else if (buttonIndex == 2) {
         AddNewClubView *AddNewClubView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"AddNewClubView"];
         
         [self presentViewController:AddNewClubView animated:YES completion:nil];
         
-    } else if (buttonIndex == 2) {
-        
-        
-        MyPlacesView *MyPlacesView=
-        [self.storyboard instantiateViewControllerWithIdentifier:@"MyPlacesView"];
-        
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:MyPlacesView];
-        [self presentViewController:navController animated:YES completion:nil];
-        
-        
-        
-        
     } else if (buttonIndex == 3) {
+        
+        //lista frissítése saját helyekre
+         [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
+        
+        UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+        
+        tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController: tabBar animated: YES completion:nil];
+        
+        
+        
+        
+    } else if (buttonIndex == 4) {
         
         NotificationsView *NotificationsView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"NotificationsView"];
@@ -247,19 +251,19 @@
         [self presentViewController:navController animated:YES completion:nil];
         
     }
-    else if (buttonIndex == 4) {
+    else if (buttonIndex == 5) {
         
         ProfileFirstView *ProfileFirstView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileFirstView"];
         [self presentViewController:ProfileFirstView animated:YES completion:nil];
     }
-    else if (buttonIndex == 5) {
+    else if (buttonIndex == 6) {
         [Session deleteSession];
         LoginView *LoginView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
         [self presentViewController:LoginView animated:YES completion:nil];
     }
-    else if (buttonIndex == 6) {
+    else if (buttonIndex == 7) {
         // NSLog(@"Mégse");
     }
 }
@@ -272,7 +276,7 @@
     int szam=1;
     if (szam==1) {
         UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
-                                                  destructiveButtonTitle:nil otherButtonTitles:@"Kedvencek", @"Hozzáadás",@"Helyeim",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];
+                                                  destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Hozzáadás",@"Helyeim",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];
         
         popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
         [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
@@ -280,7 +284,7 @@
     }
     else{
         UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
-                                                  destructiveButtonTitle:nil otherButtonTitles:@"Kedvencek", @"Hozzáadás",@"Helyeim",@"Profilom",@"Kijelentkezés", nil];
+                                                  destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Hozzáadás",@"Helyeim",@"Profilom",@"Kijelentkezés", nil];
         
         popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
         [popupQuery showInView:[UIApplication sharedApplication].keyWindow];

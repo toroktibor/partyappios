@@ -10,7 +10,7 @@
 
 @implementation Club
 
-- (id)initWithId:(NSInteger *) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_ andDate:(NSString *) date_
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_ andDate:(NSString *) date_
 {
     self = [super init];
     if(self)
@@ -57,7 +57,13 @@
 -(NSMutableArray *) getServices{
     return services;
 }
+-(NSString *)getAddress{
+    return address;
+}
 
+-(NSString *)getClubName{
+    return name;
+}
 
 
 -(void)setOwnerIds{

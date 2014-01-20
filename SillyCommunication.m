@@ -9,6 +9,7 @@
 #import "SillyCommunication.h"
 #import "User.h"
 #import "MenuItem.h"
+#import "Club.h"
 
 @implementation SillyCommunication{
     NSMutableArray * users;
@@ -24,14 +25,14 @@
     [users addObject:buser];
     User * cuser = [[User alloc] initWithId:0 andNickName:@"c" andPassword:@"c" andEmail:@"c@c.com" andSex:0 andBirthday:@"1992.01.01" andType:1];
     [users addObject:cuser];
-    return self;
-    
+
     clubs = [[NSMutableArray alloc]init];
-    Club * aclub = [[Club alloc] initWithId:0 andName:@"F@sz Kivan" andType:@"Kocsma" andDescription:@"Kicsit ideges vagyok mostmár!!!" andAddress:@"Debrecen, Kishegyesi utca 49" andPhonenumber:@"06306665556" andEmail:@"isten@f.a" andDate:@"2000.01.01"];
-    Club * bclub = [[Club alloc] initWithId:1 andName:@"Bebasz-Lak" andType:@"Elithely" andDescription:@"Kicsit sem igényes hely." andAddress:@"Debrecen, Kishegyesi utca 50" andPhonenumber:@"06306665559" andEmail:@"isten@f.sza" andDate:@"2000.01.01"];
-    Club * cclub = [[Club alloc] initWithId:2 andName:@"Kivan" andType:@"Lokál" andDescription:@"Csúnya lesz!" andAddress:@"Budapest, Kishegyesi utca 56" andPhonenumber:@"06306365556" andEmail:@"isten@jozsi.a" andDate:@"2000.01.01"];
+    Club * aclub = [[Club alloc] initWithId:0 andName:@"F@sz Kivan" andType:@"Kocsma" andDescription:@"Kicsit ideges vagyok mostmár!!!" andAddress:@"Debrecen, Kishegyesi utca 1" andPhonenumber:@"06306665556" andEmail:@"isten@f.a" andDate:@"2000.01.01"];
+    Club * bclub = [[Club alloc] initWithId:1 andName:@"kocsma" andType:@"Elithely" andDescription:@"Kicsit sem igényes hely." andAddress:@"Debrecen, Miklós utca 10" andPhonenumber:@"06306665559" andEmail:@"isten@f.sza" andDate:@"2000.01.01"];
+    Club * cclub = [[Club alloc] initWithId:2 andName:@"étterem" andType:@"Elithely" andDescription:@"Kicsit sem igényes hely." andAddress:@"Debrecen, Piac utca 2" andPhonenumber:@"06306665559" andEmail:@"isten@f.sza" andDate:@"2000.01.01"];
+    Club * dclub = [[Club alloc] initWithId:3 andName:@"club" andType:@"Elithely" andDescription:@"Kicsit sem igényes hely." andAddress:@"Budapest, Petőfi utca 1" andPhonenumber:@"06306665559" andEmail:@"isten@f.sza" andDate:@"2000.01.01"];
     
-    NSMutableArray * itemArray = [[NSMutableArray alloc] init];
+   /* NSMutableArray * itemArray = [[NSMutableArray alloc] init];
     MenuItem * amenuItem = [[MenuItem alloc] initWithId:0 andName:@"Szar" andPrice:100 andCurrency:@"HUF" andUnit:@"liter" andDiscount:0 andMenuCategory:@"Desszert" andMenuSort:0];
     MenuItem * bmenuItem = [[MenuItem alloc] initWithId:1 andName:@"Szar1" andPrice:1000 andCurrency:@"HUF" andUnit:@"liter" andDiscount:0 andMenuCategory:@"Desszert" andMenuSort:0];
     MenuItem * cmenuItem = [[MenuItem alloc] initWithId:2 andName:@"Szar2" andPrice:500 andCurrency:@"HUF" andUnit:@"liter" andDiscount:0 andMenuCategory:@"Desszert" andMenuSort:0];
@@ -39,17 +40,16 @@
     [itemArray addObject:bmenuItem];
     [itemArray addObject:cmenuItem];
     
-    [aclub setMenuItems:itemArray];
+    [aclub setMenuItems:itemArray];*/
     
     [clubs addObject:aclub];
     [clubs addObject:bclub];
     [clubs addObject:cclub];
-    
-    
+    [clubs addObject:dclub];
+    return self;
 }
 
 -(User *)authenticationUserWithNickName:(NSString *)nick_name andPassword:(NSString *)password {
-    
     
     for (int i = 0; i<[users count]; i++) {
         NSInteger index = i;
@@ -67,10 +67,11 @@
 
 -(NSMutableArray *)getClubsFromCityName:(NSString *)cityname {
     NSMutableArray * out = [[NSMutableArray alloc]init];
+
     for (int i = 0; i<[clubs count]; i++) {
         NSInteger index = i;
-        User * actualClub = [clubs objectAtIndex:index];
-        if( [actualClub.getName hasPrefix:cityname]) {
+        Club * actualClub = [clubs objectAtIndex:index];
+        if( [actualClub.getAddress hasPrefix:cityname]) {
             [out addObject:actualClub];
         }
     }

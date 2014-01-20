@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xnX-3U-ipj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xnX-3U-ipj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -550,7 +550,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9AX-n4-TaS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-228" y="2928"/>
+            <point key="canvasLocation" x="-238" y="2950"/>
         </scene>
         <!--Edit Profile View - Szekesztés-->
         <scene sceneID="YSx-iH-Jlc">
@@ -719,7 +719,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vl7-4X-1bp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="981" y="2964"/>
+            <point key="canvasLocation" x="867" y="2960"/>
         </scene>
         <!--Change Password View - Jelszó csere-->
         <scene sceneID="reG-6y-Xx5">
@@ -840,124 +840,6 @@
             </objects>
             <point key="canvasLocation" x="1333" y="2145"/>
         </scene>
-        <!--My Places View - Helyeim-->
-        <scene sceneID="gTg-hX-eoJ">
-            <objects>
-                <tableViewController storyboardIdentifier="MyPlacesView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UnH-UG-Pva" customClass="MyPlacesView" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WpR-ng-G2y">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="PubListCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="PubListCell" textLabel="9ny-bf-fyT" detailTextLabel="JQj-pP-hHa" rowHeight="44" style="IBUITableViewCellStyleSubtitle" id="bBs-TX-fxO">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ny-bf-fyT">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQj-pP-hHa">
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Helyeim" id="BCg-gG-3qU">
-                        <barButtonItem key="leftBarButtonItem" title="Vissza" id="gd2-ZV-eki">
-                            <connections>
-                                <segue destination="8qD-Zm-LE4" kind="modal" id="QD4-i2-46M"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6xw-c5-C5q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="311" y="639"/>
-        </scene>
-        <!--Favourites View - Kevencek-->
-        <scene sceneID="Yrh-c2-OPg">
-            <objects>
-                <tableViewController storyboardIdentifier="FavouritesView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Ug-UE-5oU" customClass="FavouritesView" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Fme-hF-BDa">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="FavourireClubsCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavourireClubsCell" textLabel="L9V-KH-acj" detailTextLabel="j69-v1-if9" style="IBUITableViewCellStyleSubtitle" id="ca2-Mj-NlP">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9V-KH-acj">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j69-v1-if9">
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Kevencek" id="rmC-Ma-CFH">
-                        <barButtonItem key="leftBarButtonItem" title="Vissza" id="9C4-sA-6st">
-                            <connections>
-                                <segue destination="8qD-Zm-LE4" kind="modal" id="sme-Du-VBT"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sGv-QP-OCO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="355" y="1404"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="2fr-CA-38l">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="74T-UR-xZT" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7RK-Ee-3AG">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="4Ug-UE-5oU" kind="relationship" relationship="rootViewController" id="3As-BI-VkF"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2pz-1W-zpB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-257" y="1396"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="AZF-kp-r6U">
-            <objects>
-                <navigationController definesPresentationContext="YES" id="Afg-ae-3gF" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fhb-LN-KkK">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="UnH-UG-Pva" kind="relationship" relationship="rootViewController" id="EvA-AE-wtk"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dm7-Tz-Y0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-245" y="628"/>
-        </scene>
         <!--View Controller - Képek-->
         <scene sceneID="Ymf-La-go1">
             <objects>
@@ -992,7 +874,7 @@
             </objects>
             <point key="canvasLocation" x="2081" y="932"/>
         </scene>
-        <!--Menu Club List View - Sz.h.-->
+        <!--Menu Club List View - Szórakozóhelyek-->
         <scene sceneID="ODB-XY-Baa">
             <objects>
                 <tableViewController storyboardIdentifier="MenuClubListView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="F1b-UP-wfZ" customClass="MenuClubListView" sceneMemberID="viewController">
@@ -1024,7 +906,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Sz.h." id="NCc-gL-gte">
+                    <navigationItem key="navigationItem" title="Szórakozóhelyek" id="NCc-gL-gte">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="dfj-UR-bPn">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Sd9-9A-24J">
                                 <rect key="frame" x="244" y="6" width="71" height="33"/>
@@ -2800,6 +2682,6 @@ EEVzZW3DqW55ZWs
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="so7-BJ-91f"/>
-        <segue reference="sme-Du-VBT"/>
+        <segue reference="Tbw-2j-YfP"/>
     </inferredMetricsTieBreakers>
 </document>

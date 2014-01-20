@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface LoginView : UIViewController<UITextFieldDelegate>
+@interface LoginView : UIViewController<CLLocationManagerDelegate,UITextFieldDelegate>{
+    CLLocationManager *locationManager;
+}
+
 
 - (IBAction)loginButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *userName;

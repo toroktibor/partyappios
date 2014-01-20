@@ -34,8 +34,12 @@
     return usersClubs;
 }
 
--(void)setFavoriteClubs{
-    
+-(void)setFavoriteClubs:(NSMutableArray *) inputFavoriteClubList{
+    favoriteClubs = inputFavoriteClubList;
+}
+
+-(void)setUsersClubs:(NSMutableArray *)inputUsersClubList{
+    usersClubs = inputUsersClubList;
 }
 
 -(void)setUsersClubs{
@@ -50,5 +54,8 @@
     return password;
 }
 
+-(NSInteger *)getID{
+    return identifier;
+}
 @end
 

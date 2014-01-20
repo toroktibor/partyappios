@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Club : NSObject{
-    NSInteger * identifier;
+    int identifier;
     NSString * name;
     NSString * type;
     NSString * description;
@@ -32,13 +32,15 @@
 -(NSMutableArray *) getRatings;
 -(NSMutableArray *) getEvents;
 -(NSMutableArray *) getServices;
+-(NSString *) getAddress;
+-(NSString *) getClubName;
 
 -(void)setOwnerIds;
 -(void)setMenuItems:(NSMutableArray*) inMenuItems;
 -(void)setRatings;
 -(void)setEvents;
 -(void)setServices;
-- (id)initWithId:(NSInteger *) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_ andDate:(NSString *) date_;
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_ andDate:(NSString *) date_;
 
 
 @end

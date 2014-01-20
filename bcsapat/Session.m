@@ -78,11 +78,11 @@ static Session * _instance = nil;
     hostname = "google.com";
     hostinfo = gethostbyname (hostname);
     if (hostinfo == NULL){
-        NSLog(@"-> no connection!\n");
+       // NSLog(@"-> no connection!\n");
         isOnline=NO;
     }
     else{
-        NSLog(@"-> connection established!\n");
+       // NSLog(@"-> connection established!\n");
         isOnline=YES;
     }
     return isOnline;
@@ -119,5 +119,8 @@ static Session * _instance = nil;
     return self;
 }
 
+-(void)setSearchViewCLubs:(NSMutableArray *)inputClubsList{
+    [searchViewCLubs addObjectsFromArray:inputClubsList];
+}
 
 @end

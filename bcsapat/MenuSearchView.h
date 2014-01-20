@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface MenuSearchView : UIViewController<UIActionSheetDelegate>{
-
+@interface MenuSearchView : UIViewController<UIActionSheetDelegate,CLLocationManagerDelegate>{
+            CLLocationManager *locationManager;
 }
 - (IBAction)isChecked:(id)sender;
 

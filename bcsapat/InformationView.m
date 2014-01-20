@@ -28,7 +28,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [clubNameText setText:[[[Session getInstance]getSearchViewCLubs]objectAtIndex:[[Session getInstance]getSelectedIndex]]];
+    
+    int selectedIndex=[[Session getInstance]getSelectedIndex];
+    [clubNameText setText:[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:selectedIndex]getClubName]];
 }
 
 - (void)didReceiveMemoryWarning

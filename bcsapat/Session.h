@@ -48,6 +48,7 @@
 -(SillyCommunication*)getCommunication;
 
 -(NSMutableArray *) getSearchViewCLubs;
+-(void) setSearchViewCLubs:(NSMutableArray *) inputClubsList;
 
 -(void)setSelectedIndex:(int) index;
 

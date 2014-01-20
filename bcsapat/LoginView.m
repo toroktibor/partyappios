@@ -31,6 +31,15 @@
 {
     [super viewDidLoad];
     
+    
+    //locationmanager a saját helyem meghatározásához
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
+    
+    
     NSArray* array=[[[Session getInstance]getDatabse]selectAllFromUser];
     for (int i=0; i<[array count]; ++i) {
         NSLog(@"%@",[array objectAtIndex:i]);
@@ -106,11 +115,7 @@
             [[Session getInstance]setActualUser:user];
             [self synchronise];
             
-            [[Session getInstance]testAddString:@"Ibolya"];
-            [[Session getInstance]testAddString:@"Bárka"];
-            [[Session getInstance]testAddString:@"Roncs"];
-            
-            UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+           UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
             
             tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
             [self presentViewController: tabBar animated: YES completion:nil];
@@ -139,7 +144,39 @@
 }
 
 -(void) synchronise {
-
+    //location managerből kiszedjük a kordinátákat
+    NSString *lat=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.latitude];
+    NSString *lon=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.longitude];
+    
+    
+    //a meghívandó url string-be behegesztjük a kordinátákat
+    NSString *urlstring=[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?latlng=%@,%@&sensor=false",lat,lon];
+    
+    //az url stringből létrehozunk egy urlt
+    NSURL *url = [NSURL URLWithString:urlstring];
+    
+    //NSLog(@"%@",urlstring);
+    
+    //az url-ből visszakapunk egy egy json-t
+    NSData *jsonData = [NSData dataWithContentsOfURL:url];
+    NSError *error;
+    
+    //json-t átadjuk egy szótárnak
+    NSDictionary *decoded= [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+    
+    NSLog(@"%@",[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
+    
+    NSString* cityName=[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"];
+    
+    NSMutableArray * inputClubList = [[[Session getInstance] getCommunication] getClubsFromCityName:cityName];
+    [[Session getInstance] setSearchViewCLubs:inputClubList];
+    
+    /*NSInteger * user_id = [[[Session getInstance] getActualUser] getID];
+    NSMutableArray * favoriteClubList = [[[Session getInstance] getCommunication] getFavoriteClubsFromUserId:user_id];
+    [[[Session getInstance] getActualUser] setFavoriteClubs:favoriteClubList];
+    NSMutableArray * usersClubList = [[[Session getInstance] getCommunication] getOwnedClubsFromUserId:user_id];
+    [[[Session getInstance] getActualUser] setUsersClubs:usersClubList];
+    [[Session getInstance] setSearchViewCLubs:inputClubList];*/
 }
 
 @end

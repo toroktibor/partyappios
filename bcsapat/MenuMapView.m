@@ -15,6 +15,7 @@
 #import "AddNewClubView.h"
 #import "MyAnnotation.h"
 #import "Session.h"
+#import "Club.h"
 
 @interface MenuMapView ()
 
@@ -23,7 +24,7 @@
 @end
 
 @implementation MenuMapView
-@synthesize map,initialLocation;
+@synthesize map,initialLocation,container;
 
 
 
@@ -54,17 +55,15 @@
     [map setRegion:viewRegion animated: YES];*/
 
     
-    
-    NSMutableArray * cimek=[[NSMutableArray alloc]init];
-    [cimek addObject:@"Debrecen Szombathi István utca 3"];
-    [cimek addObject:@"Debrecen Csapó utca 15"];
-    [cimek addObject:@"Debrecen Piac utca 2"];
-    [cimek addObject:@"Debrecen Miklós utca 20"];
-    [cimek addObject:@"Debrecen Kishegyesi út 20"];
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
     
     
-    for (int i=0; i<[cimek count]; ++i) {
-        [self processProperties:[cimek objectAtIndex:i]];
+    for (int i=0; i<[[[Session getInstance]getSearchViewCLubs]count]; ++i) {
+        [self setLocations:[[[Session getInstance]getSearchViewCLubs]objectAtIndex:i]];
     }
    
 
@@ -83,7 +82,7 @@
 //a navigation bar jobb felső sarkában lévő gomb megnyomására az action sheet megjelenítése
 - (IBAction)showActionSheet:(id)sender {
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
-                                              destructiveButtonTitle:nil otherButtonTitles:@"Kedvencek", @"Hozzáadás",@"Helyeim",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];
+                                              destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Hozzáadás",@"Helyeim",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];
     
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
@@ -94,16 +93,48 @@
 //action sheet gombjai váltanak a nézetek között
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
-        
-        //ugrás a kedvencek nézetbe
-        /*FavouritesView *FavouritesView=
-        [self.storyboard instantiateViewControllerWithIdentifier:@"FavouritesView"];
-        
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:FavouritesView];
-        [self presentViewController:navController animated:YES completion:nil];*/
+  
+        //lista frissitése közeli helyekre
         
         [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
-        [[Session getInstance]testAddString:@"Ibolya"];
+        NSString *lat=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.latitude];
+        NSString *lon=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.longitude];
+        
+        
+        //a meghívandó url string-be behegesztjük a kordinátákat
+        NSString *urlstring=[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?latlng=%@,%@&sensor=false",lat,lon];
+        
+        //az url stringből létrehozunk egy urlt
+        NSURL *url = [NSURL URLWithString:urlstring];
+        
+        //NSLog(@"%@",urlstring);
+        
+        //az url-ből visszakapunk egy egy json-t
+        NSData *jsonData = [NSData dataWithContentsOfURL:url];
+        NSError *error;
+        
+        //json-t átadjuk egy szótárnak
+        NSDictionary *decoded= [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+        
+        NSLog(@"%@",[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
+        
+        NSString* cityName=[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"];
+        
+        NSMutableArray * inputClubList = [[[Session getInstance] getCommunication] getClubsFromCityName:cityName];
+        [[Session getInstance] setSearchViewCLubs:inputClubList];
+        
+        UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+        
+        tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController: tabBar animated: YES completion:nil];    
+    }
+
+    if (buttonIndex == 1) {
+        
+        [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
+        NSInteger * user_id = [[[Session getInstance] getActualUser] getID];
+        NSMutableArray * favoriteClubList = [[[Session getInstance] getCommunication] getFavoriteClubsFromUserId:user_id];
+        [[Session getInstance] setSearchViewCLubs:favoriteClubList];
         
         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
         
@@ -112,7 +143,7 @@
         
         
         
-    } else if (buttonIndex == 1) {
+    } else if (buttonIndex == 2) {
         
         //ugrás az új klubb hozzáadása nézetbe
         AddNewClubView *AddNewClubView=
@@ -120,21 +151,22 @@
         
         [self presentViewController:AddNewClubView animated:YES completion:nil];
         
-    } else if (buttonIndex == 2) {
-        
-        //ugrás a helyeim nézetbe
-        MyPlacesView *MyPlacesView=
-        [self.storyboard instantiateViewControllerWithIdentifier:@"MyPlacesView"];
-        
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:MyPlacesView];
-        [self presentViewController:navController animated:YES completion:nil];
-        
-        
-        
-        
     } else if (buttonIndex == 3) {
         
-        //ugrás a helyeim nézetbe
+        //lista frissítése saját helyekre
+        [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
+        
+        UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+        
+        tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController: tabBar animated: YES completion:nil];
+        
+        
+        
+        
+    } else if (buttonIndex == 4) {
+        
+        //ugrás az értesítések nézetbe
         NotificationsView *NotificationsView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"NotificationsView"];
         
@@ -142,7 +174,7 @@
         [self presentViewController:navController animated:YES completion:nil];
         
     }
-    else if (buttonIndex == 4) {
+    else if (buttonIndex == 5) {
         
         //ugrás a profilom nézetbe
         ProfileFirstView *ProfileFirstView=
@@ -150,7 +182,7 @@
         
         [self presentViewController:ProfileFirstView animated:YES completion:nil];
     }
-    else if (buttonIndex == 5) {
+    else if (buttonIndex == 6) {
         
         //kijelentkezés
         [Session deleteSession];
@@ -158,16 +190,16 @@
         [self.storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
         [self presentViewController:LoginView animated:YES completion:nil];
     }
-    else if (buttonIndex == 6) {
+    else if (buttonIndex == 7) {
         // mégse gomb
     }
 }
 
 
 
-- (void)processProperties:(NSString *)property {
+- (void)setLocations:(Club *)club {
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder geocodeAddressString:property completionHandler:^(NSArray* placemarks, NSError* error){
+    [geocoder geocodeAddressString:[club getAddress] completionHandler:^(NSArray* placemarks, NSError* error){
         for (CLPlacemark* aPlacemark in placemarks)
         {
             CLLocationCoordinate2D theCoordinate;
@@ -175,7 +207,9 @@
             theCoordinate.longitude=aPlacemark.location.coordinate.longitude;
             MyAnnotation *annotation=[[MyAnnotation alloc]init];
             annotation.coordinate=theCoordinate;
-            annotation.title=property;
+            annotation.title=[club getClubName];
+            annotation.subtitle=[club getAddress];
+            //[container addObject:annotation];
             [map addAnnotation:annotation];
         }
     }];
@@ -200,6 +234,49 @@
 }
 
 
+- (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation
+{
+    MKPinAnnotationView *newAnnotation = [[MKPinAnnotationView alloc]     initWithAnnotation:annotation reuseIdentifier:@"pinLocation"];
+    
+    newAnnotation.canShowCallout = YES;
+    newAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    
+    return newAnnotation;
+}
+
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
+
+   /* int index=[mapView.annotations indexOfObject:view.annotation]; //össze-vissza dobálja az indexeket
+    [[Session getInstance]setSelectedIndex:index];
+    NSLog(@"%d",index);*/
+ 
+    MyAnnotation* ann=(MyAnnotation*)view.annotation;
+    for (int i=0; i<[[[Session getInstance]getSearchViewCLubs]count]; ++i) {
+        if ([ann.title isEqualToString:[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:i]getClubName]]
+            && [ann.subtitle isEqualToString:[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:i]getAddress]]) {
+            [[Session getInstance]setSelectedIndex:i];
+        }
+    }
+    
+    UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"ClubTabBar"];
+    
+    
+    tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController: tabBar animated: YES completion:nil];
+}
+
+
+/*-(void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view{
+   MyAnnotation *annotation = (MyAnnotation *)view.annotation;
+    NSInteger *yourIndex = [annotation]
+    
+    if ([view.annotation isKindOfClass:[MyAnnotation class]]) {
+        MyAnnotation *annot = view.annotation;
+        int index = [container indexOfObject:annot];
+        NSLog(@"%d",index);
+    }
+}*/
 
 
 @end

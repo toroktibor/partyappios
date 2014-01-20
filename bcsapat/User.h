@@ -26,10 +26,11 @@
 -(NSMutableArray *) getFavoriteClubs;
 -(NSMutableArray *) getUsersClubs;
 
--(void)setFavoriteClubs;
--(void)setUsersClubs;
+-(void)setFavoriteClubs:(NSMutableArray *) inputFavoriteClubList;
+-(void)setUsersClubs:(NSMutableArray *) inputUsersClubList;
 
 -(NSString *) getName;
 -(NSString *) getPassword;
+-(NSInteger *) getID;
 
 @end
