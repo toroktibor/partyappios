@@ -10,7 +10,6 @@
 
 @implementation User
 
-
 - (id)initWithId:(NSInteger *) identifier_ andNickName:(NSString *) nick_name_ andPassword:(NSString *) password_ andEmail:(NSString *) email_ andSex:(NSInteger *) sex_ andBirthday:(NSString *) birthday_ andType:(NSInteger *) type_
 {
     self = [super init];
@@ -43,6 +42,13 @@
     
 }
 
+-(NSString *)getName{
+    return nick_name;
+}
+
+-(NSString *)getPassword{
+    return password;
+}
 
 @end
 

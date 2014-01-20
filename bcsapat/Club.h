@@ -34,10 +34,11 @@
 -(NSMutableArray *) getServices;
 
 -(void)setOwnerIds;
--(void)setMenuItems;
+-(void)setMenuItems:(NSMutableArray*) inMenuItems;
 -(void)setRatings;
 -(void)setEvents;
 -(void)setServices;
+- (id)initWithId:(NSInteger *) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_ andDate:(NSString *) date_;
 
 
 @end

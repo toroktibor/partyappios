@@ -29,4 +29,7 @@
 -(void)setFavoriteClubs;
 -(void)setUsersClubs;
 
+-(NSString *) getName;
+-(NSString *) getPassword;
+
 @end

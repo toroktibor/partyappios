@@ -64,8 +64,8 @@
     
 }
 
--(void)setMenuItems{
-    
+-(void)setMenuItems:(NSMutableArray*) inMenuItems;{
+    menuItems = inMenuItems;
 }
 
 -(void)setRatings{
