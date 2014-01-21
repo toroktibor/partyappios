@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PicturesCollectionView : UICollectionView
+@interface PicturesCollectionView : UICollectionViewController<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+- (IBAction)showActionSheet:(id)sender;
 
 @end

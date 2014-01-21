@@ -8,24 +8,89 @@
 
 #import "PicturesCollectionView.h"
 
-@implementation PicturesCollectionView
+@interface PicturesCollectionView ()
 
-- (id)initWithFrame:(CGRect)frame
+@end
+
+@implementation PicturesCollectionView{
+    NSArray *recipePhotos;
+}
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Initialization code
+        // Custom initialization
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)viewDidLoad
 {
-    // Drawing code
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    
+    recipePhotos = [NSArray arrayWithObjects:@"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg", @"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg", nil];
 }
-*/
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return recipePhotos.count;
+}
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *identifier = @"PicturesCell";
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
+    recipeImageView.image = [UIImage imageNamed:[recipePhotos objectAtIndex:indexPath.row]];
+    
+    return cell;
+}
+
+
+- (IBAction)showActionSheet:(id)sender {
+    
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
+                                              destructiveButtonTitle:nil otherButtonTitles:@"Kamera",@"Galéria", nil];
+    
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
+    popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
+}
+
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        UIImagePickerController *imgpicker=[[UIImagePickerController alloc]init];
+        [imgpicker setDelegate: self];
+        [imgpicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+        [self presentViewController:imgpicker animated:YES completion:^{
+            
+        }];
+    }
+    
+    if (buttonIndex == 1) {
+        
+        UIImagePickerController *imgpicker=[[UIImagePickerController alloc]init];
+        [imgpicker setDelegate: self];
+        [imgpicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        [self presentViewController:imgpicker animated:YES completion:^{
+            
+        }];
+        
+    }
+    if (buttonIndex == 2) {
+        
+    }
+}
 @end

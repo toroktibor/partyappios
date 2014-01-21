@@ -22,7 +22,6 @@
 		7A43B8ED187C46F500725428 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A43B8EC187C46F500725428 /* ViewController.m */; };
 		7A43B8F4187C519600725428 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8F3187C519600725428 /* MapKit.framework */; };
 		7AB601BA188E73FD00F4CFA4 /* PicturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB601B9188E73FD00F4CFA4 /* PicturesView.m */; };
-		7AB601BD188E7BF700F4CFA4 /* PicturesCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB601BC188E7BF700F4CFA4 /* PicturesCollectionView.m */; };
 		7AC9ECAA1880059100DBEEDB /* ProfileFirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECA91880059100DBEEDB /* ProfileFirstView.m */; };
 		7AC9ECAD188015B800DBEEDB /* NotificationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECAC188015B800DBEEDB /* NotificationsView.m */; };
 		7AC9ECB618801D0100DBEEDB /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECB518801D0100DBEEDB /* LoginView.m */; };
@@ -47,6 +46,7 @@
 		7AD6858118842D7D00D52D4A /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD6858018842D7D00D52D4A /* Session.m */; };
 		7AD6858318845A5A00D52D4A /* partyapp.db in Resources */ = {isa = PBXBuildFile; fileRef = 7AD6858218845A5900D52D4A /* partyapp.db */; };
 		7AD7E5391886ABA200656FCF /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7E5381886ABA200656FCF /* MyAnnotation.m */; };
+		7AD8D0FC188E8E1800783AE5 /* PicturesCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8D0FB188E8E1800783AE5 /* PicturesCollectionView.m */; };
 		7AD9411518885EF100EC78C9 /* InformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD9411418885EF100EC78C9 /* InformationView.m */; };
 		7AE0D99718854FE50089CE3D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE0D99618854FE50089CE3D /* RegisterView.m */; };
 		7AE0D99918857CC40089CE3D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE0D99818857CC40089CE3D /* CoreLocation.framework */; };
@@ -76,8 +76,6 @@
 		7A43B8F3187C519600725428 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7AB601B8188E73FD00F4CFA4 /* PicturesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturesView.h; sourceTree = "<group>"; };
 		7AB601B9188E73FD00F4CFA4 /* PicturesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturesView.m; sourceTree = "<group>"; };
-		7AB601BB188E7BF700F4CFA4 /* PicturesCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturesCollectionView.h; sourceTree = "<group>"; };
-		7AB601BC188E7BF700F4CFA4 /* PicturesCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturesCollectionView.m; sourceTree = "<group>"; };
 		7AC9ECA81880059100DBEEDB /* ProfileFirstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileFirstView.h; sourceTree = "<group>"; };
 		7AC9ECA91880059100DBEEDB /* ProfileFirstView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileFirstView.m; sourceTree = "<group>"; };
 		7AC9ECAB188015B800DBEEDB /* NotificationsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsView.h; sourceTree = "<group>"; };
@@ -120,6 +118,8 @@
 		7AD6858218845A5900D52D4A /* partyapp.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = partyapp.db; sourceTree = "<group>"; };
 		7AD7E5371886ABA200656FCF /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
 		7AD7E5381886ABA200656FCF /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
+		7AD8D0FA188E8E1800783AE5 /* PicturesCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturesCollectionView.h; sourceTree = "<group>"; };
+		7AD8D0FB188E8E1800783AE5 /* PicturesCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturesCollectionView.m; sourceTree = "<group>"; };
 		7AD9411318885EF100EC78C9 /* InformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationView.h; sourceTree = "<group>"; };
 		7AD9411418885EF100EC78C9 /* InformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationView.m; sourceTree = "<group>"; };
 		7AE0D99518854FE50089CE3D /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
@@ -300,8 +300,8 @@
 				7AD9411418885EF100EC78C9 /* InformationView.m */,
 				7AB601B8188E73FD00F4CFA4 /* PicturesView.h */,
 				7AB601B9188E73FD00F4CFA4 /* PicturesView.m */,
-				7AB601BB188E7BF700F4CFA4 /* PicturesCollectionView.h */,
-				7AB601BC188E7BF700F4CFA4 /* PicturesCollectionView.m */,
+				7AD8D0FA188E8E1800783AE5 /* PicturesCollectionView.h */,
+				7AD8D0FB188E8E1800783AE5 /* PicturesCollectionView.m */,
 			);
 			name = BarsAndPubsAndRestaurants;
 			sourceTree = "<group>";
@@ -414,7 +414,7 @@
 				7AD054271889596C0058B94E /* ChangePasswordView.m in Sources */,
 				7AD0542A18896F1B0058B94E /* PickerForSearchView.m in Sources */,
 				7AB601BA188E73FD00F4CFA4 /* PicturesView.m in Sources */,
-				7AB601BD188E7BF700F4CFA4 /* PicturesCollectionView.m in Sources */,
+				7AD8D0FC188E8E1800783AE5 /* PicturesCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
