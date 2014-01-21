@@ -17,14 +17,14 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjP-NJ-1hd">
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Regisztráció">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="8JB-Fo-n7j" kind="modal" id="q7s-E4-E8c"/>
+                                            <segue destination="8JB-Fo-n7j" kind="modal" modalTransitionStyle="partialCurl" id="q7s-E4-E8c"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEe-Cn-z81">
@@ -33,7 +33,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Bejelentkezés">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -72,6 +72,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="0IH-rY-lL0" secondAttribute="trailing" constant="57" id="22x-W0-hXa"/>
                                     <constraint firstItem="qTN-eo-cJP" firstAttribute="top" secondItem="JAs-Lz-b8g" secondAttribute="top" constant="103" id="2Gp-s1-E7f"/>
@@ -92,7 +93,7 @@
                                     <constraint firstItem="eEe-Cn-z81" firstAttribute="trailing" secondItem="rjP-NJ-1hd" secondAttribute="trailing" type="default" id="jkj-hw-FVk"/>
                                 </constraints>
                             </scrollView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oUo-90-8qO">
+                            <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="oUo-90-8qO">
                                 <items>
                                     <navigationItem title="Bejelentkezés" id="08N-ky-Eug">
                                         <barButtonItem key="rightBarButtonItem" title="Infó" id="waH-cC-Y2f"/>
@@ -848,7 +849,25 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9H6-8a-WHK"/>
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="upc-cp-Utt">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xHi-pU-5VB">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rGN-yw-Qa5">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27w-4W-l86">
                                 <items>
                                     <navigationItem title="Képek" id="qtu-Ot-fwm">
@@ -859,12 +878,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9H6-8a-WHK" firstAttribute="bottom" secondItem="Jit-Tr-d2v" secondAttribute="bottom" type="default" id="1OJ-D2-WNl"/>
+                            <constraint firstItem="upc-cp-Utt" firstAttribute="trailing" secondItem="Jit-Tr-d2v" secondAttribute="trailing" type="default" id="1UM-Nu-ZGw"/>
+                            <constraint firstItem="upc-cp-Utt" firstAttribute="bottom" secondItem="Jit-Tr-d2v" secondAttribute="bottom" type="default" id="1ts-Xs-xeX"/>
+                            <constraint firstItem="upc-cp-Utt" firstAttribute="top" secondItem="27w-4W-l86" secondAttribute="bottom" type="default" id="C7Z-gZ-7oV"/>
                             <constraint firstItem="27w-4W-l86" firstAttribute="leading" secondItem="Jit-Tr-d2v" secondAttribute="leading" type="default" id="TTT-hb-h3b"/>
-                            <constraint firstItem="9H6-8a-WHK" firstAttribute="top" secondItem="Jit-Tr-d2v" secondAttribute="top" type="default" id="WWV-Wa-FCI"/>
                             <constraint firstItem="27w-4W-l86" firstAttribute="top" secondItem="Jit-Tr-d2v" secondAttribute="top" type="default" id="ZVV-mj-Jzf"/>
-                            <constraint firstItem="9H6-8a-WHK" firstAttribute="leading" secondItem="Jit-Tr-d2v" secondAttribute="leading" type="default" id="i8w-f7-HGz"/>
-                            <constraint firstItem="9H6-8a-WHK" firstAttribute="trailing" secondItem="Jit-Tr-d2v" secondAttribute="trailing" type="default" id="xlq-lm-fHB"/>
+                            <constraint firstItem="upc-cp-Utt" firstAttribute="leading" secondItem="Jit-Tr-d2v" secondAttribute="leading" type="default" id="ojd-Xj-Yq3"/>
                             <constraint firstItem="27w-4W-l86" firstAttribute="trailing" secondItem="Jit-Tr-d2v" secondAttribute="trailing" type="default" id="yxg-tI-Eg9"/>
                         </constraints>
                     </view>
@@ -872,7 +891,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GRS-vw-wwn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2081" y="932"/>
+            <point key="canvasLocation" x="1381" y="772"/>
         </scene>
         <!--Menu Club List View - Szórakozóhelyek-->
         <scene sceneID="ODB-XY-Baa">
@@ -949,7 +968,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sno-cc-Y7S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="574" y="-318"/>
+            <point key="canvasLocation" x="710" y="-224"/>
         </scene>
         <!--View Controller - Új esemény-->
         <scene sceneID="FIu-p2-p4k">
@@ -1088,7 +1107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GNG-LS-feQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3111" y="-1097"/>
+            <point key="canvasLocation" x="2023" y="-965"/>
         </scene>
         <!--Table View Controller - Események-->
         <scene sceneID="EVb-N0-BIC">
@@ -1135,7 +1154,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLX-H0-qk0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2679" y="-187"/>
+            <point key="canvasLocation" x="2031" y="-208"/>
         </scene>
         <!--View Controller - Részletek-->
         <scene sceneID="fFM-i7-xZU">
@@ -1244,7 +1263,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="366-6Q-hxd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3287" y="-187"/>
+            <point key="canvasLocation" x="2639" y="-215"/>
         </scene>
         <!--View Controller - Szerkesztés-->
         <scene sceneID="HkO-9E-feu">
@@ -1383,7 +1402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="25T-4G-zJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3764" y="-187"/>
+            <point key="canvasLocation" x="3160" y="-195"/>
         </scene>
         <!--Navigation Controller -  Események-->
         <scene sceneID="VJN-pi-SKY">
@@ -1403,7 +1422,7 @@ EEVzZW3DqW55ZWs
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uoo-xv-IIq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1269" y="-340"/>
+            <point key="canvasLocation" x="1373" y="-200"/>
         </scene>
         <!--Navigation Controller - Információk-->
         <scene sceneID="sOP-62-enB">
@@ -1419,7 +1438,7 @@ EEVzZW3DqW55ZWs
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mOf-5x-kdG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1636" y="-2265"/>
+            <point key="canvasLocation" x="984" y="-1973"/>
         </scene>
         <!--Information View - Információk-->
         <scene sceneID="otd-55-hDu">
@@ -1592,7 +1611,7 @@ EEVzZW3DqW55ZWs
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E7E-Z7-CNg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2100" y="-3095"/>
+            <point key="canvasLocation" x="1984" y="-2019"/>
         </scene>
         <!--Table View Controller - Étlap, itallap-->
         <scene sceneID="YMU-aa-dDu">
@@ -2104,7 +2123,7 @@ EEVzZW3DqW55ZWs
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gbk-R0-sYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2108" y="-3909"/>
+            <point key="canvasLocation" x="1964" y="-2949"/>
         </scene>
         <!--Navigation Controller - Lista-->
         <scene sceneID="h8o-4Z-dga">
@@ -2497,7 +2516,7 @@ EEVzZW3DqW55ZWs
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Mégse">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -2591,7 +2610,7 @@ EEVzZW3DqW55ZWs
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Regisztrálok">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -2602,6 +2621,7 @@ EEVzZW3DqW55ZWs
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="csE-4E-Wku" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="2zt-L2-cJ3"/>
                                     <constraint firstItem="fbu-YY-l1A" firstAttribute="centerX" secondItem="cDs-db-hVc" secondAttribute="centerX" type="default" id="3lf-yR-ayM"/>
@@ -2640,10 +2660,9 @@ EEVzZW3DqW55ZWs
                                     <constraint firstItem="boA-S7-c00" firstAttribute="centerY" secondItem="csE-4E-Wku" secondAttribute="centerY" type="default" id="t02-wr-PCa"/>
                                     <constraint firstItem="fbu-YY-l1A" firstAttribute="leading" secondItem="cAy-7I-2CW" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="tOe-gn-eND"/>
                                     <constraint firstItem="U8H-7T-8N6" firstAttribute="top" secondItem="cAy-7I-2CW" secondAttribute="top" constant="76" id="xrM-zE-s6j"/>
-                                    <constraint firstItem="WUO-7p-XPa" firstAttribute="baseline" secondItem="fbu-YY-l1A" secondAttribute="baseline" type="default" id="zkt-Im-a1m"/>
                                 </constraints>
                             </scrollView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xio-aw-Tmn">
+                            <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="xio-aw-Tmn">
                                 <items>
                                     <navigationItem title="Regisztráció" id="mYM-9P-Xd4"/>
                                 </items>
@@ -2681,7 +2700,7 @@ EEVzZW3DqW55ZWs
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="5kF-Hc-y1q"/>
         <segue reference="so7-BJ-91f"/>
-        <segue reference="Tbw-2j-YfP"/>
     </inferredMetricsTieBreakers>
 </document>

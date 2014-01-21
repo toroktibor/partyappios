@@ -239,9 +239,19 @@
     MKPinAnnotationView *newAnnotation = [[MKPinAnnotationView alloc]     initWithAnnotation:annotation reuseIdentifier:@"pinLocation"];
     
     newAnnotation.canShowCallout = YES;
-    newAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    
+    if(([annotation isKindOfClass:[MKUserLocation class]]))
+        { //newAnnotation.pinColor = MKPinAnnotationColorGreen;
+            ((MKUserLocation *)annotation).title = @"Itt vagyok most!";
+            return nil;
+        }
+    else
+    {newAnnotation.pinColor = MKPinAnnotationColorRed;
+     newAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    }
     
     return newAnnotation;
+
 }
 
 
@@ -265,6 +275,7 @@
     tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController: tabBar animated: YES completion:nil];
 }
+
 
 
 /*-(void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view{
