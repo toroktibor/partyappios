@@ -8,12 +8,10 @@
 
 #import "MenuSearchView.h"
 #import "ProfileFirstView.h"
-#import "NotificationsView.h"
-#import "FavouritesView.h"
-#import "MyPlacesView.h"
 #import "LoginView.h"
 #import "AddNewClubView.h"
 #import "Session.h"
+#import "NotificationsView.h"
 
 @interface MenuSearchView ()
 

@@ -9,8 +9,6 @@
 #import "MenuMapView.h"
 #import "ProfileFirstView.h"
 #import "NotificationsView.h"
-#import "FavouritesView.h"
-#import "MyPlacesView.h"
 #import "LoginView.h"
 #import "AddNewClubView.h"
 #import "MyAnnotation.h"

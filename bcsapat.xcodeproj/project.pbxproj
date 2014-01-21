@@ -21,10 +21,10 @@
 		7A43B8EA187C46F500725428 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A43B8E8187C46F500725428 /* MainStoryboard_iPad.storyboard */; };
 		7A43B8ED187C46F500725428 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A43B8EC187C46F500725428 /* ViewController.m */; };
 		7A43B8F4187C519600725428 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8F3187C519600725428 /* MapKit.framework */; };
+		7AB601BA188E73FD00F4CFA4 /* PicturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB601B9188E73FD00F4CFA4 /* PicturesView.m */; };
+		7AB601BD188E7BF700F4CFA4 /* PicturesCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB601BC188E7BF700F4CFA4 /* PicturesCollectionView.m */; };
 		7AC9ECAA1880059100DBEEDB /* ProfileFirstView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECA91880059100DBEEDB /* ProfileFirstView.m */; };
 		7AC9ECAD188015B800DBEEDB /* NotificationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECAC188015B800DBEEDB /* NotificationsView.m */; };
-		7AC9ECB01880179A00DBEEDB /* FavouritesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECAF1880179A00DBEEDB /* FavouritesView.m */; };
-		7AC9ECB318801AB300DBEEDB /* MyPlacesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECB218801AB300DBEEDB /* MyPlacesView.m */; };
 		7AC9ECB618801D0100DBEEDB /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECB518801D0100DBEEDB /* LoginView.m */; };
 		7AC9ECC01880202000DBEEDB /* MenuClubListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECBF1880202000DBEEDB /* MenuClubListView.m */; };
 		7AC9ECC3188027A000DBEEDB /* AddNewClubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECC2188027A000DBEEDB /* AddNewClubView.m */; };
@@ -74,14 +74,14 @@
 		7A43B8EB187C46F500725428 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7A43B8EC187C46F500725428 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7A43B8F3187C519600725428 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7AB601B8188E73FD00F4CFA4 /* PicturesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturesView.h; sourceTree = "<group>"; };
+		7AB601B9188E73FD00F4CFA4 /* PicturesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturesView.m; sourceTree = "<group>"; };
+		7AB601BB188E7BF700F4CFA4 /* PicturesCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicturesCollectionView.h; sourceTree = "<group>"; };
+		7AB601BC188E7BF700F4CFA4 /* PicturesCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturesCollectionView.m; sourceTree = "<group>"; };
 		7AC9ECA81880059100DBEEDB /* ProfileFirstView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileFirstView.h; sourceTree = "<group>"; };
 		7AC9ECA91880059100DBEEDB /* ProfileFirstView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileFirstView.m; sourceTree = "<group>"; };
 		7AC9ECAB188015B800DBEEDB /* NotificationsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsView.h; sourceTree = "<group>"; };
 		7AC9ECAC188015B800DBEEDB /* NotificationsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationsView.m; sourceTree = "<group>"; };
-		7AC9ECAE1880179A00DBEEDB /* FavouritesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouritesView.h; sourceTree = "<group>"; };
-		7AC9ECAF1880179A00DBEEDB /* FavouritesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouritesView.m; sourceTree = "<group>"; };
-		7AC9ECB118801AB300DBEEDB /* MyPlacesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPlacesView.h; sourceTree = "<group>"; };
-		7AC9ECB218801AB300DBEEDB /* MyPlacesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPlacesView.m; sourceTree = "<group>"; };
 		7AC9ECB418801D0100DBEEDB /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		7AC9ECB518801D0100DBEEDB /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		7AC9ECBE1880202000DBEEDB /* MenuClubListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuClubListView.h; sourceTree = "<group>"; };
@@ -250,10 +250,6 @@
 				7AC9ECA91880059100DBEEDB /* ProfileFirstView.m */,
 				7AC9ECAB188015B800DBEEDB /* NotificationsView.h */,
 				7AC9ECAC188015B800DBEEDB /* NotificationsView.m */,
-				7AC9ECAE1880179A00DBEEDB /* FavouritesView.h */,
-				7AC9ECAF1880179A00DBEEDB /* FavouritesView.m */,
-				7AC9ECB118801AB300DBEEDB /* MyPlacesView.h */,
-				7AC9ECB218801AB300DBEEDB /* MyPlacesView.m */,
 				7AC9ECC1188027A000DBEEDB /* AddNewClubView.h */,
 				7AC9ECC2188027A000DBEEDB /* AddNewClubView.m */,
 				7A1A412918804B0F0052D859 /* NewTypePickerView.h */,
@@ -302,6 +298,10 @@
 			children = (
 				7AD9411318885EF100EC78C9 /* InformationView.h */,
 				7AD9411418885EF100EC78C9 /* InformationView.m */,
+				7AB601B8188E73FD00F4CFA4 /* PicturesView.h */,
+				7AB601B9188E73FD00F4CFA4 /* PicturesView.m */,
+				7AB601BB188E7BF700F4CFA4 /* PicturesCollectionView.h */,
+				7AB601BC188E7BF700F4CFA4 /* PicturesCollectionView.m */,
 			);
 			name = BarsAndPubsAndRestaurants;
 			sourceTree = "<group>";
@@ -394,8 +394,6 @@
 				7ACBD0BA187F1BC50094D2B0 /* MenuSearchView.m in Sources */,
 				7AC9ECAA1880059100DBEEDB /* ProfileFirstView.m in Sources */,
 				7AC9ECAD188015B800DBEEDB /* NotificationsView.m in Sources */,
-				7AC9ECB01880179A00DBEEDB /* FavouritesView.m in Sources */,
-				7AC9ECB318801AB300DBEEDB /* MyPlacesView.m in Sources */,
 				7AC9ECB618801D0100DBEEDB /* LoginView.m in Sources */,
 				7AC9ECC01880202000DBEEDB /* MenuClubListView.m in Sources */,
 				7AC9ECC3188027A000DBEEDB /* AddNewClubView.m in Sources */,
@@ -415,6 +413,8 @@
 				7AD05424188959070058B94E /* EditProfileView.m in Sources */,
 				7AD054271889596C0058B94E /* ChangePasswordView.m in Sources */,
 				7AD0542A18896F1B0058B94E /* PickerForSearchView.m in Sources */,
+				7AB601BA188E73FD00F4CFA4 /* PicturesView.m in Sources */,
+				7AB601BD188E7BF700F4CFA4 /* PicturesCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
