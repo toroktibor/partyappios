@@ -10,5 +10,7 @@
 
 @interface PicturesCollectionView : UICollectionViewController<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 - (IBAction)showActionSheet:(id)sender;
+@property int index;
+@property NSMutableArray *recipePhotos;
 
 @end

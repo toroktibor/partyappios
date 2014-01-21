@@ -911,7 +911,7 @@
                     <connections>
                         <segue destination="4y1-6w-WXj" kind="relationship" relationship="viewControllers" id="Xlw-WQ-rHI"/>
                         <segue destination="QBc-VQ-KMV" kind="relationship" relationship="viewControllers" id="gs0-V6-Jwu"/>
-                        <segue destination="e9N-oi-nd0" kind="relationship" relationship="viewControllers" id="9F8-1u-eO6"/>
+                        <segue destination="e9N-oi-nd0" kind="relationship" relationship="viewControllers" id="JVs-j5-08M"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sno-cc-Y7S" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1104,11 +1104,11 @@
             </objects>
             <point key="canvasLocation" x="2031" y="-208"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Képek-->
         <scene sceneID="dOB-Vj-rV5">
             <objects>
                 <navigationController definesPresentationContext="YES" id="e9N-oi-nd0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="bpA-nx-hfn"/>
+                    <tabBarItem key="tabBarItem" title="Képek" id="bpA-nx-hfn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TsI-fC-e5S">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1120,7 +1120,7 @@
             </objects>
             <point key="canvasLocation" x="1267" y="782"/>
         </scene>
-        <!--Pictures Collection View-->
+        <!--Pictures Collection View - Képek-->
         <scene sceneID="7vP-Tm-vLT">
             <objects>
                 <collectionViewController storyboardIdentifier="PicturesCollectionView" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VnA-Pj-yW9" customClass="PicturesCollectionView" sceneMemberID="viewController">
@@ -1141,15 +1141,15 @@
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cgo-qC-xdn"/>
+                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pup-tL-fSR"/>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="Cgo-qC-xdn" firstAttribute="bottom" secondItem="kiO-XF-dHe" secondAttribute="bottom" type="default" id="5S0-gN-SLb"/>
-                                    <constraint firstItem="Cgo-qC-xdn" firstAttribute="top" secondItem="kiO-XF-dHe" secondAttribute="top" type="default" id="7h8-0H-Wdg"/>
-                                    <constraint firstItem="Cgo-qC-xdn" firstAttribute="leading" secondItem="kiO-XF-dHe" secondAttribute="leading" type="default" id="Joi-N3-vrb"/>
-                                    <constraint firstItem="Cgo-qC-xdn" firstAttribute="trailing" secondItem="kiO-XF-dHe" secondAttribute="trailing" type="default" id="mbE-BG-2nF"/>
+                                    <constraint firstItem="pup-tL-fSR" firstAttribute="bottom" secondItem="kiO-XF-dHe" secondAttribute="bottom" type="default" id="11c-Hn-UlW"/>
+                                    <constraint firstItem="pup-tL-fSR" firstAttribute="trailing" secondItem="kiO-XF-dHe" secondAttribute="trailing" type="default" id="n52-Ae-jq5"/>
+                                    <constraint firstItem="pup-tL-fSR" firstAttribute="leading" secondItem="kiO-XF-dHe" secondAttribute="leading" type="default" id="rvy-4d-JNK"/>
+                                    <constraint firstItem="pup-tL-fSR" firstAttribute="top" secondItem="kiO-XF-dHe" secondAttribute="top" type="default" id="spL-Of-Vk8"/>
                                 </constraints>
                             </collectionViewCell>
                         </cells>
@@ -1158,7 +1158,7 @@
                             <outlet property="delegate" destination="VnA-Pj-yW9" id="MfX-Cn-gCs"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="3DI-m2-g4B">
+                    <navigationItem key="navigationItem" title="Képek" id="3DI-m2-g4B">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="ha1-U6-mVI">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KmD-dM-yei">
                                 <rect key="frame" x="244" y="6" width="71" height="33"/>
@@ -1177,10 +1177,40 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="eZE-Ur-Nlg" kind="push" id="E6M-zK-j5P"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Egg-cd-w6f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1803" y="782"/>
+        </scene>
+        <!--Picture View-->
+        <scene sceneID="10X-3L-cgl">
+            <objects>
+                <viewController storyboardIdentifier="PictureView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eZE-Ur-Nlg" customClass="PictureView" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nVk-pQ-ZE3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wM-w2-fzM"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2wM-w2-fzM" firstAttribute="trailing" secondItem="nVk-pQ-ZE3" secondAttribute="trailing" type="default" id="Dyo-Eh-YOb"/>
+                            <constraint firstItem="2wM-w2-fzM" firstAttribute="top" secondItem="nVk-pQ-ZE3" secondAttribute="top" type="default" id="Kmd-9p-eX1"/>
+                            <constraint firstItem="2wM-w2-fzM" firstAttribute="bottom" secondItem="nVk-pQ-ZE3" secondAttribute="bottom" type="default" id="Nwu-e7-ace"/>
+                            <constraint firstItem="2wM-w2-fzM" firstAttribute="leading" secondItem="nVk-pQ-ZE3" secondAttribute="leading" type="default" id="Xav-uu-gbZ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ydt-xn-0Lc"/>
+                    <connections>
+                        <outlet property="imageView" destination="2wM-w2-fzM" id="dtT-JG-bT9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z5j-3H-xQI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2303" y="782"/>
         </scene>
         <!--View Controller - Részletek-->
         <scene sceneID="fFM-i7-xZU">
@@ -2726,7 +2756,7 @@ EEVzZW3DqW55ZWs
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="5kF-Hc-y1q"/>
         <segue reference="so7-BJ-91f"/>
+        <segue reference="5kF-Hc-y1q"/>
     </inferredMetricsTieBreakers>
 </document>

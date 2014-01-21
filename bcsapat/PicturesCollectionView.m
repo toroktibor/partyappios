@@ -7,14 +7,15 @@
 //
 
 #import "PicturesCollectionView.h"
+#import "PictureView.h"
 
 @interface PicturesCollectionView ()
 
 @end
 
-@implementation PicturesCollectionView{
-    NSArray *recipePhotos;
-}
+@implementation PicturesCollectionView
+
+@synthesize index,recipePhotos;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,8 +31,18 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+
+    recipePhotos=[[NSMutableArray alloc]init];
     
-    recipePhotos = [NSArray arrayWithObjects:@"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg", @"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg", nil];
+   UIImage * image = [UIImage imageNamed: @"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"];
+   UIImage * image2 = [UIImage imageNamed: @"Nightclub-theme.jpg"];
+    UIImage *image3 = [UIImage imageNamed: @"Bar.jpg"];
+    UIImage *image4 = [UIImage imageNamed: @"The-Sun-City-Hotel-photos-Restaurant-Restaurant.jpg"];
+    
+    [recipePhotos addObject:image];
+    [recipePhotos addObject:image2];
+    
+    NSLog(@"%d",[recipePhotos count]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,6 +51,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+/*-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+    
+}*/
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return recipePhotos.count;
@@ -52,9 +68,30 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
     UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
-    recipeImageView.image = [UIImage imageNamed:[recipePhotos objectAtIndex:indexPath.row]];
+    recipeImageView.image = [recipePhotos objectAtIndex:indexPath.row];
     
     return cell;
+}
+
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    index=indexPath.row;
+
+    PictureView *PicturesDetailView=
+    [self.storyboard instantiateViewControllerWithIdentifier:@"PictureView"];
+    [self.navigationController pushViewController:PicturesDetailView animated:YES];
+    [PicturesDetailView.imageView setImage:[recipePhotos objectAtIndex:index]];
+}
+
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    NSLog(@"kép kiválasztva");
+    UIImage * cameraImage  = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    [recipePhotos addObject:cameraImage];
+    [self.collectionView reloadData];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 
