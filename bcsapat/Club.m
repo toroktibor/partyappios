@@ -65,6 +65,17 @@
     return name;
 }
 
+-(NSString *)getEmail{
+    return email;
+}
+
+-(NSString *)getPhoneNumber{
+    return phonenumber;
+}
+
+-(NSString *)getDescription{
+    return description;
+}
 
 -(void)setOwnerIds{
     

@@ -34,6 +34,9 @@
 -(NSMutableArray *) getServices;
 -(NSString *) getAddress;
 -(NSString *) getClubName;
+-(NSString *) getEmail;
+-(NSString *) getPhoneNumber;
+-(NSString *) getDescription;
 
 -(void)setOwnerIds;
 -(void)setMenuItems:(NSMutableArray*) inMenuItems;
