@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @interface ClubMapView : UIViewController
-
+@property (weak, nonatomic) IBOutlet MKMapView *map;
+@property int index;
 @end

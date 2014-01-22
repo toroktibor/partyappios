@@ -2203,10 +2203,10 @@ EEVzZW3DqW55ZWs
             </objects>
             <point key="canvasLocation" x="3376" y="-3591"/>
         </scene>
-        <!--View Controller-->
+        <!--Club Map View-->
         <scene sceneID="iBi-Og-jBa">
             <objects>
-                <viewController id="Cdo-Iw-CQO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClubMapView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cdo-Iw-CQO" customClass="ClubMapView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dYd-Lj-Rid">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2222,6 +2222,9 @@ EEVzZW3DqW55ZWs
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SCi-Sv-YAB"/>
+                    <connections>
+                        <outlet property="map" destination="rly-ub-O5E" id="XY1-Li-vsQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gbk-R0-sYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
