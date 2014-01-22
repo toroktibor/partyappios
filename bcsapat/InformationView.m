@@ -8,6 +8,8 @@
 
 #import "InformationView.h"
 #import "Session.h"
+#import <MessageUI/MFMailComposeViewController.h>
+#import <MessageUI/MessageUI.h>
 
 @interface InformationView ()
 @end
@@ -40,29 +42,39 @@
 }
 
 - (IBAction)showEmail:(id)sender {
-    // Email Subject
-    NSString *emailTitle = @"Test Email";
-    // Email Content
-    NSString *messageBody = @"iOS programming is so fun!";
-    // To address
-    NSArray *toRecipents = [NSArray arrayWithObject:@"support@appcoda.com"];
+    if ([MFMailComposeViewController canSendMail]) {
+        
+        MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+        mailViewController.mailComposeDelegate = self;
+        [mailViewController setSubject:@"Subject Goes Here."];
+        [mailViewController setMessageBody:@"Your message goes here." isHTML:NO];
+        
+        [self presentViewController:mailViewController animated:YES completion:nil];
+        
+    }
     
-    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-    mc.mailComposeDelegate = self;
-    [mc setSubject:emailTitle];
-    [mc setMessageBody:messageBody isHTML:NO];
-    [mc setToRecipients:toRecipents];
-    
-    // Present mail view controller on screen
-    [self presentViewController:mc animated:YES completion:NULL];
+    else {
+        
+        NSLog(@"Device is unable to send email in its current state.");
+            UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"A készülék jelenlegi állapotában nem tud üzenetet küldeni!" delegate:nil
+                                                       cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [Notpermitted show];
+        
+    }
 }
+
+
+/*-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}*/
+
 
 - (IBAction)callButtonMethod:(id)sender {
     UIDevice *device = [UIDevice currentDevice];
     if ([[device model] isEqualToString:@"iPhone"] ) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:130-032-2837"]]];
     } else {
-        UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Alert" message:@"Your device doesn't support this feature." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"A készülék nem támogatja a telefonhívást!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [Notpermitted show];
     }
 }
