@@ -40,4 +40,5 @@
 
 -(void) deleteFavoriteClubForUserWithFavoriteID:(NSInteger *) favorite_id;
 
+
 @end
