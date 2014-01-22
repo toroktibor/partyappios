@@ -168,6 +168,10 @@
     
     NSString* cityName=[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"];
     
+    NSString* address=[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"formatted_address"];
+    [[Session getInstance]setUserLocation:address];
+    //NSLog(@"%@",address);
+    
     NSMutableArray * inputClubList = [[[Session getInstance] getCommunication] getClubsFromCityName:cityName];
     [[Session getInstance] setSearchViewCLubs:inputClubList];
     

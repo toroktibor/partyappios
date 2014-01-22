@@ -19,6 +19,7 @@
     NSMutableArray * searchViewCLubs;
     BOOL isOnline;
     int SelectedIndex;
+    NSString * userLocation;
 }
 
 +(void)deleteSession;
@@ -53,6 +54,10 @@
 -(void)setSelectedIndex:(int) index;
 
 -(int)getSelectedIndex;
+
+-(void)setUserLocation:(NSString *)location;
+
+-(NSString *)getUserLocation;
 
 
 

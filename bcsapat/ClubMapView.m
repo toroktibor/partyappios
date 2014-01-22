@@ -46,7 +46,7 @@
             theCoordinate.longitude=aPlacemark.location.coordinate.longitude;
           
          
-            MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(theCoordinate, 2000, 2000);
+            MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(theCoordinate, 5000, 5000);
             [map setRegion:viewRegion animated: YES];
             
             MKPointAnnotation *needle = [[MKPointAnnotation alloc] init];

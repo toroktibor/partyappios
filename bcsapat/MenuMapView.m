@@ -42,22 +42,45 @@
     
     [map setDelegate:self];
     
-    map.showsUserLocation=YES;
+    //map.showsUserLocation=YES;
     
     
-    /*CLLocationCoordinate2D userlocation;
-    userlocation.latitude = locationManager.location.coordinate.latitude;
-    userlocation.longitude = locationManager.location.coordinate.longitude;
     
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(userlocation, 600, 600);
-    [map setRegion:viewRegion animated: YES];*/
-
-    
-    locationManager = [[CLLocationManager alloc] init];
+   /* locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [locationManager startUpdatingLocation];
+    
+    
+    CLLocationCoordinate2D userlocation;
+    userlocation.latitude = locationManager.location.coordinate.latitude;
+    userlocation.longitude = locationManager.location.coordinate.longitude;
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(userlocation, 2000, 2000);
+    [map setRegion:viewRegion animated: YES];*/
+    
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:[[Session getInstance]getUserLocation] completionHandler:^(NSArray* placemarks, NSError* error){
+        for (CLPlacemark* aPlacemark in placemarks)
+        {
+            CLLocationCoordinate2D theCoordinate;
+            
+            theCoordinate.latitude=aPlacemark.location.coordinate.latitude;
+            theCoordinate.longitude=aPlacemark.location.coordinate.longitude;
+            
+            
+            MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(theCoordinate, 10000, 10000);
+            [map setRegion:viewRegion animated: YES];
+            
+            MKPointAnnotation *needle = [[MKPointAnnotation alloc] init];
+            needle.coordinate = theCoordinate;
+            needle.title =@"Itt vagyok most!";
+            [map addAnnotation:needle];
+        }
+    }];
+
+    
     
     
     for (int i=0; i<[[[Session getInstance]getSearchViewCLubs]count]; ++i) {
@@ -113,6 +136,9 @@
         
         //json-t átadjuk egy szótárnak
         NSDictionary *decoded= [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+        
+        NSString* address=[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"formatted_address"];
+        [[Session getInstance]setUserLocation:address];
         
         NSLog(@"%@",[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
         
@@ -215,7 +241,7 @@
 
 }
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+/*- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
     if ( !initialLocation )
     {
@@ -230,7 +256,7 @@
         [mapView setRegion:region animated:YES];
      
     }
-}
+}*/
 
 
 - (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation
@@ -239,7 +265,7 @@
     
     newAnnotation.canShowCallout = YES;
     
-    if(([annotation isKindOfClass:[MKUserLocation class]]))
+    /*if(([annotation isKindOfClass:[MKUserLocation class]]))
         { //newAnnotation.pinColor = MKPinAnnotationColorGreen;
             ((MKUserLocation *)annotation).title = @"Itt vagyok most!";
             return nil;
@@ -247,6 +273,15 @@
     else
     {newAnnotation.pinColor = MKPinAnnotationColorRed;
      newAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    }*/
+    
+    
+    if ([annotation.title isEqualToString:@"Itt vagyok most!"]) {
+        newAnnotation.pinColor = MKPinAnnotationColorGreen;
+    }
+    else{
+        newAnnotation.pinColor = MKPinAnnotationColorRed;
+        newAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     }
     
     return newAnnotation;

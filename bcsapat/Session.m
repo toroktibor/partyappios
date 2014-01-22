@@ -96,6 +96,13 @@ static Session * _instance = nil;
     return actualCommunication;
 }
 
+-(void)setUserLocation:(NSString *)location{
+    userLocation=location;
+}
+
+-(NSString *)getUserLocation{
+    return userLocation;
+}
 
 +(id)alloc {
     @synchronized([Session class]) {
