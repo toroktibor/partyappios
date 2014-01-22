@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MFMailComposeViewController.h>
 #import <MessageUI/MessageUI.h>
 
-@interface InformationView : UIViewController <MFMailComposeViewControllerDelegate>
+@interface InformationView : UIViewController <MFMailComposeViewControllerDelegate,UIActionSheetDelegate>
 
-- (IBAction)showEmail:(id)sender;
-- (IBAction)callButtonMethod:(id)sender;
+
+- (IBAction)showActionSheet:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *clubNameText;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UISlider *slider;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *phonenumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionView;
 @end

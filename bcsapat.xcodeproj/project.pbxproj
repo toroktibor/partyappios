@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7A04F57718901CA9009FAA3B /* SearchTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A04F57618901CA9009FAA3B /* SearchTableView.m */; };
+		7A04F57A18904B94009FAA3B /* FoodsAndDrinksTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A04F57918904B94009FAA3B /* FoodsAndDrinksTableView.m */; };
 		7A1A412B18804B0F0052D859 /* NewTypePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1A412A18804B0F0052D859 /* NewTypePickerView.m */; };
-		7A1BB343189038BD00A7C6B3 /* Communication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1BB342189038BD00A7C6B3 /* Communication.m */; };
 		7A43B8CE187C46F500725428 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8CD187C46F500725428 /* UIKit.framework */; };
 		7A43B8D0187C46F500725428 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8CF187C46F500725428 /* Foundation.framework */; };
 		7A43B8D2187C46F500725428 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8D1187C46F500725428 /* CoreGraphics.framework */; };
@@ -62,10 +62,10 @@
 /* Begin PBXFileReference section */
 		7A04F57518901CA9009FAA3B /* SearchTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableView.h; sourceTree = "<group>"; };
 		7A04F57618901CA9009FAA3B /* SearchTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableView.m; sourceTree = "<group>"; };
+		7A04F57818904B94009FAA3B /* FoodsAndDrinksTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodsAndDrinksTableView.h; sourceTree = "<group>"; };
+		7A04F57918904B94009FAA3B /* FoodsAndDrinksTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodsAndDrinksTableView.m; sourceTree = "<group>"; };
 		7A1A412918804B0F0052D859 /* NewTypePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTypePickerView.h; sourceTree = "<group>"; };
 		7A1A412A18804B0F0052D859 /* NewTypePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTypePickerView.m; sourceTree = "<group>"; };
-		7A1BB341189038BD00A7C6B3 /* Communication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Communication.h; sourceTree = "<group>"; };
-		7A1BB342189038BD00A7C6B3 /* Communication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Communication.m; sourceTree = "<group>"; };
 		7A43B8CA187C46F500725428 /* bcsapat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bcsapat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A43B8CD187C46F500725428 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7A43B8CF187C46F500725428 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -324,6 +324,8 @@
 				7AD8D13B188ED8B300783AE5 /* PictureView.m */,
 				7AD4C8F4189002FC001E8D91 /* ClubMapView.h */,
 				7AD4C8F5189002FC001E8D91 /* ClubMapView.m */,
+				7A04F57818904B94009FAA3B /* FoodsAndDrinksTableView.h */,
+				7A04F57918904B94009FAA3B /* FoodsAndDrinksTableView.m */,
 			);
 			name = BarsAndPubsAndRestaurants;
 			sourceTree = "<group>";
@@ -334,8 +336,6 @@
 				7AFFF40318859CB0000B06FD /* CommunicationProtocol.h */,
 				7AFFF40418859CEC000B06FD /* SillyCommunication.h */,
 				7AFFF40518859CEC000B06FD /* SillyCommunication.m */,
-				7A1BB341189038BD00A7C6B3 /* Communication.h */,
-				7A1BB342189038BD00A7C6B3 /* Communication.m */,
 			);
 			name = Communication;
 			path = ..;
@@ -444,7 +444,7 @@
 				7AD4C8F3188FDEE1001E8D91 /* ProfileTableView.m in Sources */,
 				7AD4C8F6189002FC001E8D91 /* ClubMapView.m in Sources */,
 				7A04F57718901CA9009FAA3B /* SearchTableView.m in Sources */,
-				7A1BB343189038BD00A7C6B3 /* Communication.m in Sources */,
+				7A04F57A18904B94009FAA3B /* FoodsAndDrinksTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
