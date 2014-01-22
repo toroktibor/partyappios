@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A04F57718901CA9009FAA3B /* SearchTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A04F57618901CA9009FAA3B /* SearchTableView.m */; };
 		7A1A412B18804B0F0052D859 /* NewTypePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1A412A18804B0F0052D859 /* NewTypePickerView.m */; };
 		7A43B8CE187C46F500725428 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8CD187C46F500725428 /* UIKit.framework */; };
 		7A43B8D0187C46F500725428 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8CF187C46F500725428 /* Foundation.framework */; };
@@ -58,6 +59,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A04F57518901CA9009FAA3B /* SearchTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableView.h; sourceTree = "<group>"; };
+		7A04F57618901CA9009FAA3B /* SearchTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableView.m; sourceTree = "<group>"; };
 		7A1A412918804B0F0052D859 /* NewTypePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTypePickerView.h; sourceTree = "<group>"; };
 		7A1A412A18804B0F0052D859 /* NewTypePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTypePickerView.m; sourceTree = "<group>"; };
 		7A43B8CA187C46F500725428 /* bcsapat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bcsapat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,6 +243,8 @@
 				7AC9ECC518802C0100DBEEDB /* MenuMapView.m */,
 				7AD0542818896F1B0058B94E /* PickerForSearchView.h */,
 				7AD0542918896F1B0058B94E /* PickerForSearchView.m */,
+				7A04F57518901CA9009FAA3B /* SearchTableView.h */,
+				7A04F57618901CA9009FAA3B /* SearchTableView.m */,
 			);
 			name = MainMenu;
 			sourceTree = "<group>";
@@ -433,6 +438,7 @@
 				7AD8D13C188ED8B300783AE5 /* PictureView.m in Sources */,
 				7AD4C8F3188FDEE1001E8D91 /* ProfileTableView.m in Sources */,
 				7AD4C8F6189002FC001E8D91 /* ClubMapView.m in Sources */,
+				7A04F57718901CA9009FAA3B /* SearchTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

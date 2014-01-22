@@ -47,10 +47,7 @@
 
 - (IBAction)ok:(id)sender {
     
-    MenuSearchView *MenuSearchView=
-    [self.storyboard instantiateViewControllerWithIdentifier:@"MenuSearchView"];
-    [MenuSearchView.clubType setText:result];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 
