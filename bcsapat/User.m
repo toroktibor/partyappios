@@ -10,8 +10,7 @@
 
 @implementation User
 
-- (id)initWithId:(NSInteger *) identifier_ andNickName:(NSString *) nick_name_ andPassword:(NSString *) password_ andEmail:(NSString *) email_ andSex:(NSInteger *) sex_ andBirthday:(NSString *) birthday_ andType:(NSInteger *) type_
-{
+- (id)initWithId:(int) identifier_ andNickName:(NSString *) nick_name_ andPassword:(NSString *) password_ andEmail:(NSString *) email_ andSex:(int) sex_ andBirthday:(NSString *) birthday_ andType:(int) type_{
     self = [super init];
     if(self)
     {
@@ -54,8 +53,53 @@
     return password;
 }
 
--(NSInteger *)getID{
+-(int)getID{
     return identifier;
 }
+
+-(NSString *)getEmail{
+    return email;
+}
+
+-(int)getSex{
+    return sex;
+}
+
+-(NSString *)getBirthday{
+    return birthday;
+}
+
+-(int)getType{
+    return type;
+}
+
+-(void)setId:(int)userId{
+    identifier=userId;
+}
+
+-(void)setName:(NSString *)userName{
+    nick_name=userName;
+}
+
+-(void)setPassword:(NSString *)userPassword{
+    password=userPassword;
+}
+
+-(void)setEmail:(NSString *)userEmail{
+    email=userEmail;
+}
+
+-(void)setSex:(int)userSexType{
+    sex=userSexType;
+}
+
+-(void)setBirthday:(NSString *)userBirthay{
+    birthday=userBirthay;
+}
+
+-(void)setType:(int)userType{
+    type=userType;
+}
+
 @end
 

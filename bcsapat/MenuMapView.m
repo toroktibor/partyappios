@@ -7,7 +7,7 @@
 //
 
 #import "MenuMapView.h"
-#import "ProfileFirstView.h"
+#import "ProfileTableView.h"
 #import "NotificationsView.h"
 #import "LoginView.h"
 #import "AddNewClubView.h"
@@ -175,11 +175,12 @@
     else if (buttonIndex == 5) {
         
         //ugrás a profilom nézetbe
-        ProfileFirstView *ProfileFirstView=
-        [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileFirstView"];
-        
-        [self presentViewController:ProfileFirstView animated:YES completion:nil];
+        ProfileTableView *ProfileTableView=
+        [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileTableView"];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ProfileTableView];
+        [self presentViewController:navController animated:YES completion:nil];
     }
+    
     else if (buttonIndex == 6) {
         
         //kijelentkezés

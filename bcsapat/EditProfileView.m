@@ -7,12 +7,15 @@
 //
 
 #import "EditProfileView.h"
+#import "Session.h"
+#import "ProfileTableView.h"
 
 @interface EditProfileView ()
 
 @end
 
 @implementation EditProfileView
+@synthesize nameTextField,emailTextField,birthDayTextField,segmentControl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,6 +29,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    nameTextField.delegate=self;
+    emailTextField.delegate=self;
+    birthDayTextField.delegate=self;
+    
+    [nameTextField setText:[[[Session getInstance]getActualUser]getName]];
+    [emailTextField setText:[[[Session getInstance]getActualUser]getEmail]];
+    [birthDayTextField setText:[[[Session getInstance]getActualUser]getBirthday]];
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -35,4 +48,44 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)saveChanges:(id)sender {
+    if ( (nameTextField.text == nil ||
+          [nameTextField.text isEqualToString:@""]) || (emailTextField.text == nil ||
+                                                               [emailTextField.text isEqualToString:@""])
+        || (birthDayTextField.text == nil ||
+            [birthDayTextField.text isEqualToString:@""])) {
+            
+            UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Hiba!"
+                                                                 message:@"Minden mező kitöltése kötelező!"
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"Ok"
+                                                       otherButtonTitles: nil];
+            [alertview show];
+        }
+    else{
+        [[[Session getInstance]getActualUser]setName:nameTextField.text];
+        [[[Session getInstance]getActualUser]setEmail:emailTextField.text];
+        [[[Session getInstance]getActualUser]setBirthday:birthDayTextField.text];
+        
+        if ([segmentControl selectedSegmentIndex]==0) {
+            [[[Session getInstance]getActualUser]setSex:1];
+        }
+        else{
+            [[[Session getInstance]getActualUser]setSex:0];
+        }
+        
+        ProfileTableView *ProfileTableView=
+        [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileTableView"];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ProfileTableView];
+        [self presentViewController:navController animated:YES completion:nil];
+    }
+}
+
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 @end

@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface User : NSObject{
-    NSInteger * identifier;
+    int  identifier;
     NSString * nick_name;
     NSString * password;
     NSString * email;
-    NSInteger * sex;
+    int sex;
     NSString * birthday;
-    NSInteger * type;
+    int type;
     
     NSMutableArray * favoriteClubs;
     NSMutableArray * usersClubs;
@@ -31,6 +31,20 @@
 
 -(NSString *) getName;
 -(NSString *) getPassword;
--(NSInteger *) getID;
+-(int) getID;
+-(NSString *) getEmail;
+-(int) getType;
+-(NSString *) getBirthday;
+-(int) getSex;
+
+-(void)setId:(int)userId;
+-(void)setName:(NSString *)userName;
+-(void)setPassword:(NSString *)userPassword;
+-(void)setEmail:(NSString *)userEmail;
+-(void)setSex:(int)userSexType;
+-(void)setBirthday:(NSString *)userBirthay;
+-(void)setType:(int)userType;
+
+
 
 @end

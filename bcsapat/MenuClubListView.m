@@ -7,12 +7,12 @@
 //
 
 #import "MenuClubListView.h"
-#import "ProfileFirstView.h"
 #import "NotificationsView.h"
 #import "LoginView.h"
 #import "AddNewClubView.h"
 #import "InformationView.h"
 #import "Session.h"
+#import "ProfileTableView.h"
 
 @interface MenuClubListView ()
 
@@ -251,9 +251,10 @@
     }
     else if (buttonIndex == 5) {
         
-        ProfileFirstView *ProfileFirstView=
-        [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileFirstView"];
-        [self presentViewController:ProfileFirstView animated:YES completion:nil];
+        ProfileTableView *ProfileTableView=
+        [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileTableView"];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ProfileTableView];
+        [self presentViewController:navController animated:YES completion:nil];
     }
     else if (buttonIndex == 6) {
         [Session deleteSession];

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChangePasswordView : UIViewController
+@interface ChangePasswordView : UIViewController<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *oldPasswordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *actualPasswordTextField;
+@property (weak, nonatomic) IBOutlet UITextField *actualPasswordAgaingTextField;
 
+- (IBAction)changePassword:(id)sender;
 @end
