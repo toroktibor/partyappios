@@ -46,14 +46,14 @@
     
     
     
-   /* locationManager = [[CLLocationManager alloc] init];
+   locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [locationManager startUpdatingLocation];
     
     
-    CLLocationCoordinate2D userlocation;
+    /*CLLocationCoordinate2D userlocation;
     userlocation.latitude = locationManager.location.coordinate.latitude;
     userlocation.longitude = locationManager.location.coordinate.longitude;
     
@@ -114,7 +114,9 @@
 //action sheet gombjai váltanak a nézetek között
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
-  
+        
+        
+        
         //lista frissitése közeli helyekre
         
         [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
@@ -150,7 +152,10 @@
         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
         
         tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        [self presentViewController: tabBar animated: YES completion:nil];    
+        [self presentViewController: tabBar animated: YES completion:nil];
+        
+        
+        
     }
 
     if (buttonIndex == 1) {
