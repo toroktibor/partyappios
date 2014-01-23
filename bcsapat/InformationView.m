@@ -13,6 +13,7 @@
 #import "Club.h"
 #import "ClubMapView.h"
 #import "FoodsAndDrinksTableView.h"
+#import "RatingTableViewViewController.h"
 
 @interface InformationView ()
 @end
@@ -86,7 +87,7 @@
 
 - (IBAction)showActionSheet:(id)sender {
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
-                                              destructiveButtonTitle:nil otherButtonTitles:@"Tulajdonos vagyok",@"Térkép", @"Hívás",@"Email küldése",@"Árlista", nil];
+                                              destructiveButtonTitle:nil otherButtonTitles:@"Tulajdonos vagyok",@"Térkép", @"Hívás",@"Email küldése",@"Árlista",@"Értékelések", nil];
     
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
@@ -158,10 +159,18 @@
         [self.navigationController pushViewController:FoodsAndDrinksTableView animated:YES];
             
         }
+    
+    else if (buttonIndex == 5){
+        
+        RatingTableViewViewController *RatingTableView=
+        [self.storyboard instantiateViewControllerWithIdentifier:@"RatingTableView"];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:RatingTableView];
+        [self presentViewController:navController animated:YES completion:nil];
+    }
 
         
     
-    else if (buttonIndex == 5) {
+    else if (buttonIndex == 6) {
         
         //mégse
     }
