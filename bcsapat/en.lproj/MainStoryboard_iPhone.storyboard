@@ -1561,7 +1561,7 @@ EEVzZW3DqW55ZWs
             <objects>
                 <viewController storyboardIdentifier="InformationView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="r5Z-0c-lJo" customClass="InformationView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e3o-TI-ej2">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Szórakozóhely név" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAg-s2-Thd">
@@ -1748,7 +1748,7 @@ EEVzZW3DqW55ZWs
             <objects>
                 <tableViewController storyboardIdentifier="FoodsAndDrinksTableView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dhk-Ba-REB" customClass="FoodsAndDrinksTableView" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="21s-aP-6KJ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1799,13 +1799,13 @@ EEVzZW3DqW55ZWs
             <objects>
                 <tableViewController storyboardIdentifier="DrinkOrFoodView" id="sUt-M8-Fmt" customClass="DrinkOrFoodView" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Cpa-ct-BkZ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="Tétel neve" id="xh3-bz-9co">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="03j-rx-khA">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="03j-rx-khA">
                                         <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1832,7 +1832,7 @@ EEVzZW3DqW55ZWs
                             </tableViewSection>
                             <tableViewSection headerTitle="Kategória" id="kBQ-jX-pfb">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="SLf-yz-6h7">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="SLf-yz-6h7">
                                         <rect key="frame" x="0.0" y="138" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1859,16 +1859,24 @@ EEVzZW3DqW55ZWs
                             </tableViewSection>
                             <tableViewSection headerTitle="Ár" id="pbI-Lv-Oi2">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jGL-jk-1Tz">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="jGL-jk-1Tz">
                                         <rect key="frame" x="0.0" y="230" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ár" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fi8-00-Tcq">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Valuta" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TO-Tx-2d4">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="260" id="Wto-Ud-7aX"/>
+                                                        <constraint firstAttribute="width" constant="57" id="g02-lS-JbC"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ár" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uo-oi-xiW">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="158" id="gzq-c7-pEK"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1878,15 +1886,17 @@ EEVzZW3DqW55ZWs
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="Fi8-00-Tcq" firstAttribute="centerX" secondItem="jGL-jk-1Tz" secondAttribute="centerX" type="default" id="SMe-DT-FwF"/>
-                                            <constraint firstItem="Fi8-00-Tcq" firstAttribute="top" secondItem="jGL-jk-1Tz" secondAttribute="top" constant="12" id="Skx-3X-I7n"/>
+                                            <constraint firstItem="9uo-oi-xiW" firstAttribute="leading" secondItem="jGL-jk-1Tz" secondAttribute="leading" constant="30" id="lPr-qp-EDN"/>
+                                            <constraint firstItem="9uo-oi-xiW" firstAttribute="top" secondItem="jGL-jk-1Tz" secondAttribute="top" constant="12" id="pgs-bc-P4f"/>
+                                            <constraint firstItem="9uo-oi-xiW" firstAttribute="baseline" secondItem="3TO-Tx-2d4" secondAttribute="baseline" type="default" id="sk9-zd-7T5"/>
+                                            <constraint firstAttribute="trailing" secondItem="3TO-Tx-2d4" secondAttribute="trailing" constant="30" id="t4J-mU-n2v"/>
                                         </constraints>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Mennyiség" id="jDF-0A-pkT">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="pyH-JW-FXh">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="pyH-JW-FXh">
                                         <rect key="frame" x="0.0" y="322" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1913,7 +1923,7 @@ EEVzZW3DqW55ZWs
                             </tableViewSection>
                             <tableViewSection headerTitle="Kedvezmény" id="CQJ-FL-f6g">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Pcq-fz-w85">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Pcq-fz-w85">
                                         <rect key="frame" x="0.0" y="414" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1951,17 +1961,25 @@ EEVzZW3DqW55ZWs
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="categoryLabel" destination="CFK-6k-fS7" id="TBN-cZ-7aK"/>
+                        <outlet property="currencyLabel" destination="3TO-Tx-2d4" id="FM7-g1-Bmz"/>
+                        <outlet property="discountLabel" destination="kTU-S7-xaW" id="Uwy-Tq-Y8X"/>
+                        <outlet property="nameLabel" destination="GVz-lj-TS0" id="cm2-K0-87h"/>
+                        <outlet property="priceLabel" destination="9uo-oi-xiW" id="7CQ-zW-TuV"/>
+                        <outlet property="unitLabel" destination="OdV-4K-qiG" id="wRO-3x-CDT"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfz-N1-09l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3457" y="-2035"/>
+            <point key="canvasLocation" x="3455" y="-2049"/>
         </scene>
         <!--View Controller - Új étel/ital-->
         <scene sceneID="l0g-yl-wsy">
             <objects>
                 <viewController id="21Y-1h-3hc" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SEj-w1-4ld">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4sC-r1-rJO">
@@ -2011,6 +2029,7 @@ EEVzZW3DqW55ZWs
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yp8-7V-fPi">
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Js9-or-oUe"/>
                                             <constraint firstAttribute="width" constant="142" id="qle-oh-jXW"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2068,35 +2087,37 @@ EEVzZW3DqW55ZWs
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="1a6-MT-O2C" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="105" id="1HF-6K-VM2"/>
                                     <constraint firstItem="D9Z-W6-tMM" firstAttribute="leading" secondItem="Lat-Z4-tzt" secondAttribute="leading" type="default" id="4sX-wC-7sQ"/>
-                                    <constraint firstItem="z6q-fR-phT" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="240" id="7vc-lK-TEo"/>
-                                    <constraint firstItem="Yp8-7V-fPi" firstAttribute="leading" secondItem="qOM-Pf-MWj" secondAttribute="leading" type="default" id="FTa-fT-G1U"/>
-                                    <constraint firstItem="GVg-xz-acL" firstAttribute="centerX" secondItem="4sC-r1-rJO" secondAttribute="centerX" type="default" id="FTo-U6-OQG"/>
+                                    <constraint firstItem="Wta-j4-YeX" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="29" id="6eW-2c-OHr"/>
+                                    <constraint firstItem="Yp8-7V-fPi" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="194" id="B3v-GA-xX0"/>
+                                    <constraint firstItem="tqi-9G-Y9Y" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="329" id="GBk-Ip-eZE"/>
                                     <constraint firstAttribute="trailing" secondItem="GVg-xz-acL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="GMR-rK-2mO"/>
+                                    <constraint firstItem="qOM-Pf-MWj" firstAttribute="top" secondItem="tqi-9G-Y9Y" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Gch-Oq-FJj"/>
                                     <constraint firstItem="tqi-9G-Y9Y" firstAttribute="leading" secondItem="D9Z-W6-tMM" secondAttribute="leading" type="default" id="J3B-D1-70p"/>
                                     <constraint firstItem="Lat-Z4-tzt" firstAttribute="baseline" secondItem="uTx-re-GQv" secondAttribute="baseline" type="default" id="Mja-7D-QxV"/>
-                                    <constraint firstItem="uTx-re-GQv" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="169" id="NFL-hE-1BB"/>
-                                    <constraint firstItem="GVg-xz-acL" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="51" id="W3j-Mh-UUv"/>
+                                    <constraint firstItem="uTx-re-GQv" firstAttribute="leading" secondItem="Yp8-7V-fPi" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="N79-5H-3AU"/>
+                                    <constraint firstItem="GVg-xz-acL" firstAttribute="centerX" secondItem="qOM-Pf-MWj" secondAttribute="centerX" type="default" id="Nwn-4r-XC4"/>
+                                    <constraint firstItem="uTx-re-GQv" firstAttribute="baseline" secondItem="Yp8-7V-fPi" secondAttribute="baseline" type="default" id="P7S-jr-yqg"/>
                                     <constraint firstItem="PU1-S5-rmH" firstAttribute="leading" secondItem="Lat-Z4-tzt" secondAttribute="leading" type="default" id="XBp-QY-ui0"/>
                                     <constraint firstItem="zRd-08-kFu" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="417" id="XXk-rL-JCK"/>
-                                    <constraint firstItem="qOM-Pf-MWj" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="336" id="YXw-ai-JHk"/>
                                     <constraint firstAttribute="trailing" secondItem="1a6-MT-O2C" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="YaV-Gj-1ve"/>
                                     <constraint firstItem="GVg-xz-acL" firstAttribute="leading" secondItem="4sC-r1-rJO" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Z9G-Gh-Jrg"/>
-                                    <constraint firstItem="Lat-Z4-tzt" firstAttribute="centerY" secondItem="uTx-re-GQv" secondAttribute="centerY" type="default" id="anb-Ap-J3C"/>
-                                    <constraint firstItem="uTx-re-GQv" firstAttribute="leading" secondItem="Yp8-7V-fPi" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="b4R-7U-Q1A"/>
+                                    <constraint firstItem="Lat-Z4-tzt" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="198" id="ZbK-ay-ADr"/>
                                     <constraint firstAttribute="trailing" secondItem="z6q-fR-phT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dv0-ZI-rt7"/>
-                                    <constraint firstItem="D9Z-W6-tMM" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="242" id="fj2-g5-Kvi"/>
-                                    <constraint firstItem="zRd-08-kFu" firstAttribute="centerX" secondItem="GVg-xz-acL" secondAttribute="centerX" type="default" id="gIY-Rh-FJD"/>
                                     <constraint firstItem="PU1-S5-rmH" firstAttribute="baseline" secondItem="1a6-MT-O2C" secondAttribute="baseline" type="default" id="geR-wx-9Kd"/>
+                                    <constraint firstItem="D9Z-W6-tMM" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="270" id="hx1-xJ-j2n"/>
                                     <constraint firstItem="Wta-j4-YeX" firstAttribute="leading" secondItem="4sC-r1-rJO" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="iKk-6u-bKB"/>
                                     <constraint firstAttribute="trailing" secondItem="uTx-re-GQv" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="krR-aj-zKf"/>
-                                    <constraint firstItem="Yp8-7V-fPi" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="176" id="lpE-AZ-N1s"/>
                                     <constraint firstItem="PU1-S5-rmH" firstAttribute="leading" secondItem="4sC-r1-rJO" secondAttribute="leading" constant="16" id="n2n-bf-4nc"/>
                                     <constraint firstItem="D9Z-W6-tMM" firstAttribute="baseline" secondItem="z6q-fR-phT" secondAttribute="baseline" type="default" id="oXe-4F-kQT"/>
-                                    <constraint firstItem="tqi-9G-Y9Y" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="300" id="pZv-O1-AU7"/>
-                                    <constraint firstAttribute="bottom" secondItem="zRd-08-kFu" secondAttribute="bottom" constant="44" id="sGg-Yi-jg5"/>
-                                    <constraint firstItem="Wta-j4-YeX" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="20" symbolic="YES" type="default" id="uWd-O3-Q3N"/>
+                                    <constraint firstItem="1a6-MT-O2C" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="116" id="peN-ah-Rkg"/>
+                                    <constraint firstItem="1a6-MT-O2C" firstAttribute="centerY" secondItem="PU1-S5-rmH" secondAttribute="centerY" type="default" id="piZ-5v-Apg"/>
+                                    <constraint firstItem="z6q-fR-phT" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="268" id="qfJ-j3-DEz"/>
+                                    <constraint firstAttribute="bottom" secondItem="zRd-08-kFu" secondAttribute="bottom" constant="-5" id="vWb-ga-mH0"/>
+                                    <constraint firstItem="GVg-xz-acL" firstAttribute="top" secondItem="Wta-j4-YeX" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="vY5-LS-oSc"/>
+                                    <constraint firstItem="qOM-Pf-MWj" firstAttribute="centerX" secondItem="zRd-08-kFu" secondAttribute="centerX" type="default" id="wXI-WV-VLF"/>
+                                    <constraint firstItem="uTx-re-GQv" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="186" id="yab-eP-PDz"/>
+                                    <constraint firstItem="GVg-xz-acL" firstAttribute="centerX" secondItem="4sC-r1-rJO" secondAttribute="centerX" type="default" id="zaf-zG-MWc"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -2165,11 +2186,7 @@ EEVzZW3DqW55ZWs
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Értékelések" id="7u2-wq-Gm9">
-                        <barButtonItem key="leftBarButtonItem" title="Vissza" id="JJ2-eQ-a1a">
-                            <connections>
-                                <segue destination="4y1-6w-WXj" kind="modal" id="p4l-9j-Y9d"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Vissza" id="eek-wQ-Sjh"/>
                         <barButtonItem key="rightBarButtonItem" title="Új" id="XN8-Yi-tJg"/>
                     </navigationItem>
                 </tableViewController>
@@ -2261,7 +2278,7 @@ EEVzZW3DqW55ZWs
             <objects>
                 <viewController storyboardIdentifier="ClubMapView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Cdo-Iw-CQO" customClass="ClubMapView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dYd-Lj-Rid">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rly-ub-O5E"/>
@@ -3289,6 +3306,14 @@ EEVzZW3DqW55ZWs
         </class>
         <class className="DrinkOrFoodView" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DrinkOrFoodView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currencyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="discountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="unitLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="EditProfileView" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/EditProfileView.h"/>
@@ -3430,6 +3455,9 @@ EEVzZW3DqW55ZWs
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
         </class>
@@ -3440,9 +3468,8 @@ EEVzZW3DqW55ZWs
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ccq-Dm-RhM"/>
-        <segue reference="p4l-9j-Y9d"/>
         <segue reference="5kF-Hc-y1q"/>
+        <segue reference="ccq-Dm-RhM"/>
         <segue reference="XRe-Xi-lk5"/>
     </inferredMetricsTieBreakers>
 </document>
