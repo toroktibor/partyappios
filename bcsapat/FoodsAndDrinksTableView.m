@@ -78,7 +78,11 @@
 
    cell.textLabel.text=[[menuItemsArray objectAtIndex:indexPath.row]getMenuItemName];
    
-   
+    int price=[[menuItemsArray objectAtIndex:indexPath.row]getPrice];
+    NSString * unit=[[menuItemsArray objectAtIndex:indexPath.row]getUnit];
+    NSString * currency=[[menuItemsArray objectAtIndex:indexPath.row]getCurrency];
+    
+    cell.detailTextLabel.text=[NSString stringWithFormat:@"%d%@/%@",price,unit,currency];
     
     
     // Configure the cell...
