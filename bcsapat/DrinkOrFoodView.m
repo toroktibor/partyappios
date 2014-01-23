@@ -1,19 +1,18 @@
 //
-//  RatingTableViewViewController.m
+//  DrinkOrFoodView.m
 //  bcsapat
 //
 //  Created by hallgato on 1/23/14.
 //  Copyright (c) 2014 hallgato. All rights reserved.
 //
 
-#import "RatingTableViewViewController.h"
+#import "DrinkOrFoodView.h"
 
-@interface RatingTableViewViewController ()
+@interface DrinkOrFoodView ()
 
 @end
 
-@implementation RatingTableViewViewController
-@synthesize ratningsArray;
+@implementation DrinkOrFoodView
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,13 +32,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    ratningsArray = [[NSMutableArray alloc]init];
-    
-    int selectedIndex=[[Session getInstance]getSelectedIndex];
-    Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
-    
-    ratningsArray = [club getRatings];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,37 +40,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"RatingCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-    
-    cell.textLabel.text=[[ratningsArray objectAtIndex:indexPath.row]getRatings];
-    
-    // Configure the cell...
-    
-    return cell;
-}
 
 /*
 // Override to support conditional editing of the table view.

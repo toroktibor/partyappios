@@ -10,6 +10,7 @@
 #import "Session.h"
 #import "Club.h"
 #import "MenuItem.h"
+#import "DrinkOrFoodView.h"
 
 @interface FoodsAndDrinksTableView ()
 
@@ -135,6 +136,10 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    DrinkOrFoodView *DrinkOrFoodView =
+    [self.storyboard instantiateViewControllerWithIdentifier:@"DrinkOrFoodView"];
+    [self.navigationController pushViewController:DrinkOrFoodView animated:YES];
 }
 
 @end

@@ -23,6 +23,7 @@
 		7A43B8EA187C46F500725428 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A43B8E8187C46F500725428 /* MainStoryboard_iPad.storyboard */; };
 		7A43B8ED187C46F500725428 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A43B8EC187C46F500725428 /* ViewController.m */; };
 		7A43B8F4187C519600725428 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8F3187C519600725428 /* MapKit.framework */; };
+		7A4FA9E5189160D000222870 /* DrinkOrFoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FA9E4189160D000222870 /* DrinkOrFoodView.m */; };
 		7AC9205A1890641B0061E61A /* Communication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC920591890641B0061E61A /* Communication.m */; };
 		7AC9ECAD188015B800DBEEDB /* NotificationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECAC188015B800DBEEDB /* NotificationsView.m */; };
 		7AC9ECB618801D0100DBEEDB /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECB518801D0100DBEEDB /* LoginView.m */; };
@@ -51,7 +52,6 @@
 		7AD7E5391886ABA200656FCF /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD7E5381886ABA200656FCF /* MyAnnotation.m */; };
 		7AD8D0FC188E8E1800783AE5 /* PicturesCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8D0FB188E8E1800783AE5 /* PicturesCollectionView.m */; };
 		7AD8D13C188ED8B300783AE5 /* PictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8D13B188ED8B300783AE5 /* PictureView.m */; };
-		7AD8D144188EE27300783AE5 /* The-Sun-City-Hotel-photos-Restaurant-Restaurant.JPEG in Resources */ = {isa = PBXBuildFile; fileRef = 7AD8D143188EE27300783AE5 /* The-Sun-City-Hotel-photos-Restaurant-Restaurant.JPEG */; };
 		7AD8D146188EE27C00783AE5 /* Bar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AD8D145188EE27C00783AE5 /* Bar.jpg */; };
 		7AD8D148188EE28400783AE5 /* Nightclub-theme.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AD8D147188EE28400783AE5 /* Nightclub-theme.jpg */; };
 		7AD9411518885EF100EC78C9 /* InformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD9411418885EF100EC78C9 /* InformationView.m */; };
@@ -86,6 +86,8 @@
 		7A43B8EB187C46F500725428 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7A43B8EC187C46F500725428 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7A43B8F3187C519600725428 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7A4FA9E3189160D000222870 /* DrinkOrFoodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkOrFoodView.h; sourceTree = "<group>"; };
+		7A4FA9E4189160D000222870 /* DrinkOrFoodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkOrFoodView.m; sourceTree = "<group>"; };
 		7AC920581890641B0061E61A /* Communication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Communication.h; sourceTree = "<group>"; };
 		7AC920591890641B0061E61A /* Communication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Communication.m; sourceTree = "<group>"; };
 		7AC9ECAB188015B800DBEEDB /* NotificationsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsView.h; sourceTree = "<group>"; };
@@ -136,7 +138,6 @@
 		7AD8D0FB188E8E1800783AE5 /* PicturesCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicturesCollectionView.m; sourceTree = "<group>"; };
 		7AD8D13A188ED8B300783AE5 /* PictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureView.h; sourceTree = "<group>"; };
 		7AD8D13B188ED8B300783AE5 /* PictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureView.m; sourceTree = "<group>"; };
-		7AD8D143188EE27300783AE5 /* The-Sun-City-Hotel-photos-Restaurant-Restaurant.JPEG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "The-Sun-City-Hotel-photos-Restaurant-Restaurant.JPEG"; sourceTree = "<group>"; };
 		7AD8D145188EE27C00783AE5 /* Bar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Bar.jpg; sourceTree = "<group>"; };
 		7AD8D147188EE28400783AE5 /* Nightclub-theme.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Nightclub-theme.jpg"; sourceTree = "<group>"; };
 		7AD9411318885EF100EC78C9 /* InformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationView.h; sourceTree = "<group>"; };
@@ -218,7 +219,6 @@
 			children = (
 				7AD8D147188EE28400783AE5 /* Nightclub-theme.jpg */,
 				7AD8D145188EE27C00783AE5 /* Bar.jpg */,
-				7AD8D143188EE27300783AE5 /* The-Sun-City-Hotel-photos-Restaurant-Restaurant.JPEG */,
 				7AD05431188997570058B94E /* 1389999143_checked_checkbox.png */,
 				7AD05433188997680058B94E /* 1389999128_unchecked_checkbox.png */,
 				7AD0542B1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg */,
@@ -334,6 +334,8 @@
 				7A04F57918904B94009FAA3B /* FoodsAndDrinksTableView.m */,
 				7AF627CA18914F8800A57FA0 /* RatingTableViewViewController.h */,
 				7AF627CB18914F8800A57FA0 /* RatingTableViewViewController.m */,
+				7A4FA9E3189160D000222870 /* DrinkOrFoodView.h */,
+				7A4FA9E4189160D000222870 /* DrinkOrFoodView.m */,
 			);
 			name = BarsAndPubsAndRestaurants;
 			sourceTree = "<group>";
@@ -412,7 +414,6 @@
 				7AD0542C1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg in Resources */,
 				7AD05432188997570058B94E /* 1389999143_checked_checkbox.png in Resources */,
 				7AD05434188997680058B94E /* 1389999128_unchecked_checkbox.png in Resources */,
-				7AD8D144188EE27300783AE5 /* The-Sun-City-Hotel-photos-Restaurant-Restaurant.JPEG in Resources */,
 				7AD8D146188EE27C00783AE5 /* Bar.jpg in Resources */,
 				7AD8D148188EE28400783AE5 /* Nightclub-theme.jpg in Resources */,
 			);
@@ -457,6 +458,7 @@
 				7AC9205A1890641B0061E61A /* Communication.m in Sources */,
 				7AD0DB3A1891343A007DBB1E /* InfoAboutTheApplicationView.m in Sources */,
 				7AF627CC18914F8800A57FA0 /* RatingTableViewViewController.m in Sources */,
+				7A4FA9E5189160D000222870 /* DrinkOrFoodView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
