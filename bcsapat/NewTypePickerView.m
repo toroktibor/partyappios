@@ -7,7 +7,6 @@
 //
 
 #import "NewTypePickerView.h"
-#import "AddNewClubView.h"
 
 @interface NewTypePickerView ()
 
@@ -80,12 +79,6 @@
 }
 
 
-//visszaküldjük a beállított szórakozóhely típust a szórakozóhely hozzáadása nézetbe
--(void)ok:(id)sender{
-    AddNewClubView *AddNewClubView=
-    [self.storyboard instantiateViewControllerWithIdentifier:@"AddNewClubView"]; 
-    [self presentViewController:AddNewClubView animated:YES completion:nil];
-    [AddNewClubView.clubType setText:result];
-}
+
 
 @end

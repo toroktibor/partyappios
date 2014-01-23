@@ -11,7 +11,6 @@
 @interface NewTypePickerView : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIPickerView *typePicker;
-- (IBAction)ok:(id)sender;
 @property NSString *result;
 @property NSArray *types;
 @end

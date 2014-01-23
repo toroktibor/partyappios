@@ -24,11 +24,11 @@
 		7A43B8ED187C46F500725428 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A43B8EC187C46F500725428 /* ViewController.m */; };
 		7A43B8F4187C519600725428 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8F3187C519600725428 /* MapKit.framework */; };
 		7A4FA9E5189160D000222870 /* DrinkOrFoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FA9E4189160D000222870 /* DrinkOrFoodView.m */; };
+		7A4FA9E81891963900222870 /* AddNewClubTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FA9E71891963900222870 /* AddNewClubTableView.m */; };
 		7AC9205A1890641B0061E61A /* Communication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC920591890641B0061E61A /* Communication.m */; };
 		7AC9ECAD188015B800DBEEDB /* NotificationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECAC188015B800DBEEDB /* NotificationsView.m */; };
 		7AC9ECB618801D0100DBEEDB /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECB518801D0100DBEEDB /* LoginView.m */; };
 		7AC9ECC01880202000DBEEDB /* MenuClubListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECBF1880202000DBEEDB /* MenuClubListView.m */; };
-		7AC9ECC3188027A000DBEEDB /* AddNewClubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECC2188027A000DBEEDB /* AddNewClubView.m */; };
 		7AC9ECC618802C0100DBEEDB /* MenuMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECC518802C0100DBEEDB /* MenuMapView.m */; };
 		7AD05424188959070058B94E /* EditProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD05423188959070058B94E /* EditProfileView.m */; };
 		7AD054271889596C0058B94E /* ChangePasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD054261889596C0058B94E /* ChangePasswordView.m */; };
@@ -88,6 +88,8 @@
 		7A43B8F3187C519600725428 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7A4FA9E3189160D000222870 /* DrinkOrFoodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkOrFoodView.h; sourceTree = "<group>"; };
 		7A4FA9E4189160D000222870 /* DrinkOrFoodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkOrFoodView.m; sourceTree = "<group>"; };
+		7A4FA9E61891963900222870 /* AddNewClubTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewClubTableView.h; sourceTree = "<group>"; };
+		7A4FA9E71891963900222870 /* AddNewClubTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewClubTableView.m; sourceTree = "<group>"; };
 		7AC920581890641B0061E61A /* Communication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Communication.h; sourceTree = "<group>"; };
 		7AC920591890641B0061E61A /* Communication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Communication.m; sourceTree = "<group>"; };
 		7AC9ECAB188015B800DBEEDB /* NotificationsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsView.h; sourceTree = "<group>"; };
@@ -96,8 +98,6 @@
 		7AC9ECB518801D0100DBEEDB /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		7AC9ECBE1880202000DBEEDB /* MenuClubListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuClubListView.h; sourceTree = "<group>"; };
 		7AC9ECBF1880202000DBEEDB /* MenuClubListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuClubListView.m; sourceTree = "<group>"; };
-		7AC9ECC1188027A000DBEEDB /* AddNewClubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewClubView.h; sourceTree = "<group>"; };
-		7AC9ECC2188027A000DBEEDB /* AddNewClubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewClubView.m; sourceTree = "<group>"; };
 		7AC9ECC418802C0100DBEEDB /* MenuMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuMapView.h; sourceTree = "<group>"; };
 		7AC9ECC518802C0100DBEEDB /* MenuMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuMapView.m; sourceTree = "<group>"; };
 		7AD05422188959070058B94E /* EditProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileView.h; sourceTree = "<group>"; };
@@ -274,8 +274,6 @@
 			children = (
 				7AC9ECAB188015B800DBEEDB /* NotificationsView.h */,
 				7AC9ECAC188015B800DBEEDB /* NotificationsView.m */,
-				7AC9ECC1188027A000DBEEDB /* AddNewClubView.h */,
-				7AC9ECC2188027A000DBEEDB /* AddNewClubView.m */,
 				7A1A412918804B0F0052D859 /* NewTypePickerView.h */,
 				7A1A412A18804B0F0052D859 /* NewTypePickerView.m */,
 				7AD05422188959070058B94E /* EditProfileView.h */,
@@ -284,6 +282,8 @@
 				7AD054261889596C0058B94E /* ChangePasswordView.m */,
 				7AD4C8F1188FDEE1001E8D91 /* ProfileTableView.h */,
 				7AD4C8F2188FDEE1001E8D91 /* ProfileTableView.m */,
+				7A4FA9E61891963900222870 /* AddNewClubTableView.h */,
+				7A4FA9E71891963900222870 /* AddNewClubTableView.m */,
 			);
 			name = ReachFromActionSheet;
 			sourceTree = "<group>";
@@ -432,7 +432,6 @@
 				7AC9ECAD188015B800DBEEDB /* NotificationsView.m in Sources */,
 				7AC9ECB618801D0100DBEEDB /* LoginView.m in Sources */,
 				7AC9ECC01880202000DBEEDB /* MenuClubListView.m in Sources */,
-				7AC9ECC3188027A000DBEEDB /* AddNewClubView.m in Sources */,
 				7AC9ECC618802C0100DBEEDB /* MenuMapView.m in Sources */,
 				7A1A412B18804B0F0052D859 /* NewTypePickerView.m in Sources */,
 				7AD6856C18841FCC00D52D4A /* MyDatabase.m in Sources */,
@@ -459,6 +458,7 @@
 				7AD0DB3A1891343A007DBB1E /* InfoAboutTheApplicationView.m in Sources */,
 				7AF627CC18914F8800A57FA0 /* RatingTableViewViewController.m in Sources */,
 				7A4FA9E5189160D000222870 /* DrinkOrFoodView.m in Sources */,
+				7A4FA9E81891963900222870 /* AddNewClubTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

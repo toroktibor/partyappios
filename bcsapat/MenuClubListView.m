@@ -9,10 +9,10 @@
 #import "MenuClubListView.h"
 #import "NotificationsView.h"
 #import "LoginView.h"
-#import "AddNewClubView.h"
 #import "InformationView.h"
 #import "Session.h"
 #import "ProfileTableView.h"
+#import "AddNewClubTableView.h"
 
 @interface MenuClubListView ()
 
@@ -227,10 +227,10 @@
     } else if (buttonIndex == 2) {
         //új klubb hozzáadása
         
-        AddNewClubView *AddNewClubView=
-        [self.storyboard instantiateViewControllerWithIdentifier:@"AddNewClubView"];
-        
-        [self presentViewController:AddNewClubView animated:YES completion:nil];
+        AddNewClubTableView *AddNewClubTableView=
+        [self.storyboard instantiateViewControllerWithIdentifier:@"AddNewClubTableView"];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:AddNewClubTableView];
+        [self presentViewController:navController animated:YES completion:nil];
         
     } else if (buttonIndex == 3) {
         
