@@ -164,8 +164,7 @@
         
         RatingTableViewViewController *RatingTableView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"RatingTableView"];
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:RatingTableView];
-        [self presentViewController:navController animated:YES completion:nil];
+        [self.navigationController pushViewController:RatingTableView animated:YES];
     }
 
         
