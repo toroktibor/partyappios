@@ -28,11 +28,11 @@
 
     clubs = [[NSMutableArray alloc]init];
     Club * aclub = [[Club alloc] initWithId:0 andName:@"F@sz Kivan" andType:@"Kocsma" andDescription:@"Kicsit ideges vagyok mostmár!!!" andAddress:@"Debrecen, Kishegyesi utca 1" andPhonenumber:@"06306665556" andEmail:@"isten@f.a" andDate:@"2000.01.01"];
-    Club * bclub = [[Club alloc] initWithId:1 andName:@"kocsma" andType:@"Elithely" andDescription:@"Kicsit sem igényes hely." andAddress:@"Debrecen, Miklós utca 10" andPhonenumber:@"06306665559" andEmail:@"isten@f.sza" andDate:@"2000.01.01"];
-    Club * cclub = [[Club alloc] initWithId:2 andName:@"étterem" andType:@"Elithely" andDescription:@"Kicsit sem igényes hely." andAddress:@"Debrecen, Piac utca 2" andPhonenumber:@"06306665559" andEmail:@"isten@f.sza" andDate:@"2000.01.01"];
-    Club * dclub = [[Club alloc] initWithId:3 andName:@"club" andType:@"Elithely" andDescription:@"Kicsit sem igényes hely." andAddress:@"Budapest, Petőfi utca 1" andPhonenumber:@"06306665559" andEmail:@"isten@f.sza" andDate:@"2000.01.01"];
+    Club * bclub = [[Club alloc] initWithId:1 andName:@"Almácska" andType:@"Elithely" andDescription:@"Kicsit sem igényes hely." andAddress:@"Debrecen, Miklós utca 10" andPhonenumber:@"06306665559" andEmail:@"isten@f.sza" andDate:@"2000.01.01"];
+    Club * cclub = [[Club alloc] initWithId:2 andName:@"Le'Programozlak" andType:@"Elithely" andDescription:@"Kicsit sem igényes hely." andAddress:@"Debrecen, Piac utca 2" andPhonenumber:@"06306665559" andEmail:@"isten@f.sza" andDate:@"2000.01.01"];
+    Club * dclub = [[Club alloc] initWithId:3 andName:@"Bp ugra-bugra" andType:@"Elithely" andDescription:@"Kicsit sem igényes hely." andAddress:@"Budapest, Petőfi utca 1" andPhonenumber:@"06306665559" andEmail:@"isten@f.sza" andDate:@"2000.01.01"];
     
-   /* NSMutableArray * itemArray = [[NSMutableArray alloc] init];
+   NSMutableArray * itemArray = [[NSMutableArray alloc] init];
     MenuItem * amenuItem = [[MenuItem alloc] initWithId:0 andName:@"Szar" andPrice:100 andCurrency:@"HUF" andUnit:@"liter" andDiscount:0 andMenuCategory:@"Desszert" andMenuSort:0];
     MenuItem * bmenuItem = [[MenuItem alloc] initWithId:1 andName:@"Szar1" andPrice:1000 andCurrency:@"HUF" andUnit:@"liter" andDiscount:0 andMenuCategory:@"Desszert" andMenuSort:0];
     MenuItem * cmenuItem = [[MenuItem alloc] initWithId:2 andName:@"Szar2" andPrice:500 andCurrency:@"HUF" andUnit:@"liter" andDiscount:0 andMenuCategory:@"Desszert" andMenuSort:0];
@@ -40,7 +40,7 @@
     [itemArray addObject:bmenuItem];
     [itemArray addObject:cmenuItem];
     
-    [aclub setMenuItems:itemArray];*/
+    [aclub setMenuItems:itemArray];
     
     [clubs addObject:aclub];
     [clubs addObject:bclub];
@@ -78,7 +78,7 @@
     return out;
 }
 
--(NSMutableArray *)getFavoriteClubsFromUserId:(NSInteger *)user_id {
+-(NSMutableArray *)getFavoriteClubsFromUserId:(int)user_id {
     NSMutableArray * out = [[NSMutableArray alloc]init];
     if(user_id == 0){
         [out addObject:[clubs objectAtIndex:0]];
@@ -87,11 +87,11 @@
     return out;
 }
 
--(NSMutableArray *)getOwnedClubsFromUserId:(NSInteger *)user_id{
+-(NSMutableArray *)getOwnedClubsFromUserId:(int)user_id{
     NSMutableArray * out = [[NSMutableArray alloc]init];
     if(user_id == 0){
-        [out addObject:[clubs objectAtIndex:0]];
-        [out addObject:[clubs objectAtIndex:1]];
+        [out addObject:[clubs objectAtIndex:2]];
+        [out addObject:[clubs objectAtIndex:3]];
     }
     return out;
 }

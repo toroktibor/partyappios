@@ -7,12 +7,16 @@
 //
 
 #import "FoodsAndDrinksTableView.h"
+#import "Session.h"
+#import "Club.h"
+#import "MenuItem.h"
 
 @interface FoodsAndDrinksTableView ()
 
 @end
 
 @implementation FoodsAndDrinksTableView
+@synthesize menuItemsArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,6 +36,14 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    menuItemsArray=[[NSMutableArray alloc]init];
+    
+    int selectedIndex=[[Session getInstance]getSelectedIndex];
+    Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+    
+    menuItemsArray=[club getMenuItems];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,22 +56,29 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [menuItemsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"MenuItemCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+
+   cell.textLabel.text=[[menuItemsArray objectAtIndex:indexPath.row]getMenuItemName];
+   
+   
+    
     
     // Configure the cell...
     

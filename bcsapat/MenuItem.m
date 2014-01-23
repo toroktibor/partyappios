@@ -10,7 +10,7 @@
 
 @implementation MenuItem
 
-- (id)initWithId:(NSInteger *) identifier_ andName:(NSString *) name_ andPrice:(NSInteger *) price_ andCurrency:(NSString *) currency_ andUnit:(NSString *) unit_ andDiscount:(NSInteger *) discount_ andMenuCategory:(NSString *) menu_category_ andMenuSort:(NSInteger *) menu_sort_
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andPrice:(int) price_ andCurrency:(NSString *) currency_ andUnit:(NSString *) unit_ andDiscount:(int) discount_ andMenuCategory:(NSString *) menu_category_ andMenuSort:(int) menu_sort_
 {
     self = [super init];
     if(self)
@@ -26,4 +26,21 @@
     }
     return self;
 }
+
+-(NSString *)getMenuItemName{
+    return  name;
+}
+
+-(NSString *)getCurrency{
+    return currency;
+}
+
+-(int)getPrice{
+    return price;
+}
+
+-(NSString *)getUnit{
+    return unit;
+}
+
 @end

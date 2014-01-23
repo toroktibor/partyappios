@@ -13,7 +13,7 @@
 
 -(User *)authenticationUserWithNickName:(NSString *)nick_name andPassword:(NSString *)password;
 -(NSMutableArray *)getClubsFromCityName:(NSString *)cityname;
--(NSMutableArray *)getFavoriteClubsFromUserId:(NSInteger *)user_id;
--(NSMutableArray *)getOwnedClubsFromUserId:(NSInteger *)user_id;
+-(NSMutableArray *)getFavoriteClubsFromUserId:(int)user_id;
+-(NSMutableArray *)getOwnedClubsFromUserId:(int)user_id;
 
 @end

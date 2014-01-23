@@ -9,16 +9,24 @@
 #import <Foundation/Foundation.h>
 
 @interface MenuItem : NSObject{
-    NSInteger * identifier;
+    int identifier;
     NSString * name;
-    NSInteger * price;
+    int price;
     NSString * currency;
     NSString * unit;
-    NSInteger * discount;
+    int discount;
     NSString * menu_category;
-    NSInteger * menu_sort;
+    int menu_sort;
 }
 
-- (id)initWithId:(NSInteger *) identifier_ andName:(NSString *) name_ andPrice:(NSInteger *) price_ andCurrency:(NSString *) currency_ andUnit:(NSString *) unit_ andDiscount:(NSInteger *) discount_ andMenuCategory:(NSString *) menu_category_ andMenuSort:(NSInteger *) menu_sort_;
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andPrice:(int) price_ andCurrency:(NSString *) currency_ andUnit:(NSString *) unit_ andDiscount:(int) discount_ andMenuCategory:(NSString *) menu_category_ andMenuSort:(int) menu_sort_;
+
+-(NSString *)getMenuItemName;
+
+-(NSString *)getCurrency;
+
+-(int)getPrice;
+
+-(NSString *)getUnit;
 
 @end

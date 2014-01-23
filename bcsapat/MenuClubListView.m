@@ -213,7 +213,7 @@
 
         //lista frissítése kedvencek nézetre
         [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
-        NSInteger * user_id = [[[Session getInstance] getActualUser] getID];
+        int user_id = [[[Session getInstance] getActualUser] getID];
         NSMutableArray * favoriteClubList = [[[Session getInstance] getCommunication] getFavoriteClubsFromUserId:user_id];
         [[Session getInstance] setSearchViewCLubs:favoriteClubList];
         
@@ -225,6 +225,8 @@
         
         
     } else if (buttonIndex == 2) {
+        //új klubb hozzáadása
+        
         AddNewClubView *AddNewClubView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"AddNewClubView"];
         
@@ -234,6 +236,11 @@
         
         //lista frissítése saját helyekre
          [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
+        
+        int user_id = [[[Session getInstance] getActualUser] getID];
+        NSMutableArray * ownClubList = [[[Session getInstance] getCommunication] getOwnedClubsFromUserId:user_id];
+        [[Session getInstance] setSearchViewCLubs:ownClubList];
+        
         
         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
         
@@ -245,6 +252,7 @@
         
     } else if (buttonIndex == 4) {
         
+        //értesítések nézet
         NotificationsView *NotificationsView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"NotificationsView"];
         
@@ -254,12 +262,15 @@
     }
     else if (buttonIndex == 5) {
         
+        //profilom nézet
         ProfileTableView *ProfileTableView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileTableView"];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ProfileTableView];
         [self presentViewController:navController animated:YES completion:nil];
     }
     else if (buttonIndex == 6) {
+        //kijelentkezés
+        
         [Session deleteSession];
         LoginView *LoginView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"LoginView"];

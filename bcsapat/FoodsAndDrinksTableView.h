@@ -10,4 +10,6 @@
 
 @interface FoodsAndDrinksTableView : UITableViewController
 
+@property NSMutableArray * menuItemsArray;
+
 @end

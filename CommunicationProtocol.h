@@ -14,16 +14,16 @@
 @required
 +(User *) authenticationUserWithNickName:(NSString *) nick_name andPassword:(NSString*) password;
 @required
-+(NSMutableArray *) getFavoriteClubsFromUserId:(NSInteger *) user_id;
++(NSMutableArray *) getFavoriteClubsFromUserId:(int) user_id;
 @required
-+(NSMutableArray *) getClubsFromCityName:(NSString *) cityname;
++(NSMutableArray *) getClubsFromCityName:(int) cityname;
 //Elküld egy új hely kérelmet a szervernek, ha a owner_user_id -1 akkor nincs neki tulaj jelöltje
 @required
 +(void) sendANewClubRequestWithClubname:(NSString *) newClubName andAddress: (NSString *) newClubAddress andType:(NSString *) newClubType andOwnerUserId:(NSInteger *) owner_user_id andServices:(NSString *) services;
 @required
-+(NSMutableArray *) getOwnedClubsFromUserId:(NSInteger *) user_id;
++(NSMutableArray *) getOwnedClubsFromUserId:(int) user_id;
 @required
-+(Club *) getEverythingFromClubId:(NSInteger *) club_id;
++(Club *) getEverythingFromClubId:(int) club_id;
 @required
 +(NSMutableArray *) searchClubsWithName:(NSString *) name andCityname:(NSString *) cityname andType:(NSString *) type andOffset:(NSInteger *) offset andLimit:(NSInteger *) limit;
 @required

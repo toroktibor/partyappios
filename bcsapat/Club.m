@@ -28,7 +28,7 @@
 }
 
 
-- (id)initWithId:(NSInteger *) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_{
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_{
     self = [super init];
     if(self)
     {

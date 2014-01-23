@@ -75,7 +75,7 @@
             [birthdate.text isEqualToString:@""])) {
         
         UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Regisztrációs hiba!"
-                                                             message:@"Nem adtál meg minden adatot!"
+                                                             message:@"Minden mező kitöltése kötelező!"
                                                             delegate:nil
                                                    cancelButtonTitle:@"Ok"
                                                    otherButtonTitles: nil];

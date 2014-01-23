@@ -29,13 +29,13 @@
 		7AC9ECC01880202000DBEEDB /* MenuClubListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECBF1880202000DBEEDB /* MenuClubListView.m */; };
 		7AC9ECC3188027A000DBEEDB /* AddNewClubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECC2188027A000DBEEDB /* AddNewClubView.m */; };
 		7AC9ECC618802C0100DBEEDB /* MenuMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECC518802C0100DBEEDB /* MenuMapView.m */; };
-		7ACBD0BA187F1BC50094D2B0 /* MenuSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ACBD0B9187F1BC50094D2B0 /* MenuSearchView.m */; };
 		7AD05424188959070058B94E /* EditProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD05423188959070058B94E /* EditProfileView.m */; };
 		7AD054271889596C0058B94E /* ChangePasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD054261889596C0058B94E /* ChangePasswordView.m */; };
 		7AD0542A18896F1B0058B94E /* PickerForSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD0542918896F1B0058B94E /* PickerForSearchView.m */; };
 		7AD0542C1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AD0542B1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg */; };
 		7AD05432188997570058B94E /* 1389999143_checked_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AD05431188997570058B94E /* 1389999143_checked_checkbox.png */; };
 		7AD05434188997680058B94E /* 1389999128_unchecked_checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AD05433188997680058B94E /* 1389999128_unchecked_checkbox.png */; };
+		7AD0DB3A1891343A007DBB1E /* InfoAboutTheApplicationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD0DB391891343A007DBB1E /* InfoAboutTheApplicationView.m */; };
 		7AD421EB188C510E0028A04B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AD421EA188C510E0028A04B /* MessageUI.framework */; };
 		7AD4C8F3188FDEE1001E8D91 /* ProfileTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD4C8F2188FDEE1001E8D91 /* ProfileTableView.m */; };
 		7AD4C8F6189002FC001E8D91 /* ClubMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD4C8F5189002FC001E8D91 /* ClubMapView.m */; };
@@ -97,8 +97,6 @@
 		7AC9ECC2188027A000DBEEDB /* AddNewClubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewClubView.m; sourceTree = "<group>"; };
 		7AC9ECC418802C0100DBEEDB /* MenuMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuMapView.h; sourceTree = "<group>"; };
 		7AC9ECC518802C0100DBEEDB /* MenuMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuMapView.m; sourceTree = "<group>"; };
-		7ACBD0B8187F1BC50094D2B0 /* MenuSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuSearchView.h; sourceTree = "<group>"; };
-		7ACBD0B9187F1BC50094D2B0 /* MenuSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuSearchView.m; sourceTree = "<group>"; };
 		7AD05422188959070058B94E /* EditProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileView.h; sourceTree = "<group>"; };
 		7AD05423188959070058B94E /* EditProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileView.m; sourceTree = "<group>"; };
 		7AD054251889596C0058B94E /* ChangePasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordView.h; sourceTree = "<group>"; };
@@ -108,6 +106,8 @@
 		7AD0542B1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"; sourceTree = "<group>"; };
 		7AD05431188997570058B94E /* 1389999143_checked_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1389999143_checked_checkbox.png; sourceTree = "<group>"; };
 		7AD05433188997680058B94E /* 1389999128_unchecked_checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1389999128_unchecked_checkbox.png; sourceTree = "<group>"; };
+		7AD0DB381891343A007DBB1E /* InfoAboutTheApplicationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoAboutTheApplicationView.h; sourceTree = "<group>"; };
+		7AD0DB391891343A007DBB1E /* InfoAboutTheApplicationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoAboutTheApplicationView.m; sourceTree = "<group>"; };
 		7AD421EA188C510E0028A04B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		7AD4C8F1188FDEE1001E8D91 /* ProfileTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableView.h; sourceTree = "<group>"; };
 		7AD4C8F2188FDEE1001E8D91 /* ProfileTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableView.m; sourceTree = "<group>"; };
@@ -241,8 +241,6 @@
 		7AC9ECB818801E2D00DBEEDB /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
-				7ACBD0B8187F1BC50094D2B0 /* MenuSearchView.h */,
-				7ACBD0B9187F1BC50094D2B0 /* MenuSearchView.m */,
 				7AC9ECBE1880202000DBEEDB /* MenuClubListView.h */,
 				7AC9ECBF1880202000DBEEDB /* MenuClubListView.m */,
 				7AC9ECC418802C0100DBEEDB /* MenuMapView.h */,
@@ -262,6 +260,8 @@
 				7AC9ECB518801D0100DBEEDB /* LoginView.m */,
 				7AE0D99518854FE50089CE3D /* RegisterView.h */,
 				7AE0D99618854FE50089CE3D /* RegisterView.m */,
+				7AD0DB381891343A007DBB1E /* InfoAboutTheApplicationView.h */,
+				7AD0DB391891343A007DBB1E /* InfoAboutTheApplicationView.m */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -423,7 +423,6 @@
 				7A43B8DA187C46F500725428 /* main.m in Sources */,
 				7A43B8DE187C46F500725428 /* AppDelegate.m in Sources */,
 				7A43B8ED187C46F500725428 /* ViewController.m in Sources */,
-				7ACBD0BA187F1BC50094D2B0 /* MenuSearchView.m in Sources */,
 				7AC9ECAD188015B800DBEEDB /* NotificationsView.m in Sources */,
 				7AC9ECB618801D0100DBEEDB /* LoginView.m in Sources */,
 				7AC9ECC01880202000DBEEDB /* MenuClubListView.m in Sources */,
@@ -451,6 +450,7 @@
 				7A04F57718901CA9009FAA3B /* SearchTableView.m in Sources */,
 				7A04F57A18904B94009FAA3B /* FoodsAndDrinksTableView.m in Sources */,
 				7AC9205A1890641B0061E61A /* Communication.m in Sources */,
+				7AD0DB3A1891343A007DBB1E /* InfoAboutTheApplicationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

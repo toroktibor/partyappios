@@ -76,6 +76,7 @@
             MKPointAnnotation *needle = [[MKPointAnnotation alloc] init];
             needle.coordinate = theCoordinate;
             needle.title =@"Itt vagyok most!";
+            needle.subtitle=[[Session getInstance]getUserLocation];
             [map addAnnotation:needle];
         }
     }];
@@ -161,7 +162,7 @@
     if (buttonIndex == 1) {
         
         [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
-        NSInteger * user_id = [[[Session getInstance] getActualUser] getID];
+        int user_id = [[[Session getInstance] getActualUser] getID];
         NSMutableArray * favoriteClubList = [[[Session getInstance] getCommunication] getFavoriteClubsFromUserId:user_id];
         [[Session getInstance] setSearchViewCLubs:favoriteClubList];
         
@@ -184,6 +185,11 @@
         
         //lista frissítése saját helyekre
         [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
+        
+        int user_id = [[[Session getInstance] getActualUser] getID];
+        NSMutableArray * ownClubList = [[[Session getInstance] getCommunication] getOwnedClubsFromUserId:user_id];
+        [[Session getInstance] setSearchViewCLubs:ownClubList];
+        
         
         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
         
