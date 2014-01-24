@@ -291,7 +291,7 @@ BowlingSelected,DjSelected,FoodSelected;
 - (IBAction)showActionSheet:(id)sender {
     
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
-                                              destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Hozzáadás",@"Helyeim",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];
+                                              destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Helyeim",@"Hely hozzáadása",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];
     
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
@@ -362,7 +362,7 @@ BowlingSelected,DjSelected,FoodSelected;
         
         
         
-    } else if (buttonIndex == 2) {
+    } else if (buttonIndex == 3) {
         
         //új klubb hozzáadása nézet
         AddNewClubTableView *AddNewClubTableView=
@@ -371,7 +371,7 @@ BowlingSelected,DjSelected,FoodSelected;
         [self presentViewController:navController animated:YES completion:nil];
 
         
-    } else if (buttonIndex == 3) {
+    } else if (buttonIndex == 2) {
         
         //lista frissítése saját helyekre
         [[[Session getInstance]getSearchViewCLubs]removeAllObjects];

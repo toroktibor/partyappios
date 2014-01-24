@@ -224,7 +224,7 @@
         
         
         
-    } else if (buttonIndex == 2) {
+    } else if (buttonIndex == 3) {
         //új klubb hozzáadása
         
         AddNewClubTableView *AddNewClubTableView=
@@ -232,7 +232,7 @@
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:AddNewClubTableView];
         [self presentViewController:navController animated:YES completion:nil];
         
-    } else if (buttonIndex == 3) {
+    } else if (buttonIndex == 2) {
         
         //lista frissítése saját helyekre
          [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
@@ -289,7 +289,7 @@
     int szam=1;
     if (szam==1) {
         UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
-                                                  destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Hozzáadás",@"Helyeim",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];
+                                                  destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Helyeim",@"Hely hozzáadása",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];
         
         popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
         [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
