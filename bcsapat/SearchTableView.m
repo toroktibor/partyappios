@@ -19,7 +19,8 @@
 @end
 
 @implementation SearchTableView
-@synthesize nameTextField,typeLabel,addressTextField,danceSelected,snookerSelected,liveMusicSelected,sportBroadcastSelected;
+@synthesize nameTextField,typeLabel,addressTextField,danceSelected,snookerSelected,liveMusicSelected,sportBroadcastSelected,coctailBarSelected,wifiSelected,DartsSelected,
+BowlingSelected,DjSelected,FoodSelected;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -48,6 +49,12 @@
     liveMusicSelected=NO;
     sportBroadcastSelected=NO;
     snookerSelected=NO;
+    FoodSelected=NO;
+    DjSelected=NO;
+    BowlingSelected=NO;
+    DartsSelected=NO;
+    wifiSelected=NO;
+    coctailBarSelected=NO;
     
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
@@ -175,22 +182,103 @@
         }
     }
     else if (indexPath.section==3 && indexPath.row==3){
-        if (danceSelected==NO) {
+        if (FoodSelected==NO) {
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             cell.accessoryType=UITableViewCellAccessoryCheckmark;
             [self.tableView reloadData];
-            danceSelected=YES;
+            FoodSelected=YES;
         }
         else{
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             cell.accessoryType=UITableViewCellAccessoryNone;
             [self.tableView reloadData];
-            danceSelected=NO;
+            FoodSelected=NO;
         }
     }
-
-
-
+    else if (indexPath.section==3 && indexPath.row==4){
+        if (DjSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            DjSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            DjSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==5){
+        if (DartsSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            DartsSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            DartsSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==6){
+        if (BowlingSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            BowlingSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            BowlingSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==7){
+        if (wifiSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            wifiSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            wifiSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==8){
+        if (coctailBarSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            coctailBarSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            coctailBarSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==9){
+        if (DartsSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            DartsSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            DartsSelected=NO;
+        }
+    }
 }
 
 
@@ -339,5 +427,6 @@
     [super viewWillAppear:animated];
 }
 
+// biliárd, tánc, koktélbár, étel, élőzene, dj, darts, sport közvetítés, wifi, bowling
 
 @end

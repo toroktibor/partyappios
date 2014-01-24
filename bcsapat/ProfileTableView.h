@@ -20,5 +20,6 @@
 @property(nonatomic, retain) UITableView *tblTable;
 
 
+- (IBAction)back:(id)sender;
 
 @end

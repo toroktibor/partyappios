@@ -10,4 +10,5 @@
 
 @interface NotificationsView : UITableViewController
 
+- (IBAction)back:(id)sender;
 @end

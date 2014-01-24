@@ -26,6 +26,13 @@
 @property BOOL sportBroadcastSelected;
 @property BOOL snookerSelected;
 @property BOOL danceSelected;
+@property BOOL wifiSelected;
+@property BOOL BowlingSelected;
+@property BOOL DartsSelected;
+@property BOOL DjSelected;
+@property BOOL FoodSelected;
+@property BOOL coctailBarSelected;
+
 
 - (IBAction)showActionSheet:(id)sender;
 
