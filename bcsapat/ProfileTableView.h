@@ -17,5 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *birhdayLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sexLabel;
 
-- (IBAction)showActionSheet:(id)sender;
+@property(nonatomic, retain) UITableView *tblTable;
+
+
+
 @end

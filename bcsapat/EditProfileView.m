@@ -74,10 +74,14 @@
             [[[Session getInstance]getActualUser]setSex:0];
         }
         
-        ProfileTableView *ProfileTableView=
-        [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileTableView"];
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ProfileTableView];
-        [self presentViewController:navController animated:YES completion:nil];
+        
+        UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Rendben!"
+                                                             message:@"Adatok módosítva!"
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"Ok"
+                                                   otherButtonTitles: nil];
+        [alertview show];
+
     }
 }
 

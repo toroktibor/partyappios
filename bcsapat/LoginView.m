@@ -32,6 +32,14 @@
     [super viewDidLoad];
     
     
+   /* self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"iphone-wallpaper-black-wood-i5.png"]];
+    
+    UIImage *gradientImage44 = [[UIImage imageNamed:@"tab_bg.png"]
+                                resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    
+    [[UINavigationBar appearance] setBackgroundImage:gradientImage44
+                                        forBarMetrics:UIBarMetricsDefault];*/
+    
     //locationmanager a saját helyem meghatározásához
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;

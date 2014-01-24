@@ -14,6 +14,8 @@
 }
 
 @property NSString *clubName;
+
+
 - (IBAction)showActionSheet:(id)sender;
 
 @end

@@ -15,4 +15,5 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 
 - (IBAction)saveChanges:(id)sender;
+- (IBAction)cancel:(id)sender;
 @end

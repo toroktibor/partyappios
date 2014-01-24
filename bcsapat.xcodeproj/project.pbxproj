@@ -30,6 +30,11 @@
 		7AC9ECB618801D0100DBEEDB /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECB518801D0100DBEEDB /* LoginView.m */; };
 		7AC9ECC01880202000DBEEDB /* MenuClubListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECBF1880202000DBEEDB /* MenuClubListView.m */; };
 		7AC9ECC618802C0100DBEEDB /* MenuMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECC518802C0100DBEEDB /* MenuMapView.m */; };
+		7ACCC64B1892CAA1006B0A0C /* fXWFX.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ACCC64A1892CAA1006B0A0C /* fXWFX.png */; };
+		7ACCC64D1892CE3F006B0A0C /* navbar-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ACCC64C1892CE3F006B0A0C /* navbar-iphone.png */; };
+		7ACCC64F1892CE4B006B0A0C /* ZTLbr.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ACCC64E1892CE4B006B0A0C /* ZTLbr.png */; };
+		7ACCC6511892D11F006B0A0C /* iphone-wallpaper-black-wood-i5.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ACCC6501892D11F006B0A0C /* iphone-wallpaper-black-wood-i5.png */; };
+		7ACCC6531892D1C6006B0A0C /* tab_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ACCC6521892D1C6006B0A0C /* tab_bg.png */; };
 		7AD05424188959070058B94E /* EditProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD05423188959070058B94E /* EditProfileView.m */; };
 		7AD054271889596C0058B94E /* ChangePasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD054261889596C0058B94E /* ChangePasswordView.m */; };
 		7AD0542A18896F1B0058B94E /* PickerForSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD0542918896F1B0058B94E /* PickerForSearchView.m */; };
@@ -100,6 +105,11 @@
 		7AC9ECBF1880202000DBEEDB /* MenuClubListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuClubListView.m; sourceTree = "<group>"; };
 		7AC9ECC418802C0100DBEEDB /* MenuMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuMapView.h; sourceTree = "<group>"; };
 		7AC9ECC518802C0100DBEEDB /* MenuMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuMapView.m; sourceTree = "<group>"; };
+		7ACCC64A1892CAA1006B0A0C /* fXWFX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fXWFX.png; sourceTree = "<group>"; };
+		7ACCC64C1892CE3F006B0A0C /* navbar-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar-iphone.png"; sourceTree = "<group>"; };
+		7ACCC64E1892CE4B006B0A0C /* ZTLbr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZTLbr.png; sourceTree = "<group>"; };
+		7ACCC6501892D11F006B0A0C /* iphone-wallpaper-black-wood-i5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone-wallpaper-black-wood-i5.png"; sourceTree = "<group>"; };
+		7ACCC6521892D1C6006B0A0C /* tab_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_bg.png; sourceTree = "<group>"; };
 		7AD05422188959070058B94E /* EditProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileView.h; sourceTree = "<group>"; };
 		7AD05423188959070058B94E /* EditProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileView.m; sourceTree = "<group>"; };
 		7AD054251889596C0058B94E /* ChangePasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordView.h; sourceTree = "<group>"; };
@@ -217,6 +227,11 @@
 		7A43B8D4187C46F500725428 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7ACCC6521892D1C6006B0A0C /* tab_bg.png */,
+				7ACCC6501892D11F006B0A0C /* iphone-wallpaper-black-wood-i5.png */,
+				7ACCC64E1892CE4B006B0A0C /* ZTLbr.png */,
+				7ACCC64C1892CE3F006B0A0C /* navbar-iphone.png */,
+				7ACCC64A1892CAA1006B0A0C /* fXWFX.png */,
 				7AD8D147188EE28400783AE5 /* Nightclub-theme.jpg */,
 				7AD8D145188EE27C00783AE5 /* Bar.jpg */,
 				7AD05431188997570058B94E /* 1389999143_checked_checkbox.png */,
@@ -416,6 +431,11 @@
 				7AD05434188997680058B94E /* 1389999128_unchecked_checkbox.png in Resources */,
 				7AD8D146188EE27C00783AE5 /* Bar.jpg in Resources */,
 				7AD8D148188EE28400783AE5 /* Nightclub-theme.jpg in Resources */,
+				7ACCC64B1892CAA1006B0A0C /* fXWFX.png in Resources */,
+				7ACCC64D1892CE3F006B0A0C /* navbar-iphone.png in Resources */,
+				7ACCC64F1892CE4B006B0A0C /* ZTLbr.png in Resources */,
+				7ACCC6511892D11F006B0A0C /* iphone-wallpaper-black-wood-i5.png in Resources */,
+				7ACCC6531892D1C6006B0A0C /* tab_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

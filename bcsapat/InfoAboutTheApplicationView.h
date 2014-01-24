@@ -11,4 +11,5 @@
 @interface InfoAboutTheApplicationView : ViewController
 @property (weak, nonatomic) IBOutlet UITextView *informationText;
 
+- (IBAction)back:(id)sender;
 @end

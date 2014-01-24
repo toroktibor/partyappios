@@ -83,7 +83,6 @@
         
         NSLog(@"új jelszó: %@",[[[Session getInstance]getActualUser]getPassword]);
         
-        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 

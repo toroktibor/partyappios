@@ -302,8 +302,6 @@
         popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
         [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
         popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
-        
     }
-   
 }
 @end

@@ -105,18 +105,6 @@
 
 
 
-
-//a navigation bar jobb felső sarkában lévő gomb megnyomására az action sheet megjelenítése
-- (IBAction)showActionSheet:(id)sender {
-    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
-                                              destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Hozzáadás",@"Helyeim",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];
-    
-    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-    [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
-    popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
-}
-
-
 //action sheet gombjai váltanak a nézetek között
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
@@ -345,5 +333,14 @@
     }
 }*/
 
-
+//a navigation bar jobb felső sarkában lévő gomb megnyomására az action sheet megjelenítése
+- (IBAction)showActionSheet:(id)sender {
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
+                                              destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Hozzáadás",@"Helyeim",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];
+    
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
+    popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
+    
+}
 @end

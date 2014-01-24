@@ -16,7 +16,7 @@
 @end
 
 @implementation ProfileTableView
-@synthesize nameLabel,emailLabel,birhdayLabel,sexLabel;
+@synthesize nameLabel,emailLabel,birhdayLabel,sexLabel,tblTable;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -114,26 +114,18 @@
      */
 }
 
-- (IBAction)showActionSheet:(id)sender {
-    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
-                                              destructiveButtonTitle:nil otherButtonTitles:@"Szerkesztés", @"Jelszócsere", nil];
-    
-    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-    [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
-}
-
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
         
         EditProfileView *EditProfileView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"EditProfileView"];
-        [self presentViewController:EditProfileView animated:YES completion:nil];
+        [self.navigationController pushViewController:EditProfileView animated:YES];
         
     } else if (buttonIndex == 1) {
         ChangePasswordView *ChangePasswordView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"ChangePasswordView"];
-        [self presentViewController:ChangePasswordView animated:YES completion:nil];
+        [self.navigationController pushViewController:ChangePasswordView animated:YES];
         
     }
     
@@ -142,4 +134,23 @@
     }
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [nameLabel setText:[[[Session getInstance]getActualUser]getName]];
+    [emailLabel setText:[[[Session getInstance]getActualUser]getEmail]];
+    [birhdayLabel setText:[[[Session getInstance]getActualUser]getBirthday]];
+    [emailLabel setText:[[[Session getInstance]getActualUser]getEmail]];
+    
+    [super viewWillAppear:animated];
+    
+    
+}
+
+- (IBAction)showActionSheet:(id)sender {
+    
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
+                                              destructiveButtonTitle:nil otherButtonTitles:@"Szerkesztés", @"Jelszócsere", nil];
+    
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
+}
 @end
