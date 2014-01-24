@@ -21,7 +21,6 @@
 		7A43B8E4187C46F500725428 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A43B8E3187C46F500725428 /* Default-568h@2x.png */; };
 		7A43B8E7187C46F500725428 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A43B8E5187C46F500725428 /* MainStoryboard_iPhone.storyboard */; };
 		7A43B8EA187C46F500725428 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A43B8E8187C46F500725428 /* MainStoryboard_iPad.storyboard */; };
-		7A43B8ED187C46F500725428 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A43B8EC187C46F500725428 /* ViewController.m */; };
 		7A43B8F4187C519600725428 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8F3187C519600725428 /* MapKit.framework */; };
 		7A4FA9E5189160D000222870 /* DrinkOrFoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FA9E4189160D000222870 /* DrinkOrFoodView.m */; };
 		7A4FA9E81891963900222870 /* AddNewClubTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FA9E71891963900222870 /* AddNewClubTableView.m */; };
@@ -88,8 +87,6 @@
 		7A43B8E3187C46F500725428 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7A43B8E6187C46F500725428 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		7A43B8E9187C46F500725428 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		7A43B8EB187C46F500725428 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7A43B8EC187C46F500725428 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7A43B8F3187C519600725428 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7A4FA9E3189160D000222870 /* DrinkOrFoodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkOrFoodView.h; sourceTree = "<group>"; };
 		7A4FA9E4189160D000222870 /* DrinkOrFoodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkOrFoodView.m; sourceTree = "<group>"; };
@@ -214,6 +211,8 @@
 		7A43B8D3187C46F500725428 /* bcsapat */ = {
 			isa = PBXGroup;
 			children = (
+				7ACCC6551893176E006B0A0C /* Annotation for the map */,
+				7ACCC65418931720006B0A0C /* Pictures */,
 				7AD9411218885EA600EC78C9 /* BarsAndPubsAndRestaurants */,
 				7AD6856918841F6500D52D4A /* Database */,
 				7AC9ECBA18801EB600DBEEDB /* ReachFromActionSheet */,
@@ -227,22 +226,10 @@
 		7A43B8D4187C46F500725428 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7ACCC6521892D1C6006B0A0C /* tab_bg.png */,
-				7ACCC6501892D11F006B0A0C /* iphone-wallpaper-black-wood-i5.png */,
-				7ACCC64E1892CE4B006B0A0C /* ZTLbr.png */,
-				7ACCC64C1892CE3F006B0A0C /* navbar-iphone.png */,
-				7ACCC64A1892CAA1006B0A0C /* fXWFX.png */,
-				7AD8D147188EE28400783AE5 /* Nightclub-theme.jpg */,
-				7AD8D145188EE27C00783AE5 /* Bar.jpg */,
-				7AD05431188997570058B94E /* 1389999143_checked_checkbox.png */,
-				7AD05433188997680058B94E /* 1389999128_unchecked_checkbox.png */,
-				7AD0542B1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg */,
 				7A43B8DC187C46F500725428 /* AppDelegate.h */,
 				7A43B8DD187C46F500725428 /* AppDelegate.m */,
 				7A43B8E5187C46F500725428 /* MainStoryboard_iPhone.storyboard */,
 				7A43B8E8187C46F500725428 /* MainStoryboard_iPad.storyboard */,
-				7A43B8EB187C46F500725428 /* ViewController.h */,
-				7A43B8EC187C46F500725428 /* ViewController.m */,
 				7A43B8D5187C46F500725428 /* bcsapat-Info.plist */,
 				7A43B8D6187C46F500725428 /* InfoPlist.strings */,
 				7A43B8D9187C46F500725428 /* main.m */,
@@ -250,8 +237,6 @@
 				7A43B8DF187C46F500725428 /* Default.png */,
 				7A43B8E1187C46F500725428 /* Default@2x.png */,
 				7A43B8E3187C46F500725428 /* Default-568h@2x.png */,
-				7AD7E5371886ABA200656FCF /* MyAnnotation.h */,
-				7AD7E5381886ABA200656FCF /* MyAnnotation.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -301,6 +286,32 @@
 				7A4FA9E71891963900222870 /* AddNewClubTableView.m */,
 			);
 			name = ReachFromActionSheet;
+			sourceTree = "<group>";
+		};
+		7ACCC65418931720006B0A0C /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				7ACCC6521892D1C6006B0A0C /* tab_bg.png */,
+				7ACCC6501892D11F006B0A0C /* iphone-wallpaper-black-wood-i5.png */,
+				7ACCC64E1892CE4B006B0A0C /* ZTLbr.png */,
+				7ACCC64C1892CE3F006B0A0C /* navbar-iphone.png */,
+				7ACCC64A1892CAA1006B0A0C /* fXWFX.png */,
+				7AD8D147188EE28400783AE5 /* Nightclub-theme.jpg */,
+				7AD8D145188EE27C00783AE5 /* Bar.jpg */,
+				7AD05431188997570058B94E /* 1389999143_checked_checkbox.png */,
+				7AD05433188997680058B94E /* 1389999128_unchecked_checkbox.png */,
+				7AD0542B1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg */,
+			);
+			name = Pictures;
+			sourceTree = "<group>";
+		};
+		7ACCC6551893176E006B0A0C /* Annotation for the map */ = {
+			isa = PBXGroup;
+			children = (
+				7AD7E5371886ABA200656FCF /* MyAnnotation.h */,
+				7AD7E5381886ABA200656FCF /* MyAnnotation.m */,
+			);
+			name = "Annotation for the map";
 			sourceTree = "<group>";
 		};
 		7AD6856918841F6500D52D4A /* Database */ = {
@@ -448,7 +459,6 @@
 			files = (
 				7A43B8DA187C46F500725428 /* main.m in Sources */,
 				7A43B8DE187C46F500725428 /* AppDelegate.m in Sources */,
-				7A43B8ED187C46F500725428 /* ViewController.m in Sources */,
 				7AC9ECAD188015B800DBEEDB /* NotificationsView.m in Sources */,
 				7AC9ECB618801D0100DBEEDB /* LoginView.m in Sources */,
 				7AC9ECC01880202000DBEEDB /* MenuClubListView.m in Sources */,
