@@ -148,7 +148,7 @@
 - (IBAction)showActionSheet:(id)sender {
     
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
-                                              destructiveButtonTitle:nil otherButtonTitles:@"Szerkesztés", @"Jelszócsere", nil];
+                                              destructiveButtonTitle:nil otherButtonTitles:@"Szerkesztés", @"Jelszó megváltoztatása", nil];
     
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
