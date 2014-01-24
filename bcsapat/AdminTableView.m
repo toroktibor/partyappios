@@ -1,24 +1,18 @@
 //
-//  FoodsAndDrinksTableView.m
+//  AdminTableView.m
 //  bcsapat
 //
-//  Created by hallgato on 1/22/14.
+//  Created by hallgato on 1/24/14.
 //  Copyright (c) 2014 hallgato. All rights reserved.
 //
 
-#import "FoodsAndDrinksTableView.h"
-#import "Session.h"
-#import "Club.h"
-#import "MenuItem.h"
-#import "DrinkOrFoodView.h"
-#import "User.h"
+#import "AdminTableView.h"
 
-@interface FoodsAndDrinksTableView ()
+@interface AdminTableView ()
 
 @end
 
-@implementation FoodsAndDrinksTableView
-@synthesize menuItemsArray,addNewMenuItem;
+@implementation AdminTableView
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -38,19 +32,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    menuItemsArray=[[NSMutableArray alloc]init];
-    
-    int selectedIndex=[[Session getInstance]getSelectedIndex];
-    Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
-    
-    menuItemsArray=[club getMenuItems];
-    
-    //jobb felső sarokban hozzáadás gomb elrejtése, adminra van vizsgálva, majd átt kell írni user-ra
-    if ([[[Session getInstance]getActualUser]getType]==0) {
-        self.navigationItem.rightBarButtonItem=nil;
-    }
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,33 +44,22 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [menuItemsArray count];
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"MenuItemCell";
+    static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-
-   cell.textLabel.text=[[menuItemsArray objectAtIndex:indexPath.row]getMenuItemName];
-   
-    int price=[[menuItemsArray objectAtIndex:indexPath.row]getPrice];
-    NSString * unit=[[menuItemsArray objectAtIndex:indexPath.row]getUnit];
-    NSString * currency=[[menuItemsArray objectAtIndex:indexPath.row]getCurrency];
-    
-    cell.detailTextLabel.text=[NSString stringWithFormat:@"%d%@/%@",price,unit,currency];
-    
     
     // Configure the cell...
     
@@ -146,12 +116,6 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-    
-    [[Session getInstance]setMenuItemIndex:indexPath.row];
-    
-    DrinkOrFoodView *DrinkOrFoodView =
-    [self.storyboard instantiateViewControllerWithIdentifier:@"DrinkOrFoodView"];
-    [self.navigationController pushViewController:DrinkOrFoodView animated:YES];
 }
 
 @end

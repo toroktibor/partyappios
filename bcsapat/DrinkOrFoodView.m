@@ -7,12 +7,16 @@
 //
 
 #import "DrinkOrFoodView.h"
+#import "Session.h"
+#import "Club.h"
+#import "MenuItem.h"
 
 @interface DrinkOrFoodView ()
 
 @end
 
 @implementation DrinkOrFoodView
+@synthesize nameLabel,categoryLabel,priceLabel,currencyLabel,unitLabel,discountLabel;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,7 +36,24 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-      
+    
+    NSMutableArray * menuItemsArray=[[NSMutableArray alloc]init];
+    
+    int selectedIndex=[[Session getInstance]getSelectedIndex];
+    Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+    
+    menuItemsArray=[club getMenuItems];
+    
+    int itemIndex=[[Session getInstance]getMenuItemIndex];
+    
+    MenuItem *item=[menuItemsArray objectAtIndex:itemIndex];
+    
+    nameLabel.text=[item getMenuItemName];
+    categoryLabel.text=[item getMenuItemCategory];
+    currencyLabel.text=[item getCurrency];
+    priceLabel.text=[NSString stringWithFormat:@"%d",[item getPrice]];
+    unitLabel.text=[item getUnit];
+    discountLabel.text=[NSString stringWithFormat:@"%d%%",[item getDiscount]];
     
 }
 

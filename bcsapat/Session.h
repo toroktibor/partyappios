@@ -21,11 +21,16 @@
     int SelectedIndex;
     NSString * userLocation;
     NSString *clubTypeForPicker;
+    int menuItemIndex;
 }
 
 +(void)deleteSession;
 
 +(Session *) getInstance;
+
+-(void)setMenuItemIndex:(int)itemIndex;
+
+-(int)getMenuItemIndex;
 
 -(void)setClubTypeForPicer:(NSString *)picker;
 

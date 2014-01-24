@@ -29,4 +29,8 @@
 
 -(NSString *)getUnit;
 
+-(int)getDiscount;
+
+-(NSString *)getMenuItemCategory;
+
 @end

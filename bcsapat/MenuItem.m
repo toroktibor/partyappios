@@ -43,4 +43,12 @@
     return unit;
 }
 
+-(NSString *)getMenuItemCategory{
+    return menu_category;
+}
+
+-(int)getDiscount{
+    return discount;
+}
+
 @end

@@ -11,5 +11,6 @@
 @interface FoodsAndDrinksTableView : UITableViewController
 
 @property NSMutableArray * menuItemsArray;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *addNewMenuItem;
 
 @end

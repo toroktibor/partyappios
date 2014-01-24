@@ -177,4 +177,12 @@
 }
 
 
+- (IBAction)back:(id)sender {
+    
+    UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+    
+    
+    tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController: tabBar animated: YES completion:nil];
+}
 @end
