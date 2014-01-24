@@ -19,7 +19,7 @@
 @end
 
 @implementation SearchTableView
-@synthesize danceCheckBox,snookerCheckBox,nameTextField,sportBroadcastCheckBox,liveMusicCheckBox,typeLabel,addressTextField,danceSelected,snookerSelected,liveMusicSelected,sportBroadcastSelected;
+@synthesize nameTextField,typeLabel,addressTextField,danceSelected,snookerSelected,liveMusicSelected,sportBroadcastSelected;
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -39,6 +39,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    typeLabel.text=[[Session getInstance]getClubTypeForPicker];
+    
     addressTextField.delegate=self;
     nameTextField.delegate=self;
     
@@ -53,25 +55,6 @@
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [locationManager startUpdatingLocation];
     
-    [danceCheckBox setBackgroundImage:[UIImage imageNamed:@"1389999128_unchecked_checkbox.png"]
-                           forState:UIControlStateNormal];
-    [danceCheckBox setBackgroundImage:[UIImage imageNamed:@"1389999143_checked_checkbox.png"]
-                           forState:UIControlStateSelected];
-    
-    [snookerCheckBox setBackgroundImage:[UIImage imageNamed:@"1389999128_unchecked_checkbox.png"]
-                             forState:UIControlStateNormal];
-    [snookerCheckBox setBackgroundImage:[UIImage imageNamed:@"1389999143_checked_checkbox.png"]
-                             forState:UIControlStateSelected];
-    
-    [sportBroadcastCheckBox setBackgroundImage:[UIImage imageNamed:@"1389999128_unchecked_checkbox.png"]
-                               forState:UIControlStateNormal];
-    [sportBroadcastCheckBox setBackgroundImage:[UIImage imageNamed:@"1389999143_checked_checkbox.png"]
-                               forState:UIControlStateSelected];
-    
-    [liveMusicCheckBox setBackgroundImage:[UIImage imageNamed:@"1389999128_unchecked_checkbox.png"]
-                                      forState:UIControlStateNormal];
-    [liveMusicCheckBox setBackgroundImage:[UIImage imageNamed:@"1389999143_checked_checkbox.png"]
-                                      forState:UIControlStateSelected];
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,12 +62,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-#pragma mark - Table view data source
-
-
-
-
 
 
 
@@ -155,6 +132,65 @@
         [self.storyboard instantiateViewControllerWithIdentifier:@"PickerForSearchView"];
         [self.navigationController pushViewController:PickerForSearchView animated:YES];
     }
+    else if (indexPath.section==3 && indexPath.row==0){
+        if (sportBroadcastSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            sportBroadcastSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            sportBroadcastSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==1){
+        if (liveMusicSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            liveMusicSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            liveMusicSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==2){
+        if (snookerSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            snookerSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            snookerSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==3){
+        if (danceSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            danceSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            danceSelected=NO;
+        }
+    }
+
+
+
 }
 
 
@@ -164,35 +200,17 @@
     return YES;
 }
 
-- (IBAction)danceCheck:(id)sender {
-    danceSelected=!danceSelected;
-    [danceCheckBox setSelected:danceSelected];
-    
-}
-
-- (IBAction)liveMusicCheck:(id)sender {
-    liveMusicSelected=!liveMusicSelected;
-    [liveMusicCheckBox setSelected:liveMusicSelected];
-}
-
-- (IBAction)sportBoradcastCheck:(id)sender {
-    sportBroadcastSelected=!sportBroadcastSelected;
-    [sportBroadcastCheckBox setSelected:sportBroadcastSelected];
-}
-
-- (IBAction)snookerCheck:(id)sender {
-    snookerSelected=!snookerSelected;
-    [snookerCheckBox setSelected:snookerSelected];
-}
 
 - (IBAction)showActionSheet:(id)sender {
+    
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
                                               destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Hozzáadás",@"Helyeim",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];
     
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
-    //popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
+
 }
+
 
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -313,6 +331,12 @@
     else if (buttonIndex == 7) {
         // NSLog(@"Mégse");
     }
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    typeLabel.text=[[Session getInstance]getClubTypeForPicker];
+    
+    [super viewWillAppear:animated];
 }
 
 

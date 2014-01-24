@@ -20,11 +20,16 @@
     BOOL isOnline;
     int SelectedIndex;
     NSString * userLocation;
+    NSString *clubTypeForPicker;
 }
 
 +(void)deleteSession;
 
 +(Session *) getInstance;
+
+-(void)setClubTypeForPicer:(NSString *)picker;
+
+-(NSString *)getClubTypeForPicker;
 
 -(User *)getActualUser;
 

@@ -8,6 +8,7 @@
 
 #import "PickerForSearchView.h"
 #import "SearchTableView.h"
+#import "Session.h"
 
 @interface PickerForSearchView ()
 
@@ -45,12 +46,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)ok:(id)sender {
-    
-    
-    
-}
-
 
 
 //meg mondja hány oszlopból tudjunk választani
@@ -81,6 +76,8 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
     result = [types objectAtIndex:row];
+    
+    [[Session getInstance]setClubTypeForPicer:result];
     
 }
 

@@ -14,5 +14,4 @@
 @property NSArray *types;
 @property NSString * result;
 
-- (IBAction)ok:(id)sender;
 @end

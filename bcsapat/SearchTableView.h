@@ -14,10 +14,10 @@
 }
 
 
-@property (weak, nonatomic) IBOutlet UIButton *liveMusicCheckBox;
-@property (weak, nonatomic) IBOutlet UIButton *sportBroadcastCheckBox;
-@property (weak, nonatomic) IBOutlet UIButton *snookerCheckBox;
-@property (weak, nonatomic) IBOutlet UIButton *danceCheckBox;
+
+
+
+
 @property (weak, nonatomic) IBOutlet UITextField *addressTextField;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -27,12 +27,6 @@
 @property BOOL snookerSelected;
 @property BOOL danceSelected;
 
-
-
-- (IBAction)danceCheck:(id)sender;
-- (IBAction)liveMusicCheck:(id)sender;
-- (IBAction)sportBoradcastCheck:(id)sender;
-- (IBAction)snookerCheck:(id)sender;
-
 - (IBAction)showActionSheet:(id)sender;
+
 @end

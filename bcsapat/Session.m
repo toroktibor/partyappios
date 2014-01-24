@@ -104,6 +104,14 @@ static Session * _instance = nil;
     return userLocation;
 }
 
+-(NSString *)getClubTypeForPicker{
+    return clubTypeForPicker;
+}
+
+-(void)setClubTypeForPicer:(NSString *)picker{
+    clubTypeForPicker=picker;
+}
+
 +(id)alloc {
     @synchronized([Session class]) {
         NSAssert(_instance == nil, @"oops... Mar van ilyen peldany");
@@ -122,6 +130,7 @@ static Session * _instance = nil;
         databaseConnection = [[MyDatabase alloc] initWithPath:path];
         actualCommunication = [[SillyCommunication alloc] init];
         searchViewCLubs = [[NSMutableArray alloc]init];
+        clubTypeForPicker=@"Szórakozóhely típusa";
     }
     return self;
 }
