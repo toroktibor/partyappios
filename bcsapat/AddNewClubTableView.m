@@ -8,12 +8,15 @@
 
 #import "AddNewClubTableView.h"
 #import "NewTypePickerView.h"
+#import "Session.h"
 
 @interface AddNewClubTableView ()
 
 @end
 
 @implementation AddNewClubTableView
+@synthesize nameText,addressText,typeLabel,danceSelected,snookerSelected,liveMusicSelected,sportBroadcastSelected,coctailBarSelected,wifiSelected,DartsSelected,
+BowlingSelected,DjSelected,FoodSelected;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,6 +36,22 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+    addressText.delegate=self;
+    nameText.delegate=self;
+    
+    
+    danceSelected=NO;
+    liveMusicSelected=NO;
+    sportBroadcastSelected=NO;
+    snookerSelected=NO;
+    FoodSelected=NO;
+    DjSelected=NO;
+    BowlingSelected=NO;
+    DartsSelected=NO;
+    wifiSelected=NO;
+    coctailBarSelected=NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -101,10 +120,165 @@
         [self.storyboard instantiateViewControllerWithIdentifier:@"NewTypePickerView"];
         [self.navigationController pushViewController:NewTypePickerView animated:YES];
     }
+    else if (indexPath.section==3 && indexPath.row==0){
+        if (sportBroadcastSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            sportBroadcastSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            sportBroadcastSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==1){
+        if (liveMusicSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            liveMusicSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            liveMusicSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==2){
+        if (snookerSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            snookerSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            snookerSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==3){
+        if (FoodSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            FoodSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            FoodSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==4){
+        if (DjSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            DjSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            DjSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==5){
+        if (DartsSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            DartsSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            DartsSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==6){
+        if (BowlingSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            BowlingSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            BowlingSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==7){
+        if (wifiSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            wifiSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            wifiSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==8){
+        if (coctailBarSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            coctailBarSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            coctailBarSelected=NO;
+        }
+    }
+    else if (indexPath.section==3 && indexPath.row==9){
+        if (DartsSelected==NO) {
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            [self.tableView reloadData];
+            DartsSelected=YES;
+        }
+        else{
+            UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType=UITableViewCellAccessoryNone;
+            [self.tableView reloadData];
+            DartsSelected=NO;
+        }
+    }
+
 }
 
 - (IBAction)back:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    typeLabel.text=[[Session getInstance]getClubTypeForPicker];
+    [super viewWillAppear:animated];
+}
+
 @end

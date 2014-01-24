@@ -32,7 +32,7 @@
 	// Do any additional setup after loading the view.
     
     //a types tömbben tároljuk a lehetesőg, amelyek közül lehet pickelni
-    types = [[NSArray alloc] initWithObjects:@"Étterem", @"Kocsma", @"Kávézó",nil];
+    types = [[NSArray alloc] initWithObjects:@"Étterem", @"Kocsma", @"Kávézó",@"Pub",@"Club",@"Sport közpönt",@"Disco",nil];
     
     typePicker.delegate = self;
     typePicker.dataSource = self;

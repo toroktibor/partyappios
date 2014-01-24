@@ -40,7 +40,6 @@ BowlingSelected,DjSelected,FoodSelected;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    typeLabel.text=[[Session getInstance]getClubTypeForPicker];
     
     addressTextField.delegate=self;
     nameTextField.delegate=self;
