@@ -10,7 +10,7 @@
 
 @implementation Club
 
-- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_ andDate:(NSString *) date_
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_ andDate:(NSString *) date_ andApproved:(int)approved_
 {
     self = [super init];
     if(self)
@@ -23,6 +23,7 @@
         phonenumber = phonenumber_;
         email = email_;
         date = date_;
+        approved=approved_;
     }
     return self;
 }
@@ -75,6 +76,14 @@
 
 -(NSString *)getDescription{
     return description;
+}
+
+-(int)getApproved{
+    return approved;
+}
+
+-(void)setApproved:(int)approved_{
+    approved=approved_;
 }
 
 -(void)setOwnerIds{

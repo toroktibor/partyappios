@@ -17,6 +17,7 @@
     NSString * phonenumber;
     NSString * email;
     NSString * date;
+    int approved;
 
     
     NSMutableArray * ownerIds;
@@ -37,13 +38,15 @@
 -(NSString *) getEmail;
 -(NSString *) getPhoneNumber;
 -(NSString *) getDescription;
+-(int)getApproved;
 
 -(void)setOwnerIds;
 -(void)setMenuItems:(NSMutableArray*) inMenuItems;
 -(void)setRatings;
 -(void)setEvents;
 -(void)setServices;
-- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_ andDate:(NSString *) date_;
+-(void)setApproved:(int)approved_;
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_ andDate:(NSString *) date_ andApproved:(int) approved_;
 
 
 @end

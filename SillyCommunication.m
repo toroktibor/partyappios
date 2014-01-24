@@ -19,18 +19,18 @@
 - (id)init
 {
     users = [[NSMutableArray alloc] init];
-    User * auser = [[User alloc] initWithId:0 andNickName:@"a" andPassword:@"a" andEmail:@"a@a.com" andSex:0 andBirthday:@"1990.01.01" andType:0];
+    User * auser = [[User alloc] initWithId:0 andNickName:@"a" andPassword:@"a" andEmail:@"a@a.com" andSex:0 andBirthday:@"1990.01.01" andType:1];
     [users addObject:auser];
     User * buser = [[User alloc] initWithId:0 andNickName:@"b" andPassword:@"b" andEmail:@"b@b.com" andSex:0 andBirthday:@"1991.01.01" andType:0];
     [users addObject:buser];
-    User * cuser = [[User alloc] initWithId:0 andNickName:@"c" andPassword:@"c" andEmail:@"c@c.com" andSex:0 andBirthday:@"1992.01.01" andType:1];
+    User * cuser = [[User alloc] initWithId:0 andNickName:@"c" andPassword:@"c" andEmail:@"c@c.com" andSex:0 andBirthday:@"1992.01.01" andType:0];
     [users addObject:cuser];
 
     clubs = [[NSMutableArray alloc]init];
-    Club * aclub = [[Club alloc] initWithId:0 andName:@"F@sz Kivan" andType:@"Kocsma" andDescription:@"Kicsit ideges vagyok mostmár!!!" andAddress:@"Debrecen, Kishegyesi utca 1" andPhonenumber:@"06306665556" andEmail:@"isten@f.a" andDate:@"2000.01.01"];
-    Club * bclub = [[Club alloc] initWithId:1 andName:@"Almácska" andType:@"Elithely" andDescription:@"Kicsit sem igényes hely." andAddress:@"Debrecen, Miklós utca 10" andPhonenumber:@"06306665559" andEmail:@"isten@f.sza" andDate:@"2000.01.01"];
-    Club * cclub = [[Club alloc] initWithId:2 andName:@"Le'Programozlak" andType:@"Elithely" andDescription:@"Kicsit sem igényes hely." andAddress:@"Debrecen, Piac utca 2" andPhonenumber:@"06306665559" andEmail:@"isten@f.sza" andDate:@"2000.01.01"];
-    Club * dclub = [[Club alloc] initWithId:3 andName:@"Bp ugra-bugra" andType:@"Elithely" andDescription:@"Kicsit sem igényes hely." andAddress:@"Budapest, Petőfi utca 1" andPhonenumber:@"06306665559" andEmail:@"isten@f.sza" andDate:@"2000.01.01"];
+    Club * aclub = [[Club alloc] initWithId:0 andName:@"F@sz Kivan" andType:@"Kocsma" andDescription:@"Kicsit ideges vagyok mostmár!!!" andAddress:@"Debrecen, Kishegyesi utca 1" andPhonenumber:@"06306665556" andEmail:@"isten@f.a" andDate:@"2000.01.01" andApproved:1];
+    Club * bclub = [[Club alloc] initWithId:1 andName:@"Almácska" andType:@"Elithely" andDescription:@"Kicsit sem igényes hely." andAddress:@"Debrecen, Miklós utca 10" andPhonenumber:@"06306665559" andEmail:@"isten@f.sza" andDate:@"2000.01.01" andApproved:0];
+    Club * cclub = [[Club alloc] initWithId:2 andName:@"Le'Programozlak" andType:@"Elithely" andDescription:@"Kicsit sem igényes hely." andAddress:@"Debrecen, Piac utca 2" andPhonenumber:@"06306665559" andEmail:@"isten@f.sza" andDate:@"2000.01.01" andApproved:0];
+    Club * dclub = [[Club alloc] initWithId:3 andName:@"Bp ugra-bugra" andType:@"Elithely" andDescription:@"Kicsit sem igényes hely." andAddress:@"Budapest, Petőfi utca 1" andPhonenumber:@"06306665559" andEmail:@"isten@f.sza" andDate:@"2000.01.01" andApproved:0];
     
    NSMutableArray * itemArray = [[NSMutableArray alloc] init];
     MenuItem * amenuItem = [[MenuItem alloc] initWithId:0 andName:@"Szar" andPrice:100 andCurrency:@"HUF" andUnit:@"liter" andDiscount:0 andMenuCategory:@"Desszert" andMenuSort:0];

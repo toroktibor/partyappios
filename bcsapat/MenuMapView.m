@@ -14,6 +14,7 @@
 #import "Session.h"
 #import "Club.h"
 #import "AddNewClubTableView.h"
+#import "User.h"
 
 @interface MenuMapView ()
 
@@ -85,6 +86,10 @@
     
     
     for (int i=0; i<[[[Session getInstance]getSearchViewCLubs]count]; ++i) {
+        if ([[[Session getInstance]getActualUser]getType]==1) {
+            [self setLocations:[[[Session getInstance]getSearchViewCLubs]objectAtIndex:i]];
+        }
+        else if ([[[Session getInstance]getSelectedClubAtIndex:i]getApproved]==1)
         [self setLocations:[[[Session getInstance]getSearchViewCLubs]objectAtIndex:i]];
     }
    
@@ -245,6 +250,7 @@
             annotation.coordinate=theCoordinate;
             annotation.title=[club getClubName];
             annotation.subtitle=[club getAddress];
+            annotation.approved=[club getApproved];
             //[container addObject:annotation];
             [map addAnnotation:annotation];
         }
@@ -287,11 +293,16 @@
     }*/
     
     
+    
     if ([annotation.title isEqualToString:@"Itt vagyok most!"]) {
-        newAnnotation.pinColor = MKPinAnnotationColorGreen;
+        newAnnotation.pinColor = MKPinAnnotationColorPurple;
+    }
+    else if ([(MyAnnotation*)annotation getApproved]==0){
+        newAnnotation.pinColor = MKPinAnnotationColorRed;
+        newAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     }
     else{
-        newAnnotation.pinColor = MKPinAnnotationColorRed;
+        newAnnotation.pinColor = MKPinAnnotationColorGreen;
         newAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     }
     

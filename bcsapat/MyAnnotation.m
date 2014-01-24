@@ -10,7 +10,7 @@
 
 @implementation MyAnnotation
 
-@synthesize coordinate,subtitle,title;
+@synthesize coordinate,subtitle,title,approved;
 
 
 -(NSString *)getTitle{
@@ -19,5 +19,9 @@
 
 -(CLLocationCoordinate2D)getCoordinate{
     return self.coordinate;
+}
+
+-(int)getApproved{
+    return approved;
 }
 @end
