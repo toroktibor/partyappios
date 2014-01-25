@@ -39,7 +39,9 @@ BowlingSelected,DjSelected,FoodSelected;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
     
+    self.tableView.backgroundView = imageView;
     
     addressTextField.delegate=self;
     nameTextField.delegate=self;
@@ -69,6 +71,56 @@ BowlingSelected,DjSelected,FoodSelected;
     // Dispose of any resources that can be recreated.
 }
 
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 40)];
+    UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 30)];
+    
+    if (section==0) {
+        titleLabel.text = @"Név";
+        
+        titleLabel.textColor = [UIColor whiteColor];
+        
+        titleLabel.backgroundColor = [UIColor colorWithRed:154.0 green:111.0 blue:189.0 alpha:0];
+        
+        [headerView addSubview:titleLabel];
+    }
+    if (section==1) {
+        titleLabel.text = @"Cím";
+        
+        titleLabel.textColor = [UIColor whiteColor];
+        
+        titleLabel.backgroundColor = [UIColor colorWithRed:154.0 green:111.0 blue:189.0 alpha:0];
+        
+        [headerView addSubview:titleLabel];
+    }
+    if (section==2) {
+        titleLabel.text = @"Típus";
+        
+        titleLabel.textColor = [UIColor whiteColor];
+        
+        titleLabel.backgroundColor = [UIColor colorWithRed:154.0 green:111.0 blue:189.0 alpha:0];
+        
+        [headerView addSubview:titleLabel];
+    }
+    if (section==3) {
+        titleLabel.text = @"Szolgáltatások";
+        
+        titleLabel.textColor = [UIColor whiteColor];
+        
+        titleLabel.backgroundColor = [UIColor colorWithRed:154.0 green:111.0 blue:189.0 alpha:0];
+        
+        [headerView addSubview:titleLabel];
+    }
+
+    return headerView;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.backgroundColor = [UIColor colorWithRed:(47/255.0) green:(50/255.0) blue:(66/255.0) alpha:0.5];
+}
 
 
 /*

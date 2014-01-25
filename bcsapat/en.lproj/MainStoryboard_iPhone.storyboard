@@ -30,13 +30,14 @@
                                             <segue destination="8JB-Fo-n7j" kind="modal" modalTransitionStyle="partialCurl" id="q7s-E4-E8c"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEe-Cn-z81">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eEe-Cn-z81">
+                                        <color key="backgroundColor" red="0.60392156862745094" green="0.43529411764705883" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="120" id="6sP-AN-Pni"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Bejelentkezés">
-                                            <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -68,8 +69,8 @@
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Felhasználónév:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAw-n5-4IK">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="31" id="5JN-hP-3yd"/>
                                             <constraint firstAttribute="width" constant="156" id="8Sr-xE-NEg"/>
+                                            <constraint firstAttribute="height" constant="31" id="Kj2-H0-TB9"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -81,16 +82,17 @@
                                     <constraint firstItem="qTN-eo-cJP" firstAttribute="top" secondItem="JAs-Lz-b8g" secondAttribute="top" constant="120" id="3uT-8X-8PR"/>
                                     <constraint firstItem="rjP-NJ-1hd" firstAttribute="leading" secondItem="JAs-Lz-b8g" secondAttribute="leading" constant="166" id="8S1-NB-f9N"/>
                                     <constraint firstItem="9p9-Fl-FeF" firstAttribute="top" secondItem="JAs-Lz-b8g" secondAttribute="top" constant="152" id="C3Q-fb-viZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="eEe-Cn-z81" secondAttribute="bottom" constant="236" id="CnE-Kh-sWh"/>
                                     <constraint firstItem="9p9-Fl-FeF" firstAttribute="trailing" secondItem="0IH-rY-lL0" secondAttribute="trailing" type="default" id="GAR-zm-3rx"/>
+                                    <constraint firstItem="rjP-NJ-1hd" firstAttribute="bottom" secondItem="eEe-Cn-z81" secondAttribute="bottom" type="default" id="Jhl-Xf-Y2s"/>
                                     <constraint firstAttribute="trailing" secondItem="rjP-NJ-1hd" secondAttribute="trailing" constant="34" id="OXe-br-yjJ"/>
                                     <constraint firstItem="eEe-Cn-z81" firstAttribute="top" secondItem="JAs-Lz-b8g" secondAttribute="top" constant="225" id="XMm-Iy-9dU"/>
                                     <constraint firstItem="qTN-eo-cJP" firstAttribute="leading" secondItem="9p9-Fl-FeF" secondAttribute="leading" type="default" id="d06-vb-xyN"/>
                                     <constraint firstItem="eEe-Cn-z81" firstAttribute="leading" secondItem="JAs-Lz-b8g" secondAttribute="leading" constant="31" id="fPr-SH-1ID"/>
+                                    <constraint firstItem="eEe-Cn-z81" firstAttribute="centerY" secondItem="rjP-NJ-1hd" secondAttribute="centerY" type="default" id="iex-Qb-vBv"/>
+                                    <constraint firstAttribute="bottom" secondItem="eEe-Cn-z81" secondAttribute="bottom" constant="235" id="s0K-QZ-unD"/>
                                     <constraint firstItem="IAw-n5-4IK" firstAttribute="top" secondItem="JAs-Lz-b8g" secondAttribute="top" constant="26" id="uKc-4U-7J5"/>
                                     <constraint firstItem="0IH-rY-lL0" firstAttribute="top" secondItem="IAw-n5-4IK" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="w1b-Pe-RdY"/>
                                     <constraint firstItem="0IH-rY-lL0" firstAttribute="leading" secondItem="qTN-eo-cJP" secondAttribute="leading" type="default" id="xZa-i0-oh7"/>
-                                    <constraint firstItem="rjP-NJ-1hd" firstAttribute="baseline" secondItem="eEe-Cn-z81" secondAttribute="baseline" type="default" id="xic-K0-2sB"/>
                                     <constraint firstItem="IAw-n5-4IK" firstAttribute="leading" secondItem="JAs-Lz-b8g" secondAttribute="leading" constant="59" id="y9o-Lc-Vd5"/>
                                 </constraints>
                             </scrollView>
@@ -98,6 +100,7 @@
                                 <items>
                                     <navigationItem title="Bejelentkezés" id="08N-ky-Eug">
                                         <barButtonItem key="rightBarButtonItem" title="Infó" id="waH-cC-Y2f">
+                                            <color key="tintColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.3909386405109489" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <segue destination="KU7-ZQ-q2m" kind="modal" modalTransitionStyle="coverVertical" id="r0h-6r-RGy"/>
                                             </connections>
@@ -1078,11 +1081,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="ClubListViewCell" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ClubListViewCell" textLabel="Ziq-Nh-ssM" detailTextLabel="gmq-Ee-O6G" style="IBUITableViewCellStyleSubtitle" id="tZT-cE-C4t">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="ClubListViewCell" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ClubListViewCell" textLabel="Ziq-Nh-ssM" detailTextLabel="gmq-Ee-O6G" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="tZT-cE-C4t">
+                                <rect key="frame" x="0.0" y="22" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ziq-Nh-ssM">
@@ -1102,7 +1105,8 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Szórakozóhelyek" id="NCc-gL-gte">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Zpi-zC-C7i">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="Zpi-zC-C7i">
+                            <color key="tintColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="showActionSheet:" destination="F1b-UP-wfZ" id="9n4-Id-8VI"/>
                             </connections>
@@ -1325,7 +1329,7 @@
         <scene sceneID="dOB-Vj-rV5">
             <objects>
                 <navigationController definesPresentationContext="YES" id="e9N-oi-nd0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Képek" id="bpA-nx-hfn"/>
+                    <tabBarItem key="tabBarItem" title="Képek" image="ic_action_camera.png" id="bpA-nx-hfn"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TsI-fC-e5S">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1701,7 +1705,7 @@ EEVzZW3DqW55ZWs
         <scene sceneID="sOP-62-enB">
             <objects>
                 <navigationController definesPresentationContext="YES" id="4y1-6w-WXj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Információk" id="oes-T3-3mU"/>
+                    <tabBarItem key="tabBarItem" title="Információk" image="ic_action_about.png" id="oes-T3-3mU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fPV-LV-X6P">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2443,11 +2447,11 @@ EEVzZW3DqW55ZWs
             </objects>
             <point key="canvasLocation" x="1924" y="-3357"/>
         </scene>
-        <!--Navigation Controller - Lista-->
+        <!--Navigation Controller - Szórakozóhelyek-->
         <scene sceneID="h8o-4Z-dga">
             <objects>
                 <navigationController definesPresentationContext="YES" id="ire-fD-ics" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Lista" id="lAy-6W-EaX"/>
+                    <tabBarItem key="tabBarItem" title="Szórakozóhelyek" image="ic_action_view_as_list.png" id="lAy-6W-EaX"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xmJ-kn-Prq">
                         <autoresizingMask key="autoresizingMask"/>
@@ -2491,7 +2495,7 @@ EEVzZW3DqW55ZWs
             </objects>
             <point key="canvasLocation" x="-319" y="1532"/>
         </scene>
-        <!--Search Table View - Kereső-->
+        <!--Search Table View - Keresés-->
         <scene sceneID="JKy-QN-wJN">
             <objects>
                 <tableViewController restorationIdentifier="SearchTableView" storyboardIdentifier="SearchTableView" id="DUi-HZ-L1f" customClass="SearchTableView" sceneMemberID="viewController">
@@ -2514,7 +2518,7 @@ EEVzZW3DqW55ZWs
                                                         <constraint firstAttribute="width" constant="280" id="Fag-7i-3Ue"/>
                                                         <constraint firstAttribute="height" constant="30" id="t7h-Hk-V4o"/>
                                                     </constraints>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -2542,6 +2546,7 @@ EEVzZW3DqW55ZWs
                                                         <constraint firstAttribute="width" constant="280" id="Upi-Uu-hvn"/>
                                                         <constraint firstAttribute="height" constant="30" id="rSE-Gp-9LC"/>
                                                     </constraints>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -2570,7 +2575,7 @@ EEVzZW3DqW55ZWs
                                                         <constraint firstAttribute="width" constant="231" id="pvn-oe-3Oe"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -2597,7 +2602,7 @@ EEVzZW3DqW55ZWs
                                                         <constraint firstAttribute="width" constant="220" id="quT-mJ-KNJ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -2620,7 +2625,7 @@ EEVzZW3DqW55ZWs
                                                         <constraint firstAttribute="width" constant="200" id="Rce-zl-0La"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -2643,7 +2648,7 @@ EEVzZW3DqW55ZWs
                                                         <constraint firstAttribute="width" constant="127" id="VMj-Fm-RjV"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -2666,7 +2671,7 @@ EEVzZW3DqW55ZWs
                                                         <constraint firstAttribute="width" constant="210" id="X3x-HR-nGf"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -2689,7 +2694,7 @@ EEVzZW3DqW55ZWs
                                                         <constraint firstAttribute="width" constant="210" id="JEn-2Q-Sk0"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -2712,7 +2717,7 @@ EEVzZW3DqW55ZWs
                                                         <constraint firstAttribute="width" constant="210" id="gLw-Am-i0b"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -2735,7 +2740,7 @@ EEVzZW3DqW55ZWs
                                                         <constraint firstAttribute="width" constant="210" id="neE-Kb-HNk"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -2758,7 +2763,7 @@ EEVzZW3DqW55ZWs
                                                         <constraint firstAttribute="width" constant="210" id="pEy-Hd-liM"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -2781,7 +2786,7 @@ EEVzZW3DqW55ZWs
                                                         <constraint firstAttribute="width" constant="210" id="eUg-a1-n81"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -2804,7 +2809,7 @@ EEVzZW3DqW55ZWs
                                                         <constraint firstAttribute="width" constant="210" id="z64-zf-piq"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -2831,7 +2836,7 @@ EEVzZW3DqW55ZWs
                                                         <constraint firstAttribute="width" constant="84" id="b1D-hc-bjO"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -2846,8 +2851,9 @@ EEVzZW3DqW55ZWs
                             </tableViewSection>
                         </sections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Kereső" id="GO7-0r-Ypi">
+                    <navigationItem key="navigationItem" title="Keresés" id="GO7-0r-Ypi">
                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="FdG-O5-WNC">
+                            <color key="tintColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="showActionSheet:" destination="DUi-HZ-L1f" id="VV3-e2-x1k"/>
                             </connections>
@@ -2869,7 +2875,7 @@ EEVzZW3DqW55ZWs
         <scene sceneID="DOc-Ok-rnO">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Rrv-Th-h7e" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Keresés" id="e5j-gU-YKn"/>
+                    <tabBarItem key="tabBarItem" title="Keresés" image="ic_action_search.png" id="e5j-gU-YKn"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DtN-92-r3k">
                         <autoresizingMask key="autoresizingMask"/>
@@ -2894,6 +2900,7 @@ EEVzZW3DqW55ZWs
                                 <items>
                                     <navigationItem title="Térkép" id="O54-oL-kCM">
                                         <barButtonItem key="rightBarButtonItem" systemItem="action" id="Oqw-8K-fMx">
+                                            <color key="tintColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="showActionSheet:" destination="eT2-vY-VFI" id="hCd-k5-qhv"/>
                                             </connections>
@@ -2914,7 +2921,7 @@ EEVzZW3DqW55ZWs
                             <constraint firstItem="uYc-cJ-lUK" firstAttribute="bottom" secondItem="WaR-hh-sCF" secondAttribute="bottom" type="default" id="YMg-Nc-ORN"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Térkép" id="Y90-JL-Br1"/>
+                    <tabBarItem key="tabBarItem" title="Térkép" image="ic_action_map.png" id="Y90-JL-Br1"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="map" destination="uYc-cJ-lUK" id="01c-U3-jsx"/>
@@ -2987,6 +2994,7 @@ EEVzZW3DqW55ZWs
                                 <items>
                                     <navigationItem title="Információ" id="9dl-mD-pxD">
                                         <barButtonItem key="leftBarButtonItem" title="Vissza" id="DA0-XI-cdL">
+                                            <color key="tintColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="back:" destination="KU7-ZQ-q2m" id="f0C-6H-sC3"/>
                                             </connections>
@@ -3191,6 +3199,7 @@ EEVzZW3DqW55ZWs
                                 </constraints>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xio-aw-Tmn">
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Regisztráció" id="mYM-9P-Xd4"/>
                                 </items>
@@ -3223,6 +3232,13 @@ EEVzZW3DqW55ZWs
             <point key="canvasLocation" x="-1658" y="-1913"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_action_about.png" width="32" height="32"/>
+        <image name="ic_action_camera.png" width="32" height="32"/>
+        <image name="ic_action_map.png" width="32" height="32"/>
+        <image name="ic_action_search.png" width="32" height="32"/>
+        <image name="ic_action_view_as_list.png" width="32" height="32"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

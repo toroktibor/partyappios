@@ -37,6 +37,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    
     [nameLabel setText:[[[Session getInstance]getActualUser]getName]];
     [emailLabel setText:[[[Session getInstance]getActualUser]getEmail]];
     [birhdayLabel setText:[[[Session getInstance]getActualUser]getBirthday]];

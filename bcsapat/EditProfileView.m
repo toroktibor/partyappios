@@ -31,6 +31,8 @@
     [super viewDidLoad];
     
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Snowflakes-Background-960x640.png"]];
+    
     nameTextField.delegate=self;
     emailTextField.delegate=self;
     birthDayTextField.delegate=self;

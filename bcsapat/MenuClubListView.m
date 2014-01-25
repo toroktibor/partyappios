@@ -34,6 +34,9 @@
 {
     [super viewDidLoad];
     
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
+    self.tableView.backgroundView = imageView;
+    
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     locationManager.distanceFilter = kCLDistanceFilterNone;
@@ -45,6 +48,21 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UIImage *tabBackground = [[UIImage imageNamed:@"lila.png"]
+                              resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    [[UITabBar appearance] setBackgroundImage:tabBackground];
+    [[UITabBar appearance] setSelectionIndicatorImage:
+     [UIImage imageNamed:@"tab_select_indicator_white"]];
+    [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor], UITextAttributeTextColor,
+      [UIFont fontWithName:@"" size:0.0], UITextAttributeFont,
+      nil]
+                                             forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,6 +94,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
+    cell.textLabel.textColor=[UIColor whiteColor];
+    cell.detailTextLabel.textColor=[UIColor whiteColor];
     cell.textLabel.text=[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:indexPath.row]getClubName];
     cell.detailTextLabel.text=[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:indexPath.row]getAddress];
     cell.imageView.image=[UIImage imageNamed:@"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"];

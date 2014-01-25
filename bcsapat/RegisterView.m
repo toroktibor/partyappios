@@ -31,6 +31,8 @@
 {
     [super viewDidLoad];
     
+    
+    
     name.delegate=self;
     password.delegate=self;
     passwordAgain.delegate=self;

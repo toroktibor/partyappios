@@ -32,13 +32,25 @@
     [super viewDidLoad];
     
     
-   /* self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"iphone-wallpaper-black-wood-i5.png"]];
+   self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
     
-    UIImage *gradientImage44 = [[UIImage imageNamed:@"tab_bg.png"]
+    UIImage *gradientImage44 = [[UIImage imageNamed:@"navigation.png"]
                                 resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
     [[UINavigationBar appearance] setBackgroundImage:gradientImage44
-                                        forBarMetrics:UIBarMetricsDefault];*/
+                                        forBarMetrics:UIBarMetricsDefault];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0],
+      UITextAttributeTextColor,
+      [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],
+      UITextAttributeTextShadowColor,
+      [NSValue valueWithUIOffset:UIOffsetMake(0, -1)],
+      UITextAttributeTextShadowOffset,
+      [UIFont fontWithName:@"Arial-Bold" size:0.0],
+      UITextAttributeFont,
+      nil]];
     
     //locationmanager a saját helyem meghatározásához
     locationManager = [[CLLocationManager alloc] init];
