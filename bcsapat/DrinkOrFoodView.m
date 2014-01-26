@@ -37,6 +37,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bricskok.png"]];
+    
+    self.tableView.backgroundView = imageView;
+    
     NSMutableArray * menuItemsArray=[[NSMutableArray alloc]init];
     
     int selectedIndex=[[Session getInstance]getSelectedIndex];
@@ -62,6 +66,72 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 40)];
+    UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 30)];
+    
+    if (section==0) {
+        titleLabel.text = @"Tétel neve";
+        
+        titleLabel.textColor = [UIColor whiteColor];
+        
+        titleLabel.backgroundColor = [UIColor colorWithRed:154.0 green:111.0 blue:189.0 alpha:0];
+        
+        [headerView addSubview:titleLabel];
+    }
+    if (section==1) {
+        titleLabel.text = @"Kategória";
+        
+        titleLabel.textColor = [UIColor whiteColor];
+        
+        titleLabel.backgroundColor = [UIColor colorWithRed:154.0 green:111.0 blue:189.0 alpha:0];
+        
+        [headerView addSubview:titleLabel];
+    }
+    if (section==2) {
+        titleLabel.text = @"Ár";
+        
+        titleLabel.textColor = [UIColor whiteColor];
+        
+        titleLabel.backgroundColor = [UIColor colorWithRed:154.0 green:111.0 blue:189.0 alpha:0];
+        
+        [headerView addSubview:titleLabel];
+    }
+    if (section==3) {
+        titleLabel.text = @"Mennyiség";
+        
+        titleLabel.textColor = [UIColor whiteColor];
+        
+        titleLabel.backgroundColor = [UIColor colorWithRed:154.0 green:111.0 blue:189.0 alpha:0];
+        
+        [headerView addSubview:titleLabel];
+    }
+    if (section==3) {
+        titleLabel.text = @"Kedvezmény";
+        
+        titleLabel.textColor = [UIColor whiteColor];
+        
+        titleLabel.backgroundColor = [UIColor colorWithRed:154.0 green:111.0 blue:189.0 alpha:0];
+        
+        [headerView addSubview:titleLabel];
+    }
+    
+    return headerView;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //cell.backgroundColor = [UIColor colorWithRed:(47/255.0) green:(50/255.0) blue:(66/255.0) alpha:0.5];
+    cell.backgroundColor = [UIColor colorWithRed:(190/255.) green:(190/255.0) blue:(190/255.0) alpha:0.5];
+}
+
+
+
+
 
 
 /*

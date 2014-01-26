@@ -39,6 +39,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bricskok.png"]];
+    
+    self.tableView.backgroundView = imageView;
+    
     menuItemsArray=[[NSMutableArray alloc]init];
     
     int selectedIndex=[[Session getInstance]getSelectedIndex];
@@ -81,6 +85,18 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+    
+    
+    UIView *customColorView = [[UIView alloc] init];
+    customColorView.backgroundColor = [UIColor colorWithRed:154/255.0
+                                                      green:111/255.0
+                                                       blue:189/255.0
+                                                      alpha:0.5];
+    cell.selectedBackgroundView =  customColorView;
+    
+    
+    cell.textLabel.textColor=[UIColor whiteColor];
+    cell.detailTextLabel.textColor=[UIColor whiteColor];
 
    cell.textLabel.text=[[menuItemsArray objectAtIndex:indexPath.row]getMenuItemName];
    

@@ -64,12 +64,13 @@
     [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
     [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
     
-   [[UITabBarItem appearance] setTitleTextAttributes:
+  [[UITabBarItem appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
       [UIColor whiteColor], UITextAttributeTextColor,
       [UIFont fontWithName:@"" size:0.0], UITextAttributeFont,
       nil]
                                              forState:UIControlStateNormal];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -114,6 +115,14 @@
     cell.textLabel.text=[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:indexPath.row]getClubName];
     cell.detailTextLabel.text=[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:indexPath.row]getAddress];
     cell.imageView.image=[UIImage imageNamed:@"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"];
+    
+    
+    
+    UIImage *accessoryImage = [UIImage imageNamed:@"ic_action_send.png"];
+    UIImageView *accImageView = [[UIImageView alloc] initWithImage:accessoryImage];
+    accImageView.userInteractionEnabled = YES;
+    [accImageView setFrame:CGRectMake(0, 0, 28.0, 28.0)];
+    cell.accessoryView = accImageView;
     
     return cell;
 }

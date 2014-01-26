@@ -76,6 +76,7 @@
 		7ADBD30518959A81008A2261 /* EventsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADBD30418959A81008A2261 /* EventsTableView.m */; };
 		7ADBD30718959F07008A2261 /* ic_action_user.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADBD30618959F07008A2261 /* ic_action_user.png */; };
 		7ADBD30A18959F56008A2261 /* EventDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADBD30918959F55008A2261 /* EventDetailView.m */; };
+		7ADBD30C1895B3F4008A2261 /* ic_action_send.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADBD30B1895B3F4008A2261 /* ic_action_send.png */; };
 		7AE0D99718854FE50089CE3D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE0D99618854FE50089CE3D /* RegisterView.m */; };
 		7AE0D99918857CC40089CE3D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE0D99818857CC40089CE3D /* CoreLocation.framework */; };
 		7AF627CC18914F8800A57FA0 /* RatingTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF627CB18914F8800A57FA0 /* RatingTableViewViewController.m */; };
@@ -188,6 +189,7 @@
 		7ADBD30618959F07008A2261 /* ic_action_user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_action_user.png; sourceTree = "<group>"; };
 		7ADBD30818959F55008A2261 /* EventDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventDetailView.h; sourceTree = "<group>"; };
 		7ADBD30918959F55008A2261 /* EventDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventDetailView.m; sourceTree = "<group>"; };
+		7ADBD30B1895B3F4008A2261 /* ic_action_send.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_action_send.png; sourceTree = "<group>"; };
 		7AE0D99518854FE50089CE3D /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
 		7AE0D99618854FE50089CE3D /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		7AE0D99818857CC40089CE3D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -336,6 +338,7 @@
 		7ACCC65418931720006B0A0C /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				7ADBD30B1895B3F4008A2261 /* ic_action_send.png */,
 				7ADBD30618959F07008A2261 /* ic_action_user.png */,
 				7ADBD2FB18957623008A2261 /* shadow.png */,
 				7ADBD2F91895631D008A2261 /* bricskok.png */,
@@ -520,6 +523,7 @@
 				7ADBD2FA1895631D008A2261 /* bricskok.png in Resources */,
 				7ADBD2FC18957623008A2261 /* shadow.png in Resources */,
 				7ADBD30718959F07008A2261 /* ic_action_user.png in Resources */,
+				7ADBD30C1895B3F4008A2261 /* ic_action_send.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
