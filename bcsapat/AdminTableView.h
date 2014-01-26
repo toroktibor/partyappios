@@ -10,4 +10,5 @@
 
 @interface AdminTableView : UITableViewController
 
+- (IBAction)back:(id)sender;
 @end

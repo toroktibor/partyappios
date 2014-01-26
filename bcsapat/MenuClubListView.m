@@ -13,6 +13,7 @@
 #import "Session.h"
 #import "ProfileTableView.h"
 #import "AddNewClubTableView.h"
+#import "AdminTableView.h"
 
 @interface MenuClubListView ()
 
@@ -201,7 +202,10 @@
 //action sheet gombjai váltanak a nézetek között
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
-    if (buttonIndex == 0) {
+    //user ág
+    if ([[[Session getInstance]getActualUser]getType]==0) {
+
+        if (buttonIndex == 0) {
 
         //lista frissitése közeli helyekre
         
@@ -242,7 +246,7 @@
         
     }
 
-    if (buttonIndex == 1) {
+       else if (buttonIndex == 1) {
         
 
         //lista frissítése kedvencek nézetre
@@ -258,7 +262,7 @@
         
         
         
-    } else if (buttonIndex == 3) {
+    }   else if (buttonIndex == 3) {
         //új klubb hozzáadása
         
         AddNewClubTableView *AddNewClubTableView=
@@ -266,7 +270,7 @@
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:AddNewClubTableView];
         [self presentViewController:navController animated:YES completion:nil];
         
-    } else if (buttonIndex == 2) {
+    }   else if (buttonIndex == 2) {
         
         //lista frissítése saját helyekre
          [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
@@ -284,7 +288,7 @@
         
         
         
-    } else if (buttonIndex == 4) {
+    }   else if (buttonIndex == 4) {
         
         //értesítések nézet
         NotificationsView *NotificationsView=
@@ -294,7 +298,7 @@
         [self presentViewController:navController animated:YES completion:nil];
         
     }
-    else if (buttonIndex == 5) {
+        else if (buttonIndex == 5) {
         
         //profilom nézet
         ProfileTableView *ProfileTableView=
@@ -302,7 +306,7 @@
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ProfileTableView];
         [self presentViewController:navController animated:YES completion:nil];
     }
-    else if (buttonIndex == 6) {
+        else if (buttonIndex == 6) {
         //kijelentkezés
         
         [Session deleteSession];
@@ -310,8 +314,134 @@
         [self.storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
         [self presentViewController:LoginView animated:YES completion:nil];
     }
-    else if (buttonIndex == 7) {
+        else if (buttonIndex == 7) {
         // NSLog(@"Mégse");
+    }
+ }
+    //admin ág
+ else{
+     if (buttonIndex == 0) {
+         
+         //lista frissitése közeli helyekre
+         
+         [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
+         NSString *lat=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.latitude];
+         NSString *lon=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.longitude];
+         
+         
+         //a meghívandó url string-be behegesztjük a kordinátákat
+         NSString *urlstring=[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?latlng=%@,%@&sensor=false",lat,lon];
+         
+         //az url stringből létrehozunk egy urlt
+         NSURL *url = [NSURL URLWithString:urlstring];
+         
+         //NSLog(@"%@",urlstring);
+         
+         //az url-ből visszakapunk egy egy json-t
+         NSData *jsonData = [NSData dataWithContentsOfURL:url];
+         NSError *error;
+         
+         //json-t átadjuk egy szótárnak
+         NSDictionary *decoded= [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+         
+         NSString* address=[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"formatted_address"];
+         [[Session getInstance]setUserLocation:address];
+         
+         NSLog(@"%@",[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
+         
+         NSString* cityName=[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"];
+         
+         NSMutableArray * inputClubList = [[[Session getInstance] getCommunication] getClubsFromCityName:cityName];
+         [[Session getInstance] setSearchViewCLubs:inputClubList];
+         
+         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+         
+         tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+         [self presentViewController: tabBar animated: YES completion:nil];
+         
+     }
+     
+     else if (buttonIndex == 1) {
+         
+         
+         //lista frissítése kedvencek nézetre
+         [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
+         int user_id = [[[Session getInstance] getActualUser] getID];
+         NSMutableArray * favoriteClubList = [[[Session getInstance] getCommunication] getFavoriteClubsFromUserId:user_id];
+         [[Session getInstance] setSearchViewCLubs:favoriteClubList];
+         
+         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+         
+         tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+         [self presentViewController: tabBar animated: YES completion:nil];
+         
+         
+         
+     }   else if (buttonIndex == 3) {
+         //új klubb hozzáadása
+         
+         AddNewClubTableView *AddNewClubTableView=
+         [self.storyboard instantiateViewControllerWithIdentifier:@"AddNewClubTableView"];
+         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:AddNewClubTableView];
+         [self presentViewController:navController animated:YES completion:nil];
+         
+     }   else if (buttonIndex == 2) {
+         
+         //lista frissítése saját helyekre
+         [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
+         
+         int user_id = [[[Session getInstance] getActualUser] getID];
+         NSMutableArray * ownClubList = [[[Session getInstance] getCommunication] getOwnedClubsFromUserId:user_id];
+         [[Session getInstance] setSearchViewCLubs:ownClubList];
+         
+         
+         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+         
+         tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+         [self presentViewController: tabBar animated: YES completion:nil];
+         
+         
+         
+         
+     }   else if (buttonIndex == 4) {
+         
+         //értesítések nézet
+         NotificationsView *NotificationsView=
+         [self.storyboard instantiateViewControllerWithIdentifier:@"NotificationsView"];
+         
+         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:NotificationsView];
+         [self presentViewController:navController animated:YES completion:nil];
+         
+     }
+     else if (buttonIndex == 5) {
+         
+         //profilom nézet
+         ProfileTableView *ProfileTableView=
+         [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileTableView"];
+         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ProfileTableView];
+         [self presentViewController:navController animated:YES completion:nil];
+     }
+     else if (buttonIndex == 6) {
+         //Jóváhagyások
+         
+         AdminTableView *AdminTableView=
+         [self.storyboard instantiateViewControllerWithIdentifier:@"AdminTableView"];
+         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:AdminTableView];
+         [self presentViewController:navController animated:YES completion:nil];
+
+     }
+     else if (buttonIndex == 7) {
+         //kijelentkezés
+         
+         [Session deleteSession];
+         LoginView *LoginView=
+         [self.storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
+         [self presentViewController:LoginView animated:YES completion:nil];
+     }
+     
+     else if (buttonIndex == 8) {
+         // mégse
+     }
     }
 }
 
@@ -320,10 +450,9 @@
     
     //kamu if az adminra és a user-re
     //a gombok kiosztását is le kell majd if-elni!!!!
-    int szam=1;
-    if (szam==1) {
+    if ([[[Session getInstance]getActualUser]getType]==1) {
         UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
-                                                  destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Helyeim",@"Hely hozzáadása",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];
+                                                  destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Helyeim",@"Hely hozzáadása",@"Értesítések",@"Profilom",@"Jóváhagyások",@"Kijelentkezés", nil];
         
         popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
         [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
