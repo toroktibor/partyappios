@@ -10,5 +10,7 @@
 
 @interface NotificationsView : UITableViewController
 
+@property NSMutableArray * array;
+
 - (IBAction)back:(id)sender;
 @end

@@ -29,10 +29,26 @@
 {
     [super viewDidLoad];
     
-    oldPasswordTextField.delegate=self;
-    actualPasswordTextField.delegate=self;
-    actualPasswordAgaingTextField.delegate=self;
     
+    oldPasswordTextField.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    oldPasswordTextField.textColor=[UIColor whiteColor];
+    
+    actualPasswordTextField.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    actualPasswordTextField.textColor=[UIColor whiteColor];
+    
+    actualPasswordAgaingTextField.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    actualPasswordAgaingTextField.textColor=[UIColor whiteColor];
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
+    
+    oldPasswordTextField.delegate=self;
+    oldPasswordTextField.tag=0;
+    
+    actualPasswordTextField.delegate=self;
+    actualPasswordTextField.tag=1;
+    
+    actualPasswordAgaingTextField.delegate=self;
+    actualPasswordAgaingTextField.tag=2;
 	// Do any additional setup after loading the view.
 }
 
@@ -89,7 +105,16 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
-    return YES;
+    NSInteger nextTag = textField.tag + 1;
+    // Try to find next responder
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        // Found next responder, so set it.
+        [nextResponder becomeFirstResponder];
+    } else {
+        // Not found, so remove keyboard.
+        [textField resignFirstResponder];
+    }
+    return NO; // We do not want UITextField to insert line-breaks.
 }
 @end

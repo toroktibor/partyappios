@@ -13,6 +13,8 @@
 @end
 
 @implementation NotificationsView
+@synthesize array;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -21,6 +23,7 @@
         // Custom initialization
     }
     return self;
+     
 }
 
 - (void)viewDidLoad
@@ -32,6 +35,15 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    array=[[NSMutableArray alloc]initWithObjects:@"Buli",@"Meghívó",@"Új üzenet", nil];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bricskok.png"]];
+    
+    self.tableView.backgroundView = imageView;
+    
+    
+    [[[self navigationController] navigationBar] setTintColor:[UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(100/255.0) alpha:1.0]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,24 +56,38 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [array count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"NotificationCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    
+    UIView *customColorView = [[UIView alloc] init];
+    customColorView.backgroundColor = [UIColor colorWithRed:154/255.0
+                                                      green:111/255.0
+                                                       blue:189/255.0
+                                                      alpha:0.5];
+    cell.selectedBackgroundView =  customColorView;
+    
+    
+    cell.textLabel.textColor=[UIColor whiteColor];
+
+    cell.textLabel.text=[array objectAtIndex:indexPath.row];
+
+    
     
     return cell;
 }

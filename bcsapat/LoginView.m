@@ -16,7 +16,7 @@
 @end
 
 @implementation LoginView
-@synthesize userName,password;
+@synthesize userName,password,loginButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,13 +32,25 @@
     [super viewDidLoad];
     
     
-   self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    
+   self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
+    
+    /*[[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"shadow.png"]];
     
     UIImage *gradientImage44 = [[UIImage imageNamed:@"navigation.png"]
                                 resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     
     [[UINavigationBar appearance] setBackgroundImage:gradientImage44
-                                        forBarMetrics:UIBarMetricsDefault];
+                                        forBarMetrics:UIBarMetricsDefault];*/
+    
+    
+    userName.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    userName.textColor=[UIColor whiteColor];
+    
+    password.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    password.textColor=[UIColor whiteColor];
+    
+    //loginButton.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
     
     [[UINavigationBar appearance] setTitleTextAttributes:
      [NSDictionary dictionaryWithObjectsAndKeys:
@@ -67,7 +79,10 @@
     
     
     userName.delegate=self;
+    userName.tag=0;
+    
     password.delegate=self;
+    password.tag=1;
     
     if (![[Session getInstance]isNetworAvaiable]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Nincs internet kapcsolat!"
@@ -91,8 +106,17 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
-    return YES;
+    NSInteger nextTag = textField.tag + 1;
+    // Try to find next responder
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        // Found next responder, so set it.
+        [nextResponder becomeFirstResponder];
+    } else {
+        // Not found, so remove keyboard.
+        [textField resignFirstResponder];
+    }
+    return NO; // We do not want UITextField to insert line-breaks.
 }
 
 - (IBAction)loginButtonPressed:(id)sender {

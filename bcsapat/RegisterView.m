@@ -34,10 +34,38 @@
     
     
     name.delegate=self;
+    name.tag=0;
+    
     password.delegate=self;
+    password.tag=1;
+    
     passwordAgain.delegate=self;
+    passwordAgain.tag=2;
+    
     email.delegate=self;
+    email.tag=3;
+    
     birthdate.delegate=self;
+    birthdate.tag=4;
+    
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
+    
+    
+    name.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    name.textColor=[UIColor whiteColor];
+    
+    password.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    password.textColor=[UIColor whiteColor];
+    
+    passwordAgain.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    passwordAgain.textColor=[UIColor whiteColor];
+    
+    email.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    email.textColor=[UIColor whiteColor];
+    
+    birthdate.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    birthdate.textColor=[UIColor whiteColor];
     
 	// Do any additional setup after loading the view.
    /* NSArray* paths =NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -95,8 +123,17 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
-    return YES;
+    NSInteger nextTag = textField.tag + 1;
+    // Try to find next responder
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        // Found next responder, so set it.
+        [nextResponder becomeFirstResponder];
+    } else {
+        // Not found, so remove keyboard.
+        [textField resignFirstResponder];
+    }
+    return NO; // We do not want UITextField to insert line-breaks.
 }
 
 @end

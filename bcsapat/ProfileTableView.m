@@ -38,6 +38,13 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bricskok.png"]];
+    
+    self.tableView.backgroundView = imageView;
+    
+    
+    [[[self navigationController] navigationBar] setTintColor:[UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(100/255.0) alpha:1.0]];
+    
     [nameLabel setText:[[[Session getInstance]getActualUser]getName]];
     [emailLabel setText:[[[Session getInstance]getActualUser]getEmail]];
     [birhdayLabel setText:[[[Session getInstance]getActualUser]getBirthday]];
@@ -58,7 +65,58 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 40)];
+    UILabel *titleLabel = [ [UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 30)];
+    
+    if (section==0) {
+        titleLabel.text = @"Név";
+        
+        titleLabel.textColor = [UIColor whiteColor];
+        
+        titleLabel.backgroundColor = [UIColor colorWithRed:154.0 green:111.0 blue:189.0 alpha:0];
+        
+        [headerView addSubview:titleLabel];
+    }
+    if (section==1) {
+        titleLabel.text = @"Email";
+        
+        titleLabel.textColor = [UIColor whiteColor];
+        
+        titleLabel.backgroundColor = [UIColor colorWithRed:154.0 green:111.0 blue:189.0 alpha:0];
+        
+        [headerView addSubview:titleLabel];
+    }
+    if (section==2) {
+        titleLabel.text = @"Születési dátum";
+        
+        titleLabel.textColor = [UIColor whiteColor];
+        
+        titleLabel.backgroundColor = [UIColor colorWithRed:154.0 green:111.0 blue:189.0 alpha:0];
+        
+        [headerView addSubview:titleLabel];
+    }
+    if (section==3) {
+        titleLabel.text = @"Nem";
+        
+        titleLabel.textColor = [UIColor whiteColor];
+        
+        titleLabel.backgroundColor = [UIColor colorWithRed:154.0 green:111.0 blue:189.0 alpha:0];
+        
+        [headerView addSubview:titleLabel];
+    }
+    
+    return headerView;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //cell.backgroundColor = [UIColor colorWithRed:(47/255.0) green:(50/255.0) blue:(66/255.0) alpha:0.5];
+    cell.backgroundColor = [UIColor colorWithRed:(190/255.) green:(190/255.0) blue:(190/255.0) alpha:0.5];
+}
+
 
 
 

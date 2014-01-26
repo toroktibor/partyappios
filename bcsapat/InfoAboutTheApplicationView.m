@@ -14,6 +14,7 @@
 
 @implementation InfoAboutTheApplicationView
 @synthesize informationText;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,7 +29,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
+    
     informationText.editable=NO;
+    informationText.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0];
+    informationText.textColor=[UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning

@@ -30,12 +30,25 @@
 {
     [super viewDidLoad];
     
+    nameTextField.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    nameTextField.textColor=[UIColor whiteColor];
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Snowflakes-Background-960x640.png"]];
+    emailTextField.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    emailTextField.textColor=[UIColor whiteColor];
+    
+    birthDayTextField.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    birthDayTextField.textColor=[UIColor whiteColor];
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
     
     nameTextField.delegate=self;
+    nameTextField.tag=0;
+    
     emailTextField.delegate=self;
+    emailTextField.tag=1;
+    
     birthDayTextField.delegate=self;
+    birthDayTextField.tag=2;
     
     [nameTextField setText:[[[Session getInstance]getActualUser]getName]];
     [emailTextField setText:[[[Session getInstance]getActualUser]getEmail]];
@@ -91,7 +104,16 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [textField resignFirstResponder];
-    return YES;
+    NSInteger nextTag = textField.tag + 1;
+    // Try to find next responder
+    UIResponder* nextResponder = [textField.superview viewWithTag:nextTag];
+    if (nextResponder) {
+        // Found next responder, so set it.
+        [nextResponder becomeFirstResponder];
+    } else {
+        // Not found, so remove keyboard.
+        [textField resignFirstResponder];
+    }
+    return NO; // We do not want UITextField to insert line-breaks.
 }
 @end
