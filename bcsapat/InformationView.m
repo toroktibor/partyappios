@@ -35,6 +35,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [[[self navigationController] navigationBar] setTintColor:[UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(100/255.0) alpha:1.0]];
+    
     int selectedIndex=[[Session getInstance]getSelectedIndex];
     Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
     [clubNameText setText:[club getClubName]];
@@ -85,14 +87,6 @@
 
 
 
-- (IBAction)showActionSheet:(id)sender {
-    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
-                                              destructiveButtonTitle:nil otherButtonTitles:@"Tulajdonos vagyok",@"Térkép", @"Hívás",@"Email küldése",@"Árlista",@"Értékelések", nil];
-    
-    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-    [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
-    popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
-}
 
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -184,5 +178,14 @@
     
     tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController: tabBar animated: YES completion:nil];
+}
+- (IBAction)showActionSheet:(id)sender {
+    
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
+                                              destructiveButtonTitle:nil otherButtonTitles:@"Tulajdonos vagyok",@"Mutasd a térképen", @"Hívás",@"Email küldése",@"Árlista",@"Értékelések", nil];
+    
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
+    popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
 }
 @end

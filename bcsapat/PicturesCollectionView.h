@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface PicturesCollectionView : UICollectionViewController<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+
 - (IBAction)showActionSheet:(id)sender;
 @property int index;
 @property NSMutableArray *recipePhotos;
 
+- (IBAction)back:(id)sender;
 @end

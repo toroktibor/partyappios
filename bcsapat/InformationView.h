@@ -12,8 +12,8 @@
 
 @interface InformationView : UIViewController <MFMailComposeViewControllerDelegate,UIActionSheetDelegate>
 
-
 - (IBAction)showActionSheet:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UILabel *clubNameText;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UISlider *slider;

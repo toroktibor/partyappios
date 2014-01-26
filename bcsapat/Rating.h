@@ -14,4 +14,8 @@
     NSString * comment;
 }
 
+-(NSString *)getuserName;
+
+-(NSString *)getComment;
+
 @end

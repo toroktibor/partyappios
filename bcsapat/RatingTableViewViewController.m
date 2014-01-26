@@ -7,6 +7,9 @@
 //
 
 #import "RatingTableViewViewController.h"
+#import "Session.h"
+#import "Club.h"
+#import "Rating.h"
 
 @interface RatingTableViewViewController ()
 
@@ -52,16 +55,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [ratningsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -73,7 +74,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text=[[ratningsArray objectAtIndex:indexPath.row]getRatings];
+    Rating * rating=[ratningsArray objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text=[rating getuserName];
+    cell.detailTextLabel.text=[rating getComment];
     
     // Configure the cell...
     

@@ -52,7 +52,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    UIImage *tabBackground = [[UIImage imageNamed:@"navigation.png"]
+    UIImage *tabBackground = [[UIImage imageNamed:@"lila.png"]
                               resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [[UITabBar appearance] setBackgroundImage:tabBackground];
     
@@ -448,8 +448,7 @@
 //a navigation bar jobb felső sarkában lévő gomb megnyomására az action sheet megjelenítése
 - (IBAction)showActionSheet:(id)sender {
     
-    //kamu if az adminra és a user-re
-    //a gombok kiosztását is le kell majd if-elni!!!!
+    //admin action sheet
     if ([[[Session getInstance]getActualUser]getType]==1) {
         UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
                                                   destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Helyeim",@"Hely hozzáadása",@"Értesítések",@"Profilom",@"Jóváhagyások",@"Kijelentkezés", nil];
@@ -458,6 +457,7 @@
         [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
         popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
     }
+    //user action sheet
     else{
         UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
                                                   destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Helyeim",@"Hely hozzáadása",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];

@@ -32,6 +32,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [map setDelegate:self];
+    
     index=[[Session getInstance]getSelectedIndex];
     Club * club=[[Session getInstance]getSelectedClubAtIndex:index];
     
@@ -44,16 +46,20 @@
             
             theCoordinate.latitude=aPlacemark.location.coordinate.latitude;
             theCoordinate.longitude=aPlacemark.location.coordinate.longitude;
+            
+            
+            MyAnnotation *annotation=[[MyAnnotation alloc]init];
+            annotation.coordinate=theCoordinate;
+            annotation.title=[club getClubName];
+            annotation.subtitle=[club getAddress];
+            annotation.approved=[club getApproved];
+
           
          
             MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(theCoordinate, 5000, 5000);
             [map setRegion:viewRegion animated: YES];
             
-            MKPointAnnotation *needle = [[MKPointAnnotation alloc] init];
-            needle.coordinate = theCoordinate;
-            needle.title = [club getClubName];
-            needle.subtitle = [club getAddress];
-            [map addAnnotation:needle];
+            [map addAnnotation:annotation];
         }
     }];
 
@@ -64,5 +70,26 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>) annotation
+{
+    MKPinAnnotationView *newAnnotation = [[MKPinAnnotationView alloc]     initWithAnnotation:annotation reuseIdentifier:@"pinLocation"];
+    
+    newAnnotation.canShowCallout = YES;
+    
+    //a nem elfogadott hely színe piros
+    if ([(MyAnnotation*)annotation getApproved]==0){
+        newAnnotation.pinColor = MKPinAnnotationColorRed;
+    }
+    //az elfogadott helyek színe zölt
+    else{
+        newAnnotation.pinColor = MKPinAnnotationColorGreen;
+    }
+
+    return newAnnotation;
+    
+}
+
 
 @end

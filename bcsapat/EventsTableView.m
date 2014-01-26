@@ -1,24 +1,19 @@
 //
-//  FoodsAndDrinksTableView.m
+//  EventsTableView.m
 //  bcsapat
 //
-//  Created by hallgato on 1/22/14.
+//  Created by hallgato on 1/26/14.
 //  Copyright (c) 2014 hallgato. All rights reserved.
 //
 
-#import "FoodsAndDrinksTableView.h"
-#import "Session.h"
-#import "Club.h"
-#import "MenuItem.h"
-#import "DrinkOrFoodView.h"
-#import "User.h"
+#import "EventsTableView.h"
+#import "EventDetailView.h"
 
-@interface FoodsAndDrinksTableView ()
+@interface EventsTableView ()
 
 @end
 
-@implementation FoodsAndDrinksTableView
-@synthesize menuItemsArray,addNewMenuItem;
+@implementation EventsTableView
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -39,18 +34,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    menuItemsArray=[[NSMutableArray alloc]init];
+    [[[self navigationController] navigationBar] setTintColor:[UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(100/255.0) alpha:1.0]];
     
-    int selectedIndex=[[Session getInstance]getSelectedIndex];
-    Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
-    
-    menuItemsArray=[club getMenuItems];
-    
-    //jobb felső sarokban hozzáadás gomb elrejtése, adminra van vizsgálva, majd átt kell írni user-ra
-    if ([[[Session getInstance]getActualUser]getType]==0) {
-        self.navigationItem.rightBarButtonItem=nil;
-    }
-    
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bricskok.png"]];
+        self.tableView.backgroundView = imageView;
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,31 +57,34 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [menuItemsArray count];
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"MenuItemCell";
+    static NSString *CellIdentifier = @"EventCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-
-   cell.textLabel.text=[[menuItemsArray objectAtIndex:indexPath.row]getMenuItemName];
-   
-    int price=[[menuItemsArray objectAtIndex:indexPath.row]getPrice];
-    NSString * unit=[[menuItemsArray objectAtIndex:indexPath.row]getUnit];
-    NSString * currency=[[menuItemsArray objectAtIndex:indexPath.row]getCurrency];
     
-    cell.detailTextLabel.text=[NSString stringWithFormat:@"%d%@/%@",price,currency,unit];
+    UIView *customColorView = [[UIView alloc] init];
+    customColorView.backgroundColor = [UIColor colorWithRed:154/255.0
+                                                      green:111/255.0
+                                                       blue:189/255.0
+                                                      alpha:0.5];
+    cell.selectedBackgroundView =  customColorView;
     
     
-    // Configure the cell...
+    cell.textLabel.textColor=[UIColor whiteColor];
+    cell.detailTextLabel.textColor=[UIColor whiteColor];
+    cell.textLabel.text=@"új esemény";
+    cell.imageView.image=[UIImage imageNamed:@"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"];
     
     return cell;
 }
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -146,12 +136,19 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    EventDetailView *EventDetailView=
+    [self.storyboard instantiateViewControllerWithIdentifier:@"EventDetailView"];
+    [self.navigationController pushViewController:EventDetailView animated:YES];
     
-    [[Session getInstance]setMenuItemIndex:indexPath.row];
     
-    DrinkOrFoodView *DrinkOrFoodView =
-    [self.storyboard instantiateViewControllerWithIdentifier:@"DrinkOrFoodView"];
-    [self.navigationController pushViewController:DrinkOrFoodView animated:YES];
 }
 
+- (IBAction)back:(id)sender {
+    
+    UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+    
+    
+    tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController: tabBar animated: YES completion:nil];
+}
 @end

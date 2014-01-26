@@ -22,4 +22,12 @@
 
 }
 
+-(NSString *)getComment{
+    return comment;
+}
+
+-(NSString *)getuserName{
+    return userName;
+}
+
 @end
