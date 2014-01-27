@@ -1521,19 +1521,19 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kke-l5-HWj"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3PX-5h-fsM"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kke-l5-HWj" firstAttribute="bottom" secondItem="nVk-pQ-ZE3" secondAttribute="bottom" type="default" id="OcE-k8-fqK"/>
-                            <constraint firstItem="kke-l5-HWj" firstAttribute="trailing" secondItem="nVk-pQ-ZE3" secondAttribute="trailing" type="default" id="h18-ce-36B"/>
-                            <constraint firstItem="kke-l5-HWj" firstAttribute="top" secondItem="nVk-pQ-ZE3" secondAttribute="top" type="default" id="iZT-di-qsD"/>
-                            <constraint firstItem="kke-l5-HWj" firstAttribute="leading" secondItem="nVk-pQ-ZE3" secondAttribute="leading" type="default" id="oI5-aI-xyL"/>
+                            <constraint firstItem="3PX-5h-fsM" firstAttribute="top" secondItem="nVk-pQ-ZE3" secondAttribute="top" type="default" id="Rky-VE-tTV"/>
+                            <constraint firstItem="3PX-5h-fsM" firstAttribute="leading" secondItem="nVk-pQ-ZE3" secondAttribute="leading" type="default" id="Yew-BA-AhX"/>
+                            <constraint firstItem="3PX-5h-fsM" firstAttribute="trailing" secondItem="nVk-pQ-ZE3" secondAttribute="trailing" type="default" id="sWo-cj-3uc"/>
+                            <constraint firstItem="3PX-5h-fsM" firstAttribute="bottom" secondItem="nVk-pQ-ZE3" secondAttribute="bottom" type="default" id="u6N-2x-r8S"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ydt-xn-0Lc"/>
                     <connections>
-                        <outlet property="scrollView" destination="kke-l5-HWj" id="A0P-ZJ-TqT"/>
+                        <outlet property="imageView" destination="3PX-5h-fsM" id="0eI-JW-wmu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5j-3H-xQI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2456,6 +2456,20 @@ EEVzZW3DqW55ZWs
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sin-qI-EkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1343" y="-3335"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ToG-Z1-heg">
+            <objects>
+                <viewController id="RXb-Xs-9tf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DzG-t9-aRv">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="krV-Aw-QNL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1915" y="-3326"/>
         </scene>
         <!--View Controller - Saját értékelés-->
         <scene sceneID="sJe-hz-hFK">
@@ -3622,6 +3636,7 @@ EEVzZW3DqW55ZWs
         <class className="PictureView" superclassName="ViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PictureView.h"/>
             <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>

@@ -14,7 +14,7 @@
 @end
 
 @implementation PictureView
-@synthesize imageView,image;
+@synthesize image,imageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,21 +30,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [imageView setUserInteractionEnabled:YES];
     
     image = [[Session getInstance]getImage];
     [imageView setImage:image];
-    
-    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-    
-    // Setting the swipe direction.
-    [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
-    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
-    
-    // Adding the swipe gesture on image view
-    [imageView addGestureRecognizer:swipeLeft];
-    [imageView addGestureRecognizer:swipeRight];
+   
     
 }
 
