@@ -8,6 +8,7 @@
 
 #import "PicturesCollectionView.h"
 #import "PictureView.h"
+#import "Session.h"
 
 @interface PicturesCollectionView ()
 
@@ -44,7 +45,6 @@
     [recipePhotos addObject:image];
     [recipePhotos addObject:image2];
     
-    NSLog(@"%d",[recipePhotos count]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,11 +78,14 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     index=indexPath.row;
+    
+    [[Session getInstance]setImage:[recipePhotos objectAtIndex:index]];
 
     PictureView *PicturesDetailView=
     [self.storyboard instantiateViewControllerWithIdentifier:@"PictureView"];
     [self.navigationController pushViewController:PicturesDetailView animated:YES];
-    [PicturesDetailView.imageView setImage:[recipePhotos objectAtIndex:index]];
+    //[PicturesDetailView.imageView setImage:[recipePhotos objectAtIndex:index]];
+        
 }
 
 

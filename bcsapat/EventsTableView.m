@@ -86,7 +86,7 @@
     cell.textLabel.textColor=[UIColor whiteColor];
     cell.detailTextLabel.textColor=[UIColor whiteColor];
     cell.textLabel.text=@"Hatalmas buli";
-    cell.detailTextLabel.text=@"Sztárvendék: Béla!";
+    cell.detailTextLabel.text=@"Sztárvendég: Béla!";
     
     return cell;
 }

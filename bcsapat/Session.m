@@ -139,12 +139,30 @@ static Session * _instance = nil;
         actualCommunication = [[SillyCommunication alloc] init];
         searchViewCLubs = [[NSMutableArray alloc]init];
         clubTypeForPicker=@"Szórakozóhely típusa";
+        musicType=@"Zene típusa";
+        image=[[UIImage alloc]init];
     }
     return self;
 }
 
 -(void)setSearchViewCLubs:(NSMutableArray *)inputClubsList{
     [searchViewCLubs addObjectsFromArray:inputClubsList];
+}
+
+-(void)setMusicType:(NSString *)music{
+    musicType=music;
+}
+
+-(NSString *)getMusicType{
+    return musicType;
+}
+
+-(void)setImage:(UIImage *)pics{
+    image=pics;
+}
+
+-(UIImage *)getImage{
+    return image;
 }
 
 @end

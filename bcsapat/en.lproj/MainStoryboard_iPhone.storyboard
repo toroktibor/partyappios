@@ -1154,10 +1154,10 @@
             </objects>
             <point key="canvasLocation" x="710" y="-224"/>
         </scene>
-        <!--View Controller - Új esemény-->
+        <!--Add New Event View - Új esemény-->
         <scene sceneID="FIu-p2-p4k">
             <objects>
-                <viewController id="nzZ-cZ-iAV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNewEventView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nzZ-cZ-iAV" customClass="AddNewEventView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yJn-qq-HW3">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1199,6 +1199,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="weQ-v7-3M1" kind="push" id="1B2-ps-LjI"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Esemény leírása:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lku-fo-FLT">
                                         <constraints>
@@ -1218,7 +1221,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Zene típusa:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xj-oN-bYd">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Zene típusa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xj-oN-bYd">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="Chj-ez-Cuv"/>
                                             <constraint firstAttribute="width" constant="101" id="Nvu-H3-r7T"/>
@@ -1252,6 +1255,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="ToA-NP-WND" kind="push" id="teb-17-VEk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1287,10 +1293,95 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Új esemény" id="NTA-hk-QU3"/>
+                    <connections>
+                        <outlet property="descriptionText" destination="nzj-e1-08I" id="7vh-Kd-4YA"/>
+                        <outlet property="musicTypeLabel" destination="5Xj-oN-bYd" id="9Zt-Kh-twq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GNG-LS-feQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2023" y="-965"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Tmd-ED-kyI">
+            <objects>
+                <viewController storyboardIdentifier="" id="weQ-v7-3M1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zsc-ll-ngQ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="KkW-QY-OKm">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="abt-bh-KEo"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="412533272.24226999">
+                                    <!--2014-01-27 16:34:32 +0000-->
+                                </date>
+                                <timeZone key="timeZone" name="America/Los_Angeles">
+                                    <mutableData key="data">
+VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
+y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
+5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
+8n/BkPNvwKD0X6OQ9U+ioPY/hZD3L4Sg+CiiEPkPZqD6CIQQ+viDIPvoZhD82GUg/chIEP64RyD/qCoQ
+AJgpIAGIDBACeAsgA3EokARhJ6AFUQqQBkEJoAcw7JAHjUOgCRDOkAmtvyAK8LCQC+CvoAzZzRANwJGg
+DrmvEA+priAQmZEQEYmQIBJ5cxATaXIgFFlVEBVJVCAWOTcQFyk2IBgiU5AZCRggGgI1kBryNKAb4heQ
+HNIWoB3B+ZAesfigH6HbkCB2KyAhgb2QIlYNICNq2hAkNe8gJUq8ECYV0SAnKp4QJ/7toCkKgBAp3s+g
+KupiECu+saAs036QLZ6ToC6zYJAvfnWgMJNCkDFnkiAycySQM0d0IDRTBpA1J1YgNjLokDcHOCA4HAUQ
+OOcaIDn75xA6xvwgO9vJEDywGKA9u6sQPo/6oD+bjRBAb9ygQYSpkEJPvqBDZIuQRC+goEVEbZBF89Mg
+Ry2KEEfTtSBJDWwQSbOXIErtThBLnLOgTNZqkE18laBOtkyQT1x3oFCWLpBRPFmgUnYQkFMcO6BUVfKQ
+VPwdoFY11JBW5TogWB7xEFjFHCBZ/tMQWqT+IFvetRBchOAgXb6XEF5kwiBfnnkQYE3eoGGHlZBiLcCg
+Y2d3kGQNoqBlR1mQZe2EoGcnO5BnzWagaQcdkGmtSKBq5v+Qa5ZlIGzQHBBtdkcgbq/+EG9WKSBwj+AQ
+cTYLIHJvwhBzFe0gdE+kEHT/CaB2OMCQdt7roHgYopB4vs2gefiEkHqer6B72GaQfH6RoH24SJB+XnOg
+f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
+</mutableData>
+                                </timeZone>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KkW-QY-OKm" firstAttribute="trailing" secondItem="Zsc-ll-ngQ" secondAttribute="trailing" type="default" id="Xa9-Nd-emr"/>
+                            <constraint firstItem="KkW-QY-OKm" firstAttribute="top" secondItem="Zsc-ll-ngQ" secondAttribute="top" constant="57" id="Y43-yT-PDa"/>
+                            <constraint firstItem="KkW-QY-OKm" firstAttribute="leading" secondItem="Zsc-ll-ngQ" secondAttribute="leading" type="default" id="aY6-Xf-ZGH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="igX-sQ-0Gg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wBN-kg-eyK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3168" y="-950"/>
+        </scene>
+        <!--Music Type Picker View-->
+        <scene sceneID="lrO-Ke-FQL">
+            <objects>
+                <viewController storyboardIdentifier="MusicTypePickerView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ToA-NP-WND" customClass="MusicTypePickerView" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hH7-rv-bTC">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6aX-sf-P86">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="8YI-rK-hvU"/>
+                                </constraints>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6aX-sf-P86" firstAttribute="trailing" secondItem="hH7-rv-bTC" secondAttribute="trailing" type="default" id="9YL-np-FHZ"/>
+                            <constraint firstItem="6aX-sf-P86" firstAttribute="top" secondItem="hH7-rv-bTC" secondAttribute="top" constant="71" id="cJM-Ym-rxw"/>
+                            <constraint firstItem="6aX-sf-P86" firstAttribute="leading" secondItem="hH7-rv-bTC" secondAttribute="leading" type="default" id="rcr-bZ-0Ye"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="pxa-jF-Ydh"/>
+                    <connections>
+                        <outlet property="typePicker" destination="6aX-sf-P86" id="BK2-IR-6oC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w2K-A6-ysM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2649" y="-950"/>
         </scene>
         <!--Events Table View - Események-->
         <scene sceneID="EVb-N0-BIC">
@@ -1430,19 +1521,19 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wM-w2-fzM"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kke-l5-HWj"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2wM-w2-fzM" firstAttribute="trailing" secondItem="nVk-pQ-ZE3" secondAttribute="trailing" type="default" id="Dyo-Eh-YOb"/>
-                            <constraint firstItem="2wM-w2-fzM" firstAttribute="top" secondItem="nVk-pQ-ZE3" secondAttribute="top" type="default" id="Kmd-9p-eX1"/>
-                            <constraint firstItem="2wM-w2-fzM" firstAttribute="bottom" secondItem="nVk-pQ-ZE3" secondAttribute="bottom" type="default" id="Nwu-e7-ace"/>
-                            <constraint firstItem="2wM-w2-fzM" firstAttribute="leading" secondItem="nVk-pQ-ZE3" secondAttribute="leading" type="default" id="Xav-uu-gbZ"/>
+                            <constraint firstItem="kke-l5-HWj" firstAttribute="bottom" secondItem="nVk-pQ-ZE3" secondAttribute="bottom" type="default" id="OcE-k8-fqK"/>
+                            <constraint firstItem="kke-l5-HWj" firstAttribute="trailing" secondItem="nVk-pQ-ZE3" secondAttribute="trailing" type="default" id="h18-ce-36B"/>
+                            <constraint firstItem="kke-l5-HWj" firstAttribute="top" secondItem="nVk-pQ-ZE3" secondAttribute="top" type="default" id="iZT-di-qsD"/>
+                            <constraint firstItem="kke-l5-HWj" firstAttribute="leading" secondItem="nVk-pQ-ZE3" secondAttribute="leading" type="default" id="oI5-aI-xyL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ydt-xn-0Lc"/>
                     <connections>
-                        <outlet property="imageView" destination="2wM-w2-fzM" id="dtT-JG-bT9"/>
+                        <outlet property="scrollView" destination="kke-l5-HWj" id="A0P-ZJ-TqT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z5j-3H-xQI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1544,10 +1635,10 @@
             </objects>
             <point key="canvasLocation" x="2639" y="-215"/>
         </scene>
-        <!--View Controller - Szerkesztés-->
+        <!--Event Edit View - Szerkesztés-->
         <scene sceneID="HkO-9E-feu">
             <objects>
-                <viewController id="HRP-Vy-glh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventEditView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HRP-Vy-glh" customClass="EventEditView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zuy-xE-acZ">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1567,7 +1658,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Zene típusa:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqb-O8-UVQ">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Zene típusa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqb-O8-UVQ">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="101" id="8NB-hE-6LD"/>
                                         </constraints>
@@ -1612,6 +1703,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="weQ-v7-3M1" kind="push" id="wWz-6N-LQq"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z6P-gf-kUa">
                                         <constraints>
@@ -1640,6 +1734,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="ToA-NP-WND" kind="push" id="Xhu-YV-zEt"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1676,6 +1773,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Szerkesztés" id="0h7-US-yQ7"/>
+                    <connections>
+                        <outlet property="musicTypeLabel" destination="xqb-O8-UVQ" id="Duk-DL-Pc6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="25T-4G-zJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1715,7 +1815,7 @@ EEVzZW3DqW55ZWs
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mOf-5x-kdG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="968" y="-2143"/>
+            <point key="canvasLocation" x="1012" y="-2339"/>
         </scene>
         <!--Information View - Információk-->
         <scene sceneID="otd-55-hDu">
@@ -1888,7 +1988,7 @@ EEVzZW3DqW55ZWs
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E7E-Z7-CNg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1725" y="-2133"/>
+            <point key="canvasLocation" x="1921" y="-2543"/>
         </scene>
         <!--Foods And Drinks Table View - Étlap, itallap-->
         <scene sceneID="YMU-aa-dDu">
@@ -1940,7 +2040,34 @@ EEVzZW3DqW55ZWs
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JmF-c0-Fta" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2681" y="-2143"/>
+            <point key="canvasLocation" x="2685" y="-2515"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6HB-e1-yBi">
+            <objects>
+                <viewController id="Fxd-97-qkZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ro3-uJ-hq7">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qDn-8b-uKE">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="TOi-mO-9hC"/>
+                                </constraints>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qDn-8b-uKE" firstAttribute="trailing" secondItem="ro3-uJ-hq7" secondAttribute="trailing" type="default" id="eFp-hw-5Nq"/>
+                            <constraint firstItem="qDn-8b-uKE" firstAttribute="leading" secondItem="ro3-uJ-hq7" secondAttribute="leading" type="default" id="iWY-du-NIS"/>
+                            <constraint firstItem="qDn-8b-uKE" firstAttribute="top" secondItem="ro3-uJ-hq7" secondAttribute="top" constant="97" id="j8E-q7-5Mq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7vY-7s-h1I"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cPo-QM-akj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3301" y="-3242"/>
         </scene>
         <!--Drink Or Food View - Étel, ital-->
         <scene sceneID="MEa-0p-Ij1">
@@ -2120,7 +2247,7 @@ EEVzZW3DqW55ZWs
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfz-N1-09l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3295" y="-2133"/>
+            <point key="canvasLocation" x="3335" y="-2501"/>
         </scene>
         <!--View Controller - Szerkesztés-->
         <scene sceneID="l0g-yl-wsy">
@@ -2220,6 +2347,9 @@ EEVzZW3DqW55ZWs
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Fxd-97-qkZ" kind="push" id="i3u-r4-Gc5"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GVg-xz-acL">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -2281,7 +2411,7 @@ EEVzZW3DqW55ZWs
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SxR-fD-5Xe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3870" y="-2133"/>
+            <point key="canvasLocation" x="3999" y="-2849"/>
         </scene>
         <!--Rating Table View View Controller - Értékelések-->
         <scene sceneID="gyu-ib-nBc">
@@ -2376,7 +2506,7 @@ EEVzZW3DqW55ZWs
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gbk-R0-sYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="720" y="-3335"/>
+            <point key="canvasLocation" x="456" y="-3675"/>
         </scene>
         <!--Navigation Controller - Szórakozóhelyek-->
         <scene sceneID="h8o-4Z-dga">
@@ -3253,6 +3383,9 @@ EEVzZW3DqW55ZWs
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Fxd-97-qkZ" kind="push" id="Hlj-Vp-otv"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5xX-5H-FKz">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -3314,7 +3447,7 @@ EEVzZW3DqW55ZWs
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u9P-Yj-mIN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2673" y="-2860"/>
+            <point key="canvasLocation" x="2669" y="-3384"/>
         </scene>
     </scenes>
     <resources>
@@ -3325,9 +3458,239 @@ EEVzZW3DqW55ZWs
         <image name="ic_action_user.png" width="32" height="32"/>
         <image name="ic_action_view_as_list.png" width="32" height="32"/>
     </resources>
+    <classes>
+        <class className="AddNewClubTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewClubTableView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="addressText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="AddNewEventView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewEventView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="descriptionText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="musicTypeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="AdminTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AdminTableView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+            </relationships>
+        </class>
+        <class className="ChangePasswordView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChangePasswordView.h"/>
+            <relationships>
+                <relationship kind="action" name="changePassword:"/>
+                <relationship kind="outlet" name="actualPasswordAgaingTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="actualPasswordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="oldPasswordTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ClubMapView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClubMapView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="DrinkOrFoodView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DrinkOrFoodView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currencyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="discountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="unitLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EditProfileView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditProfileView.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="saveChanges:"/>
+                <relationship kind="outlet" name="birthDayTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="segmentControl" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="EventDetailView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="descriptionText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="eventDateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="eventNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="musicTypeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EventEditView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventEditView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="musicTypeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EventsTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsTableView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+            </relationships>
+        </class>
+        <class className="FoodsAndDrinksTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FoodsAndDrinksTableView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addNewMenuItem" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="InfoAboutTheApplicationView" superclassName="ViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoAboutTheApplicationView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="informationText" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="InformationView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InformationView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="addressField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="clubNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="phoneField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ratingBackground" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="LoginView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginView.h"/>
+            <relationships>
+                <relationship kind="action" name="loginButtonPressed:"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MenuClubListView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuClubListView.h"/>
+            <relationships>
+                <relationship kind="action" name="showActionSheet:"/>
+            </relationships>
+        </class>
+        <class className="MenuMapView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuMapView.h"/>
+            <relationships>
+                <relationship kind="action" name="showActionSheet:"/>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="MusicTypePickerView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MusicTypePickerView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NewTypePickerView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewTypePickerView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="NotificationDetailView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotificationDetailView.h"/>
+        </class>
+        <class className="NotificationsView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotificationsView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+            </relationships>
+        </class>
+        <class className="PickerForSearchView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PickerForSearchView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="PictureView" superclassName="ViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PictureView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="PicturesCollectionView" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PicturesCollectionView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="action" name="showActionSheet:"/>
+            </relationships>
+        </class>
+        <class className="ProfileTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileTableView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="birhdayLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sexLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RatingTableViewViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RatingTableViewViewController.h"/>
+        </class>
+        <class className="RegisterView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterView.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="register:"/>
+                <relationship kind="outlet" name="birthdate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="name" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordAgain" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="segmentControl" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="SearchTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchTableView.h"/>
+            <relationships>
+                <relationship kind="action" name="showActionSheet:"/>
+                <relationship kind="outlet" name="addressTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="wWz-6N-LQq"/>
+        <segue reference="Xhu-YV-zEt"/>
+        <segue reference="i3u-r4-Gc5"/>
+    </inferredMetricsTieBreakers>
 </document>

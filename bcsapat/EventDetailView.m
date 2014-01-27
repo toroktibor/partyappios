@@ -32,6 +32,7 @@
 	// Do any additional setup after loading the view.
     
     descriptionText.editable=NO;
+    descriptionText.scrollEnabled=NO;
     descriptionText.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0];
     descriptionText.textColor=[UIColor whiteColor];
 }

@@ -22,6 +22,8 @@
     NSString * userLocation;
     NSString *clubTypeForPicker;
     int menuItemIndex;
+    NSString *musicType;
+    UIImage * image;
 }
 
 +(void)deleteSession;
@@ -69,7 +71,13 @@
 
 -(NSString *)getUserLocation;
 
+-(void)setMusicType:(NSString *)music;
 
+-(NSString *)getMusicType;
+
+-(void)setImage:(UIImage *)pics;
+
+-(UIImage *)getImage;
 
 
 

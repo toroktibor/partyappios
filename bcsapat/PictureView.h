@@ -9,7 +9,8 @@
 #import "ViewController.h"
 
 @interface PictureView : ViewController
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @property UIImage * image;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @end

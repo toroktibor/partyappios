@@ -7,6 +7,7 @@
 //
 
 #import "PictureView.h"
+#import "Session.h"
 
 @interface PictureView ()
 
@@ -29,8 +30,21 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    //UIImage * image = image = [UIImage imageNamed: @"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"];
-    //[imageView setImage:image];
+    [imageView setUserInteractionEnabled:YES];
+    
+    image = [[Session getInstance]getImage];
+    [imageView setImage:image];
+    
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    
+    // Setting the swipe direction.
+    [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [swipeRight setDirection:UISwipeGestureRecognizerDirectionRight];
+    
+    // Adding the swipe gesture on image view
+    [imageView addGestureRecognizer:swipeLeft];
+    [imageView addGestureRecognizer:swipeRight];
     
 }
 
@@ -38,6 +52,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)handleSwipe:(UISwipeGestureRecognizer *)swipe {
+    
+    if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
+        NSLog(@"Left Swipe");
+        
+    }
+    if (swipe.direction == UISwipeGestureRecognizerDirectionRight) {
+        NSLog(@"Right Swipe");
+        
+    }
 }
 
 @end
