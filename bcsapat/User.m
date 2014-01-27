@@ -21,9 +21,13 @@
         sex = sex_;
         birthday = birthday_;
         type = type_;
+
+
     }
     return self;
 }
+
+
 
 -(NSMutableArray *) getFavoriteClubs{
     return favoriteClubs;

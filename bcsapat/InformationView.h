@@ -10,11 +10,16 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import <MessageUI/MessageUI.h>
 #import "Club.h"
+#import "TQStarRatingView.h"
 
-@interface InformationView : UIViewController <MFMailComposeViewControllerDelegate,UIActionSheetDelegate>
+@interface InformationView : UIViewController <MFMailComposeViewControllerDelegate,UIActionSheetDelegate,StarRatingViewDelegate>
 
 - (IBAction)showActionSheet:(id)sender;
 
+
+@property (nonatomic,strong)TQStarRatingView *starRatingView;
+
+@property (weak, nonatomic) IBOutlet UITextField *ratingBackground;
 
 @property (weak, nonatomic) IBOutlet UILabel *clubNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -27,5 +32,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 - (IBAction)back:(id)sender;
 @end

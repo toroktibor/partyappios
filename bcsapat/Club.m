@@ -24,6 +24,7 @@
         email = email_;
         date = date_;
         approved=approved_;
+        ratings=[[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -38,6 +39,21 @@
         address = address_;
     }
     return self;
+}
+
+-(void)addRating:(float)rating{
+    NSNumber * number=[NSNumber numberWithFloat:rating];
+    [ratings addObject:number];
+}
+
+-(float)getRatingNumber{
+    float sum=0;
+    for (int i=0; i<[ratings count]; ++i) {
+        NSNumber * rating=[ratings objectAtIndex:i];
+        sum+=[rating floatValue];
+    }
+    
+    return (sum/[ratings count])/10;
 }
 
 -(NSMutableArray *) getOwnerIds{

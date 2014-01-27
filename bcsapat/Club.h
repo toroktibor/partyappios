@@ -28,6 +28,7 @@
     NSMutableArray * services;
 }
 
+
 -(NSMutableArray *) getOwnerIds;
 -(NSMutableArray *) getMenuItems;
 -(NSMutableArray *) getRatings;
@@ -38,8 +39,12 @@
 -(NSString *) getEmail;
 -(NSString *) getPhoneNumber;
 -(NSString *) getDescription;
+
+-(float)getRatingNumber;
+
 -(int)getApproved;
 
+-(void)addRating:(float)rating;
 -(void)setOwnerIds;
 -(void)setMenuItems:(NSMutableArray*) inMenuItems;
 -(void)setRatings;

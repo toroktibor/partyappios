@@ -41,11 +41,23 @@
     [itemArray addObject:cmenuItem];
     
     [aclub setMenuItems:itemArray];
+    [aclub addRating:2.0];
+    [aclub addRating:4.0];
+    
+    [cclub setMenuItems:itemArray];
+    [cclub addRating:5.0];
+    [cclub addRating:5.0];
+    
+    [bclub setMenuItems:itemArray];
+    [bclub addRating:10.0];
+    [bclub addRating:10.0];
     
     [clubs addObject:aclub];
     [clubs addObject:bclub];
     [clubs addObject:cclub];
     [clubs addObject:dclub];
+    
+
     return self;
 }
 

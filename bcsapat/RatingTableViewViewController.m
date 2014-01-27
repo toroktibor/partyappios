@@ -42,7 +42,7 @@
     int selectedIndex=[[Session getInstance]getSelectedIndex];
     Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
     
-    ratningsArray = [club getRatings];
+    //ratningsArray = [club getRatings];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,7 +62,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [ratningsArray count];
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,10 +74,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    Rating * rating=[ratningsArray objectAtIndex:indexPath.row];
+    /*Rating * rating=[ratningsArray objectAtIndex:indexPath.row];
     
     cell.textLabel.text=[rating getuserName];
-    cell.detailTextLabel.text=[rating getComment];
+    cell.detailTextLabel.text=[rating getComment];*/
     
     // Configure the cell...
     

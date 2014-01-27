@@ -30,6 +30,10 @@
         }
     }
     
+    
+
+    
+    
     dbConnection = [[MyDatabase alloc]initWithPath:path];
     return YES;
 }

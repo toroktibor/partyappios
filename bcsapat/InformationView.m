@@ -19,7 +19,7 @@
 @end
 
 @implementation InformationView
-@synthesize imageView,descriptionView,club,addressField,phoneField,emailField,clubNameLabel;
+@synthesize imageView,descriptionView,club,addressField,phoneField,emailField,clubNameLabel,scrollView,starRatingView,ratingBackground;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,18 +35,26 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    int selectedIndex=[[Session getInstance]getSelectedIndex];
+    club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+    
+    
+    starRatingView = [[TQStarRatingView alloc] initWithFrame:CGRectMake(153, 93, 125, 25)
+                                                 numberOfStar:5];
+    starRatingView.delegate = self;
+    
+    [starRatingView setScore:[club getRatingNumber] withAnimation:NO];
+    [scrollView addSubview:starRatingView];
+    
+    
+    
+    
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
     
     [[[self navigationController] navigationBar] setTintColor:[UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(100/255.0) alpha:1.0]];
     
-    int selectedIndex=[[Session getInstance]getSelectedIndex];
-    club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+
     
-    /*[clubNameText setText:[club getClubName]];
-    [addressLabel setText:[club getAddress]];
-    [phonenumberLabel setText:[club getPhoneNumber]];
-    [emailLabel setText:[club getEmail]];
-    [descriptionView setText:[club getDescription]];*/
     
     descriptionView.editable=NO;
     [descriptionView setText:[club getDescription]];
@@ -73,6 +81,10 @@
     phoneField.textColor=[UIColor whiteColor];
     phoneField.enabled=NO;
     phoneField.text=[club getPhoneNumber];
+    
+    ratingBackground.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    ratingBackground.textColor=[UIColor whiteColor];
+    ratingBackground.enabled=NO;
     
     
     
