@@ -77,6 +77,8 @@
 		7ADB94C21896C4B700C69CF8 /* MusicTypePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADB94C11896C4B700C69CF8 /* MusicTypePickerView.m */; };
 		7ADB94C51896C9CC00C69CF8 /* AddNewEventView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADB94C41896C9CC00C69CF8 /* AddNewEventView.m */; };
 		7ADB94C81896CD7800C69CF8 /* EventEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADB94C71896CD7800C69CF8 /* EventEditView.m */; };
+		7ADB94CB1896D8EF00C69CF8 /* RatingDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADB94CA1896D8EE00C69CF8 /* RatingDetailView.m */; };
+		7ADB94CE1896DD2A00C69CF8 /* MovingStars.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADB94CD1896DD2A00C69CF8 /* MovingStars.m */; };
 		7ADBD2EE18952E90008A2261 /* website-background-1024x576.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7ADBD2ED18952E90008A2261 /* website-background-1024x576.jpg */; };
 		7ADBD2FA1895631D008A2261 /* bricskok.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADBD2F91895631D008A2261 /* bricskok.png */; };
 		7ADBD2FF18957FE2008A2261 /* NotificationDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADBD2FE18957FE2008A2261 /* NotificationDetailView.m */; };
@@ -198,6 +200,10 @@
 		7ADB94C41896C9CC00C69CF8 /* AddNewEventView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewEventView.m; sourceTree = "<group>"; };
 		7ADB94C61896CD7700C69CF8 /* EventEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventEditView.h; sourceTree = "<group>"; };
 		7ADB94C71896CD7800C69CF8 /* EventEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventEditView.m; sourceTree = "<group>"; };
+		7ADB94C91896D8EE00C69CF8 /* RatingDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingDetailView.h; sourceTree = "<group>"; };
+		7ADB94CA1896D8EE00C69CF8 /* RatingDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingDetailView.m; sourceTree = "<group>"; };
+		7ADB94CC1896DD2A00C69CF8 /* MovingStars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingStars.h; sourceTree = "<group>"; };
+		7ADB94CD1896DD2A00C69CF8 /* MovingStars.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovingStars.m; sourceTree = "<group>"; };
 		7ADBD2ED18952E90008A2261 /* website-background-1024x576.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "website-background-1024x576.jpg"; sourceTree = "<group>"; };
 		7ADBD2F91895631D008A2261 /* bricskok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bricskok.png; sourceTree = "<group>"; };
 		7ADBD2FD18957FE2008A2261 /* NotificationDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDetailView.h; sourceTree = "<group>"; };
@@ -454,6 +460,8 @@
 				7ADB94C41896C9CC00C69CF8 /* AddNewEventView.m */,
 				7ADB94C61896CD7700C69CF8 /* EventEditView.h */,
 				7ADB94C71896CD7800C69CF8 /* EventEditView.m */,
+				7ADB94C91896D8EE00C69CF8 /* RatingDetailView.h */,
+				7ADB94CA1896D8EE00C69CF8 /* RatingDetailView.m */,
 			);
 			name = BarsAndPubsAndRestaurants;
 			sourceTree = "<group>";
@@ -463,6 +471,8 @@
 			children = (
 				7ADB94B01896955F00C69CF8 /* TQStarRatingView.h */,
 				7ADB94B11896955F00C69CF8 /* TQStarRatingView.m */,
+				7ADB94CC1896DD2A00C69CF8 /* MovingStars.h */,
+				7ADB94CD1896DD2A00C69CF8 /* MovingStars.m */,
 			);
 			name = "Rating Stars";
 			sourceTree = "<group>";
@@ -615,6 +625,8 @@
 				7ADB94C21896C4B700C69CF8 /* MusicTypePickerView.m in Sources */,
 				7ADB94C51896C9CC00C69CF8 /* AddNewEventView.m in Sources */,
 				7ADB94C81896CD7800C69CF8 /* EventEditView.m in Sources */,
+				7ADB94CB1896D8EF00C69CF8 /* RatingDetailView.m in Sources */,
+				7ADB94CE1896DD2A00C69CF8 /* MovingStars.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
