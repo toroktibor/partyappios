@@ -32,7 +32,6 @@
     [super viewDidLoad];
     
     
-    
     name.delegate=self;
     name.tag=0;
     

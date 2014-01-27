@@ -9,19 +9,23 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MFMailComposeViewController.h>
 #import <MessageUI/MessageUI.h>
+#import "Club.h"
 
 @interface InformationView : UIViewController <MFMailComposeViewControllerDelegate,UIActionSheetDelegate>
 
 - (IBAction)showActionSheet:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UILabel *clubNameText;
+
+@property (weak, nonatomic) IBOutlet UILabel *clubNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
-@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
-@property (weak, nonatomic) IBOutlet UILabel *phonenumberLabel;
-@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionView;
 
+@property Club * club;
+
+@property (weak, nonatomic) IBOutlet UITextField *addressField;
+@property (weak, nonatomic) IBOutlet UITextField *phoneField;
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
 
 - (IBAction)back:(id)sender;
 @end

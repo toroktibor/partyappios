@@ -1744,9 +1744,10 @@ EEVzZW3DqW55ZWs
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kU6-hW-JED">
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="280" id="tP5-1W-c4A"/>
                                             <constraint firstAttribute="height" constant="128" id="tkO-1S-Uqe"/>
                                         </constraints>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -1758,19 +1759,16 @@ EEVzZW3DqW55ZWs
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Szórkozóhely neve" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1Q-Jb-5YR">
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="189" id="eqE-UD-cSc"/>
+                                            <constraint firstAttribute="width" constant="165" id="EDx-wO-ivn"/>
                                             <constraint firstAttribute="height" constant="40" id="h0B-Fv-b2z"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Leírás:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXG-Dv-SCg">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="111" id="VeY-s1-RTw"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Cím:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjk-UK-s3L">
@@ -1778,12 +1776,15 @@ EEVzZW3DqW55ZWs
                                             <constraint firstAttribute="width" constant="44" id="oaT-Zh-MBD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Telefonszám:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NmJ-qT-8Eg">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="111" id="UbA-hA-MyY"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="br8-r0-y0r">
@@ -1791,28 +1792,7 @@ EEVzZW3DqW55ZWs
                                             <constraint firstAttribute="width" constant="137" id="uXp-Pa-w65"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3N-2O-MCk">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="210" id="CT6-Zh-sVw"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOV-Aa-XnT">
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMk-kX-7sp">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="203" id="QI3-mL-UpZ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="shb-YT-rVh"/>
@@ -1821,40 +1801,58 @@ EEVzZW3DqW55ZWs
                                             <constraint firstAttribute="width" constant="69" id="PL6-ca-SE1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="teafdsafs" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wc6-Fu-fA4">
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EWV-65-jzZ">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="283" id="jCy-lr-EOf"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c0Z-D1-l0G">
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="NmJ-qT-8Eg" firstAttribute="trailing" secondItem="tXG-Dv-SCg" secondAttribute="trailing" type="default" id="009-Lu-cry"/>
-                                    <constraint firstItem="HOV-Aa-XnT" firstAttribute="baseline" secondItem="NmJ-qT-8Eg" secondAttribute="baseline" type="default" id="3Av-wS-gKN"/>
+                                    <constraint firstItem="wc6-Fu-fA4" firstAttribute="centerX" secondItem="nJk-Gb-3se" secondAttribute="centerX" type="default" id="0Jb-o6-UbW"/>
+                                    <constraint firstItem="r1Q-Jb-5YR" firstAttribute="trailing" secondItem="kU6-hW-JED" secondAttribute="trailing" type="default" id="12H-Nb-PaE"/>
                                     <constraint firstItem="ZY2-lr-sFR" firstAttribute="top" secondItem="nJk-Gb-3se" secondAttribute="top" constant="20" symbolic="YES" type="default" id="3Bl-Lz-x8x"/>
+                                    <constraint firstItem="br8-r0-y0r" firstAttribute="top" secondItem="nJk-Gb-3se" secondAttribute="top" constant="280" id="3t1-U3-uQE"/>
+                                    <constraint firstItem="Wjk-UK-s3L" firstAttribute="top" secondItem="nJk-Gb-3se" secondAttribute="top" constant="134" id="4zH-xo-88V"/>
                                     <constraint firstItem="8kx-sb-nug" firstAttribute="top" secondItem="r1Q-Jb-5YR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="5Bd-mC-nfL"/>
                                     <constraint firstItem="Wjk-UK-s3L" firstAttribute="leading" secondItem="nJk-Gb-3se" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="5mA-ud-Hg8"/>
-                                    <constraint firstItem="kU6-hW-JED" firstAttribute="leading" secondItem="nJk-Gb-3se" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="7FX-ub-IRE"/>
-                                    <constraint firstItem="tXG-Dv-SCg" firstAttribute="top" secondItem="nJk-Gb-3se" secondAttribute="top" constant="267" id="BRC-6L-FPm"/>
+                                    <constraint firstItem="tXG-Dv-SCg" firstAttribute="leading" secondItem="nJk-Gb-3se" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Bcd-UK-LTT"/>
                                     <constraint firstAttribute="trailing" secondItem="shb-YT-rVh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Bsy-HN-Gsj"/>
-                                    <constraint firstAttribute="trailing" secondItem="c3N-2O-MCk" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="D5A-JE-460"/>
+                                    <constraint firstAttribute="trailing" secondItem="c0Z-D1-l0G" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="E32-Vw-ci0"/>
+                                    <constraint firstAttribute="bottom" secondItem="kU6-hW-JED" secondAttribute="bottom" constant="-51" id="FXc-cN-BRh"/>
+                                    <constraint firstAttribute="trailing" secondItem="wc6-Fu-fA4" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Jgl-1V-3jh"/>
                                     <constraint firstItem="shb-YT-rVh" firstAttribute="leading" secondItem="ZY2-lr-sFR" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="JiA-Cl-KfH"/>
-                                    <constraint firstAttribute="trailing" secondItem="HOV-Aa-XnT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="KmE-ka-cjl"/>
-                                    <constraint firstAttribute="trailing" secondItem="kU6-hW-JED" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="LCL-ra-9ej"/>
-                                    <constraint firstItem="xMk-kX-7sp" firstAttribute="baseline" secondItem="br8-r0-y0r" secondAttribute="baseline" type="default" id="ObO-Jk-Maf"/>
+                                    <constraint firstItem="wc6-Fu-fA4" firstAttribute="leading" secondItem="nJk-Gb-3se" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LDe-8D-SJU"/>
+                                    <constraint firstItem="c0Z-D1-l0G" firstAttribute="top" secondItem="NmJ-qT-8Eg" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="NQa-9A-NKu"/>
+                                    <constraint firstItem="NmJ-qT-8Eg" firstAttribute="top" secondItem="nJk-Gb-3se" secondAttribute="top" constant="204" id="O4q-fr-S7i"/>
+                                    <constraint firstItem="EWV-65-jzZ" firstAttribute="top" secondItem="br8-r0-y0r" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ONe-Nd-6VI"/>
                                     <constraint firstItem="ZY2-lr-sFR" firstAttribute="leading" secondItem="nJk-Gb-3se" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="OhB-ov-ST2"/>
                                     <constraint firstItem="8kx-sb-nug" firstAttribute="leading" secondItem="ZY2-lr-sFR" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Pmr-Q2-gOV"/>
+                                    <constraint firstItem="kU6-hW-JED" firstAttribute="top" secondItem="nJk-Gb-3se" secondAttribute="top" constant="378" id="SvX-5E-67m"/>
                                     <constraint firstItem="NmJ-qT-8Eg" firstAttribute="leading" secondItem="nJk-Gb-3se" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="VFA-au-M3G"/>
-                                    <constraint firstItem="NmJ-qT-8Eg" firstAttribute="top" secondItem="nJk-Gb-3se" secondAttribute="top" constant="182" id="Xbw-7f-pUr"/>
-                                    <constraint firstItem="HOV-Aa-XnT" firstAttribute="leading" secondItem="NmJ-qT-8Eg" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="eSh-qs-Muc"/>
+                                    <constraint firstItem="c0Z-D1-l0G" firstAttribute="leading" secondItem="nJk-Gb-3se" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WA4-rj-Zyj"/>
+                                    <constraint firstItem="EWV-65-jzZ" firstAttribute="leading" secondItem="br8-r0-y0r" secondAttribute="leading" type="default" id="dpF-AH-AN2"/>
                                     <constraint firstItem="shb-YT-rVh" firstAttribute="top" secondItem="8kx-sb-nug" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="eug-Zj-PGj"/>
-                                    <constraint firstAttribute="bottom" secondItem="kU6-hW-JED" secondAttribute="bottom" constant="43" id="fbw-dP-AQE"/>
-                                    <constraint firstItem="Wjk-UK-s3L" firstAttribute="top" secondItem="nJk-Gb-3se" secondAttribute="top" constant="142" id="hsN-uY-5bk"/>
-                                    <constraint firstItem="tXG-Dv-SCg" firstAttribute="leading" secondItem="ZY2-lr-sFR" secondAttribute="leading" type="default" id="itV-yH-PCJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="xMk-kX-7sp" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="khS-wp-Oan"/>
-                                    <constraint firstItem="kU6-hW-JED" firstAttribute="centerX" secondItem="nJk-Gb-3se" secondAttribute="centerX" type="default" id="pLA-qM-5iB"/>
-                                    <constraint firstItem="r1Q-Jb-5YR" firstAttribute="leading" secondItem="HOV-Aa-XnT" secondAttribute="leading" type="default" id="qLj-Eh-akJ"/>
-                                    <constraint firstItem="c3N-2O-MCk" firstAttribute="baseline" secondItem="Wjk-UK-s3L" secondAttribute="baseline" type="default" id="sEz-hO-Im0"/>
-                                    <constraint firstItem="br8-r0-y0r" firstAttribute="top" secondItem="nJk-Gb-3se" secondAttribute="top" constant="224" id="sPb-dy-rwm"/>
-                                    <constraint firstItem="br8-r0-y0r" firstAttribute="leading" secondItem="nJk-Gb-3se" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="sgQ-3z-kQi"/>
-                                    <constraint firstItem="kU6-hW-JED" firstAttribute="top" secondItem="nJk-Gb-3se" secondAttribute="top" constant="284" id="uSY-vo-6ah"/>
+                                    <constraint firstItem="EWV-65-jzZ" firstAttribute="centerX" secondItem="8kx-sb-nug" secondAttribute="centerX" type="default" id="fWM-cV-Nlv"/>
+                                    <constraint firstItem="wc6-Fu-fA4" firstAttribute="top" secondItem="nJk-Gb-3se" secondAttribute="top" constant="156" id="jxG-bC-z8J"/>
+                                    <constraint firstItem="kU6-hW-JED" firstAttribute="leading" secondItem="nJk-Gb-3se" secondAttribute="leading" constant="14" id="mXm-uH-ex9"/>
+                                    <constraint firstItem="tXG-Dv-SCg" firstAttribute="top" secondItem="nJk-Gb-3se" secondAttribute="top" constant="357" id="vLo-zo-Wgk"/>
                                     <constraint firstItem="r1Q-Jb-5YR" firstAttribute="top" secondItem="nJk-Gb-3se" secondAttribute="top" constant="20" symbolic="YES" type="default" id="x5o-kE-2d5"/>
                                 </constraints>
                             </scrollView>
@@ -1882,12 +1880,12 @@ EEVzZW3DqW55ZWs
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addressLabel" destination="c3N-2O-MCk" id="eN3-bz-qk9"/>
-                        <outlet property="clubNameText" destination="r1Q-Jb-5YR" id="icK-lk-qlI"/>
+                        <outlet property="addressField" destination="wc6-Fu-fA4" id="Fil-Iv-3Wj"/>
+                        <outlet property="clubNameLabel" destination="r1Q-Jb-5YR" id="7sS-bd-mUP"/>
                         <outlet property="descriptionView" destination="kU6-hW-JED" id="RCO-iC-as3"/>
-                        <outlet property="emailLabel" destination="xMk-kX-7sp" id="EWD-bE-KUo"/>
+                        <outlet property="emailField" destination="EWV-65-jzZ" id="aQo-Bs-0oq"/>
                         <outlet property="imageView" destination="ZY2-lr-sFR" id="mbS-hx-nKM"/>
-                        <outlet property="phonenumberLabel" destination="HOV-Aa-XnT" id="BNg-XA-k09"/>
+                        <outlet property="phoneField" destination="c0Z-D1-l0G" id="gSY-E5-FjW"/>
                         <outlet property="slider" destination="shb-YT-rVh" id="v4e-ds-1TC"/>
                         <segue destination="Cdo-Iw-CQO" kind="push" identifier="ShowClubMap" id="cKr-Tp-6P5"/>
                         <segue destination="dhk-Ba-REB" kind="push" id="Uw0-I0-Nt6"/>
@@ -3333,6 +3331,205 @@ EEVzZW3DqW55ZWs
         <image name="ic_action_user.png" width="32" height="32"/>
         <image name="ic_action_view_as_list.png" width="32" height="32"/>
     </resources>
+    <classes>
+        <class className="AddNewClubTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewClubTableView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="addressText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="AdminTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AdminTableView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+            </relationships>
+        </class>
+        <class className="ChangePasswordView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChangePasswordView.h"/>
+            <relationships>
+                <relationship kind="action" name="changePassword:"/>
+                <relationship kind="outlet" name="actualPasswordAgaingTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="actualPasswordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="oldPasswordTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ClubMapView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClubMapView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="DrinkOrFoodView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DrinkOrFoodView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currencyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="discountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="unitLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EditProfileView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditProfileView.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="saveChanges:"/>
+                <relationship kind="outlet" name="birthDayTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="segmentControl" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="EventDetailView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailView.h"/>
+        </class>
+        <class className="EventsTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsTableView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+            </relationships>
+        </class>
+        <class className="FoodsAndDrinksTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FoodsAndDrinksTableView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addNewMenuItem" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="InfoAboutTheApplicationView" superclassName="ViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoAboutTheApplicationView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="informationText" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="InformationView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InformationView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="action" name="showActionSheet:"/>
+                <relationship kind="outlet" name="addressField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="clubNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="phoneField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="LoginView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginView.h"/>
+            <relationships>
+                <relationship kind="action" name="loginButtonPressed:"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="userName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MenuClubListView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuClubListView.h"/>
+            <relationships>
+                <relationship kind="action" name="showActionSheet:"/>
+            </relationships>
+        </class>
+        <class className="MenuMapView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuMapView.h"/>
+            <relationships>
+                <relationship kind="action" name="showActionSheet:"/>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NewTypePickerView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewTypePickerView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="NotificationDetailView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotificationDetailView.h"/>
+        </class>
+        <class className="NotificationsView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotificationsView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+            </relationships>
+        </class>
+        <class className="PickerForSearchView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PickerForSearchView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="PictureView" superclassName="ViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PictureView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="PicturesCollectionView" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PicturesCollectionView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="action" name="showActionSheet:"/>
+            </relationships>
+        </class>
+        <class className="ProfileTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileTableView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="birhdayLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sexLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RatingTableViewViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RatingTableViewViewController.h"/>
+        </class>
+        <class className="RegisterView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterView.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="register:"/>
+                <relationship kind="outlet" name="birthdate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="name" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordAgain" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="segmentControl" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="SearchTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchTableView.h"/>
+            <relationships>
+                <relationship kind="action" name="showActionSheet:"/>
+                <relationship kind="outlet" name="addressTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

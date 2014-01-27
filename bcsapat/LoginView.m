@@ -72,11 +72,6 @@
     [locationManager startUpdatingLocation];
     
     
-    /*NSArray* array=[[[Session getInstance]getDatabse]selectAllFromUser];
-    for (int i=0; i<[array count]; ++i) {
-        NSLog(@"%@",[array objectAtIndex:i]);
-    }*/
-    
     
     userName.delegate=self;
     userName.tag=0;

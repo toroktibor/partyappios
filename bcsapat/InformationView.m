@@ -19,7 +19,7 @@
 @end
 
 @implementation InformationView
-@synthesize clubNameText,addressLabel,phonenumberLabel,emailLabel,imageView,descriptionView;
+@synthesize imageView,descriptionView,club,addressField,phoneField,emailField,clubNameLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,20 +35,45 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
+    
     [[[self navigationController] navigationBar] setTintColor:[UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(100/255.0) alpha:1.0]];
     
     int selectedIndex=[[Session getInstance]getSelectedIndex];
-    Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
-    [clubNameText setText:[club getClubName]];
+    club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+    
+    /*[clubNameText setText:[club getClubName]];
     [addressLabel setText:[club getAddress]];
     [phonenumberLabel setText:[club getPhoneNumber]];
     [emailLabel setText:[club getEmail]];
-    [descriptionView setText:[club getDescription]];
+    [descriptionView setText:[club getDescription]];*/
     
     descriptionView.editable=NO;
+    [descriptionView setText:[club getDescription]];
+    descriptionView.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0];
+    descriptionView.textColor=[UIColor whiteColor];
     
     UIImage * image = [UIImage imageNamed: @"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"];
     [imageView setImage:image];
+    
+    
+    clubNameLabel.text=[club getClubName];
+    
+    addressField.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    addressField.textColor=[UIColor whiteColor];
+    addressField.enabled=NO;
+    addressField.text=[club getAddress];
+    
+    emailField.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    emailField.textColor=[UIColor whiteColor];
+    emailField.enabled=NO;
+    emailField.text=[club getEmail];
+    
+    phoneField.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    phoneField.textColor=[UIColor whiteColor];
+    phoneField.enabled=NO;
+    phoneField.text=[club getPhoneNumber];
+    
     
     
 }
@@ -129,8 +154,10 @@
             
             MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
             mailViewController.mailComposeDelegate = self;
-            [mailViewController setSubject:@"Subject Goes Here."];
-            [mailViewController setMessageBody:@"Your message goes here." isHTML:NO];
+            NSArray *toRecipients = [NSArray arrayWithObjects:[club getEmail],nil];
+            [mailViewController setToRecipients:toRecipients];
+            //[mailViewController setSubject:@"Subject Goes Here."];
+            //[mailViewController setMessageBody:@"Your message goes here." isHTML:NO];
             
             [self presentViewController:mailViewController animated:YES completion:nil];
             
@@ -139,7 +166,7 @@
         else {
             
             NSLog(@"Device is unable to send email in its current state.");
-            UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"A készülék jelenlegi állapotában nem tud üzenetet küldeni!" delegate:nil
+            UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"A készülék jelenleg nem tud üzenetet küldeni!" delegate:nil
                                                        cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [Notpermitted show];
         

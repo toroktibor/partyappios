@@ -116,8 +116,19 @@ BowlingSelected,DjSelected,FoodSelected;
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UIImage *accessoryImage_next = [UIImage imageNamed:@"ic_action_next_item.png"];
+    UIImageView *accImageView_next = [[UIImageView alloc] initWithImage:accessoryImage_next];
+    accImageView_next.userInteractionEnabled = YES;
+    [accImageView_next setFrame:CGRectMake(0, 0, 28.0, 28.0)];
+    
+    if (indexPath.section==2 && indexPath.row==0) {
+        cell.accessoryView = accImageView_next;
+    }
+    
+    
+    cell.backgroundColor = [UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
     //cell.backgroundColor = [UIColor colorWithRed:(47/255.0) green:(50/255.0) blue:(66/255.0) alpha:0.5];
-    cell.backgroundColor = [UIColor colorWithRed:(190/255.) green:(190/255.0) blue:(190/255.0) alpha:0.5];
+    //cell.backgroundColor = [UIColor colorWithRed:(190/255.) green:(190/255.0) blue:(190/255.0) alpha:0.5];
 }
 
 
@@ -173,7 +184,15 @@ BowlingSelected,DjSelected,FoodSelected;
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    UIImage *accessoryImage_accept = [UIImage imageNamed:@"ic_action_accept.png"];
+    UIImageView *accImageView_accept = [[UIImageView alloc] initWithImage:accessoryImage_accept];
+    accImageView_accept.userInteractionEnabled = YES;
+    [accImageView_accept setFrame:CGRectMake(0, 0, 28.0, 28.0)];
+    
+    
     if (indexPath.section==2 && indexPath.row==0) {
+        //picker megnyitása
         NewTypePickerView *NewTypePickerView=
         [self.storyboard instantiateViewControllerWithIdentifier:@"NewTypePickerView"];
         [self.navigationController pushViewController:NewTypePickerView animated:YES];
@@ -181,13 +200,15 @@ BowlingSelected,DjSelected,FoodSelected;
     else if (indexPath.section==3 && indexPath.row==0){
         if (sportBroadcastSelected==NO) {
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            //cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            cell.accessoryView = accImageView_accept;
             [self.tableView reloadData];
             sportBroadcastSelected=YES;
         }
         else{
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryNone;
+            cell.accessoryView=nil;
+            //cell.accessoryType=UITableViewCellAccessoryNone;
             [self.tableView reloadData];
             sportBroadcastSelected=NO;
         }
@@ -195,13 +216,15 @@ BowlingSelected,DjSelected,FoodSelected;
     else if (indexPath.section==3 && indexPath.row==1){
         if (liveMusicSelected==NO) {
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            //cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            cell.accessoryView = accImageView_accept;
             [self.tableView reloadData];
             liveMusicSelected=YES;
         }
         else{
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryNone;
+            cell.accessoryView=nil;
+            //cell.accessoryType=UITableViewCellAccessoryNone;
             [self.tableView reloadData];
             liveMusicSelected=NO;
         }
@@ -209,13 +232,15 @@ BowlingSelected,DjSelected,FoodSelected;
     else if (indexPath.section==3 && indexPath.row==2){
         if (snookerSelected==NO) {
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            //cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            cell.accessoryView = accImageView_accept;
             [self.tableView reloadData];
             snookerSelected=YES;
         }
         else{
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryNone;
+            cell.accessoryView=nil;
+            //cell.accessoryType=UITableViewCellAccessoryNone;
             [self.tableView reloadData];
             snookerSelected=NO;
         }
@@ -223,13 +248,15 @@ BowlingSelected,DjSelected,FoodSelected;
     else if (indexPath.section==3 && indexPath.row==3){
         if (FoodSelected==NO) {
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            //cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            cell.accessoryView = accImageView_accept;
             [self.tableView reloadData];
             FoodSelected=YES;
         }
         else{
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryNone;
+            cell.accessoryView=nil;
+            //cell.accessoryType=UITableViewCellAccessoryNone;
             [self.tableView reloadData];
             FoodSelected=NO;
         }
@@ -237,13 +264,15 @@ BowlingSelected,DjSelected,FoodSelected;
     else if (indexPath.section==3 && indexPath.row==4){
         if (DjSelected==NO) {
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            //cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            cell.accessoryView = accImageView_accept;
             [self.tableView reloadData];
             DjSelected=YES;
         }
         else{
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryNone;
+            cell.accessoryView=nil;
+            // cell.accessoryType=UITableViewCellAccessoryNone;
             [self.tableView reloadData];
             DjSelected=NO;
         }
@@ -251,13 +280,15 @@ BowlingSelected,DjSelected,FoodSelected;
     else if (indexPath.section==3 && indexPath.row==5){
         if (DartsSelected==NO) {
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            //cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            cell.accessoryView = accImageView_accept;
             [self.tableView reloadData];
             DartsSelected=YES;
         }
         else{
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryNone;
+            cell.accessoryView=nil;
+            //cell.accessoryType=UITableViewCellAccessoryNone;
             [self.tableView reloadData];
             DartsSelected=NO;
         }
@@ -265,13 +296,15 @@ BowlingSelected,DjSelected,FoodSelected;
     else if (indexPath.section==3 && indexPath.row==6){
         if (BowlingSelected==NO) {
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            //cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            cell.accessoryView = accImageView_accept;
             [self.tableView reloadData];
             BowlingSelected=YES;
         }
         else{
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryNone;
+            cell.accessoryView=nil;
+            //cell.accessoryType=UITableViewCellAccessoryNone;
             [self.tableView reloadData];
             BowlingSelected=NO;
         }
@@ -279,13 +312,15 @@ BowlingSelected,DjSelected,FoodSelected;
     else if (indexPath.section==3 && indexPath.row==7){
         if (wifiSelected==NO) {
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            //cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            cell.accessoryView = accImageView_accept;
             [self.tableView reloadData];
             wifiSelected=YES;
         }
         else{
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryNone;
+            cell.accessoryView=nil;
+            //cell.accessoryType=UITableViewCellAccessoryNone;
             [self.tableView reloadData];
             wifiSelected=NO;
         }
@@ -293,13 +328,15 @@ BowlingSelected,DjSelected,FoodSelected;
     else if (indexPath.section==3 && indexPath.row==8){
         if (coctailBarSelected==NO) {
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            //cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            cell.accessoryView = accImageView_accept;
             [self.tableView reloadData];
             coctailBarSelected=YES;
         }
         else{
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryNone;
+            cell.accessoryView=nil;
+            //cell.accessoryType=UITableViewCellAccessoryNone;
             [self.tableView reloadData];
             coctailBarSelected=NO;
         }
@@ -307,18 +344,19 @@ BowlingSelected,DjSelected,FoodSelected;
     else if (indexPath.section==3 && indexPath.row==9){
         if (DartsSelected==NO) {
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            //cell.accessoryType=UITableViewCellAccessoryCheckmark;
+            cell.accessoryView = accImageView_accept;
             [self.tableView reloadData];
             DartsSelected=YES;
         }
         else{
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType=UITableViewCellAccessoryNone;
+            cell.accessoryView=nil;
+            //cell.accessoryType=UITableViewCellAccessoryNone;
             [self.tableView reloadData];
             DartsSelected=NO;
         }
     }
-
 }
 
 - (IBAction)back:(id)sender {
