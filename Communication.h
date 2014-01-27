@@ -9,7 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "CommunicationProtocol.h"
 
-@interface Communication : NSObject
+
+
+@interface Communication : NSObject <NSURLConnectionDataDelegate>
+
+-(NSString *) httpPost: (NSString *) file withData: (NSMutableDictionary *) data;
 
 -(User *) authenticationUserWithNickName:(NSString *) nick_name andPassword:(NSString*) password;
 
