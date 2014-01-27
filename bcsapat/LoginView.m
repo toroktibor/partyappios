@@ -10,13 +10,14 @@
 #import "Session.h"
 #import "Session.h"
 #import "User.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface LoginView ()
 
 @end
 
 @implementation LoginView
-@synthesize userName,password,loginButton;
+@synthesize userName,password,loginButton,registerButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -88,6 +89,18 @@
         [alert show];
 
     }
+    
+    loginButton.layer.cornerRadius = 8;
+    //loginButton.layer.borderWidth = 1;
+    //loginButton.layer.borderColor = [UIColor grayColor].CGColor;
+    loginButton.clipsToBounds = YES;
+    
+    registerButton.layer.cornerRadius = 8;
+    //registerButton.layer.borderWidth = 1;
+    //registerButton.layer.borderColor = [UIColor grayColor].CGColor;
+    registerButton.clipsToBounds = YES;
+    
+    
     
     
 	// Do any additional setup after loading the view.
