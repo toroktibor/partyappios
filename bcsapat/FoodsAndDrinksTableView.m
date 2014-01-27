@@ -94,6 +94,12 @@
                                                       alpha:0.5];
     cell.selectedBackgroundView =  customColorView;
     
+    UIImage *accessoryImage = [UIImage imageNamed:@"ic_action_next_item.png"];
+    UIImageView *accImageView = [[UIImageView alloc] initWithImage:accessoryImage];
+    accImageView.userInteractionEnabled = YES;
+    [accImageView setFrame:CGRectMake(0, 0, 28.0, 28.0)];
+    cell.accessoryView = accImageView;
+    
     
     cell.textLabel.textColor=[UIColor whiteColor];
     cell.detailTextLabel.textColor=[UIColor whiteColor];

@@ -227,4 +227,16 @@
     [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
     popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
 }
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    starRatingView = [[TQStarRatingView alloc] initWithFrame:CGRectMake(153, 93, 125, 25)
+                                                numberOfStar:5];
+    starRatingView.delegate = self;
+    
+    [starRatingView setScore:[club getRatingNumber] withAnimation:NO];
+    [scrollView addSubview:starRatingView];
+    
+    [super viewWillAppear:animated];
+}
 @end
