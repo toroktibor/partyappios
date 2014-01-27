@@ -14,7 +14,7 @@
 
 @interface InformationView : UIViewController <MFMailComposeViewControllerDelegate,UIActionSheetDelegate,StarRatingViewDelegate>
 
-- (IBAction)showActionSheet:(id)sender;
+- (void)showActionSheet;
 
 
 @property (nonatomic,strong)TQStarRatingView *starRatingView;
@@ -34,4 +34,6 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 - (IBAction)back:(id)sender;
+
+-(void)like;
 @end

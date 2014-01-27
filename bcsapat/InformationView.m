@@ -87,6 +87,11 @@
     ratingBackground.enabled=NO;
     
     
+    UIBarButtonItem *actionItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
+    UIBarButtonItem *likeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_action_favorite.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(like)];
+    
+    NSArray *actionButtonItems = @[actionItem, likeButton];
+    self.navigationItem.rightBarButtonItems = actionButtonItems;
     
 }
 
@@ -218,7 +223,9 @@
     tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController: tabBar animated: YES completion:nil];
 }
-- (IBAction)showActionSheet:(id)sender {
+
+
+- (void)showActionSheet{
     
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
                                               destructiveButtonTitle:nil otherButtonTitles:@"Tulajdonos vagyok",@"Mutasd a térképen", @"Hívás",@"Email küldése",@"Árlista",@"Értékelések", nil];
@@ -238,5 +245,10 @@
     [scrollView addSubview:starRatingView];
     
     [super viewWillAppear:animated];
+}
+
+
+-(void)like{
+    
 }
 @end

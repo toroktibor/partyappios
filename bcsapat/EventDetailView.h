@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface EventDetailView : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eventDateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *musicTypeLabel;
 
+@property (weak, nonatomic) IBOutlet UITextView *descriptionText;
 @end
