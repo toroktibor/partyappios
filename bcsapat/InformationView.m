@@ -35,6 +35,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    scrollView.autoresizesSubviews=NO;
+    
     int selectedIndex=[[Session getInstance]getSelectedIndex];
     club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
     
