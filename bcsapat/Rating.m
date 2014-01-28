@@ -10,12 +10,12 @@
 
 @implementation Rating
 
-- (id)initWithUserName:(NSString *) userName_ andValue:(NSNumber *) value_ andComment:(NSString *) comment_{
+- (id)initWithUserName:(NSString *) userName_ andValue:(float) value_ andComment:(NSString *) comment_{
     self = [super init];
     if(self)
     {
         userName = userName_;
-        value = value_;
+        value = value_*2;
         comment = comment_;
     }
     return self;
@@ -28,6 +28,10 @@
 
 -(NSString *)getuserName{
     return userName;
+}
+
+-(float)getValue{
+    return value;
 }
 
 @end

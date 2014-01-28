@@ -10,9 +10,12 @@
 #import "Session.h"
 #import "Club.h"
 #import "Rating.h"
+#import "TQStarRatingView.h"
 
-@interface RatingTableViewViewController : UITableViewController
+@interface RatingTableViewViewController : UITableViewController<StarRatingViewDelegate>
 
 @property NSMutableArray * ratningsArray;
+
+@property (nonatomic,strong)TQStarRatingView *starRatingView;
 
 @end

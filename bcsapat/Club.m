@@ -41,20 +41,15 @@
     return self;
 }
 
--(void)addRating:(float)rating{
-    NSNumber * number=[NSNumber numberWithFloat:rating];
-    [ratings addObject:number];
-}
-
--(float)getRatingNumber{
+-(float)getAverageRating{
     float sum=0;
     for (int i=0; i<[ratings count]; ++i) {
-        NSNumber * rating=[ratings objectAtIndex:i];
-        sum+=[rating floatValue];
+        Rating *actualRating=[ratings objectAtIndex:i];
+        sum+=actualRating.getValue;
     }
-    
     return (sum/[ratings count])/10;
 }
+
 
 -(NSMutableArray *) getOwnerIds{
     return ownerIds;
@@ -110,9 +105,10 @@
     menuItems = inMenuItems;
 }
 
--(void)setRatings{
-    
+-(void)setRatings:(Rating *)rating_{
+    [ratings addObject:rating_];
 }
+
 
 -(void)setEvents{
     

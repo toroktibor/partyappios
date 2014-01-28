@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Rating.h"
 
 @interface Club : NSObject{
     int identifier;
@@ -40,14 +41,16 @@
 -(NSString *) getPhoneNumber;
 -(NSString *) getDescription;
 
--(float)getRatingNumber;
 
 -(int)getApproved;
 
--(void)addRating:(float)rating;
+-(float)getAverageRating;
+
+
+
 -(void)setOwnerIds;
 -(void)setMenuItems:(NSMutableArray*) inMenuItems;
--(void)setRatings;
+-(void)setRatings:(Rating *)rating_;
 -(void)setEvents;
 -(void)setServices;
 -(void)setApproved:(int)approved_;
