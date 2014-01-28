@@ -68,6 +68,8 @@
 		7AD8D146188EE27C00783AE5 /* Bar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AD8D145188EE27C00783AE5 /* Bar.jpg */; };
 		7AD8D148188EE28400783AE5 /* Nightclub-theme.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AD8D147188EE28400783AE5 /* Nightclub-theme.jpg */; };
 		7AD9411518885EF100EC78C9 /* InformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD9411418885EF100EC78C9 /* InformationView.m */; };
+		7ADA3AD01897F88700CB34D5 /* tab_bar_mukodj21.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADA3ACF1897F88700CB34D5 /* tab_bar_mukodj21.png */; };
+		7ADA3AD21897F8FE00CB34D5 /* PartyICONlila.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADA3AD11897F8FE00CB34D5 /* PartyICONlila.png */; };
 		7ADB94B21896955F00C69CF8 /* TQStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADB94B11896955F00C69CF8 /* TQStarRatingView.m */; };
 		7ADB94B41896972600C69CF8 /* backgroundStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADB94B31896972600C69CF8 /* backgroundStar.png */; };
 		7ADB94B61896973000C69CF8 /* backgroundStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADB94B51896973000C69CF8 /* backgroundStar@2x.png */; };
@@ -80,7 +82,6 @@
 		7ADB94CB1896D8EF00C69CF8 /* RatingDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADB94CA1896D8EE00C69CF8 /* RatingDetailView.m */; };
 		7ADB94CE1896DD2A00C69CF8 /* MovingStars.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADB94CD1896DD2A00C69CF8 /* MovingStars.m */; };
 		7ADB94D21896EFE100C69CF8 /* purple_trans50.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADB94D11896EFE100C69CF8 /* purple_trans50.png */; };
-		7ADB94D41896FFB000C69CF8 /* PartyICON-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADB94D31896FFB000C69CF8 /* PartyICON-1.png */; };
 		7ADBD2EE18952E90008A2261 /* website-background-1024x576.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7ADBD2ED18952E90008A2261 /* website-background-1024x576.jpg */; };
 		7ADBD2FA1895631D008A2261 /* bricskok.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADBD2F91895631D008A2261 /* bricskok.png */; };
 		7ADBD2FF18957FE2008A2261 /* NotificationDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADBD2FE18957FE2008A2261 /* NotificationDetailView.m */; };
@@ -189,6 +190,8 @@
 		7AD8D147188EE28400783AE5 /* Nightclub-theme.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Nightclub-theme.jpg"; sourceTree = "<group>"; };
 		7AD9411318885EF100EC78C9 /* InformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationView.h; sourceTree = "<group>"; };
 		7AD9411418885EF100EC78C9 /* InformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationView.m; sourceTree = "<group>"; };
+		7ADA3ACF1897F88700CB34D5 /* tab_bar_mukodj21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tab_bar_mukodj21.png; path = ../../../Downloads/tab_bar_mukodj21.png; sourceTree = "<group>"; };
+		7ADA3AD11897F8FE00CB34D5 /* PartyICONlila.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PartyICONlila.png; sourceTree = "<group>"; };
 		7ADB94B01896955F00C69CF8 /* TQStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQStarRatingView.h; sourceTree = "<group>"; };
 		7ADB94B11896955F00C69CF8 /* TQStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQStarRatingView.m; sourceTree = "<group>"; };
 		7ADB94B31896972600C69CF8 /* backgroundStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundStar.png; sourceTree = "<group>"; };
@@ -207,7 +210,6 @@
 		7ADB94CC1896DD2A00C69CF8 /* MovingStars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovingStars.h; sourceTree = "<group>"; };
 		7ADB94CD1896DD2A00C69CF8 /* MovingStars.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovingStars.m; sourceTree = "<group>"; };
 		7ADB94D11896EFE100C69CF8 /* purple_trans50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purple_trans50.png; sourceTree = "<group>"; };
-		7ADB94D31896FFB000C69CF8 /* PartyICON-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PartyICON-1.png"; sourceTree = "<group>"; };
 		7ADBD2ED18952E90008A2261 /* website-background-1024x576.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "website-background-1024x576.jpg"; sourceTree = "<group>"; };
 		7ADBD2F91895631D008A2261 /* bricskok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bricskok.png; sourceTree = "<group>"; };
 		7ADBD2FD18957FE2008A2261 /* NotificationDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDetailView.h; sourceTree = "<group>"; };
@@ -249,7 +251,7 @@
 		7A43B8C1187C46F500725428 = {
 			isa = PBXGroup;
 			children = (
-				7ADB94D31896FFB000C69CF8 /* PartyICON-1.png */,
+				7ADA3AD11897F8FE00CB34D5 /* PartyICONlila.png */,
 				7A43B8D3187C46F500725428 /* bcsapat */,
 				7A43B8CC187C46F500725428 /* Frameworks */,
 				7A43B8CB187C46F500725428 /* Products */,
@@ -368,6 +370,7 @@
 		7ACCC65418931720006B0A0C /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				7ADA3ACF1897F88700CB34D5 /* tab_bar_mukodj21.png */,
 				7ADB94D11896EFE100C69CF8 /* purple_trans50.png */,
 				7ADB94BB1896BD0600C69CF8 /* ic_action_favorite.png */,
 				7ADB94B91896974600C69CF8 /* foregroundStar@2x.png */,
@@ -581,7 +584,8 @@
 				7ADB94BA1896974600C69CF8 /* foregroundStar@2x.png in Resources */,
 				7ADB94BC1896BD0600C69CF8 /* ic_action_favorite.png in Resources */,
 				7ADB94D21896EFE100C69CF8 /* purple_trans50.png in Resources */,
-				7ADB94D41896FFB000C69CF8 /* PartyICON-1.png in Resources */,
+				7ADA3AD01897F88700CB34D5 /* tab_bar_mukodj21.png in Resources */,
+				7ADA3AD21897F8FE00CB34D5 /* PartyICONlila.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
