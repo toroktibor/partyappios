@@ -2521,17 +2521,49 @@ EEVzZW3DqW55ZWs
             </objects>
             <point key="canvasLocation" x="1867" y="-3335"/>
         </scene>
-        <!--View Controller - Értékelés-->
+        <!--Rating Detail Users View - Értékelés-->
         <scene sceneID="sJe-hz-hFK">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Coq-dk-CJn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="u5l-cF-yNr" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RatingDetailUsersView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="u5l-cF-yNr" customClass="RatingDetailUsersView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sp5-Bh-mSA">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Béla értékelése" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i1Y-bo-O0h">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="RGJ-KN-O9O"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u82-kE-fEk">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="287" id="D82-Cv-rva"/>
+                                    <constraint firstAttribute="height" constant="162" id="Z2T-bK-QBO"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="i1Y-bo-O0h" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="IbI-GT-hPm"/>
+                            <constraint firstItem="i1Y-bo-O0h" firstAttribute="leading" secondItem="Sp5-Bh-mSA" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ppC-lm-lgZ"/>
+                            <constraint firstItem="u82-kE-fEk" firstAttribute="top" secondItem="Sp5-Bh-mSA" secondAttribute="top" constant="153" id="tDB-uw-sKs"/>
+                            <constraint firstItem="i1Y-bo-O0h" firstAttribute="top" secondItem="Sp5-Bh-mSA" secondAttribute="top" constant="20" symbolic="YES" type="default" id="vRd-7c-ePv"/>
+                            <constraint firstItem="u82-kE-fEk" firstAttribute="leading" secondItem="Sp5-Bh-mSA" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ztZ-5h-Ulk"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Értékelés" id="TWy-a4-WLi"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="i1Y-bo-O0h" id="lHU-kg-pik"/>
+                        <outlet property="ratingText" destination="u82-kE-fEk" id="AQL-PY-pRN"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1343" y="-4049"/>

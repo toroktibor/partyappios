@@ -33,6 +33,14 @@ static Session * _instance = nil;
 }
 
 
+-(void)setSelectedRatingIndex:(int)index{
+    selectedRating=index;
+}
+
+-(int)getSelectedRatingIndex{
+    return selectedRating;
+}
+
 -(void)setMenuItemIndex:(int)itemIndex{
     menuItemIndex=itemIndex;
 }

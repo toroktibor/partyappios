@@ -61,7 +61,7 @@
 -(void)starRatingView:(TQStarRatingView *)view score:(float)score{
     
     myScore=((int)((score*10)+0.5))/2.0;
-    NSLog(@"%f",myScore);
+    //NSLog(@"%f",myScore);
     
     //NSLog(@"%@,",[NSString stringWithFormat:@"%0.2f",score * 10 ]);
 }

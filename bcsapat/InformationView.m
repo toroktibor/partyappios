@@ -45,8 +45,8 @@
                                                  numberOfStar:5];
     starRatingView.delegate = self;
     
-    //[starRatingView setScore:[club getAverageRating] withAnimation:NO];
-    [scrollView addSubview:starRatingView];
+    [starRatingView setScore:[club getAverageRating] withAnimation:NO];
+    [ratingBackground addSubview:starRatingView];
     
     
     

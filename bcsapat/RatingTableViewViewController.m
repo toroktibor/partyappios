@@ -11,6 +11,7 @@
 #import "Club.h"
 #import "Rating.h"
 #import "TQStarRatingView.h"
+#import "RatingDetailUsersView.h"
 
 
 
@@ -165,6 +166,14 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    [[Session getInstance]setSelectedRatingIndex:indexPath.row];
+    
+    
+    RatingDetailUsersView *RatingDetailUsersView=
+    [self.storyboard instantiateViewControllerWithIdentifier:@"RatingDetailUsersView"];
+    [self.navigationController pushViewController:RatingDetailUsersView animated:YES];
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
