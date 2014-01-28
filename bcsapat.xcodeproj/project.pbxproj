@@ -68,7 +68,6 @@
 		7AD8D146188EE27C00783AE5 /* Bar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AD8D145188EE27C00783AE5 /* Bar.jpg */; };
 		7AD8D148188EE28400783AE5 /* Nightclub-theme.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AD8D147188EE28400783AE5 /* Nightclub-theme.jpg */; };
 		7AD9411518885EF100EC78C9 /* InformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD9411418885EF100EC78C9 /* InformationView.m */; };
-		7ADA3AD01897F88700CB34D5 /* tab_bar_mukodj21.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADA3ACF1897F88700CB34D5 /* tab_bar_mukodj21.png */; };
 		7ADA3AD21897F8FE00CB34D5 /* PartyICONlila.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADA3AD11897F8FE00CB34D5 /* PartyICONlila.png */; };
 		7ADB94B21896955F00C69CF8 /* TQStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADB94B11896955F00C69CF8 /* TQStarRatingView.m */; };
 		7ADB94B41896972600C69CF8 /* backgroundStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADB94B31896972600C69CF8 /* backgroundStar.png */; };
@@ -584,7 +583,6 @@
 				7ADB94BA1896974600C69CF8 /* foregroundStar@2x.png in Resources */,
 				7ADB94BC1896BD0600C69CF8 /* ic_action_favorite.png in Resources */,
 				7ADB94D21896EFE100C69CF8 /* purple_trans50.png in Resources */,
-				7ADA3AD01897F88700CB34D5 /* tab_bar_mukodj21.png in Resources */,
 				7ADA3AD21897F8FE00CB34D5 /* PartyICONlila.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
