@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "User.h"
-#import "Communication.h"
+#import "SillyCommunication.h"
 #import "MyDatabase.h"
 #import "Club.h"
 
 @interface Session : NSObject{
-    Communication * actualCommunication;
+    SillyCommunication * actualCommunication;
     MyDatabase * databaseConnection;
     User * actualUser;
     NSMutableArray * searchViewCLubs;
@@ -58,7 +58,7 @@
 
 -(void)checkArray;
 
--(Communication*)getCommunication;
+-(SillyCommunication*)getCommunication;
 
 -(NSMutableArray *) getSearchViewCLubs;
 -(void) setSearchViewCLubs:(NSMutableArray *) inputClubsList;

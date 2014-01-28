@@ -42,6 +42,7 @@
     //registerButton.layer.borderColor = [UIColor grayColor].CGColor;
     registerButton.clipsToBounds = YES;
     
+  
     
     name.delegate=self;
     name.tag=0;
