@@ -12,7 +12,7 @@
 @implementation Communication
 
 NSString * mainUrl = @"http://partyapp.bugs3.com/";
-NSMutableData * responseData = nil;
+//NSMutableData * responseData = nil;
 
 enum requestTypeEnum {
     LOGIN,FAVORITE,OWNED,EVERYTHING,NEWCLUB,SEARCHCLUB,UPDATEPASSWORD,UPDATEUSER,NEWUSER,SETSERVICE,SETOWNER,SETFAVORITE,DELETEFAVORITE
@@ -21,106 +21,7 @@ enum requestTypeEnum {
 enum requestTypeEnum requestType = -1;
 
 
--(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
-    NSLog(@"Letöltés kezdete");
-    responseData = [[NSMutableData alloc] init];
-}
-
--(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data{
-    [responseData appendData:data];
-    NSLog(@"append");
-}
-
--(void)connectionDidFinishLoading:(NSURLConnection *)connection{
-    NSLog(@"Letöltés kész");
-    NSLog(@"Data: %@", [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding]);
-    
-    switch ( requestType ) {
-        case LOGIN:{
-            NSLog(@"Login adatai megérkeztek!");
-        
-        
-            NSArray * ja = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:nil];
-            NSDictionary * jd = [ ja objectAtIndex:0 ];
-            
-            int identifier = [ jd objectForKey: @"id" ];
-            NSString * nickname = [ jd objectForKey: @"nick_name" ];
-            NSString * pw = [ jd objectForKey: @"password" ];
-            NSString * email = [ jd objectForKey: @"email" ];
-            int sex = [ jd objectForKey: @"sex" ];
-            NSString * birthday = [ jd objectForKey: @"birthday" ];
-            int type = [ jd objectForKey: @"type" ];
-            
-            User *u = [[User alloc]initWithId:identifier andNickName:nickname andPassword:pw andEmail:email andSex:sex andBirthday:birthday andType:type];
-            break;
-            }
-        case FAVORITE:{
-            
-            break;
-            }
-        case OWNED:{
-            
-            break;
-            }
-        case EVERYTHING:{
-            
-            break;
-            }
-        case NEWCLUB:{
-            
-            break;
-            }
-        case SEARCHCLUB:{
-            
-            break;
-            }
-        case UPDATEPASSWORD:{
-            
-            break;
-            }
-        case UPDATEUSER:{
-            
-            break;
-            }
-        case NEWUSER:{
-            
-            break;
-            }
-        case SETSERVICE:{
-            
-            break;
-            }
-        case SETOWNER:{
-            
-            break;
-            }
-        case SETFAVORITE:{
-            
-            break;
-            }
-        case DELETEFAVORITE:{
-            
-            break;
-            }
-        default:{
-            
-            NSLog(@"szar az egész");
-            break;
-            }
-    }
-
-}
-
--(void) httpPost: (NSString *) file withData: (NSMutableDictionary *) data{
-    NSString *url = [NSString stringWithFormat:@"%@%@", mainUrl, file ];
-    NSLog(@"HTTP POST");
-    NSLog(@"URL: %@", url);
-    
-    NSMutableURLRequest * request = [[NSMutableURLRequest alloc] initWithURL:[[NSURL alloc] initWithString:url] ];
-    [request setHTTPMethod:@"POST"];
-    
-    //NSMutableString *post = [NSString stringWithFormat:@"action=GET&NickName=%@&Password=%@",@"a",@"a"];
-   /*  */
+-(NSMutableDictionary*) httpPost: (NSString *) file withData: (NSMutableDictionary *) data{
     NSMutableString *post = [NSMutableString string];
     for (NSString* key in [data allKeys]){
         if ([post length]>0)
@@ -129,23 +30,36 @@ enum requestTypeEnum requestType = -1;
     }
     /*  */
     NSLog(@"POST: %@", post);
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", mainUrl, file ]];
+    NSLog(@"URL: %@", url);
+    
     NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
     
+    NSMutableURLRequest * request = [[NSMutableURLRequest alloc] init];
+    
+    [request setURL:url];
+    
+    [request setHTTPMethod:@"POST"];
+        
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Current-Type"];
     
     [request setHTTPBody:postData];
     
-    NSURLConnection * conn= [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    NSLog(@"request: %@",request);
     
-    if(conn){
-        NSLog(@"jo");
-    }else{
-        NSLog(@"nem jo");
-    }
+    NSError *error = [[NSError alloc] init];
+    NSHTTPURLResponse *response = nil;
+    NSString *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
+    NSMutableDictionary* json = [NSJSONSerialization JSONObjectWithData:urlData options: NSJSONReadingMutableContainers error: &error];
+    
+    return json;
 }
 
 -(User *) authenticationUserWithNickName:(NSString *) nick_name andPassword:(NSString*) password{
@@ -155,10 +69,29 @@ enum requestTypeEnum requestType = -1;
     [posts setObject:nick_name forKey:@"NickName"];
     [posts setObject:password forKey:@"Password"];
     
-    [self httpPost:@"user.php" withData:posts];
+    @try{
+    NSDictionary* array =[self httpPost:@"user.php" withData:posts];
     
-    requestType = LOGIN;
-}
+    NSLog(@"Login adatai megérkeztek!");
+    
+
+    for (NSDictionary* jd in array) {
+    
+    int identifier = [ jd objectForKey: @"id" ];
+    NSString * nickname = [ jd objectForKey: @"nick_name" ];
+    NSString * pw = [ jd objectForKey: @"password" ];
+    NSString * email = [ jd objectForKey: @"email" ];
+    int sex = [ jd objectForKey: @"sex" ];
+    NSString * birthday = [ jd objectForKey: @"birthday" ];
+    int type = [ jd objectForKey: @"type" ];
+    
+                User *u = [[User alloc]initWithId:identifier andNickName:nickname andPassword:pw andEmail:email andSex:sex andBirthday:birthday andType:type];
+        return u;
+    }
+    }@catch (NSException *e){
+    }
+    return nil;
+    }
 
 
 -(NSMutableArray *) getFavoriteClubsFromUserId:(NSInteger *) user_id{
@@ -172,9 +105,15 @@ enum requestTypeEnum requestType = -1;
 }
 
 -(NSMutableArray *) getClubsFromCityName:(NSString *) cityname{
+    @try{
+    return [self searchClubsWithName:@"" andCityname:cityname andType:@"" andOffset:0 andLimit:0];
+    }
+    @catch (NSException *e) {
+        
+    }
+    return nil;
     
 }
-
 
 //Elküld egy új hely kérelmet a szervernek, ha a owner_user_id -1 akkor nincs neki tulaj jelöltje
 -(void) sendANewClubRequestWithClubname:(NSString *) newClubName andAddress: (NSString *) newClubAddress andType:(NSString *) newClubType andOwnerUserId:(NSInteger *) owner_user_id andServices:(NSString *) services{
@@ -207,24 +146,41 @@ enum requestTypeEnum requestType = -1;
     [posts setObject:@"GETBYID" forKey:@"action"];
     [posts setObject:[NSNumber numberWithInt:*club_id] forKey:@"id"];
     
-    [self httpPost:@"club.php" withData:posts];
-    
-    requestType = EVERYTHING;
+    @try{
+    NSDictionary* array = [self httpPost:@"club.php" withData:posts];
+    for (NSDictionary* jd in array) {
+        Club *c =[[Club alloc]initWithId:[ jd objectForKey: @"id" ] andName:[ jd objectForKey: @"name" ] andType:[ jd objectForKey: @"type" ] andDescription:[ jd objectForKey: @"description" ] andAddress:[ jd objectForKey: @"address" ] andPhonenumber:[ jd objectForKey: @"phonenumber" ] andEmail:[ jd objectForKey: @"email" ] andDate:@"nemtudommilyendátum" andApproved:[ jd objectForKey: @"approved" ]];
+        return c;
+    }
+    }@catch (NSException *e){
+                               
+    }
+return nil;
+
 }
 
--(NSMutableArray *) searchClubsWithName:(NSString *) name andCityname:(NSString *) cityname andType:(NSString *) type andOffset:(NSInteger *) offset andLimit:(NSInteger *) limit{
+-(NSMutableArray *) searchClubsWithName:(NSString *) name andCityname:(NSString *) cityname andType:(NSString *) type andOffset:(int ) offset andLimit:(int ) limit{
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     [posts setObject:@"SEARCH" forKey:@"action"];
     [posts setObject:name forKey:@"name"];
     [posts setObject:cityname forKey:@"cityname"];
     [posts setObject:type forKey:@"type"];
-    [posts setObject:[NSNumber numberWithInt:*offset] forKey:@"offset"];
-    [posts setObject:[NSNumber numberWithInt:*limit] forKey:@"limit"];
+    [posts setObject:[NSNumber numberWithInt:offset] forKey:@"offset"];
+    [posts setObject:[NSNumber numberWithInt:limit] forKey:@"limit"];
 
-    
-    [self httpPost:@"club.php" withData:posts];
-    
-    requestType = SEARCHCLUB;
+    @try{
+    NSDictionary* array = [self httpPost:@"club.php" withData:posts];
+    NSMutableArray *res = [[NSMutableArray alloc] init];
+    for (NSDictionary* jd in array) {
+        Club *c = [[Club alloc]initWithId:[ jd objectForKey: @"id" ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ]];
+        [res addObject:c];
+    }
+    return res;
+    }
+    @catch (NSException *e) {
+        
+    }
+    return nil;
 }
 
 -(void) modifyPasswordWithId:(NSInteger *) id andPassword:(NSString *) password{
