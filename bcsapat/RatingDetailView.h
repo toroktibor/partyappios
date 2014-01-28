@@ -10,11 +10,15 @@
 #import "TQStarRatingView.h"
 #import "MovingStars.h"
 
-@interface RatingDetailView : UIViewController<StarMovingDelegate>
+@interface RatingDetailView : UIViewController<StarMovingDelegate,UITextViewDelegate>
 
 @property (nonatomic,strong)MovingStars *starRatingView;
+@property (strong, nonatomic) IBOutlet UITextView *ratingText;
 
 -(void)starRatingView:(TQStarRatingView *)view score:(float)score;
 
+@property float myScore;
+
 - (IBAction)addRating:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *ratingButton;
 @end

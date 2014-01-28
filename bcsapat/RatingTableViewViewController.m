@@ -12,6 +12,8 @@
 #import "Rating.h"
 #import "TQStarRatingView.h"
 
+
+
 @interface RatingTableViewViewController ()
 
 @end
@@ -48,11 +50,9 @@
     ratningsArray=[club getRatings];
     
     
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bricskok.png"]];
+    self.tableView.backgroundView = imageView;
     
-    
-    
-    
-    //ratningsArray = [club getRatings];
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,6 +83,18 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+    
+    
+    UIView *customColorView = [[UIView alloc] init];
+    customColorView.backgroundColor = [UIColor colorWithRed:154/255.0
+                                                      green:111/255.0
+                                                       blue:189/255.0
+                                                      alpha:0.5];
+    cell.selectedBackgroundView =  customColorView;
+    
+    
+    cell.textLabel.textColor=[UIColor whiteColor];
+    cell.detailTextLabel.textColor=[UIColor whiteColor];
     
     
     Rating * actualRating=[ratningsArray objectAtIndex:indexPath.row];
@@ -167,6 +179,7 @@
     
     [super viewDidAppear:animated];
 }
+
 
 
 @end
