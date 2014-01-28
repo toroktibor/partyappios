@@ -16,4 +16,5 @@
 
 - (IBAction)saveChanges:(id)sender;
 - (IBAction)cancel:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *saveButton;
 @end

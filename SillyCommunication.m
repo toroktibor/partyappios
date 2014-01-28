@@ -52,6 +52,9 @@
     [bclub addRating:10.0];
     [bclub addRating:10.0];
     
+    [dclub addRating:5.0];
+    [dclub addRating:7.0];
+    
     [clubs addObject:aclub];
     [clubs addObject:bclub];
     [clubs addObject:cclub];

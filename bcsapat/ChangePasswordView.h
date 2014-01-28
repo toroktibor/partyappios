@@ -14,4 +14,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *actualPasswordAgaingTextField;
 
 - (IBAction)changePassword:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *changeButton;
 @end

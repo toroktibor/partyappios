@@ -8,13 +8,14 @@
 
 #import "ChangePasswordView.h"
 #import "Session.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ChangePasswordView ()
 
 @end
 
 @implementation ChangePasswordView
-@synthesize oldPasswordTextField,actualPasswordAgaingTextField,actualPasswordTextField;
+@synthesize oldPasswordTextField,actualPasswordAgaingTextField,actualPasswordTextField,changeButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,6 +50,9 @@
     
     actualPasswordAgaingTextField.delegate=self;
     actualPasswordAgaingTextField.tag=2;
+    
+    changeButton.layer.cornerRadius = 8;
+    changeButton.clipsToBounds = YES;
 	// Do any additional setup after loading the view.
 }
 

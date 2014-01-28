@@ -9,13 +9,14 @@
 #import "EditProfileView.h"
 #import "Session.h"
 #import "ProfileTableView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface EditProfileView ()
 
 @end
 
 @implementation EditProfileView
-@synthesize nameTextField,emailTextField,birthDayTextField,segmentControl;
+@synthesize nameTextField,emailTextField,birthDayTextField,segmentControl,saveButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,6 +54,9 @@
     [nameTextField setText:[[[Session getInstance]getActualUser]getName]];
     [emailTextField setText:[[[Session getInstance]getActualUser]getEmail]];
     [birthDayTextField setText:[[[Session getInstance]getActualUser]getBirthday]];
+    
+    saveButton.layer.cornerRadius = 8;
+    saveButton.clipsToBounds = YES;
     
 	// Do any additional setup after loading the view.
 }

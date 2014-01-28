@@ -9,13 +9,14 @@
 #import "RegisterView.h"
 #import "MyDatabase.h"
 #import "Session.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface RegisterView ()
 
 @end
 
 @implementation RegisterView
-@synthesize name,password,passwordAgain,email,birthdate,segmentControl;
+@synthesize name,password,passwordAgain,email,birthdate,segmentControl,registerButton,cancelButton;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,6 +31,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    cancelButton.layer.cornerRadius = 8;
+    //loginButton.layer.borderWidth = 1;
+    //loginButton.layer.borderColor = [UIColor grayColor].CGColor;
+    cancelButton.clipsToBounds = YES;
+    
+    registerButton.layer.cornerRadius = 8;
+    //registerButton.layer.borderWidth = 1;
+    //registerButton.layer.borderColor = [UIColor grayColor].CGColor;
+    registerButton.clipsToBounds = YES;
     
     
     name.delegate=self;
