@@ -12,7 +12,7 @@
 @implementation Communication
 
 NSString * mainUrl = @"http://partyapp.bugs3.com/";
-//NSMutableData * responseData = nil;
+NSError *error;
 
 enum requestTypeEnum {
     LOGIN,FAVORITE,OWNED,EVERYTHING,NEWCLUB,SEARCHCLUB,UPDATEPASSWORD,UPDATEUSER,NEWUSER,SETSERVICE,SETOWNER,SETFAVORITE,DELETEFAVORITE
@@ -21,7 +21,7 @@ enum requestTypeEnum {
 enum requestTypeEnum requestType = -1;
 
 
--(NSMutableDictionary*) httpPost: (NSString *) file withData: (NSMutableDictionary *) data{
+-(NSString*) httpPost: (NSString *) file withData: (NSMutableDictionary *) data{
     NSMutableString *post = [NSMutableString string];
     for (NSString* key in [data allKeys]){
         if ([post length]>0)
@@ -52,14 +52,13 @@ enum requestTypeEnum requestType = -1;
     [request setHTTPBody:postData];
     
     NSLog(@"request: %@",request);
-    
-    NSError *error = [[NSError alloc] init];
+
     NSHTTPURLResponse *response = nil;
+    NSError *error = [[NSError alloc] init];
     NSString *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
-    NSMutableDictionary* json = [NSJSONSerialization JSONObjectWithData:urlData options: NSJSONReadingMutableContainers error: &error];
     
-    return json;
+    return urlData;
 }
 
 -(User *) authenticationUserWithNickName:(NSString *) nick_name andPassword:(NSString*) password{
@@ -70,22 +69,26 @@ enum requestTypeEnum requestType = -1;
     [posts setObject:password forKey:@"Password"];
     
     @try{
-    NSDictionary* array =[self httpPost:@"user.php" withData:posts];
+        NSString* urlData =[self httpPost:@"user.php" withData:posts];
+        NSError *err = [[NSError alloc] init];
+
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options: NSJSONReadingMutableContainers error: &err];
+
     
     NSLog(@"Login adatai megérkeztek!");
     
 
     for (NSDictionary* jd in array) {
     
-    int identifier = [ jd objectForKey: @"id" ];
+    int identifier = [[ jd objectForKey: @"id" ] intValue];
     NSString * nickname = [ jd objectForKey: @"nick_name" ];
     NSString * pw = [ jd objectForKey: @"password" ];
     NSString * email = [ jd objectForKey: @"email" ];
-    int sex = [ jd objectForKey: @"sex" ];
+    int sex = [[ jd objectForKey: @"sex" ] intValue];
     NSString * birthday = [ jd objectForKey: @"birthday" ];
-    int type = [ jd objectForKey: @"type" ];
+    int type = [[ jd objectForKey: @"type" ] intValue];
     
-                User *u = [[User alloc]initWithId:identifier andNickName:nickname andPassword:pw andEmail:email andSex:sex andBirthday:birthday andType:type];
+    User *u = [[User alloc]initWithId:identifier andNickName:nickname andPassword:pw andEmail:email andSex:sex andBirthday:birthday andType:type];
         return u;
     }
     }@catch (NSException *e){
@@ -126,9 +129,12 @@ enum requestTypeEnum requestType = -1;
     
     //TODO:services és owner beállítása
     
-    [self httpPost:@"club.php" withData:posts];
-    
-    requestType = NEWCLUB;
+    @try{
+        NSDictionary* array =[self httpPost:@"club.php" withData:posts];
+
+    }@catch (NSException *e) {
+        
+    }
 }
 
 -(NSMutableArray *) getOwnedClubsFromUserId:(NSInteger *) user_id{
@@ -147,9 +153,11 @@ enum requestTypeEnum requestType = -1;
     [posts setObject:[NSNumber numberWithInt:*club_id] forKey:@"id"];
     
     @try{
-    NSDictionary* array = [self httpPost:@"club.php" withData:posts];
-    for (NSDictionary* jd in array) {
-        Club *c =[[Club alloc]initWithId:[ jd objectForKey: @"id" ] andName:[ jd objectForKey: @"name" ] andType:[ jd objectForKey: @"type" ] andDescription:[ jd objectForKey: @"description" ] andAddress:[ jd objectForKey: @"address" ] andPhonenumber:[ jd objectForKey: @"phonenumber" ] andEmail:[ jd objectForKey: @"email" ] andDate:@"nemtudommilyendátum" andApproved:[ jd objectForKey: @"approved" ]];
+        NSString* urlData =[self httpPost:@"club.php" withData:posts];
+        NSError *err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options: NSJSONReadingMutableContainers error: &err];    for (NSDictionary* jd in array) {
+        Club *c =[[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ] andName:[ jd objectForKey: @"name" ] andType:[ jd objectForKey: @"type" ] andDescription:[ jd objectForKey: @"description" ] andAddress:[ jd objectForKey: @"address" ] andPhonenumber:[ jd objectForKey: @"phonenumber" ] andEmail:[ jd objectForKey: @"email" ] andDate:@"nemtudommilyendátum" andApproved:[[ jd objectForKey: @"approved" ]intValue] ];
         return c;
     }
     }@catch (NSException *e){
@@ -169,10 +177,13 @@ return nil;
     [posts setObject:[NSNumber numberWithInt:limit] forKey:@"limit"];
 
     @try{
-    NSDictionary* array = [self httpPost:@"club.php" withData:posts];
-    NSMutableArray *res = [[NSMutableArray alloc] init];
+        NSString* urlData =[self httpPost:@"club.php" withData:posts];
+        NSError *err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options: NSJSONReadingMutableContainers error: &err];
+        NSMutableArray *res = [[NSMutableArray alloc] init];
     for (NSDictionary* jd in array) {
-        Club *c = [[Club alloc]initWithId:[ jd objectForKey: @"id" ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ]];
+        Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ]];
         [res addObject:c];
     }
     return res;
