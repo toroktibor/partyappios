@@ -21,6 +21,7 @@
 		7A1A412B18804B0F0052D859 /* NewTypePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1A412A18804B0F0052D859 /* NewTypePickerView.m */; };
 		7A1F981C18983780008E5192 /* MenuItemCategoryPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F981B18983780008E5192 /* MenuItemCategoryPicker.m */; };
 		7A1F982818985BA0008E5192 /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A1F982718985B9F008E5192 /* thumb.png */; };
+		7A1F982B18985ED8008E5192 /* AddNewMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F982A18985ED8008E5192 /* AddNewMenuItemView.m */; };
 		7A43B8CE187C46F500725428 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8CD187C46F500725428 /* UIKit.framework */; };
 		7A43B8D0187C46F500725428 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8CF187C46F500725428 /* Foundation.framework */; };
 		7A43B8D2187C46F500725428 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8D1187C46F500725428 /* CoreGraphics.framework */; };
@@ -114,6 +115,8 @@
 		7A1F981A18983780008E5192 /* MenuItemCategoryPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemCategoryPicker.h; sourceTree = "<group>"; };
 		7A1F981B18983780008E5192 /* MenuItemCategoryPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemCategoryPicker.m; sourceTree = "<group>"; };
 		7A1F982718985B9F008E5192 /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
+		7A1F982918985ED8008E5192 /* AddNewMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewMenuItemView.h; sourceTree = "<group>"; };
+		7A1F982A18985ED8008E5192 /* AddNewMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewMenuItemView.m; sourceTree = "<group>"; };
 		7A43B8CA187C46F500725428 /* bcsapat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bcsapat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A43B8CD187C46F500725428 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7A43B8CF187C46F500725428 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -477,6 +480,8 @@
 				7ADA3AE11898324700CB34D5 /* EditMenuItemView.m */,
 				7A1F981A18983780008E5192 /* MenuItemCategoryPicker.h */,
 				7A1F981B18983780008E5192 /* MenuItemCategoryPicker.m */,
+				7A1F982918985ED8008E5192 /* AddNewMenuItemView.h */,
+				7A1F982A18985ED8008E5192 /* AddNewMenuItemView.m */,
 			);
 			name = BarsAndPubsAndRestaurants;
 			sourceTree = "<group>";
@@ -645,6 +650,7 @@
 				7ADA3ADF1898210E00CB34D5 /* RatingDetailUsersView.m in Sources */,
 				7ADA3AE21898324700CB34D5 /* EditMenuItemView.m in Sources */,
 				7A1F981C18983780008E5192 /* MenuItemCategoryPicker.m in Sources */,
+				7A1F982B18985ED8008E5192 /* AddNewMenuItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

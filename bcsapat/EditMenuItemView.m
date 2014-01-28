@@ -34,7 +34,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-
     
     UIImage *thumbImage = [UIImage imageNamed:@"thumb.png"];
     [[UISlider appearance] setThumbImage:thumbImage

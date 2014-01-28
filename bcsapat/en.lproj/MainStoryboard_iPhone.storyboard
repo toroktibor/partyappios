@@ -3412,41 +3412,49 @@ EEVzZW3DqW55ZWs
             </objects>
             <point key="canvasLocation" x="-1658" y="-1913"/>
         </scene>
-        <!--View Controller - Új étel/ital-->
+        <!--Add New Menu Item View - Új étel/ital-->
         <scene sceneID="IHf-N4-dzr">
             <objects>
-                <viewController id="uv6-5K-Uj1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNewMenuItemView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uv6-5K-Uj1" customClass="AddNewMenuItemView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Gq-mk-zHv">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCO-MK-ThQ">
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CmK-9A-3XD">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CmK-9A-3XD">
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="ra7-NV-MuG"/>
                                             <constraint firstAttribute="width" constant="107" id="zMZ-2S-1h0"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Rendben">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Hozzáadom" backgroundImage="purple_trans50.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addMenuItem:" destination="uv6-5K-Uj1" eventType="touchUpInside" id="Vhx-Mj-Xvd"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Kedvezmény:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7O-4M-4hx">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="118" id="S4f-vL-xe3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="fDA-jt-OhC">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="agL-Uo-tV5"/>
                                         </constraints>
+                                        <color key="minimumTrackTintColor" red="0.60392156860000001" green="0.43529411759999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="sliderValueChange:" destination="uv6-5K-Uj1" eventType="valueChanged" id="g7Y-vK-3N4"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Mennyiség:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vte-44-92V">
                                         <constraints>
@@ -3454,7 +3462,7 @@ EEVzZW3DqW55ZWs
                                             <constraint firstAttribute="width" constant="93" id="MPc-CL-kHa"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K8c-8e-qbZ">
@@ -3466,13 +3474,13 @@ EEVzZW3DqW55ZWs
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DqI-kp-UGk">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Nbc-F8-PD8"/>
+                                            <constraint firstAttribute="height" constant="30" id="44p-H3-OO8"/>
                                             <constraint firstAttribute="width" constant="142" id="P5D-nA-m6c"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VUh-o4-jvx">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VUh-o4-jvx">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Twh-aA-N0J"/>
                                         </constraints>
@@ -3480,13 +3488,15 @@ EEVzZW3DqW55ZWs
                                             <segment title="HUF"/>
                                             <segment title="EUR"/>
                                         </segments>
+                                        <color key="tintColor" red="0.60392156860000001" green="0.43529411759999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </segmentedControl>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ár:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnE-6e-QFD">
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="sZY-k5-2Gt"/>
                                             <constraint firstAttribute="width" constant="42" id="zOh-5s-dJD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Kategória:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6a-UA-SI6">
@@ -3494,16 +3504,17 @@ EEVzZW3DqW55ZWs
                                             <constraint firstAttribute="width" constant="85" id="aGW-0h-e7w"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mci-Kt-zEf">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mci-Kt-zEf">
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="aHE-i1-L1S"/>
                                             <constraint firstAttribute="width" constant="187" id="boA-85-3ty"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Kategória kiválásztása">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Kategória kiválásztása" backgroundImage="purple_trans50.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -3522,7 +3533,7 @@ EEVzZW3DqW55ZWs
                                             <constraint firstAttribute="width" constant="93" id="Qf0-ga-07q"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAB-zn-4SM">
@@ -3530,7 +3541,7 @@ EEVzZW3DqW55ZWs
                                             <constraint firstAttribute="width" constant="141" id="iBc-s1-zK8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -3540,6 +3551,7 @@ EEVzZW3DqW55ZWs
                                     <constraint firstItem="Mci-Kt-zEf" firstAttribute="top" secondItem="nCO-MK-ThQ" secondAttribute="top" constant="105" id="4qr-K7-WHc"/>
                                     <constraint firstItem="F6a-UA-SI6" firstAttribute="leading" secondItem="CnE-6e-QFD" secondAttribute="leading" type="default" id="6KM-BU-Sch"/>
                                     <constraint firstItem="fDA-jt-OhC" firstAttribute="centerX" secondItem="CmK-9A-3XD" secondAttribute="centerX" type="default" id="6cX-Zn-E40"/>
+                                    <constraint firstAttribute="bottom" secondItem="CmK-9A-3XD" secondAttribute="bottom" constant="27" id="6dB-d4-zeQ"/>
                                     <constraint firstAttribute="trailing" secondItem="VUh-o4-jvx" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="7RM-eh-Zoq"/>
                                     <constraint firstItem="K8c-8e-qbZ" firstAttribute="baseline" secondItem="Vte-44-92V" secondAttribute="baseline" type="default" id="Bhb-2d-tEs"/>
                                     <constraint firstItem="NXa-0u-9XE" firstAttribute="leading" secondItem="nCO-MK-ThQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="H4F-Kv-irB"/>
@@ -3549,16 +3561,15 @@ EEVzZW3DqW55ZWs
                                     <constraint firstItem="CnE-6e-QFD" firstAttribute="baseline" secondItem="VUh-o4-jvx" secondAttribute="baseline" type="default" id="Ksr-BA-9IB"/>
                                     <constraint firstAttribute="trailing" secondItem="Mci-Kt-zEf" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Kyt-me-2Bc"/>
                                     <constraint firstItem="fDA-jt-OhC" firstAttribute="top" secondItem="nCO-MK-ThQ" secondAttribute="top" constant="343" id="Qib-N8-im7"/>
-                                    <constraint firstItem="VUh-o4-jvx" firstAttribute="top" secondItem="nCO-MK-ThQ" secondAttribute="top" constant="175" id="TAb-zn-kFS"/>
-                                    <constraint firstItem="DqI-kp-UGk" firstAttribute="top" secondItem="nCO-MK-ThQ" secondAttribute="top" constant="182" id="YOC-gu-E0E"/>
+                                    <constraint firstItem="CnE-6e-QFD" firstAttribute="top" secondItem="nCO-MK-ThQ" secondAttribute="top" constant="180" id="TDO-Xg-YaR"/>
                                     <constraint firstItem="VUh-o4-jvx" firstAttribute="baseline" secondItem="DqI-kp-UGk" secondAttribute="baseline" type="default" id="ani-xC-BId"/>
+                                    <constraint firstItem="CnE-6e-QFD" firstAttribute="centerY" secondItem="VUh-o4-jvx" secondAttribute="centerY" type="default" id="ccJ-ma-02W"/>
                                     <constraint firstItem="fDA-jt-OhC" firstAttribute="centerX" secondItem="5xX-5H-FKz" secondAttribute="centerX" type="default" id="dQQ-NZ-eRq"/>
-                                    <constraint firstItem="CnE-6e-QFD" firstAttribute="centerY" secondItem="VUh-o4-jvx" secondAttribute="centerY" type="default" id="dc4-n8-WVh"/>
                                     <constraint firstItem="Vte-44-92V" firstAttribute="leading" secondItem="CnE-6e-QFD" secondAttribute="leading" type="default" id="fXV-SD-Ien"/>
                                     <constraint firstItem="Mci-Kt-zEf" firstAttribute="centerY" secondItem="F6a-UA-SI6" secondAttribute="centerY" type="default" id="fav-gX-Zqn"/>
-                                    <constraint firstAttribute="bottom" secondItem="CmK-9A-3XD" secondAttribute="bottom" constant="28" id="feQ-bb-lXb"/>
                                     <constraint firstItem="fDA-jt-OhC" firstAttribute="centerX" secondItem="nCO-MK-ThQ" secondAttribute="centerX" type="default" id="flg-re-HCC"/>
                                     <constraint firstItem="5xX-5H-FKz" firstAttribute="top" secondItem="NXa-0u-9XE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gF6-DC-LFO"/>
+                                    <constraint firstItem="DqI-kp-UGk" firstAttribute="top" secondItem="VUh-o4-jvx" secondAttribute="top" type="default" id="nAf-3J-1jm"/>
                                     <constraint firstItem="CAB-zn-4SM" firstAttribute="baseline" secondItem="k7O-4M-4hx" secondAttribute="baseline" type="default" id="pYy-ZQ-wUR"/>
                                     <constraint firstItem="5xX-5H-FKz" firstAttribute="leading" secondItem="nCO-MK-ThQ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="wFX-Pu-VuE"/>
                                     <constraint firstItem="Vte-44-92V" firstAttribute="top" secondItem="nCO-MK-ThQ" secondAttribute="top" constant="249" id="wot-Tr-kQg"/>
@@ -3578,6 +3589,16 @@ EEVzZW3DqW55ZWs
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Új étel/ital" id="Xqx-pH-ILq"/>
+                    <connections>
+                        <outlet property="categoryButton" destination="Mci-Kt-zEf" id="DFu-ld-jTp"/>
+                        <outlet property="categroyLabel" destination="F6a-UA-SI6" id="Ilp-8A-8fJ"/>
+                        <outlet property="changeButton" destination="CmK-9A-3XD" id="hJf-zx-4hz"/>
+                        <outlet property="currencySegmentControl" destination="VUh-o4-jvx" id="45T-uQ-QB2"/>
+                        <outlet property="discountLabel" destination="CAB-zn-4SM" id="yZ0-nD-bLn"/>
+                        <outlet property="menuItemNameText" destination="5xX-5H-FKz" id="1Ud-fj-LVH"/>
+                        <outlet property="priceText" destination="DqI-kp-UGk" id="WN2-11-Qq8"/>
+                        <outlet property="unitText" destination="K8c-8e-qbZ" id="5Pm-jy-lOr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u9P-Yj-mIN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3593,6 +3614,289 @@ EEVzZW3DqW55ZWs
         <image name="ic_action_view_as_list.png" width="32" height="32"/>
         <image name="purple_trans50.png" width="200" height="74"/>
     </resources>
+    <classes>
+        <class className="AddNewClubTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewClubTableView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="addressText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="AddNewEventView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewEventView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="descriptionText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="musicTypeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="AddNewMenuItemView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNewMenuItemView.h"/>
+            <relationships>
+                <relationship kind="action" name="addMenuItem:"/>
+                <relationship kind="action" name="sliderValueChange:" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="categoryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="categroyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="changeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="currencySegmentControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="discountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuItemNameText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="priceText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="unitText" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="AdminTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AdminTableView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+            </relationships>
+        </class>
+        <class className="ChangePasswordView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChangePasswordView.h"/>
+            <relationships>
+                <relationship kind="action" name="changePassword:"/>
+                <relationship kind="outlet" name="actualPasswordAgaingTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="actualPasswordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="changeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="oldPasswordTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ClubMapView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClubMapView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="DrinkOrFoodView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DrinkOrFoodView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="categoryLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="currencyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="discountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="unitLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EditMenuItemView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditMenuItemView.h"/>
+            <relationships>
+                <relationship kind="action" name="changeMenuItem:"/>
+                <relationship kind="action" name="sliderChangeValue:"/>
+                <relationship kind="action" name="sliderValueChange:" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="categoryButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="categroyLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="changeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="currencySegmentControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="discountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuItemNameText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="priceText" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="unitText" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="EditProfileView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditProfileView.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="saveChanges:"/>
+                <relationship kind="outlet" name="birthDayTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="saveButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="segmentControl" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="EventDetailView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventDetailView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="descriptionText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="eventDateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="eventNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="musicTypeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EventEditView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventEditView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="musicTypeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="EventsTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventsTableView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+            </relationships>
+        </class>
+        <class className="FoodsAndDrinksTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FoodsAndDrinksTableView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addNewMenuItem" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="InfoAboutTheApplicationView" superclassName="ViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InfoAboutTheApplicationView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="informationText" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="InformationView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InformationView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="addressField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="clubNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="phoneField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="ratingBackground" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="slider" candidateClass="UISlider"/>
+            </relationships>
+        </class>
+        <class className="LoginView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginView.h"/>
+            <relationships>
+                <relationship kind="action" name="loginButtonPressed:"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="registerButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="userName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MenuClubListView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuClubListView.h"/>
+            <relationships>
+                <relationship kind="action" name="showActionSheet:"/>
+            </relationships>
+        </class>
+        <class className="MenuItemCategoryPicker" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuItemCategoryPicker.h"/>
+            <relationships>
+                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="MenuMapView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuMapView.h"/>
+            <relationships>
+                <relationship kind="action" name="showActionSheet:"/>
+                <relationship kind="outlet" name="map" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="MusicTypePickerView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MusicTypePickerView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NewTypePickerView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewTypePickerView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="NotificationDetailView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotificationDetailView.h"/>
+        </class>
+        <class className="NotificationsView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NotificationsView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+            </relationships>
+        </class>
+        <class className="PickerForSearchView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PickerForSearchView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="typePicker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="PictureView" superclassName="ViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PictureView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="PicturesCollectionView" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PicturesCollectionView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="action" name="showActionSheet:"/>
+            </relationships>
+        </class>
+        <class className="ProfileTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileTableView.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="birhdayLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="sexLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RatingDetailUsersView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RatingDetailUsersView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ratingText" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="RatingDetailView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RatingDetailView.h"/>
+            <relationships>
+                <relationship kind="action" name="addRating:"/>
+                <relationship kind="outlet" name="ratingButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="ratingText" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="RatingTableViewViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RatingTableViewViewController.h"/>
+        </class>
+        <class className="RegisterView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterView.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="register:"/>
+                <relationship kind="outlet" name="birthdate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="name" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="passwordAgain" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="registerButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="segmentControl" candidateClass="UISegmentedControl"/>
+            </relationships>
+        </class>
+        <class className="SearchTableView" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SearchTableView.h"/>
+            <relationships>
+                <relationship kind="action" name="showActionSheet:"/>
+                <relationship kind="outlet" name="addressTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -3601,6 +3905,6 @@ EEVzZW3DqW55ZWs
     <inferredMetricsTieBreakers>
         <segue reference="wWz-6N-LQq"/>
         <segue reference="Xhu-YV-zEt"/>
-        <segue reference="i3u-r4-Gc5"/>
+        <segue reference="Hlj-Vp-otv"/>
     </inferredMetricsTieBreakers>
 </document>

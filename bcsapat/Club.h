@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Rating.h"
+#import "MenuItem.h"
 
 @interface Club : NSObject{
     int identifier;
@@ -46,6 +47,7 @@
 
 -(float)getAverageRating;
 
+-(void)addMenuItem:(MenuItem *)menuItem;
 
 
 -(void)setOwnerIds;

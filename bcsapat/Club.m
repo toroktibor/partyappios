@@ -25,6 +25,7 @@
         date = date_;
         approved=approved_;
         ratings=[[NSMutableArray alloc]init];
+        menuItems=[[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -50,6 +51,10 @@
     return (sum/[ratings count])/10;
 }
 
+
+-(void)addMenuItem:(MenuItem *)menuItem{
+    [menuItems addObject:menuItem];
+}
 
 -(NSMutableArray *) getOwnerIds{
     return ownerIds;

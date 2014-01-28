@@ -176,4 +176,11 @@
     [self.navigationController pushViewController:DrinkOrFoodView animated:YES];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self.tableView reloadData];
+    
+    [super viewWillAppear:animated];
+}
+
 @end
