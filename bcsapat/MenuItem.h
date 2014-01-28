@@ -33,4 +33,16 @@
 
 -(NSString *)getMenuItemCategory;
 
+-(void)setMenuItemName:(NSString *)name_;
+
+-(void)setMenuItemPrice:(int)price_;
+
+-(void)setMenuItemCurreny:(NSString *)currency_;
+
+-(void)setMenuItemUnit:(NSString *)unit_;
+
+-(void)setMenuItemDiscount:(int)discount_;
+
+-(void)setMenuItemCategory:(NSString *)category;
+
 @end

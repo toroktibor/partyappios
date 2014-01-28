@@ -19,6 +19,7 @@
 		7A157EE518941D400092BBBB /* navigation.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A157EE418941D400092BBBB /* navigation.png */; };
 		7A157EE918942BD60092BBBB /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A157EE818942BD60092BBBB /* background.png */; };
 		7A1A412B18804B0F0052D859 /* NewTypePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1A412A18804B0F0052D859 /* NewTypePickerView.m */; };
+		7A1F981C18983780008E5192 /* MenuItemCategoryPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F981B18983780008E5192 /* MenuItemCategoryPicker.m */; };
 		7A43B8CE187C46F500725428 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8CD187C46F500725428 /* UIKit.framework */; };
 		7A43B8D0187C46F500725428 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8CF187C46F500725428 /* Foundation.framework */; };
 		7A43B8D2187C46F500725428 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8D1187C46F500725428 /* CoreGraphics.framework */; };
@@ -75,6 +76,7 @@
 		7ADA3ADA1898173000CB34D5 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADA3AD91898173000CB34D5 /* 2.png */; };
 		7ADA3ADC1898174E00CB34D5 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADA3ADB1898174E00CB34D5 /* 5.png */; };
 		7ADA3ADF1898210E00CB34D5 /* RatingDetailUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADA3ADE1898210E00CB34D5 /* RatingDetailUsersView.m */; };
+		7ADA3AE21898324700CB34D5 /* EditMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADA3AE11898324700CB34D5 /* EditMenuItemView.m */; };
 		7ADB94B21896955F00C69CF8 /* TQStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADB94B11896955F00C69CF8 /* TQStarRatingView.m */; };
 		7ADB94B41896972600C69CF8 /* backgroundStar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADB94B31896972600C69CF8 /* backgroundStar.png */; };
 		7ADB94B61896973000C69CF8 /* backgroundStar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADB94B51896973000C69CF8 /* backgroundStar@2x.png */; };
@@ -116,6 +118,8 @@
 		7A157EE818942BD60092BBBB /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		7A1A412918804B0F0052D859 /* NewTypePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTypePickerView.h; sourceTree = "<group>"; };
 		7A1A412A18804B0F0052D859 /* NewTypePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTypePickerView.m; sourceTree = "<group>"; };
+		7A1F981A18983780008E5192 /* MenuItemCategoryPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItemCategoryPicker.h; sourceTree = "<group>"; };
+		7A1F981B18983780008E5192 /* MenuItemCategoryPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItemCategoryPicker.m; sourceTree = "<group>"; };
 		7A43B8CA187C46F500725428 /* bcsapat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bcsapat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A43B8CD187C46F500725428 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7A43B8CF187C46F500725428 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -204,6 +208,8 @@
 		7ADA3ADB1898174E00CB34D5 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 5.png; path = ../../../Downloads/5.png; sourceTree = "<group>"; };
 		7ADA3ADD1898210E00CB34D5 /* RatingDetailUsersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingDetailUsersView.h; sourceTree = "<group>"; };
 		7ADA3ADE1898210E00CB34D5 /* RatingDetailUsersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingDetailUsersView.m; sourceTree = "<group>"; };
+		7ADA3AE01898324600CB34D5 /* EditMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditMenuItemView.h; sourceTree = "<group>"; };
+		7ADA3AE11898324700CB34D5 /* EditMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditMenuItemView.m; sourceTree = "<group>"; };
 		7ADB94B01896955F00C69CF8 /* TQStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQStarRatingView.h; sourceTree = "<group>"; };
 		7ADB94B11896955F00C69CF8 /* TQStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQStarRatingView.m; sourceTree = "<group>"; };
 		7ADB94B31896972600C69CF8 /* backgroundStar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundStar.png; sourceTree = "<group>"; };
@@ -490,6 +496,10 @@
 				7ADB94CA1896D8EE00C69CF8 /* RatingDetailView.m */,
 				7ADA3ADD1898210E00CB34D5 /* RatingDetailUsersView.h */,
 				7ADA3ADE1898210E00CB34D5 /* RatingDetailUsersView.m */,
+				7ADA3AE01898324600CB34D5 /* EditMenuItemView.h */,
+				7ADA3AE11898324700CB34D5 /* EditMenuItemView.m */,
+				7A1F981A18983780008E5192 /* MenuItemCategoryPicker.h */,
+				7A1F981B18983780008E5192 /* MenuItemCategoryPicker.m */,
 			);
 			name = BarsAndPubsAndRestaurants;
 			sourceTree = "<group>";
@@ -663,6 +673,8 @@
 				7ADB94CB1896D8EF00C69CF8 /* RatingDetailView.m in Sources */,
 				7ADB94CE1896DD2A00C69CF8 /* MovingStars.m in Sources */,
 				7ADA3ADF1898210E00CB34D5 /* RatingDetailUsersView.m in Sources */,
+				7ADA3AE21898324700CB34D5 /* EditMenuItemView.m in Sources */,
+				7A1F981C18983780008E5192 /* MenuItemCategoryPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

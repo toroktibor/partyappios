@@ -2049,10 +2049,10 @@ EEVzZW3DqW55ZWs
             </objects>
             <point key="canvasLocation" x="2685" y="-2515"/>
         </scene>
-        <!--View Controller-->
+        <!--Menu Item Category Picker-->
         <scene sceneID="6HB-e1-yBi">
             <objects>
-                <viewController id="Fxd-97-qkZ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuItemCategoryPicker" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fxd-97-qkZ" customClass="MenuItemCategoryPicker" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ro3-uJ-hq7">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2256,10 +2256,10 @@ EEVzZW3DqW55ZWs
             </objects>
             <point key="canvasLocation" x="3335" y="-2501"/>
         </scene>
-        <!--View Controller - Szerkesztés-->
+        <!--Edit Menu Item View - Szerkesztés-->
         <scene sceneID="l0g-yl-wsy">
             <objects>
-                <viewController id="21Y-1h-3hc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditMenuItemView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="21Y-1h-3hc" customClass="EditMenuItemView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SEj-w1-4ld">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2278,6 +2278,9 @@ EEVzZW3DqW55ZWs
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="changeMenuItem:" destination="21Y-1h-3hc" eventType="touchUpInside" id="iJd-17-omW"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Kedvezmény:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqi-9G-Y9Y">
                                         <constraints>
@@ -2287,10 +2290,13 @@ EEVzZW3DqW55ZWs
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="qOM-Pf-MWj">
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="qOM-Pf-MWj">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="5g3-Jq-X9M"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="sliderValueChange:" destination="21Y-1h-3hc" eventType="valueChanged" id="rkd-jF-iSm"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Mennyiség:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9Z-W6-tMM">
                                         <constraints>
@@ -2334,7 +2340,7 @@ EEVzZW3DqW55ZWs
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Kategória:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PU1-S5-rmH">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Kategória" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PU1-S5-rmH">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="85" id="WoG-nL-KXz"/>
                                         </constraints>
@@ -2372,36 +2378,36 @@ EEVzZW3DqW55ZWs
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="qOM-Pf-MWj" firstAttribute="top" secondItem="tqi-9G-Y9Y" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="1Pn-AI-LLn"/>
                                     <constraint firstItem="D9Z-W6-tMM" firstAttribute="leading" secondItem="Lat-Z4-tzt" secondAttribute="leading" type="default" id="4sX-wC-7sQ"/>
                                     <constraint firstItem="Wta-j4-YeX" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="29" id="6eW-2c-OHr"/>
                                     <constraint firstItem="Yp8-7V-fPi" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="194" id="B3v-GA-xX0"/>
-                                    <constraint firstItem="tqi-9G-Y9Y" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="329" id="GBk-Ip-eZE"/>
+                                    <constraint firstAttribute="bottom" secondItem="zRd-08-kFu" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="FZp-MY-yfP"/>
                                     <constraint firstAttribute="trailing" secondItem="GVg-xz-acL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="GMR-rK-2mO"/>
-                                    <constraint firstItem="qOM-Pf-MWj" firstAttribute="top" secondItem="tqi-9G-Y9Y" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Gch-Oq-FJj"/>
                                     <constraint firstItem="tqi-9G-Y9Y" firstAttribute="leading" secondItem="D9Z-W6-tMM" secondAttribute="leading" type="default" id="J3B-D1-70p"/>
                                     <constraint firstItem="Lat-Z4-tzt" firstAttribute="baseline" secondItem="uTx-re-GQv" secondAttribute="baseline" type="default" id="Mja-7D-QxV"/>
                                     <constraint firstItem="uTx-re-GQv" firstAttribute="leading" secondItem="Yp8-7V-fPi" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="N79-5H-3AU"/>
                                     <constraint firstItem="GVg-xz-acL" firstAttribute="centerX" secondItem="qOM-Pf-MWj" secondAttribute="centerX" type="default" id="Nwn-4r-XC4"/>
                                     <constraint firstItem="uTx-re-GQv" firstAttribute="baseline" secondItem="Yp8-7V-fPi" secondAttribute="baseline" type="default" id="P7S-jr-yqg"/>
                                     <constraint firstItem="PU1-S5-rmH" firstAttribute="leading" secondItem="Lat-Z4-tzt" secondAttribute="leading" type="default" id="XBp-QY-ui0"/>
-                                    <constraint firstItem="zRd-08-kFu" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="417" id="XXk-rL-JCK"/>
                                     <constraint firstAttribute="trailing" secondItem="1a6-MT-O2C" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="YaV-Gj-1ve"/>
                                     <constraint firstItem="GVg-xz-acL" firstAttribute="leading" secondItem="4sC-r1-rJO" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Z9G-Gh-Jrg"/>
                                     <constraint firstItem="Lat-Z4-tzt" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="198" id="ZbK-ay-ADr"/>
                                     <constraint firstAttribute="trailing" secondItem="z6q-fR-phT" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dv0-ZI-rt7"/>
                                     <constraint firstItem="PU1-S5-rmH" firstAttribute="baseline" secondItem="1a6-MT-O2C" secondAttribute="baseline" type="default" id="geR-wx-9Kd"/>
-                                    <constraint firstItem="D9Z-W6-tMM" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="270" id="hx1-xJ-j2n"/>
                                     <constraint firstItem="Wta-j4-YeX" firstAttribute="leading" secondItem="4sC-r1-rJO" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="iKk-6u-bKB"/>
+                                    <constraint firstItem="D9Z-W6-tMM" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="261" id="jF7-2C-KX3"/>
                                     <constraint firstAttribute="trailing" secondItem="uTx-re-GQv" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="krR-aj-zKf"/>
+                                    <constraint firstItem="z6q-fR-phT" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="259" id="mAW-XS-Bvo"/>
                                     <constraint firstItem="PU1-S5-rmH" firstAttribute="leading" secondItem="4sC-r1-rJO" secondAttribute="leading" constant="16" id="n2n-bf-4nc"/>
                                     <constraint firstItem="D9Z-W6-tMM" firstAttribute="baseline" secondItem="z6q-fR-phT" secondAttribute="baseline" type="default" id="oXe-4F-kQT"/>
                                     <constraint firstItem="1a6-MT-O2C" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="116" id="peN-ah-Rkg"/>
                                     <constraint firstItem="1a6-MT-O2C" firstAttribute="centerY" secondItem="PU1-S5-rmH" secondAttribute="centerY" type="default" id="piZ-5v-Apg"/>
-                                    <constraint firstItem="z6q-fR-phT" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="268" id="qfJ-j3-DEz"/>
-                                    <constraint firstAttribute="bottom" secondItem="zRd-08-kFu" secondAttribute="bottom" constant="-5" id="vWb-ga-mH0"/>
+                                    <constraint firstItem="zRd-08-kFu" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="392" id="sjg-KS-Oby"/>
                                     <constraint firstItem="GVg-xz-acL" firstAttribute="top" secondItem="Wta-j4-YeX" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="vY5-LS-oSc"/>
                                     <constraint firstItem="qOM-Pf-MWj" firstAttribute="centerX" secondItem="zRd-08-kFu" secondAttribute="centerX" type="default" id="wXI-WV-VLF"/>
                                     <constraint firstItem="uTx-re-GQv" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="186" id="yab-eP-PDz"/>
+                                    <constraint firstItem="tqi-9G-Y9Y" firstAttribute="top" secondItem="4sC-r1-rJO" secondAttribute="top" constant="320" id="zO6-zi-yIF"/>
                                     <constraint firstItem="GVg-xz-acL" firstAttribute="centerX" secondItem="4sC-r1-rJO" secondAttribute="centerX" type="default" id="zaf-zG-MWc"/>
                                 </constraints>
                             </scrollView>
@@ -2415,6 +2421,15 @@ EEVzZW3DqW55ZWs
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Szerkesztés" id="FJv-9Y-cpG"/>
+                    <connections>
+                        <outlet property="categoryButton" destination="1a6-MT-O2C" id="QxK-5c-JXh"/>
+                        <outlet property="categroyLabel" destination="PU1-S5-rmH" id="Ulw-d6-xoq"/>
+                        <outlet property="changeButton" destination="zRd-08-kFu" id="EyU-uy-mAD"/>
+                        <outlet property="currencySegmentControl" destination="uTx-re-GQv" id="hZz-xy-uMq"/>
+                        <outlet property="menuItemNameText" destination="GVg-xz-acL" id="RUr-rg-bRT"/>
+                        <outlet property="priceText" destination="Yp8-7V-fPi" id="D2U-yH-RIp"/>
+                        <outlet property="unitText" destination="z6q-fR-phT" id="ghF-wQ-x8p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SxR-fD-5Xe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2524,7 +2539,6 @@ EEVzZW3DqW55ZWs
         <!--Rating Detail Users View - Értékelés-->
         <scene sceneID="sJe-hz-hFK">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Coq-dk-CJn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="RatingDetailUsersView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="u5l-cF-yNr" customClass="RatingDetailUsersView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sp5-Bh-mSA">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
@@ -2565,6 +2579,7 @@ EEVzZW3DqW55ZWs
                         <outlet property="ratingText" destination="u82-kE-fEk" id="AQL-PY-pRN"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Coq-dk-CJn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1343" y="-4049"/>
         </scene>

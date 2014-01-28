@@ -51,4 +51,39 @@
     return discount;
 }
 
+-(void)setMenuItemName:(NSString *)name_{
+    name=name_;
+}
+
+-(void)setMenuItemPrice:(int)price_{
+    price=price_;
+}
+
+
+-(void)setMenuItemCurreny:(NSString *)currency_{
+    currency=currency_;
+}
+
+
+-(void)setMenuItemUnit:(NSString *)unit_{
+    unit=unit_;
+}
+
+-(void)setMenuItemDiscount:(int)discount_{
+    discount=discount_;
+}
+
+-(void)setMenuItemCategory:(NSString *)category{
+    menu_category=category;
+}
+
+
+
+
+
+
+
+
+
+
 @end
