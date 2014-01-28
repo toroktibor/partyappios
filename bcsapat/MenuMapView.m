@@ -86,15 +86,18 @@
     
     
     //az amind minden helyet lát
-    for (int i=0; i<[[[Session getInstance]getSearchViewCLubs]count]; ++i) {
+    /*for (int i=0; i<[[[Session getInstance]getSearchViewCLubs]count]; ++i) {
         if ([[[Session getInstance]getActualUser]getType]==1) {
             [self setLocations:[[[Session getInstance]getSearchViewCLubs]objectAtIndex:i]];
         }
         //a user csak az elfogadott helyeket látja
         else if ([[[Session getInstance]getSelectedClubAtIndex:i]getApproved]==1)
         [self setLocations:[[[Session getInstance]getSearchViewCLubs]objectAtIndex:i]];
-    }
+    }*/
    
+    for (int i=0; i<[[[Session getInstance]getSearchViewCLubs]count]; ++i) {
+            [self setLocations:[[[Session getInstance]getSearchViewCLubs]objectAtIndex:i]];
+    }
 
 
 }
@@ -414,11 +417,11 @@
         newAnnotation.pinColor = MKPinAnnotationColorPurple;
     }
     //a nem elfogadott helyek színe piros
-    else if ([(MyAnnotation*)annotation getApproved]==0){
+    /*else if ([(MyAnnotation*)annotation getApproved]==0){
         newAnnotation.pinColor = MKPinAnnotationColorRed;
         newAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     }
-    //az elfogadott helyek színe zölt
+    //az elfogadott helyek színe zölt*/
     else{
         newAnnotation.pinColor = MKPinAnnotationColorGreen;
         newAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];

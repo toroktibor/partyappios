@@ -77,15 +77,15 @@ enum requestTypeEnum requestType = -1;
 
     for (NSDictionary* jd in array) {
     
-    int identifier = [ jd objectForKey: @"id" ];
+    int identifier = [[ jd objectForKey: @"id" ] intValue];
     NSString * nickname = [ jd objectForKey: @"nick_name" ];
     NSString * pw = [ jd objectForKey: @"password" ];
     NSString * email = [ jd objectForKey: @"email" ];
-    int sex = [ jd objectForKey: @"sex" ];
+    int sex = [[ jd objectForKey: @"sex" ] intValue];
     NSString * birthday = [ jd objectForKey: @"birthday" ];
-    int type = [ jd objectForKey: @"type" ];
+    int type = [[ jd objectForKey: @"type" ] intValue];
     
-                User *u = [[User alloc]initWithId:identifier andNickName:nickname andPassword:pw andEmail:email andSex:sex andBirthday:birthday andType:type];
+    User *u = [[User alloc]initWithId:identifier andNickName:nickname andPassword:pw andEmail:email andSex:sex andBirthday:birthday andType:type];
         return u;
     }
     }@catch (NSException *e){
@@ -149,7 +149,7 @@ enum requestTypeEnum requestType = -1;
     @try{
     NSDictionary* array = [self httpPost:@"club.php" withData:posts];
     for (NSDictionary* jd in array) {
-        Club *c =[[Club alloc]initWithId:[ jd objectForKey: @"id" ] andName:[ jd objectForKey: @"name" ] andType:[ jd objectForKey: @"type" ] andDescription:[ jd objectForKey: @"description" ] andAddress:[ jd objectForKey: @"address" ] andPhonenumber:[ jd objectForKey: @"phonenumber" ] andEmail:[ jd objectForKey: @"email" ] andDate:@"nemtudommilyendátum" andApproved:[ jd objectForKey: @"approved" ]];
+        Club *c =[[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ] andName:[ jd objectForKey: @"name" ] andType:[ jd objectForKey: @"type" ] andDescription:[ jd objectForKey: @"description" ] andAddress:[ jd objectForKey: @"address" ] andPhonenumber:[ jd objectForKey: @"phonenumber" ] andEmail:[ jd objectForKey: @"email" ] andDate:@"nemtudommilyendátum" andApproved:[[ jd objectForKey: @"approved" ]intValue] ];
         return c;
     }
     }@catch (NSException *e){
@@ -172,7 +172,7 @@ return nil;
     NSDictionary* array = [self httpPost:@"club.php" withData:posts];
     NSMutableArray *res = [[NSMutableArray alloc] init];
     for (NSDictionary* jd in array) {
-        Club *c = [[Club alloc]initWithId:[ jd objectForKey: @"id" ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ]];
+        Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ]];
         [res addObject:c];
     }
     return res;
