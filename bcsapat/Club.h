@@ -51,6 +51,7 @@
 -(void)setEvents;
 -(void)setServices;
 -(void)setApproved:(int)approved_;
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_;
 - (id)initWithId:(int) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_ andDate:(NSString *) date_ andApproved:(int) approved_;
 
 
