@@ -9,11 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CommunicationProtocol.h"
 
-
-
-@interface Communication : NSObject <NSURLConnectionDataDelegate>
-
--(NSString *) httpPost: (NSString *) file withData: (NSMutableDictionary *) data;
+@interface Communication : NSObject
 
 -(User *) authenticationUserWithNickName:(NSString *) nick_name andPassword:(NSString*) password;
 
@@ -36,13 +32,13 @@
 
 -(void) registerANewUserWithName:(NSString *) name andPassword:(NSString *) password andEmail:(NSString *)  email andSex:(NSInteger *) sex andBirthday:(NSString *) birthday;
 
--(void) setServisesWithClubID:(NSInteger *) club_id andServices:(NSString *) services;
+-(void) setServisesWithClubID:(NSInteger *) club_id andServices:(NSArray *) services;
 
 -(void) setOwnerForClubWithUserID:(NSInteger *) user_id andClubID:(NSInteger *) club_id;
 
 -(void) setFavoriteClubForUserWithUserID:(NSInteger *) user_id andClubID:(NSInteger *) club_id;
 
--(void) deleteFavoriteClubForUserWithFavoriteID:(NSInteger *) favorite_id;
+-(void) deleteFavoriteClub:(NSInteger *) club_id forUser:(NSInteger *) user_id;
 
 
 @end
