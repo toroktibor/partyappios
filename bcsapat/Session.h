@@ -25,11 +25,16 @@
     NSString *musicType;
     UIImage * image;
     int selectedRating;
+    NSString * menuItemCategory;
 }
 
 +(void)deleteSession;
 
 +(Session *) getInstance;
+
+-(void)setMenuItemCategory:(NSString *)category;
+
+-(NSString *)getMenuItemCategory;
 
 -(void)setSelectedRatingIndex:(int)index;
 

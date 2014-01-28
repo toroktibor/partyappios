@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MenuItemCategoryPicker : UIViewController
+@interface MenuItemCategoryPicker : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate>
 
+@property NSArray *types;
+@property NSString * result;
+
+@property (weak, nonatomic) IBOutlet UIPickerView *typePicker;
 @end

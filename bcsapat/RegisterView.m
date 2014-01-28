@@ -32,6 +32,12 @@
 {
     [super viewDidLoad];
     
+
+    segmentControl.tintColor = [UIColor colorWithRed:(154/255.0)   green:(111/255.0)  blue:(189/255.0)  alpha:0.5];
+    
+    segmentControl.segmentedControlStyle = UISegmentedControlStyleBar;
+    
+
     cancelButton.layer.cornerRadius = 8;
     //loginButton.layer.borderWidth = 1;
     //loginButton.layer.borderColor = [UIColor grayColor].CGColor;

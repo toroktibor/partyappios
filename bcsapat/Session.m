@@ -33,6 +33,14 @@ static Session * _instance = nil;
 }
 
 
+-(void)setMenuItemCategory:(NSString *)category{
+    menuItemCategory=category;
+}
+
+-(NSString *)getMenuItemCategory{
+    return menuItemCategory;
+}
+
 -(void)setSelectedRatingIndex:(int)index{
     selectedRating=index;
 }
@@ -149,6 +157,7 @@ static Session * _instance = nil;
         clubTypeForPicker=@"Szórakozóhely típusa";
         musicType=@"Zene típusa";
         image=[[UIImage alloc]init];
+        menuItemCategory=@"Kategória";
     }
     return self;
 }

@@ -10,13 +10,14 @@
 #import "Club.h"
 #import "MenuItem.h"
 #import "Session.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface EditMenuItemView ()
 
 @end
 
 @implementation EditMenuItemView
-@synthesize menuItemNameText,categoryButton,changeButton,unitText,priceText,currencySegmentControl,categroyLabel,sliderValue;
+@synthesize menuItemNameText,categoryButton,changeButton,unitText,priceText,currencySegmentControl,categroyLabel,sliderValue,discountLabel;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -33,6 +34,29 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+
+    
+    UIImage *thumbImage = [UIImage imageNamed:@"thumb.png"];
+    [[UISlider appearance] setThumbImage:thumbImage
+                                forState:UIControlStateNormal];
+    
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"website-background-1024x576.jpg"]];
+    
+    changeButton.layer.cornerRadius = 8;
+    changeButton.clipsToBounds = YES;
+    
+    categoryButton.layer.cornerRadius = 8;
+    categoryButton.clipsToBounds = YES;
+    
+    menuItemNameText.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    menuItemNameText.textColor=[UIColor whiteColor];
+    
+    unitText.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    unitText.textColor=[UIColor whiteColor];
+    
+    priceText.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    priceText.textColor=[UIColor whiteColor];
     
     menuItemNameText.delegate=self;
     unitText.delegate=self;
@@ -52,6 +76,7 @@
     menuItemNameText.text=item.getMenuItemName;
     unitText.text=item.getUnit;
     priceText.text=[NSString stringWithFormat:@"%d",item.getPrice];
+    categroyLabel.text=[[Session getInstance]getMenuItemCategory];
     
     
     
@@ -80,6 +105,21 @@
     
     [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getMenuItems]objectAtIndex:itemIndex]setMenuItemDiscount:sliderValue];
     
+    if ([currencySegmentControl selectedSegmentIndex]==0) {
+        [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getMenuItems]objectAtIndex:itemIndex]setMenuItemCurreny:@"HUF"];
+    }
+    else{
+        [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getMenuItems]objectAtIndex:itemIndex]setMenuItemCurreny:@"EUR"];
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rendben!"
+                                                    message:@"A tétel adatinak a frissítése megtörtént!"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+
+    
 }
 
 
@@ -94,6 +134,15 @@
 
 - (IBAction)sliderValueChange:(UISlider *)sender {
     
+    discountLabel.text=[NSString stringWithFormat:@"%d%%",(int)sender.value];
     sliderValue=(int)sender.value;
 }
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    categroyLabel.text=[[Session getInstance]getMenuItemCategory];
+    [super viewWillAppear:animated];
+}
+
 @end

@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *currencySegmentControl;
 @property (weak, nonatomic) IBOutlet UILabel *categroyLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *discountLabel;
 - (IBAction)sliderChangeValue:(id)sender;
 - (IBAction)sliderValueChange:(UISlider *)sender;
 @end
