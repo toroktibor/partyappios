@@ -10,12 +10,15 @@
 #import "Session.h"
 #import "Club.h"
 #import "Rating.h"
+#import "TQStarRatingView.h"
 
 @interface RatingTableViewViewController ()
 
 @end
 
 @implementation RatingTableViewViewController
+@synthesize starRatingView;
+
 @synthesize ratningsArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -42,6 +45,13 @@
     int selectedIndex=[[Session getInstance]getSelectedIndex];
     Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
     
+    ratningsArray=[club getRatings];
+    
+    
+    
+    
+    
+    
     //ratningsArray = [club getRatings];
 }
 
@@ -62,7 +72,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return [ratningsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,10 +84,19 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    /*Rating * rating=[ratningsArray objectAtIndex:indexPath.row];
     
-    cell.textLabel.text=[rating getuserName];
-    cell.detailTextLabel.text=[rating getComment];*/
+    Rating * actualRating=[ratningsArray objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text=[actualRating getuserName];
+    cell.detailTextLabel.text=[actualRating getComment];
+    
+    starRatingView = [[TQStarRatingView alloc] initWithFrame:CGRectMake(0, 0, 67, 12)
+                                                numberOfStar:5];
+    starRatingView.delegate = self;
+    
+    [starRatingView setScore:[actualRating getValue]/10 withAnimation:NO];
+    
+    cell.accessoryView=starRatingView;
     
     // Configure the cell...
     
@@ -134,6 +153,19 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    ratningsArray = [[NSMutableArray alloc]init];
+    
+    int selectedIndex=[[Session getInstance]getSelectedIndex];
+    Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+    
+    ratningsArray=[club getRatings];
+    
+    [self.tableView reloadData];
+    
+    [super viewDidAppear:animated];
 }
 
 

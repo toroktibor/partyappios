@@ -10,12 +10,18 @@
 
 @interface Rating : NSObject{
     NSString * userName;
-    NSNumber * value;
+    float value;
     NSString * comment;
 }
 
 -(NSString *)getuserName;
 
 -(NSString *)getComment;
+
+-(float)getValue;
+
+
+- (id)initWithUserName:(NSString *) userName_ andValue:(float) value_ andComment:(NSString *) comment_;
+
 
 @end

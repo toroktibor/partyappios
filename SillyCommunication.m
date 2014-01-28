@@ -10,6 +10,7 @@
 #import "User.h"
 #import "MenuItem.h"
 #import "Club.h"
+#import "Rating.h"
 
 @implementation SillyCommunication{
     NSMutableArray * users;
@@ -41,19 +42,35 @@
     [itemArray addObject:cmenuItem];
     
     [aclub setMenuItems:itemArray];
-    [aclub addRating:2.0];
-    [aclub addRating:4.0];
-    
     [cclub setMenuItems:itemArray];
-    [cclub addRating:5.0];
-    [cclub addRating:5.0];
-    
     [bclub setMenuItems:itemArray];
-    [bclub addRating:10.0];
-    [bclub addRating:10.0];
+    [dclub setMenuItems:itemArray];
     
-    [dclub addRating:5.0];
-    [dclub addRating:7.0];
+    Rating *elso=[[Rating alloc]initWithUserName:@"Béla" andValue:3 andComment:@"Fasza hely! Jó volt itt bebaszni! Meg jók a csajok is! A pia meg ócsó!"];
+    Rating *masodik=[[Rating alloc]initWithUserName:@"Józsi" andValue:5 andComment:@"Nagyon asza hely!"];
+    Rating *harmadik=[[Rating alloc]initWithUserName:@"Béla" andValue:2 andComment:@"Fasza hely!"];
+    Rating *negyedik=[[Rating alloc]initWithUserName:@"Józsi" andValue:4 andComment:@"Nagyon asza hely!"];
+    Rating *otodik=[[Rating alloc]initWithUserName:@"Béla" andValue:2 andComment:@"Fasza hely!"];
+    Rating *hatodik=[[Rating alloc]initWithUserName:@"Józsi" andValue:5 andComment:@"Nagyon asza hely!"];
+    Rating *hetedik=[[Rating alloc]initWithUserName:@"Béla" andValue:1 andComment:@"Fasza hely!"];
+    Rating *nyolcadik=[[Rating alloc]initWithUserName:@"Józsi" andValue:1 andComment:@"Nagyon asza hely!"];
+    
+    
+    [aclub setRatings:elso];
+    [aclub setRatings:masodik];
+    
+    [bclub setRatings:harmadik];
+    [bclub setRatings:negyedik];
+    
+    [cclub setRatings:otodik];
+    [cclub setRatings:hatodik];
+    
+    [dclub setRatings:hetedik];
+    [dclub setRatings:nyolcadik];
+
+    
+ 
+
     
     [clubs addObject:aclub];
     [clubs addObject:bclub];

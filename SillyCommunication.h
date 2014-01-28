@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CommunicationProtocol.h"
+#import "Rating.h"
 
 @interface SillyCommunication : NSObject <CommunicationProtocol>
 

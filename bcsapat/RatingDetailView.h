@@ -14,4 +14,7 @@
 
 @property (nonatomic,strong)MovingStars *starRatingView;
 
+-(void)starRatingView:(TQStarRatingView *)view score:(float)score;
+
+- (IBAction)addRating:(id)sender;
 @end
