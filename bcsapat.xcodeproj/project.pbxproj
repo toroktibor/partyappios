@@ -118,7 +118,7 @@
 		7A1F982718985B9F008E5192 /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
 		7A1F982918985ED8008E5192 /* AddNewMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewMenuItemView.h; sourceTree = "<group>"; };
 		7A1F982A18985ED8008E5192 /* AddNewMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewMenuItemView.m; sourceTree = "<group>"; };
-		7A43B8CA187C46F500725428 /* bcsapat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bcsapat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A43B8CA187C46F500725428 /* PartyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A43B8CD187C46F500725428 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7A43B8CF187C46F500725428 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7A43B8D1187C46F500725428 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -270,7 +270,7 @@
 		7A43B8CB187C46F500725428 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7A43B8CA187C46F500725428 /* bcsapat.app */,
+				7A43B8CA187C46F500725428 /* PartyApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -532,7 +532,7 @@
 			);
 			name = bcsapat;
 			productName = bcsapat;
-			productReference = 7A43B8CA187C46F500725428 /* bcsapat.app */;
+			productReference = 7A43B8CA187C46F500725428 /* PartyApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -754,7 +754,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "bcsapat/bcsapat-Prefix.pch";
 				INFOPLIST_FILE = "bcsapat/bcsapat-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PartyApp;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -765,7 +765,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "bcsapat/bcsapat-Prefix.pch";
 				INFOPLIST_FILE = "bcsapat/bcsapat-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PartyApp;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
