@@ -51,5 +51,8 @@
 -(void) deleteClubWithId:(int) clubId ;
 -(void) updateClubInfoWithId:(int) clubId andName:(NSString *) name andType:(NSString*) type andDescription:(NSString *) description andAddress:(NSString *) address andPhonenumber:(NSString *) phonenumber andEmail:(NSString *) email ;
 -(NSString *)setHighlightExpireWithClubId:(int) clubId andDays:(int) days ;
-
+-(int) uploadAnImageWithClubId:(int) clubId andRowImage:(NSString*) rowImage andRotate:(int) rotate;
+-(NSString *) downLoadAnImageWithId:(int) imageId;
+-(NSMutableArray *) selectClubsImagesIdsWithClubId:(int) clubId;
+-(NSString*) downLoadAnImageThumbnailWithImageId:(int) imageId;
 @end
