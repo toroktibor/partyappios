@@ -22,6 +22,7 @@
         birthday = birthday_;
         type = type_;
         favoriteClubs=[[NSMutableArray alloc]init];
+        usersClubs=[[NSMutableArray alloc]init];
 
 
     }

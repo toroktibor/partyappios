@@ -188,6 +188,10 @@
     [[Session getInstance]setSelectedIndex:indexPath.row];
     
     
+    
+        [[[Session getInstance] getSearchViewCLubs] objectAtIndex:indexPath.row];
+    
+    
     UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"ClubTabBar"];
     
     

@@ -133,7 +133,7 @@ static Session * _instance = nil;
     return databaseConnection;
 }
 
--(SillyCommunication *)getCommunication{
+-(Communication *)getCommunication{
     return actualCommunication;
 }
 
@@ -169,7 +169,7 @@ static Session * _instance = nil;
         NSString *path =[documentsDirectory stringByAppendingPathComponent:@"partyapp.db"];
         
         databaseConnection = [[MyDatabase alloc] initWithPath:path];
-        actualCommunication = [[SillyCommunication alloc] init];
+        actualCommunication = [[Communication alloc] init];
         searchViewCLubs = [[NSMutableArray alloc]init];
         clubTypeForPicker=@"Szórakozóhely típusa";
         musicType=@"Zene típusa";
