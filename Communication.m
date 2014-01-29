@@ -98,11 +98,20 @@ enum requestTypeEnum requestType = -1;
 
 
 -(NSMutableArray *) getFavoriteClubsFromUserId:(NSInteger *) user_id{
+    //copyright Lamfalusy
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     [posts setObject:@"GETFAVORIT" forKey:@"action"];
     [posts setObject:[NSNumber numberWithInt:*user_id] forKey:@"userid"];
     
-    [self httpPost:@"favorite.php" withData:posts];
+    @try{
+        NSString* urlData = [self httpPost:@"favorite.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        
+        //NSMutableDictionary* array = [NSJSONSerialization JSONObje]
+        
+    }@catch (NSException *e) {
+        ;
+    }
     
     requestType = FAVORITE;
 }
