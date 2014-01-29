@@ -36,6 +36,15 @@
     
     musicTypeLabel.text=[[Session getInstance]getMusicType];
     timeLabe.text=[[Session getInstance]getEventTime];
+    
+    int selectedIndex=[[Session getInstance]getSelectedIndex];
+    Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+    
+    Event * event=[[club getEvents]objectAtIndex:[[Session getInstance]getSelectedEventIndex]];
+    
+    descriptionText.text=[event getDescription];
+    eventNameText.text=[event getEventName];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,25 +57,6 @@
     musicTypeLabel.text=[[Session getInstance]getMusicType];
     timeLabe.text=[[Session getInstance]getEventTime];
     [super viewWillAppear:animated];
-}
-
-- (IBAction)create:(id)sender {
-    
-    int selectedIndex=[[Session getInstance]getSelectedIndex];
-    int seledtedEventIndex=[[Session getInstance]getSelectedEventIndex];
-    
-    [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setEventName:eventNameText.text];
-    [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setStarDate:timeLabe.text];
-    [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setMusicType:musicTypeLabel.text];
-    [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setDescription:descriptionText.text];
-    
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rendben!"
-                                                    message:@"Az esemény módosítása megtörtént!"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
 }
 
 
@@ -86,4 +76,22 @@
     return YES;
 }
 
+- (IBAction)change:(id)sender {
+    
+    int selectedIndex=[[Session getInstance]getSelectedIndex];
+    int seledtedEventIndex=[[Session getInstance]getSelectedEventIndex];
+    
+    [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setEventName:eventNameText.text];
+    [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setStarDate:timeLabe.text];
+    [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setMusicType:musicTypeLabel.text];
+    [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setDescription:descriptionText.text];
+    
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rendben!"
+                                                    message:@"Az esemény módosítása megtörtént!"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
 @end
