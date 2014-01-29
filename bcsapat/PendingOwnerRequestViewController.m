@@ -89,10 +89,12 @@
     cell.textLabel.textColor=[UIColor whiteColor];
     cell.detailTextLabel.textColor=[UIColor whiteColor];
     
-    //NSString
+    NSString * textLabelText = [[[[[_OwnerRequestsArray objectAtIndex:indexPath.row] getClub] getClubName] stringByAppendingString:@", "] stringByAppendingString:[[[_OwnerRequestsArray objectAtIndex:indexPath.row] getClub] getAddress]];
     
-    cell.textLabel.text=[[[_OwnerRequestsArray objectAtIndex:indexPath.row] getClub] getClubName];
-    cell.detailTextLabel.text=[[[_OwnerRequestsArray objectAtIndex:indexPath.row] getUser] getName];
+    NSString * detailTextLabelText = [[[[[_OwnerRequestsArray objectAtIndex:indexPath.row] getUser] getName] stringByAppendingString:@", "] stringByAppendingString:[[[_OwnerRequestsArray objectAtIndex:indexPath.row] getUser] getEmail]];
+    
+    cell.textLabel.text=textLabelText;
+    cell.detailTextLabel.text=detailTextLabelText;
     
     return cell;
 }

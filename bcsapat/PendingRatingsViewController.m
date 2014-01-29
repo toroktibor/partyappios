@@ -7,6 +7,8 @@
 //
 
 #import "PendingRatingsViewController.h"
+#import "Session.h"
+#import "AdminRating.h"
 
 @interface PendingRatingsViewController ()
 
@@ -32,6 +34,12 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bricskok.png"]];
+    self.tableView.backgroundView = imageView;
+    
+    _RatingsArray = [[NSMutableArray alloc] init];
+    
+    _RatingsArray = [[[Session getInstance] getCommunication] getNotApprovedRatings];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,24 +52,45 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [_RatingsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"PendingRatingsCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    }
+    
+    UIView *customColorView = [[UIView alloc] init];
+    customColorView.backgroundColor = [UIColor colorWithRed:154/255.0
+                                                      green:111/255.0
+                                                       blue:189/255.0
+                                                      alpha:0.5];
+    
+    UIView *design = [[UIView alloc] init];
+    design.backgroundColor = [UIColor colorWithRed:60/255.0
+                                             green:60/255.0
+                                              blue:100/255.0
+                                             alpha:0.5];
+    
+    cell.backgroundView = design;
+    cell.selectedBackgroundView =  customColorView;
+    
+    cell.textLabel.textColor=[UIColor whiteColor];
+    cell.detailTextLabel.textColor=[UIColor whiteColor];
+    
+    cell.textLabel.text=[[_RatingsArray objectAtIndex:indexPath.row] getuserName];
+    cell.detailTextLabel.text=[[_RatingsArray objectAtIndex:indexPath.row] getComment];
     
     return cell;
 }

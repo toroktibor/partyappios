@@ -10,4 +10,6 @@
 
 @interface PendingRatingsViewController : UITableViewController
 
+@property (strong,nonatomic) NSMutableArray * RatingsArray;
+
 @end
