@@ -41,6 +41,14 @@
 
 -(NSString *)getMenuItemCategory;
 
+-(int)getMenuSort;
+
+-(int)getIdentifier;
+
+-(void)setMenuIdentifier:(int)identifier_;
+
+-(void)setMenuSor:(int)menusort_;
+
 -(void)setMenuItemName:(NSString *)name_;
 
 -(void)setMenuItemPrice:(int)price_;

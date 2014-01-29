@@ -28,6 +28,17 @@
 -(void) setOwnerForClubWithUserID:(int) user_id andClubID:(int) club_id;
 -(void) setFavoriteClubForUserWithUserID:(int) user_id andClubID:(int) club_id;
 -(void) deleteFavoriteClub:(int) club_id forUser:(int) user_id;
+-(NSMutableArray *) getNotApprovedClubs;
+-(void) approveClubWithClubId: (int) club_id;
+-(void) declineNewClubWithClubId: (int) club_id;
+-(void) declineOwnerRequestWithClubId: (int) club_id andUserId: (int) user_id;
+-(void) acceptOwnerRequestWithClubId: (int) club_id andUserId: (int) user_id;
+-(NSMutableArray *) getNotApprovedOwnerRequest;
+-(int) addANewMenuItemWithClubId: (int) clubid andMenuItem: (MenuItem *) menuItem;
+-(NSMutableArray *) getMenuItemsForClubWithClubId:(int) club_id;
+-(void) updateAMenuItemWithMenuItem:(MenuItem *) menuItem;
+-(void) removeEMenuItemWithMenuId:(int) menuId;
+-(NSMutableArray *) getEventsOfClubWithEventId:(int) eventId;
 -(int) addEventWithClubID:(int) clubid andName:( NSString*) name andDescription:( NSString*) description andStartDate:( NSString*) start_date andRowImage:( NSString*) row_image andType:( NSString*) music_type ;
 - (void) updateEventWithID:(int) eventid andName: (NSString *) name andDescription:( NSString*) description andStartDate:( NSString*) start_date andRowImage:( NSString*) row_image andType:( NSString*) music_type ;
 -(void) deleteEventWithID:(int) eventId ;
@@ -40,5 +51,8 @@
 -(void) deleteClubWithId:(int) clubId ;
 -(void) updateClubInfoWithId:(int) clubId andName:(NSString *) name andType:(NSString*) type andDescription:(NSString *) description andAddress:(NSString *) address andPhonenumber:(NSString *) phonenumber andEmail:(NSString *) email ;
 -(NSString *)setHighlightExpireWithClubId:(int) clubId andDays:(int) days ;
-
+-(int) uploadAnImageWithClubId:(int) clubId andRowImage:(NSString*) rowImage andRotate:(int) rotate;
+-(NSString *) downLoadAnImageWithId:(int) imageId;
+-(NSMutableArray *) selectClubsImagesIdsWithClubId:(int) clubId;
+-(NSString*) downLoadAnImageThumbnailWithImageId:(int) imageId;
 @end
