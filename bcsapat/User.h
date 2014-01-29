@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Club.h"
 
 @interface User : NSObject{
     int  identifier;
@@ -44,6 +45,10 @@
 -(void)setSex:(int)userSexType;
 -(void)setBirthday:(NSString *)userBirthay;
 -(void)setType:(int)userType;
+
+-(void)addFavoriteClub:(Club*)club;
+-(BOOL)isInFavorite:(int)identifier_;
+-(void)printFavoriteClusbId;
 
 
 

@@ -21,12 +21,30 @@
         sex = sex_;
         birthday = birthday_;
         type = type_;
+        favoriteClubs=[[NSMutableArray alloc]init];
 
 
     }
     return self;
 }
 
+-(void)addFavoriteClub:(Club *)club{
+    [favoriteClubs addObject:club];
+}
+
+-(BOOL)isInFavorite:(int)identifier_{
+    for (Club *club in favoriteClubs) {
+        if ([club getIdentifier]==identifier_) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+-(void)printFavoriteClusbId{
+    for (Club *club in favoriteClubs)
+        NSLog(@"%d",[club getIdentifier]);
+}
 
 
 -(NSMutableArray *) getFavoriteClubs{
