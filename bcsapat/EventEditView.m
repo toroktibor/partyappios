@@ -52,10 +52,13 @@
 
 - (IBAction)create:(id)sender {
     
-    /*int selectedIndex=[[Session getInstance]getSelectedIndex];
-    Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+    int selectedIndex=[[Session getInstance]getSelectedIndex];
+    int seledtedEventIndex=[[Session getInstance]getSelectedEventIndex];
     
-    [[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:
+    [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setEventName:eventNameText.text];
+    [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setStarDate:timeLabe.text];
+    [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setMusicType:musicTypeLabel.text];
+    [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setDescription:descriptionText.text];
     
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rendben!"
@@ -63,7 +66,7 @@
                                                    delegate:nil
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
-    [alert show];*/
+    [alert show];
 }
 
 

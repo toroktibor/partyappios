@@ -32,13 +32,6 @@ static Session * _instance = nil;
     _instance=nil;
 }
 
--(void)setEventIndex:(int)index{
-    eventIndex=index;
-}
-
--(int)getEventIndex{
-    return eventIndex;
-}
 
 -(void)setEventTime:(NSString *)time{
     eventTime=time;
