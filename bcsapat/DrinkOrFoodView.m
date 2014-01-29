@@ -240,7 +240,7 @@
 
 -(void)moveToTrash{
  
-    UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Biztos hogy törölni akarod?"
+    UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Biztos, hogy törölni akarod?"
                                                          message:nil
                                                         delegate:self
                                                cancelButtonTitle:@"Nem"

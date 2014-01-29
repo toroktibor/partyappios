@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EventsTableView : UITableViewController
+@interface EventsTableView : UITableViewController<UIAlertViewDelegate>
 
 @property NSMutableArray *eventsArray;
 
