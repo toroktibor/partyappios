@@ -26,11 +26,16 @@
     UIImage * image;
     int selectedRating;
     NSString * menuItemCategory;
+    int selectedEvent;
 }
 
 +(void)deleteSession;
 
 +(Session *) getInstance;
+
+-(void)setSelectedEventIndex:(int)index;
+
+-(int)getSelectedEventIndex;
 
 -(void)setMenuItemCategory:(NSString *)category;
 

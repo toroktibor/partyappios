@@ -26,6 +26,7 @@
         approved=approved_;
         ratings=[[NSMutableArray alloc]init];
         menuItems=[[NSMutableArray alloc]init];
+        events=[[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -51,6 +52,13 @@
     return (sum/[ratings count])/10;
 }
 
+-(void)addEvent:(Event *)event{
+    [events addObject:event];
+}
+
+-(Event *)getEventAtIndex:(int)index{
+    return [events objectAtIndex:index];
+}
 
 -(void)addMenuItem:(MenuItem *)menuItem{
     [menuItems addObject:menuItem];

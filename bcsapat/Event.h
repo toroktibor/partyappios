@@ -9,13 +9,29 @@
 #import <Foundation/Foundation.h>
 
 @interface Event : NSObject{
-    NSInteger * identifier;
+    int identifier;
     NSString * name;
     NSString * description;
     NSString * start_date;
     NSString * music_type;
 }
 
-- (id)initWithId:(NSInteger *) identifier_ andName:(NSString *) name_ andDescription:(NSString *) description_ andStartDate:(NSString *) start_date_ andMusic_type:(NSString *) music_type_;
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andDescription:(NSString *) description_ andStartDate:(NSString *) start_date_ andMusic_type:(NSString *) music_type_;
+
+-(void)setEventName:(NSString*)eventName;
+
+-(void)setDescription:(NSString*)description_;
+
+-(void)setStarDate:(NSString *)start;
+
+-(void)setMusicType:(NSString *)musicType;
+
+-(NSString *)getEventName;
+
+-(NSString *)getDescription;
+
+-(NSString *)getStartDate;
+
+-(NSString *)getMusicType;
 
 @end

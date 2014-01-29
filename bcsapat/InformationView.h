@@ -36,4 +36,9 @@
 - (IBAction)back:(id)sender;
 
 -(void)like;
+
+
+@property BOOL likeOrNot;
+@property UIButton *firstButton;
+@property UIBarButtonItem *likeButton;
 @end

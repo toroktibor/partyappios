@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Rating.h"
 #import "MenuItem.h"
+#import "Event.h"
 
 @interface Club : NSObject{
     int identifier;
@@ -42,6 +43,9 @@
 -(NSString *) getPhoneNumber;
 -(NSString *) getDescription;
 
+
+-(void)addEvent:(Event *)event;
+-(Event *)getEventAtIndex:(int)index;
 
 -(int)getApproved;
 

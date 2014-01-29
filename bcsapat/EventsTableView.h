@@ -10,5 +10,7 @@
 
 @interface EventsTableView : UITableViewController
 
+@property NSMutableArray *eventsArray;
+
 - (IBAction)back:(id)sender;
 @end

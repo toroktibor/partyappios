@@ -8,12 +8,16 @@
 
 #import "EventsTableView.h"
 #import "EventDetailView.h"
+#import "Session.h"
+#import "Club.h"
+#import "Event.h"
 
 @interface EventsTableView ()
 
 @end
 
 @implementation EventsTableView
+@synthesize eventsArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -38,6 +42,13 @@
     
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bricskok.png"]];
         self.tableView.backgroundView = imageView;
+    
+    eventsArray=[[NSMutableArray alloc]init];
+    
+    int selectedIndex=[[Session getInstance]getSelectedIndex];
+    Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+    
+    eventsArray=[club getEvents];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,7 +57,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -57,7 +67,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return [eventsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -85,8 +95,8 @@
     
     cell.textLabel.textColor=[UIColor whiteColor];
     cell.detailTextLabel.textColor=[UIColor whiteColor];
-    cell.textLabel.text=@"Hatalmas buli";
-    cell.detailTextLabel.text=@"Sztárvendég: Béla!";
+    cell.textLabel.text=[[eventsArray objectAtIndex:indexPath.row]getEventName];
+    cell.detailTextLabel.text=[[eventsArray objectAtIndex:indexPath.row]getStartDate];
     
     return cell;
 }
@@ -142,6 +152,9 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    [[Session getInstance]setSelectedEventIndex:indexPath.row];
+    
     EventDetailView *EventDetailView=
     [self.storyboard instantiateViewControllerWithIdentifier:@"EventDetailView"];
     [self.navigationController pushViewController:EventDetailView animated:YES];

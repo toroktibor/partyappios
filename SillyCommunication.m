@@ -11,6 +11,7 @@
 #import "MenuItem.h"
 #import "Club.h"
 #import "Rating.h"
+#import "Event.h"
 
 @implementation SillyCommunication{
     NSMutableArray * users;
@@ -55,6 +56,20 @@
     Rating *hetedik=[[Rating alloc]initWithUserName:@"Béla" andValue:1 andComment:@"Fasza hely!"];
     Rating *nyolcadik=[[Rating alloc]initWithUserName:@"Józsi" andValue:1 andComment:@"Nagyon asza hely!"];
     
+    Event *buli1=[[Event alloc]initWithId:1 andName:@"White Party" andDescription:@"Dresscode: White" andStartDate:@"2014.02.01" andMusic_type:@"Trance"];
+    Event *buli2=[[Event alloc]initWithId:1 andName:@"Black Party" andDescription:@"Dresscode: Black" andStartDate:@"2014.02.02" andMusic_type:@"Rock"];
+    
+    [aclub addEvent:buli1];
+    [aclub addEvent:buli2];
+    
+    [bclub addEvent:buli1];
+    [bclub addEvent:buli2];
+    
+    [cclub addEvent:buli1];
+    [cclub addEvent:buli2];
+    
+    [dclub addEvent:buli1];
+    [dclub addEvent:buli2];
     
     [aclub setRatings:elso];
     [aclub setRatings:masodik];

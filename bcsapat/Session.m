@@ -33,6 +33,14 @@ static Session * _instance = nil;
 }
 
 
+-(void)setSelectedEventIndex:(int)index{
+    selectedEvent=index;
+}
+
+-(int)getSelectedEventIndex{
+    return selectedEvent;
+}
+
 -(void)setMenuItemCategory:(NSString *)category{
     menuItemCategory=category;
 }

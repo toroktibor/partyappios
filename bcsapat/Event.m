@@ -11,7 +11,7 @@
 @implementation Event
 
 
-- (id)initWithId:(NSInteger *) identifier_ andName:(NSString *) name_ andDescription:(NSString *) description_ andStartDate:(NSString *) start_date_ andMusic_type:(NSString *) music_type_
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andDescription:(NSString *) description_ andStartDate:(NSString *) start_date_ andMusic_type:(NSString *) music_type_
 {
     self = [super init];
     if(self)
@@ -25,4 +25,35 @@
     return self;
 }
 
+-(void)setEventName:(NSString *)eventName{
+    name=eventName;
+}
+
+-(void)setDescription:(NSString *)description_{
+    description=description_;
+}
+
+-(void)setStarDate:(NSString *)start{
+    start_date=start;
+}
+
+-(void)setMusicType:(NSString *)musicType{
+    music_type=musicType;
+}
+
+-(NSString *)getEventName{
+    return name;
+}
+
+-(NSString *)getDescription{
+    return  description;
+}
+
+-(NSString *)getStartDate{
+    return start_date;
+}
+
+-(NSString *)getMusicType{
+    return music_type;
+}
 @end

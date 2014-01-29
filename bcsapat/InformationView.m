@@ -19,7 +19,7 @@
 @end
 
 @implementation InformationView
-@synthesize imageView,descriptionView,club,addressField,phoneField,emailField,clubNameLabel,scrollView,starRatingView,ratingBackground;
+@synthesize imageView,descriptionView,club,addressField,phoneField,emailField,clubNameLabel,scrollView,starRatingView,ratingBackground,likeOrNot,firstButton,likeButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,6 +36,8 @@
 	// Do any additional setup after loading the view.
     
     scrollView.autoresizesSubviews=NO;
+    
+    likeOrNot=NO;
     
     int selectedIndex=[[Session getInstance]getSelectedIndex];
     club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
@@ -91,6 +93,8 @@
     
     UIBarButtonItem *actionItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
     UIBarButtonItem *likeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_action_favorite.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(like)];
+    
+    
     
     NSArray *actionButtonItems = @[actionItem, likeButton];
     self.navigationItem.rightBarButtonItems = actionButtonItems;
@@ -251,6 +255,6 @@
 
 
 -(void)like{
-    
+
 }
 @end
