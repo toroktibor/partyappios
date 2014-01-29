@@ -47,6 +47,7 @@
     [bclub setMenuItems:itemArray];
     [dclub setMenuItems:itemArray];
     
+    /*
     Rating *elso=[[Rating alloc]initWithUserName:@"Béla" andValue:3 andComment:@"Fasza hely! Jó volt itt bebaszni! Meg jók a csajok is! A pia meg ócsó!"];
     Rating *masodik=[[Rating alloc]initWithUserName:@"Józsi" andValue:5 andComment:@"Nagyon asza hely!"];
     Rating *harmadik=[[Rating alloc]initWithUserName:@"Béla" andValue:2 andComment:@"Fasza hely!"];
@@ -55,6 +56,7 @@
     Rating *hatodik=[[Rating alloc]initWithUserName:@"Józsi" andValue:5 andComment:@"Nagyon asza hely!"];
     Rating *hetedik=[[Rating alloc]initWithUserName:@"Béla" andValue:1 andComment:@"Fasza hely!"];
     Rating *nyolcadik=[[Rating alloc]initWithUserName:@"Józsi" andValue:1 andComment:@"Nagyon asza hely!"];
+    */
     
     Event *buli1=[[Event alloc]initWithId:1 andName:@"White Party" andDescription:@"Dresscode: White" andStartDate:@"2014.02.01" andMusic_type:@"Trance"];
     Event *buli2=[[Event alloc]initWithId:1 andName:@"Black Party" andDescription:@"Dresscode: Black" andStartDate:@"2014.02.02" andMusic_type:@"Rock"];
@@ -70,7 +72,7 @@
     
     [dclub addEvent:buli1];
     [dclub addEvent:buli2];
-    
+    /*
     [aclub setRatings:elso];
     [aclub setRatings:masodik];
     
@@ -82,7 +84,7 @@
     
     [dclub setRatings:hetedik];
     [dclub setRatings:nyolcadik];
-
+*/
     
     [clubs addObject:aclub];
     [clubs addObject:bclub];
