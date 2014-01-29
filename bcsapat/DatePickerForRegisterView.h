@@ -12,6 +12,7 @@
 
 @property NSDateFormatter *df;
 @property NSString * result;
+@property (weak, nonatomic) IBOutlet UIButton *okButton;
 
 - (IBAction)back:(id)sender;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
