@@ -668,6 +668,7 @@
 				7A1F982B18985ED8008E5192 /* AddNewMenuItemView.m in Sources */,
 				7AE442041898FE4300BE08A9 /* DatePickerForEventsView.m in Sources */,
 				E358E7A818994FBB007D07B7 /* OwnerRequest.m in Sources */,
+                7ADA4568189940D00071DFB3 /* AdminRating.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

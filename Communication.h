@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CommunicationProtocol.h"
 #import "OwnerRequest.h"
+#import "AdminRating.h"
 
 @interface Communication : NSObject
 
