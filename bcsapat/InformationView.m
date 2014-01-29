@@ -227,7 +227,6 @@
                                                            cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [Notpermitted show];
                 
-                
             }
             
         } else if (buttonIndex == 4) {
