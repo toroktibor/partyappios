@@ -742,6 +742,101 @@ return nil;
     return @"";
 }
 
+-(int) uploadAnImageWithClubId:(int) clubId andRowImage:(NSString*) rowImage andRotate:(int) rotate{
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"ADD" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:clubId] forKey:@"clubid"];
+        [posts setObject:rowImage forKey:@"rawImage"];
+        [posts setObject:[NSNumber numberWithInt:rotate] forKey:@"rotate"];
+        
+        NSString* urlData = [self httpPost:@"image.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        
+        for (NSDictionary* jd in array) {
+            int image_id =  [[jd objectForKey:@"NewID"] intValue];
+            return image_id;
+        }
+        
+    } @catch (NSException *e) {
+        
+    }
+    
+    return 0;
+}
+
+-(NSString *) downLoadAnImageWithId:(int) imageId{
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"GET" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:imageId] forKey:@"imageid"];
+        
+        NSString* urlData = [self httpPost:@"image.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        
+        for (NSDictionary* jd in array) {
+            NSString* image = [jd objectForKey:@"rawImage"];
+            return image;
+        }
+        
+    } @catch (NSException *e) {
+        
+    }
+    
+    return @"";
+}
+
+-(NSMutableArray *) selectClubsImagesIdsWithClubId:(int) clubId{
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"GETIDS" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:clubId] forKey:@"clubid"];
+        
+        NSString* urlData = [self httpPost:@"image.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        NSMutableArray *res = [[NSMutableArray alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        
+        for (NSDictionary* jd in array) {
+            NSNumber * imageId = [jd objectForKey:@"imageid"];
+            [res addObject:imageId];
+        }
+        return res;
+        
+    } @catch (NSException *e) {
+        
+    }
+    
+    return nil;
+}
+
+-(NSString*) downLoadAnImageThumbnailWithImageId:(int) imageId{
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"GETTHUMBNAIL" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:imageId] forKey:@"imageid"];
+        
+        NSString* urlData = [self httpPost:@"image.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        
+        for (NSDictionary* jd in array) {
+            NSString* image = [jd objectForKey:@"rawImage"];
+            return image;
+        }
+        
+    } @catch (NSException *e) {
+        
+    }
+    
+    return @"";
+}
 
 @end
 
