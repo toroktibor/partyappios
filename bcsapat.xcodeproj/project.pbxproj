@@ -95,6 +95,7 @@
 		7AE0D99918857CC40089CE3D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE0D99818857CC40089CE3D /* CoreLocation.framework */; };
 		7AE442041898FE4300BE08A9 /* DatePickerForEventsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE442031898FE4300BE08A9 /* DatePickerForEventsView.m */; };
 		7AE4420718997D5A00BE08A9 /* GaleryImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4420618997D5A00BE08A9 /* GaleryImage.m */; };
+		7AE4420B1899834A00BE08A9 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4420A1899834A00BE08A9 /* Base64.m */; };
 		7AF627CC18914F8800A57FA0 /* RatingTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF627CB18914F8800A57FA0 /* RatingTableViewViewController.m */; };
 		7AFFF40618859CEC000B06FD /* SillyCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFF40518859CEC000B06FD /* SillyCommunication.m */; };
 		E358E7A818994FBB007D07B7 /* OwnerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E358E7A718994FBB007D07B7 /* OwnerRequest.m */; };
@@ -239,6 +240,8 @@
 		7AE442031898FE4300BE08A9 /* DatePickerForEventsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerForEventsView.m; sourceTree = "<group>"; };
 		7AE4420518997D5A00BE08A9 /* GaleryImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GaleryImage.h; path = ../GaleryImage.h; sourceTree = "<group>"; };
 		7AE4420618997D5A00BE08A9 /* GaleryImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GaleryImage.m; path = ../GaleryImage.m; sourceTree = "<group>"; };
+		7AE442091899834A00BE08A9 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		7AE4420A1899834A00BE08A9 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		7AF627CA18914F8800A57FA0 /* RatingTableViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingTableViewViewController.h; sourceTree = "<group>"; };
 		7AF627CB18914F8800A57FA0 /* RatingTableViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingTableViewViewController.m; sourceTree = "<group>"; };
 		7AFFF40318859CB0000B06FD /* CommunicationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunicationProtocol.h; sourceTree = "<group>"; };
@@ -301,6 +304,7 @@
 		7A43B8D3187C46F500725428 /* bcsapat */ = {
 			isa = PBXGroup;
 			children = (
+				7AE442081899832D00BE08A9 /* Base64 */,
 				7ADB94AF1896953600C69CF8 /* Rating Stars */,
 				7ACCC6551893176E006B0A0C /* Annotation for the map */,
 				7ACCC65418931720006B0A0C /* Pictures */,
@@ -517,6 +521,15 @@
 			name = "Rating Stars";
 			sourceTree = "<group>";
 		};
+		7AE442081899832D00BE08A9 /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				7AE442091899834A00BE08A9 /* Base64.h */,
+				7AE4420A1899834A00BE08A9 /* Base64.m */,
+			);
+			name = Base64;
+			sourceTree = "<group>";
+		};
 		7AFFF40218859C7B000B06FD /* Communication */ = {
 			isa = PBXGroup;
 			children = (
@@ -675,6 +688,7 @@
 				E358E7A818994FBB007D07B7 /* OwnerRequest.m in Sources */,
 				7ADA4568189940D00071DFB3 /* AdminRating.m in Sources */,
 				7AE4420718997D5A00BE08A9 /* GaleryImage.m in Sources */,
+				7AE4420B1899834A00BE08A9 /* Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

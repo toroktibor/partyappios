@@ -485,7 +485,7 @@ return nil;
         NSMutableArray *res = [[NSMutableArray alloc] init];
         
         for( NSDictionary* jd in array){
-            Event *e = [[Event alloc] initWithId:[[jd objectForKey:@"id"] intValue] andName:[jd objectForKey:@"name"] andDescription:[jd objectForKey:@"description"] andStartDate:[jd objectForKey:@"start_date"] andMusic_type:[jd objectForKey:@"music_type"]];
+            Event *e = [[Event alloc] initWithId:[[jd objectForKey:@"id"] intValue] andName:[jd objectForKey:@"name"] andDescription:[jd objectForKey:@"description"] andStartDate:[jd objectForKey:@"start_date"] andMusic_type:[jd objectForKey:@"music_type"] andApproved:1];
             
             [res addObject:e];
         }

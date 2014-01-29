@@ -8,6 +8,8 @@
 
 #import "GaleryImage.h"
 #import "Session.h"
+#import "Base64.h"
+
 
 @implementation GaleryImage
 @synthesize bitmap,bitmap_thumbnail,identifier;
@@ -24,7 +26,10 @@
 }
 
 -(void)downloadBitmap{
-
+    NSString * imageString=[[[Session getInstance]getCommunication]downLoadAnImageThumbnailWithImageId:identifier];
+    [Base64 initialize];
+    NSData* data = [Base64 decode:imageString];;
+    bitmap = [UIImage imageWithData:data];
 }
 
 
