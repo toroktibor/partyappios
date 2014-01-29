@@ -21,6 +21,14 @@
 
 - (id)initWithId:(int) identifier_ andName:(NSString *) name_ andPrice:(int) price_ andCurrency:(NSString *) currency_ andUnit:(NSString *) unit_ andDiscount:(int) discount_ andMenuCategory:(NSString *) menu_category_ andMenuSort:(int) menu_sort_;
 
+-(int)getMenuSort;
+
+-(void)setMenuSort:(int) menuSort;
+
+-(int)getIdentifier;
+
+-(void)setIdentifier:(int) id_;
+
 -(NSString *)getMenuItemName;
 
 -(NSString *)getCurrency;
