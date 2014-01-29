@@ -113,8 +113,29 @@
     //NSLog(@"azadat:%@",encodedImageData);
     NSLog(@"keszitett meret:%d",encodedImageData.length);
     
+    int rotate=0;
     // feltöltés helye
-    int newImageID=[[[Session getInstance] getCommunication] uploadAnImageWithClubId:[actualClub getIdentifier] andRowImage:encodedImageData andRotate:0];
+    switch (cameraImage.imageOrientation) {
+        case UIImageOrientationDown:
+        case UIImageOrientationDownMirrored:
+            rotate=180;
+            break;
+            
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+            rotate=90;
+            break;
+            
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            rotate=-90;
+            break;
+        case UIImageOrientationUp:
+        case UIImageOrientationUpMirrored:
+            break;
+    }
+    
+    int newImageID=[[[Session getInstance] getCommunication] uploadAnImageWithClubId:[actualClub getIdentifier] andRowImage:encodedImageData andRotate:rotate];
     NSLog(@"A feltoltott kep id-je: %d",newImageID);
     UIImage * newThumbnail = [[UIImage alloc] initWithData:[Base64 decode: [[[Session getInstance] getCommunication] downLoadAnImageThumbnailWithImageId:newImageID]]];
 
