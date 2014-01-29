@@ -12,7 +12,7 @@
 #import "Club.h"
 #import "TQStarRatingView.h"
 
-@interface InformationView : UIViewController <MFMailComposeViewControllerDelegate,UIActionSheetDelegate,StarRatingViewDelegate>
+@interface InformationView : UIViewController <MFMailComposeViewControllerDelegate,UIActionSheetDelegate,StarRatingViewDelegate,UIAlertViewDelegate>
 
 - (void)showActionSheet;
 
@@ -39,6 +39,4 @@
 
 
 @property BOOL likeOrNot;
-@property UIButton *firstButton;
-@property UIBarButtonItem *likeButton;
 @end

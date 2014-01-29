@@ -44,6 +44,8 @@
 -(NSString *) getDescription;
 
 
+-(int)getIdentifier;
+
 -(void)addEvent:(Event *)event;
 -(Event *)getEventAtIndex:(int)index;
 

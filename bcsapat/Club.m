@@ -43,6 +43,10 @@
     return self;
 }
 
+-(int)getIdentifier{
+    return identifier;
+}
+
 -(float)getAverageRating{
     float sum=0;
     for (int i=0; i<[ratings count]; ++i) {

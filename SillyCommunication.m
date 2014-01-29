@@ -84,9 +84,6 @@
     [dclub setRatings:nyolcadik];
 
     
- 
-
-    
     [clubs addObject:aclub];
     [clubs addObject:bclub];
     [clubs addObject:cclub];
@@ -133,6 +130,8 @@
     }
     return out;
 }
+
+
 
 -(NSMutableArray *)getOwnedClubsFromUserId:(int)user_id{
     NSMutableArray * out = [[NSMutableArray alloc]init];

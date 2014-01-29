@@ -19,7 +19,7 @@
 @end
 
 @implementation InformationView
-@synthesize imageView,descriptionView,club,addressField,phoneField,emailField,clubNameLabel,scrollView,starRatingView,ratingBackground,likeOrNot,firstButton,likeButton;
+@synthesize imageView,descriptionView,club,addressField,phoneField,emailField,clubNameLabel,scrollView,starRatingView,ratingBackground,likeOrNot;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,7 +41,7 @@
     
     int selectedIndex=[[Session getInstance]getSelectedIndex];
     club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
-    
+      
     
     starRatingView = [[TQStarRatingView alloc] initWithFrame:CGRectMake(20, 4, 125, 25)
                                                  numberOfStar:5];
@@ -92,11 +92,11 @@
     
     
     UIBarButtonItem *actionItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
-    UIBarButtonItem *likeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_action_favorite.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(like)];
+    UIBarButtonItem *likeB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_action_favorite.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(like)];
     
     
     
-    NSArray *actionButtonItems = @[actionItem, likeButton];
+    NSArray *actionButtonItems = @[actionItem, likeB];
     self.navigationItem.rightBarButtonItems = actionButtonItems;
     
 }
@@ -250,6 +250,37 @@
 
 
 -(void)like{
+    
+    if (likeOrNot==NO) {
+        UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Kedvencek"
+                                                             message:@"Biztos hogy hozzáadod a kedvencekhez?"
+                                                            delegate:self cancelButtonTitle:@"Mégse"
+                                                   otherButtonTitles:@"Ok",nil];
+        [Notpermitted show];
 
+    }
+    else{
+        UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Kedvencek"
+                                                             message:@"Biztos hogy eltávolítod a kedvencek közül?"
+                                                            delegate:self cancelButtonTitle:@"Mégse"
+                                                   otherButtonTitles:@"Ok",nil];
+        [Notpermitted show];
+    }
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0){
+        NSLog(@"mégse");
+    }else{
+        if (likeOrNot==NO) {
+            NSLog(@"kedveli");
+            likeOrNot=YES;
+        }
+        else{
+            NSLog(@"nem kedveli");
+            likeOrNot=NO;
+        }
+    }
 }
 @end
