@@ -243,14 +243,9 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
-    /*starRatingView = [[TQStarRatingView alloc] initWithFrame:CGRectMake(153, 93, 125, 25)
-                                                numberOfStar:5];
-    starRatingView.delegate = self;
+    [starRatingView setScore:[club getAverageRating] withAnimation:NO];
     
-    //[starRatingView setScore:[club getAverageRating] withAnimation:NO];
-    [scrollView addSubview:starRatingView];
-    
-    [super viewWillAppear:animated];*/
+    [super viewWillAppear:animated];
 }
 
 

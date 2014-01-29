@@ -92,6 +92,7 @@
 		7ADBD30C1895B3F4008A2261 /* ic_action_send.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADBD30B1895B3F4008A2261 /* ic_action_send.png */; };
 		7AE0D99718854FE50089CE3D /* RegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE0D99618854FE50089CE3D /* RegisterView.m */; };
 		7AE0D99918857CC40089CE3D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE0D99818857CC40089CE3D /* CoreLocation.framework */; };
+		7AE442041898FE4300BE08A9 /* DatePickerForEventsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE442031898FE4300BE08A9 /* DatePickerForEventsView.m */; };
 		7AF627CC18914F8800A57FA0 /* RatingTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF627CB18914F8800A57FA0 /* RatingTableViewViewController.m */; };
 		7AFFF40618859CEC000B06FD /* SillyCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFF40518859CEC000B06FD /* SillyCommunication.m */; };
 /* End PBXBuildFile section */
@@ -229,6 +230,8 @@
 		7AE0D99518854FE50089CE3D /* RegisterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterView.h; sourceTree = "<group>"; };
 		7AE0D99618854FE50089CE3D /* RegisterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterView.m; sourceTree = "<group>"; };
 		7AE0D99818857CC40089CE3D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7AE442021898FE4300BE08A9 /* DatePickerForEventsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerForEventsView.h; sourceTree = "<group>"; };
+		7AE442031898FE4300BE08A9 /* DatePickerForEventsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerForEventsView.m; sourceTree = "<group>"; };
 		7AF627CA18914F8800A57FA0 /* RatingTableViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingTableViewViewController.h; sourceTree = "<group>"; };
 		7AF627CB18914F8800A57FA0 /* RatingTableViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingTableViewViewController.m; sourceTree = "<group>"; };
 		7AFFF40318859CB0000B06FD /* CommunicationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunicationProtocol.h; sourceTree = "<group>"; };
@@ -482,6 +485,8 @@
 				7A1F981B18983780008E5192 /* MenuItemCategoryPicker.m */,
 				7A1F982918985ED8008E5192 /* AddNewMenuItemView.h */,
 				7A1F982A18985ED8008E5192 /* AddNewMenuItemView.m */,
+				7AE442021898FE4300BE08A9 /* DatePickerForEventsView.h */,
+				7AE442031898FE4300BE08A9 /* DatePickerForEventsView.m */,
 			);
 			name = BarsAndPubsAndRestaurants;
 			sourceTree = "<group>";
@@ -651,6 +656,7 @@
 				7ADA3AE21898324700CB34D5 /* EditMenuItemView.m in Sources */,
 				7A1F981C18983780008E5192 /* MenuItemCategoryPicker.m in Sources */,
 				7A1F982B18985ED8008E5192 /* AddNewMenuItemView.m in Sources */,
+				7AE442041898FE4300BE08A9 /* DatePickerForEventsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
