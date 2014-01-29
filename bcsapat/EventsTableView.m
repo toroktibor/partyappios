@@ -170,4 +170,16 @@
     tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController: tabBar animated: YES completion:nil];
 }
+
+
+
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [self.tableView reloadData];
+    
+    [super viewWillAppear:animated];
+}
+
 @end

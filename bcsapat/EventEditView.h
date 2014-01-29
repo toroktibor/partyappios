@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EventEditView : UIViewController
+@interface EventEditView : UIViewController<UITextFieldDelegate,UITextViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UILabel *musicTypeLabel;
+@property (weak, nonatomic) IBOutlet UITextField *eventNameText;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabe;
+@property (weak, nonatomic) IBOutlet UIButton *timeButton;
+@property (weak, nonatomic) IBOutlet UIButton *typeButton;
+@property (weak, nonatomic) IBOutlet UIButton *createButton;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionText;
 
 @end
