@@ -57,4 +57,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    int selectedIndex=[[Session getInstance]getSelectedIndex];
+    Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+    
+    Event * event=[[club getEvents]objectAtIndex:[[Session getInstance]getSelectedEventIndex]];
+    
+    eventDateLabel.text=[event getStartDate];
+    descriptionText.text=[event getDescription];
+    musicTypeLabel.text=[event getMusicType];
+    ventNameLabel.text=[event getEventName];
+    
+}
+
 @end

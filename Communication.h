@@ -12,34 +12,32 @@
 
 @interface Communication : NSObject
 
+-(NSString*) httpPost: (NSString *) file withData: (NSMutableDictionary *) data;
 -(User *) authenticationUserWithNickName:(NSString *) nick_name andPassword:(NSString*) password;
-
--(NSMutableArray *) getFavoriteClubsFromUserId:(NSInteger *) user_id;
-
+-(NSMutableArray *) getFavoriteClubsFromUserId:(int) user_id;
 -(NSMutableArray *) getClubsFromCityName:(NSString *) cityname;
-
-//Elküld egy új hely kérelmet a szervernek, ha a owner_user_id -1 akkor nincs neki tulaj jelöltje
 -(void) sendANewClubRequestWithClubname:(NSString *) newClubName andAddress: (NSString *) newClubAddress andType:(NSString *) newClubType andOwnerUserId:(NSInteger *) owner_user_id andServices:(NSString *) services;
-
--(NSMutableArray *) getOwnedClubsFromUserId:(NSInteger *) user_id;
-
--(Club *) getEverythingFromClubId:(NSInteger *) club_id;
-
--(NSMutableArray *) searchClubsWithName:(NSString *) name andCityname:(NSString *) cityname andType:(NSString *) type andOffset:(NSInteger *) offset andLimit:(NSInteger *) limit;
-
--(void) modifyPasswordWithId:(NSInteger *) id andPassword:(NSString *) password;
-
--(void) modifyUserDataWithId:(NSInteger *) id andEmail:(NSString *) email andBirthday:(NSString *) birthday andSex:(NSInteger *) sex;
-
--(User *) registerANewUserWithName:(NSString *) name andPassword:(NSString *) password andEmail:(NSString *)  email andSex:(NSInteger *) sex andBirthday:(NSString *) birthday;
-
--(void) setServisesWithClubID:(NSInteger *) club_id andServices:(NSArray *) services;
-
--(void) setOwnerForClubWithUserID:(NSInteger *) user_id andClubID:(NSInteger *) club_id;
-
--(void) setFavoriteClubForUserWithUserID:(NSInteger *) user_id andClubID:(NSInteger *) club_id;
-
--(void) deleteFavoriteClub:(NSInteger *) club_id forUser:(NSInteger *) user_id;
-
+-(NSMutableArray *) getOwnedClubsFromUserId:(int) user_id;
+-(Club *) getEverythingFromClubId:(int) club_id;
+-(NSMutableArray *) searchClubsWithName:(NSString *) name andCityname:(NSString *) cityname andType:(NSString *) type andOffset:(int ) offset andLimit:(int) limit;
+-(void) modifyPasswordWithId:(int) id andPassword:(NSString *) password;
+-(void) modifyUserDataWithId:(int) id andEmail:(NSString *) email andBirthday:(NSString *) birthday andSex:(int) sex;
+-(User *) registerANewUserWithName:(NSString *) name andPassword:(NSString *) password andEmail:(NSString *)  email andSex:(int) sex andBirthday:(NSString *) birthday;
+-(void) setServisesWithClubID:(int) club_id andServices:(NSArray *) services;
+-(void) setOwnerForClubWithUserID:(int) user_id andClubID:(int) club_id;
+-(void) setFavoriteClubForUserWithUserID:(int) user_id andClubID:(int) club_id;
+-(void) deleteFavoriteClub:(int) club_id forUser:(int) user_id;
+-(int) addEventWithClubID:(int) clubid andName:( NSString*) name andDescription:( NSString*) description andStartDate:( NSString*) start_date andRowImage:( NSString*) row_image andType:( NSString*) music_type ;
+- (void) updateEventWithID:(int) eventid andName: (NSString *) name andDescription:( NSString*) description andStartDate:( NSString*) start_date andRowImage:( NSString*) row_image andType:( NSString*) music_type ;
+-(void) deleteEventWithID:(int) eventId ;
+- (int) addRatingWithClubID:(int) clubId andUserID:(int) userId andValue:(float) value andComment:(NSString *) comment ;
+-(void) updateRatingWithClubID:(int) clubId andUserID:(int) userId andValue:(float) value andComment:(NSString *) comment ;
+-(NSArray *) getRatingsFromClubID:(int) clubId ;
+-(NSArray *) getNotApprovedRatings ;
+-(void)declineRatingWithUserId:(int) userId andClubId:(int) clubId ;
+-(void) acceptRatingWithUserId:(int) userId andClubId:(int) clubId ;
+-(void) deleteClubWithId:(int) clubId ;
+-(void) updateClubInfoWithId:(int) clubId andName:(NSString *) name andType:(NSString*) type andDescription:(NSString *) description andAddress:(NSString *) address andPhonenumber:(NSString *) phonenumber andEmail:(NSString *) email ;
+-(NSString *)setHighlightExpireWithClubId:(int) clubId andDays:(int) days ;
 
 @end

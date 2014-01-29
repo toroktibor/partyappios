@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface Rating : NSObject{
+    int userId;
     NSString * userName;
     float value;
     NSString * comment;
+    int approved;
 }
+
 
 -(NSString *)getuserName;
 
@@ -20,8 +23,10 @@
 
 -(float)getValue;
 
+-(int)getUserId;
 
-- (id)initWithUserName:(NSString *) userName_ andValue:(float) value_ andComment:(NSString *) comment_;
+-(int)getApproved;
 
+- (id)initWithUserID:(int) userID_ andName:(NSString *) userName_ andValue:(float) value_ andComment:(NSString *) comment_ andApproved:(int) approved_;
 
 @end

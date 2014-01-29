@@ -33,6 +33,15 @@ static Session * _instance = nil;
 }
 
 
+-(void)setEventTime:(NSString *)time{
+    eventTime=time;
+}
+
+-(NSString *)getEventTime{
+    return eventTime;
+}
+
+
 -(void)setSelectedEventIndex:(int)index{
     selectedEvent=index;
 }
@@ -166,6 +175,7 @@ static Session * _instance = nil;
         musicType=@"Zene típusa";
         image=[[UIImage alloc]init];
         menuItemCategory=@"Kategória";
+        eventTime=@"Esemény időpontja";
     }
     return self;
 }

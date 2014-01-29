@@ -70,11 +70,11 @@
     
     User * user=[[Session getInstance]getActualUser];
     
-    Rating * newRating=[[Rating alloc]initWithUserName:[user getName] andValue:myScore andComment:ratingText.text];
+    //Rating * newRating=[[Rating alloc]initWithUserName:[user getName] andValue:myScore andComment:ratingText.text];
     
     int selectedIndex=[[Session getInstance]getSelectedIndex];
     Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
-    [club setRatings:newRating];
+    //[club setRatings:newRating];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rendben!"
                                                     message:@"Az értékelésed hozzáadtuk!"

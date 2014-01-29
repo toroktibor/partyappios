@@ -7,6 +7,7 @@
 //
 
 #import "DatePickerForEventsView.h"
+#import "Session.h"
 
 @interface DatePickerForEventsView ()
 
@@ -43,6 +44,7 @@
 
 - (IBAction)valueChanged:(id)sender {
 	result =  [NSString stringWithFormat:@"%@",[df stringFromDate:[datePicker date]]];
-	NSLog(@"%@",result);  
+	NSLog(@"%@",result);
+    [[Session getInstance]setEventTime:result];
 }
 @end
