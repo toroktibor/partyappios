@@ -27,11 +27,17 @@
     int selectedRating;
     NSString * menuItemCategory;
     int selectedEvent;
+    NSString * eventTime;
+
 }
 
 +(void)deleteSession;
 
 +(Session *) getInstance;
+
+-(void)setEventTime:(NSString*)time;
+
+-(NSString *)getEventTime;
 
 -(void)setSelectedEventIndex:(int)index;
 

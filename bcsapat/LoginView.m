@@ -82,7 +82,7 @@
     
     if (![[Session getInstance]isNetworAvaiable]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Nincs internet kapcsolat!"
-                                                        message:@"Offline módban tudsz csak bejelentkezni!"
+                                                        message:@"Csak online módban tudsz bejelentkezni!"
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
