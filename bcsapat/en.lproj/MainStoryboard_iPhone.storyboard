@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xnX-3U-ipj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xnX-3U-ipj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -606,21 +606,33 @@
             </objects>
             <point key="canvasLocation" x="-242" y="4558"/>
         </scene>
-        <!--Table View Controller - Jóváhagyandó klubok-->
+        <!--Pending New Club View Controller - Jóváhagyandó klubok-->
         <scene sceneID="PXU-Cm-bsP">
             <objects>
-                <tableViewController storyboardIdentifier="PendingNewClubViewController" title="Jóváhagyandó klubok" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kct-sS-pN9" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PendingNewClubViewController" title="Jóváhagyandó klubok" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kct-sS-pN9" customClass="PendingNewClubViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zPr-zl-hvk">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="KAM-BC-XV2">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PendingClubCell" textLabel="YaV-P7-clX" detailTextLabel="i7v-8o-yEK" style="IBUITableViewCellStyleSubtitle" id="KAM-BC-XV2">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaV-P7-clX">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7v-8o-yEK">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
@@ -696,21 +708,33 @@
             </objects>
             <point key="canvasLocation" x="867" y="5440"/>
         </scene>
-        <!--Table View Controller - Jóváhagyandó tulajdonosok-->
+        <!--Pending Owner Request View Controller - Jóváhagyandó tulajdonosok-->
         <scene sceneID="TS5-fe-d1I">
             <objects>
-                <tableViewController storyboardIdentifier="PendingOwnerRequestViewController" title="Jóváhagyandó tulajdonosok" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pgg-YM-580" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PendingOwnerRequestViewController" title="Jóváhagyandó tulajdonosok" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pgg-YM-580" customClass="PendingOwnerRequestViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Mj9-gw-2nb">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xyV-Wq-sih">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PendingOwnerRequestCell" textLabel="wyX-82-ejn" detailTextLabel="rik-CL-0mI" style="IBUITableViewCellStyleSubtitle" id="xyV-Wq-sih">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyX-82-ejn">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rik-CL-0mI">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
@@ -1883,18 +1907,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="vqG-78-AbF" firstAttribute="top" secondItem="rt0-iQ-fmD" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="zIj-NF-FXi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Részletek" id="HbR-ci-ees">
-                        <barButtonItem key="rightBarButtonItem" title="Szerk." id="XIg-r6-ouB">
-                            <connections>
-                                <segue destination="HRP-Vy-glh" kind="push" id="UPu-Ka-sR3"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Részletek" id="HbR-ci-ees"/>
                     <connections>
                         <outlet property="descriptionText" destination="Zgf-lY-pee" id="kCz-aC-m2b"/>
                         <outlet property="eventDateLabel" destination="vqG-78-AbF" id="8cI-S7-5hf"/>
                         <outlet property="musicTypeLabel" destination="E0F-eN-aBq" id="tyU-xN-UXO"/>
                         <outlet property="ventNameLabel" destination="hF2-dG-xgP" id="yG1-Ck-PJV"/>
+                        <segue destination="HRP-Vy-glh" kind="push" id="Cfz-eO-WFc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="366-6Q-hxd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2020,7 +2039,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <constraint firstItem="CYp-0D-IH9" firstAttribute="leading" secondItem="Cng-Tj-igw" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="IPB-4y-lDW"/>
                                     <constraint firstItem="Z6P-gf-kUa" firstAttribute="leading" secondItem="Cng-Tj-igw" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="IS2-a2-E7g"/>
                                     <constraint firstItem="4rw-X2-Fxq" firstAttribute="baseline" secondItem="BPs-6X-YK3" secondAttribute="baseline" type="default" id="MAW-03-rsT"/>
-                                    <constraint firstItem="xqb-O8-UVQ" firstAttribute="top" secondItem="Cng-Tj-igw" secondAttribute="top" constant="328" id="bmj-PG-FZH"/>
                                     <constraint firstAttribute="bottom" secondItem="1Sh-dp-hg2" secondAttribute="bottom" constant="28" id="jVx-ew-Heg"/>
                                     <constraint firstAttribute="trailing" secondItem="BPs-6X-YK3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="lUD-KS-5Fg"/>
                                     <constraint firstItem="qDu-kP-PFn" firstAttribute="top" secondItem="CYp-0D-IH9" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="oos-0q-XGp"/>
@@ -4108,6 +4126,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <relationship kind="action" name="back:"/>
             </relationships>
         </class>
+        <class className="PendingNewClubViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PendingNewClubViewController.h"/>
+        </class>
+        <class className="PendingOwnerRequestViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PendingOwnerRequestViewController.h"/>
+        </class>
         <class className="PendingViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PendingViewController.h"/>
             <relationships>
@@ -4138,6 +4162,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ProfileTableView.h"/>
             <relationships>
                 <relationship kind="action" name="back:"/>
+                <relationship kind="action" name="showActionSheet:"/>
                 <relationship kind="outlet" name="birhdayLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
@@ -4210,8 +4235,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Hlj-Vp-otv"/>
-        <segue reference="wWz-6N-LQq"/>
         <segue reference="Xhu-YV-zEt"/>
+        <segue reference="i3u-r4-Gc5"/>
+        <segue reference="wWz-6N-LQq"/>
     </inferredMetricsTieBreakers>
 </document>

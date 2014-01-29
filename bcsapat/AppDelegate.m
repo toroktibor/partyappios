@@ -40,8 +40,6 @@
     [[UITabBar appearance] setBackgroundImage:tabBackground];
     
     
-    
-    
     [[UITabBar appearance] setSelectionIndicatorImage:
      [UIImage imageNamed:@"tab_select_indicator_white"]];
     [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
@@ -54,6 +52,8 @@
       nil]
                                              forState:UIControlStateNormal];
     
+    
+
     
     return YES;
 }
