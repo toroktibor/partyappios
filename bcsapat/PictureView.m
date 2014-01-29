@@ -9,7 +9,10 @@
 #import "PictureView.h"
 #import "Session.h"
 
-@interface PictureView ()
+@interface PictureView (){
+    UIBarButtonItem *nextButton;
+    UIBarButtonItem *prevButton;
+}
 
 @end
 
@@ -34,13 +37,18 @@
     /*image = [[Session getInstance]getImage];
     [imageView setImage:image];*/
     
-    UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Következő" style:UIBarButtonItemStyleBordered target:self action:@selector(next)];
-    UIBarButtonItem *prevButton = [[UIBarButtonItem alloc] initWithTitle:@"Előző" style:UIBarButtonItemStyleBordered target:self action:@selector(back)];
+    nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Következő" style:UIBarButtonItemStyleBordered target:self action:@selector(next)];
+    prevButton = [[UIBarButtonItem alloc] initWithTitle:@"Előző" style:UIBarButtonItemStyleBordered target:self action:@selector(back)];
     
     
     
     NSArray *actionButtonItems = @[nextButton, prevButton];
     self.navigationItem.rightBarButtonItems = actionButtonItems;
+    
+    [imageView setContentMode:UIViewContentModeScaleAspectFit];
+    [imageView setBackgroundColor:[UIColor blackColor]];
+    
+    [self changeImage:[[Session getInstance] getImage]];
    
     
 }
@@ -71,9 +79,15 @@
         return;
     }
     if( newImageIndex==0 ){
-        
-    }else if( newImageIndex== [[[[Session getInstance] getSelectedClubAtIndex: [[Session getInstance] getSelectedIndex]] getImages] count]-1 ){
-        
+        [prevButton setEnabled:false];
+    }else{
+        [prevButton setEnabled:true];
+    }
+    
+    if( newImageIndex== [[[[Session getInstance] getSelectedClubAtIndex: [[Session getInstance] getSelectedIndex]] getImages] count]-1 ){
+        [nextButton setEnabled:false];
+    }else{
+        [nextButton setEnabled:true];
     }
     
     [[Session getInstance] setImage:newImageIndex];

@@ -92,9 +92,7 @@
     [self.navigationController pushViewController:PicturesDetailView animated:YES];
     
     
-    [PicturesDetailView.imageView setImage:[actualGaleryImage bitmap]];
-    [PicturesDetailView.imageView setContentMode:UIViewContentModeScaleAspectFit];
-    [PicturesDetailView.imageView setBackgroundColor:[UIColor blackColor]];
+    //[PicturesDetailView.imageView setImage:[actualGaleryImage bitmap]];
 
     
 }
