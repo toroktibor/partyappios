@@ -24,9 +24,34 @@
         favoriteClubs=[[NSMutableArray alloc]init];
         usersClubs=[[NSMutableArray alloc]init];
 
-
     }
     return self;
+}
+
+-(BOOL) isThisUserOwnerOfClub:(int)clubId{
+    for (Club *actualClub in usersClubs) {
+        if ([actualClub getIdentifier] == clubId)
+            return YES;
+    }
+           return NO;
+}
+
+-(void) modifyUserWithEmail:(NSString *) email_ andBirthday:(NSString *) birthday_ andSex:(int) sex_{
+    email = email_;
+    birthday = birthday_;
+    sex = sex_;
+}
+
+-(void) modifyPassword:(NSString *) password_{
+    password = password_;
+}
+
+-(BOOL) isLike:(int) clubId{
+    for (Club *actualClub in favoriteClubs) {
+        if ([actualClub getIdentifier] ==  clubId)
+            return YES;
+    }
+    return NO;
 }
 
 -(void)addFavoriteClub:(Club *)club{

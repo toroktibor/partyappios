@@ -20,15 +20,18 @@
     NSString * phonenumber;
     NSString * email;
     NSString * date;
+    NSString * highlite_expire;
     int approved;
-
     
-    NSMutableArray * ownerIds;
+    BOOL fullDownloaded;
+    
+    NSString * ownerName;
     
     NSMutableArray * menuItems;
     NSMutableArray * ratings;
     NSMutableArray * events;
     NSMutableArray * services;
+    NSMutableArray * images;
 }
 
 
@@ -62,8 +65,18 @@
 -(void)setEvents;
 -(void)setServices;
 -(void)setApproved:(int)approved_;
+
 - (id)initWithId:(int) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_;
-- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_ andDate:(NSString *) date_ andApproved:(int) approved_;
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_ andApproved:(int)approved_;
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_ andApproved:(int)approved_ andHighliteExpire:(NSString *) highlite_expire_ ;
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_ andDate:(NSString *) date_ andHighliteExpire:(NSString *) highlite_expire_ andApproved:(int)approved_;
+
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_  andHighliteExpire:(NSString *) highlite_expire_ andApproved:(int)approved_;
+
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_  andHighliteExpire:(NSString *) highlite_expire_ andApproved:(int)approved_ andServices:(NSArray *)services_;
+
+-(BOOL)isNotFullDownloaded;
+-(Rating *) isRatingThisUser:(int) userId;
 
 
 @end

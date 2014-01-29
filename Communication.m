@@ -178,7 +178,7 @@ NSError *error;
         NSError *err = [[NSError alloc] init];
         
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options: NSJSONReadingMutableContainers error: &err];    for (NSDictionary* jd in array) {
-        Club *c =[[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ] andName:[ jd objectForKey: @"name" ] andType:[ jd objectForKey: @"type" ] andDescription:[ jd objectForKey: @"description" ] andAddress:[ jd objectForKey: @"address" ] andPhonenumber:[ jd objectForKey: @"phonenumber" ] andEmail:[ jd objectForKey: @"email" ] andDate:@"nemtudommilyendátum" andApproved:[[ jd objectForKey: @"approved" ]intValue] ];
+        Club *c =[[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ] andName:[ jd objectForKey: @"name" ] andType:[ jd objectForKey: @"type" ] andDescription:[ jd objectForKey: @"description" ] andAddress:[ jd objectForKey: @"address" ] andPhonenumber:[ jd objectForKey: @"phonenumber" ] andEmail:[ jd objectForKey: @"email" ] andDate:@"nemtudommilyendátum" andHighliteExpire: [jd objectForKey: @"highlight_expire" ]  andApproved:[[ jd objectForKey: @"approved" ]intValue] ];
         return c;
     }
     }@catch (NSException *e){

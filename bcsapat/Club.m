@@ -10,7 +10,7 @@
 
 @implementation Club
 
-- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_ andDate:(NSString *) date_ andApproved:(int)approved_
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_ andDate:(NSString *) date_ andHighliteExpire:(NSString *) highlite_expire_ andApproved:(int)approved_
 {
     self = [super init];
     if(self)
@@ -23,12 +23,50 @@
         phonenumber = phonenumber_;
         email = email_;
         date = date_;
+        highlite_expire = highlite_expire_;
         approved=approved_;
-        ratings=[[NSMutableArray alloc]init];
-        menuItems=[[NSMutableArray alloc]init];
-        events=[[NSMutableArray alloc]init];
+        fullDownloaded = NO;
     }
     return self;
+}
+
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_  andHighliteExpire:(NSString *) highlite_expire_ andApproved:(int)approved_{
+    self = [super init];
+    if(self)
+    {
+        identifier = identifier_;
+        name = name_;
+        type = type_;
+        description = description_;
+        address = address_;
+        phonenumber = phonenumber_;
+        email = email_;
+        highlite_expire = highlite_expire_;
+        approved=approved_;
+        fullDownloaded = NO;
+    }
+    return self;
+    
+}
+
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_  andHighliteExpire:(NSString *) highlite_expire_ andApproved:(int)approved_ andServices:(NSArray *)services_{
+    self = [super init];
+    if(self)
+    {
+        identifier = identifier_;
+        name = name_;
+        type = type_;
+        description = description_;
+        address = address_;
+        phonenumber = phonenumber_;
+        email = email_;
+        highlite_expire = highlite_expire_;
+        approved=approved_;
+        services=[[NSMutableArray alloc]initWithArray:services_];
+        fullDownloaded = NO;
+    }
+    return self;
+    
 }
 
 
@@ -39,9 +77,55 @@
         identifier = identifier_;
         name = name_;
         address = address_;
+        fullDownloaded = NO;
     }
     return self;
 }
+
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_ andApproved:(int)approved_{
+    self = [super init];
+    if(self)
+    {
+        identifier = identifier_;
+        name = name_;
+        address = address_;
+        approved = approved_;
+        fullDownloaded = NO;
+    }
+    return self;
+}
+
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_ andApproved:(int)approved_ andHighliteExpire:(NSString *) highlite_expire_ {
+    self = [super init];
+    if(self)
+    {
+        identifier = identifier_;
+        name = name_;
+        address = address_;
+        approved = approved_;
+        highlite_expire = highlite_expire_;
+        fullDownloaded = NO;
+    }
+    return self;
+}
+
+-(BOOL)isNotFullDownloaded{
+    return !fullDownloaded;
+}
+
+
+
+-(Rating *) isRatingThisUser:(int) userId {
+    if(ratings == nil || [ratings count] ==0)
+    	return nil;
+	for (Rating *rating in ratings) {
+	    if ([rating getUserId] == userId)
+            return rating;
+	}
+	return nil;
+}
+
+
 
 -(int)getIdentifier{
     return identifier;
@@ -68,8 +152,8 @@
     [menuItems addObject:menuItem];
 }
 
--(NSMutableArray *) getOwnerIds{
-    return ownerIds;
+-(NSMutableArray *) getOwnerName{
+    return ownerName;
 }
 
 -(NSMutableArray *) getMenuItems{
@@ -136,35 +220,6 @@
 }
 
 
-//public void downloadEverything() {
-//	Log.i(this.getClass().getName(), "Minden infó lekérése a klubról ( " + id + " )");
-//    
-//	Club clubWithAllInfo = Session.getInstance().getActualCommunicationInterface().getEverythingFromClub(this.id);
-//	this.email = clubWithAllInfo.email;
-//	this.date = clubWithAllInfo.date;
-//	this.description = clubWithAllInfo.description;
-//	this.phonenumber = clubWithAllInfo.phonenumber;
-//	this.approved = clubWithAllInfo.approved;
-//	this.type = clubWithAllInfo.type;
-//	this.highlite_expire = clubWithAllInfo.highlite_expire;
-//    
-//	this.events = Session.getInstance().getActualCommunicationInterface().getEventsOfClub(this.id);
-//	Log.i(getClass().getName(), "Klub eseményei: " + this.events.size());
-//    
-//	this.menuItems = Session.getInstance().getActualCommunicationInterface().getMenuItemsForClub(this.id);
-//	this.ratings = Session.getInstance().getActualCommunicationInterface().getRatings(this.id);
-//	
-//	this.images.clear();
-//	ArrayList<Integer> imageIDList = Session.getInstance().getActualCommunicationInterface()
-//    .selectClubsImagesIds(this.id);
-//	for (int i = 0; i < imageIDList.size(); i++) {
-//	    Log.e("galery", "i: " + i);
-//	    this.images.add(new GaleryImage(imageIDList.get(i), (ImageUtils.StringToBitMap(Session.getInstance()
-//                                                                                       .getActualCommunicationInterface().DownLoadAnImageThumbnail(imageIDList.get(i))))));
-//	}
-//    
-//	Log.i(this.getClass().getName(), "Klub adatai frissítve ( " + id + " )");
-//	fullDownloaded=true;
-//}
+
 
 @end

@@ -14,15 +14,23 @@
     NSString * nick_name;
     NSString * password;
     NSString * email;
-    int sex;
+    int sex;  // 0 = Férfi 1 = Nő
     NSString * birthday;
-    int type;
+    int type;  // 0 = vendég vagy tulaj 1 = admin
     
     NSMutableArray * favoriteClubs;
     NSMutableArray * usersClubs;
 }
 
 - (id)initWithId:(int) identifier_ andNickName:(NSString *) nick_name_ andPassword:(NSString *) password_ andEmail:(NSString *) email_ andSex:(int) sex_ andBirthday:(NSString *) birthday_ andType:(int) type_;
+
+-(BOOL) isThisUserOwnerOfClub:(int)clubId;
+
+-(void) modifyUserWithEmail:(NSString *) email_ andBirthday:(NSString *) birthday_ andSex:(int) sex_;
+
+-(void) modifyPassword:(NSString *) password_;
+
+-(BOOL) isLike:(int) clubId;
 
 -(NSMutableArray *) getFavoriteClubs;
 -(NSMutableArray *) getUsersClubs;
