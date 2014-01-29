@@ -11,15 +11,8 @@
 
 @implementation Communication
 
-NSString * mainUrl = @"http://partyapp.bugs3.com/";
+NSString * mainUrl = @"http://95.85.19.48/";
 NSError *error;
-
-enum requestTypeEnum {
-    LOGIN,FAVORITE,OWNED,EVERYTHING,NEWCLUB,SEARCHCLUB,UPDATEPASSWORD,UPDATEUSER,NEWUSER,SETSERVICE,SETOWNER,SETFAVORITE,DELETEFAVORITE
-};
-
-enum requestTypeEnum requestType = -1;
-
 
 -(NSString*) httpPost: (NSString *) file withData: (NSMutableDictionary *) data{
     NSMutableString *post = [NSMutableString string];
@@ -28,31 +21,20 @@ enum requestTypeEnum requestType = -1;
             [post appendString:@"&"];
         [post appendFormat:@"%@=%@", key, [data objectForKey:key]];
     }
-    /*  */
-    NSLog(@"POST: %@", post);
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", mainUrl, file ]];
-    NSLog(@"URL: %@", url);
     
     NSData *postData = [post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];
     
     NSMutableURLRequest * request = [[NSMutableURLRequest alloc] init];
-    
     [request setURL:url];
-    
     [request setHTTPMethod:@"POST"];
-        
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Current-Type"];
-    
     [request setHTTPBody:postData];
     
-    NSLog(@"request: %@",request);
-
     NSHTTPURLResponse *response = nil;
     NSError *error = [[NSError alloc] init];
     NSString *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
@@ -74,9 +56,6 @@ enum requestTypeEnum requestType = -1;
 
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options: NSJSONReadingMutableContainers error: &err];
 
-    
-    NSLog(@"Login adatai megérkeztek!");
-    
 
     for (NSDictionary* jd in array) {
     
@@ -97,11 +76,11 @@ enum requestTypeEnum requestType = -1;
     }
 
 
--(NSMutableArray *) getFavoriteClubsFromUserId:(NSInteger *) user_id{
+-(NSMutableArray *) getFavoriteClubsFromUserId:(int) user_id{
     //copyright Lamfalusy
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     [posts setObject:@"GETFAVORIT" forKey:@"action"];
-    [posts setObject:[NSNumber numberWithInt:*user_id] forKey:@"userid"];
+    [posts setObject:[NSNumber numberWithInt:user_id] forKey:@"userid"];
     
     @try{
         NSString* urlData = [self httpPost:@"favorite.php" withData:posts];
@@ -117,11 +96,10 @@ enum requestTypeEnum requestType = -1;
         return res;
         
     }@catch (NSException *e) {
-        ;
+        
     }
     
     return nil;
-    requestType = FAVORITE;
 }
 
 -(NSMutableArray *) getClubsFromCityName:(NSString *) cityname{
@@ -136,7 +114,7 @@ enum requestTypeEnum requestType = -1;
 }
 
 //Elküld egy új hely kérelmet a szervernek, ha a owner_user_id -1 akkor nincs neki tulaj jelöltje
--(void) sendANewClubRequestWithClubname:(NSString *) newClubName andAddress: (NSString *) newClubAddress andType:(NSString *) newClubType andOwnerUserId:(NSInteger *) owner_user_id andServices:(NSString *) services{
+-(void) sendANewClubRequestWithClubname:(NSString *) newClubName andAddress: (NSString *) newClubAddress andType:(NSString *) newClubType andOwnerUserId:(int) owner_user_id andServices:(NSString *) services{
     
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     [posts setObject:@"ADD" forKey:@"action"];
@@ -148,17 +126,27 @@ enum requestTypeEnum requestType = -1;
     
     @try{
         NSDictionary* array =[self httpPost:@"club.php" withData:posts];
+        if ([array isEqual:@"FAILED"]) {
+            //itt baj lesz
+        } else{
+            int club_id =[[ array objectForKey: @"NewID" ]intValue ];
+            [self setServisesWithClubID:club_id andServices:services];
+            if ( owner_user_id != -1 ) {
+                [self setOwnerForClubWithUserID:owner_user_id andClubID:club_id];
+            }
+                
+        }
         
     }@catch (NSException *e) {
         
     }
 }
 
--(NSMutableArray *) getOwnedClubsFromUserId:(NSInteger *) user_id{
+-(NSMutableArray *) getOwnedClubsFromUserId:(int) user_id{
     //copyright Lamfalusy
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     [posts setObject:@"GETUSERCLUBS" forKey:@"action"];
-    [posts setObject:[NSNumber numberWithInt:*user_id] forKey:@"UserID"];
+    [posts setObject:[NSNumber numberWithInt:user_id] forKey:@"UserID"];
     
     @try{
         NSString* urlData = [self httpPost:@"owner.php" withData:posts];
@@ -174,18 +162,16 @@ enum requestTypeEnum requestType = -1;
         return res;
         
     }@catch (NSException *e) {
-        ;
+        
     }
     
     return nil;
-    
-    requestType = OWNED;
 }
 
--(Club *) getEverythingFromClubId:(NSInteger *) club_id{
+-(Club *) getEverythingFromClubId:(int) club_id{
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     [posts setObject:@"GETBYID" forKey:@"action"];
-    [posts setObject:[NSNumber numberWithInt:*club_id] forKey:@"id"];
+    [posts setObject:[NSNumber numberWithInt:club_id] forKey:@"id"];
     
     @try{
         NSString* urlData =[self httpPost:@"club.php" withData:posts];
@@ -202,7 +188,7 @@ return nil;
 
 }
 
--(NSMutableArray *) searchClubsWithName:(NSString *) name andCityname:(NSString *) cityname andType:(NSString *) type andOffset:(int ) offset andLimit:(int ) limit{
+-(NSMutableArray *) searchClubsWithName:(NSString *) name andCityname:(NSString *) cityname andType:(NSString *) type andOffset:(int ) offset andLimit:(int) limit{
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     [posts setObject:@"SEARCH" forKey:@"action"];
     [posts setObject:name forKey:@"name"];
@@ -229,32 +215,30 @@ return nil;
     return nil;
 }
 
--(void) modifyPasswordWithId:(NSInteger *) id andPassword:(NSString *) password{
+-(void) modifyPasswordWithId:(int) id andPassword:(NSString *) password{
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     [posts setObject:@"UPDATEPASSWORD" forKey:@"action"];
-    [posts setObject:[NSNumber numberWithInt:*id] forKey:@"userid"];
+    [posts setObject:[NSNumber numberWithInt:id] forKey:@"userid"];
     [posts setObject:password forKey:@"password"];
     
     [self httpPost:@"user.php" withData:posts];
     
-    requestType = UPDATEPASSWORD;
 }
 
--(void) modifyUserDataWithId:(NSInteger *) id andEmail:(NSString *) email andBirthday:(NSString *) birthday andSex:(NSInteger *) sex{
+-(void) modifyUserDataWithId:(int) id andEmail:(NSString *) email andBirthday:(NSString *) birthday andSex:(int) sex{
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     [posts setObject:@"UPDATEUSER" forKey:@"action"];
-    [posts setObject:[NSNumber numberWithInt:*id] forKey:@"UserID"];
+    [posts setObject:[NSNumber numberWithInt:id] forKey:@"UserID"];
     [posts setObject:email forKey:@"Email"];
-    [posts setObject:[NSNumber numberWithInt:*sex] forKey:@"Sex"];
+    [posts setObject:[NSNumber numberWithInt:sex] forKey:@"Sex"];
     [posts setObject:birthday forKey:@"Birthday"];
 
     
     [self httpPost:@"user.php" withData:posts];
     
-    requestType = UPDATEUSER;
 }
 
--(User *) registerANewUserWithName:(NSString *) name andPassword:(NSString *) password andEmail:(NSString *)  email andSex:(NSInteger *) sex andBirthday:(NSString *) birthday{
+-(User *) registerANewUserWithName:(NSString *) name andPassword:(NSString *) password andEmail:(NSString *)  email andSex:(int) sex andBirthday:(NSString *) birthday{
     //copyright Lamfalusy
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     
@@ -262,7 +246,7 @@ return nil;
     [posts setObject:name forKey:@"NickName"];
     [posts setObject:password forKey:@"Password"];
     [posts setObject:email forKey:@"Email"];
-    [posts setObject:[NSNumber numberWithInt:*sex] forKey:@"Sex"];
+    [posts setObject:[NSNumber numberWithInt:sex] forKey:@"Sex"];
     [posts setObject:birthday forKey:@"Birthday"];
     
     @try{
@@ -272,65 +256,347 @@ return nil;
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
         
         for (NSDictionary* jd in array) {
-            User *u =[[User alloc]initWithId:[[jd objectForKey:@"NewID"] intValue] andNickName:name andPassword:password andEmail:email andSex:[[NSNumber numberWithInt:*sex] intValue] andBirthday:birthday andType:0 ];
+            User *u =[[User alloc]initWithId:[[jd objectForKey:@"NewID"] intValue] andNickName:name andPassword:password andEmail:email andSex:[[NSNumber numberWithInt:sex] intValue] andBirthday:birthday andType:0 ];
             return u;
         }
         
     }@catch (NSException *e) {
-        ;
+        
     }
     
     return nil;
-    requestType = NEWUSER;
 }
 
--(void) setServisesWithClubID:(NSInteger *) club_id andServices:(NSArray *) services{
+-(void) setServisesWithClubID:(int) club_id andServices:(NSArray *) services{
     //ebbe bele javitottam de nem biztos h frankon :D (Lamfalusy)
     for(NSString* key in services){
         NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
         [posts setObject:@"ADD" forKey:@"action"];
-        [posts setObject:[NSNumber numberWithInt:*club_id] forKey:@"ClubID"];
+        [posts setObject:[NSNumber numberWithInt:club_id] forKey:@"ClubID"];
         [posts setObject:key forKey:@"ServiceName"];
         [self httpPost:@"service.php" withData:posts];
     }
     
-    requestType = SETSERVICE;
 }
 
--(void) setOwnerForClubWithUserID:(NSInteger *) user_id andClubID:(NSInteger *) club_id{
+-(void) setOwnerForClubWithUserID:(int) user_id andClubID:(int) club_id{
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     [posts setObject:@"ADD" forKey:@"action"];
-    [posts setObject:[NSNumber numberWithInt:*user_id] forKey:@"UserID"];
-    [posts setObject:[NSNumber numberWithInt:*club_id] forKey:@"ClubID"];
+    [posts setObject:[NSNumber numberWithInt:user_id] forKey:@"UserID"];
+    [posts setObject:[NSNumber numberWithInt:club_id] forKey:@"ClubID"];
     
     
     [self httpPost:@"owner.php" withData:posts];
     
-    requestType = SETOWNER;
 }
 
--(void) setFavoriteClubForUserWithUserID:(NSInteger *) user_id andClubID:(NSInteger *) club_id{
+-(void) setFavoriteClubForUserWithUserID:(int) user_id andClubID:(int) club_id{
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     [posts setObject:@"ADD" forKey:@"action"];
-    [posts setObject:[NSNumber numberWithInt:*user_id] forKey:@"UserID"];
-    [posts setObject:[NSNumber numberWithInt:*club_id] forKey:@"ClubID"];
+    [posts setObject:[NSNumber numberWithInt:user_id] forKey:@"UserID"];
+    [posts setObject:[NSNumber numberWithInt:club_id] forKey:@"ClubID"];
     
     
     [self httpPost:@"favorite.php" withData:posts];
     
-    requestType = SETFAVORITE;
 }
 
--(void) deleteFavoriteClub:(NSInteger *) club_id forUser:(NSInteger *) user_id{
+-(void) deleteFavoriteClub:(int) club_id forUser:(int) user_id{
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     [posts setObject:@"DELETE" forKey:@"action"];
-    [posts setObject:[NSNumber numberWithInt:*club_id] forKey:@"clubid"];
-    [posts setObject:[NSNumber numberWithInt:*user_id] forKey:@"userid"];
+    [posts setObject:[NSNumber numberWithInt:club_id] forKey:@"clubid"];
+    [posts setObject:[NSNumber numberWithInt:user_id] forKey:@"userid"];
     
     
     [self httpPost:@"favorite.php" withData:posts];
     
-    requestType = DELETEFAVORITE;
 }
 
+-(int) addEventWithClubID:(int) clubid andName:( NSString*) name andDescription:( NSString*) description andStartDate:( NSString*) start_date andRowImage:( NSString*) row_image andType:( NSString*) music_type {
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"ADDNEW" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:clubid] forKey:@"clubid"];
+        [posts setObject:name forKey:@"name"];
+        [posts setObject:description forKey:@"description"];
+        [posts setObject:start_date forKey:@"start_date"];
+        [posts setObject:row_image forKey:@"row_image"];
+        [posts setObject:music_type forKey:@"music_type"];
+        
+        NSString* urlData = [self httpPost:@"event.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        
+        for (NSDictionary* jd in array) {
+            int event_id =  [[jd objectForKey:@"NewID"] intValue];
+            return event_id;
+        }
+        
+    } @catch (NSException *e) {
+        
+    }
+    
+    return 0;
+}
+
+- (void) updateEventWithID:(int) eventid andName: (NSString *) name andDescription:( NSString*) description andStartDate:( NSString*) start_date andRowImage:( NSString*) row_image andType:( NSString*) music_type {
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"UPDATE" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:eventid] forKey:@"eventid"];
+        [posts setObject:name forKey:@"name"];
+        [posts setObject:description forKey:@"description"];
+        [posts setObject:start_date forKey:@"start_date"];
+        [posts setObject:row_image forKey:@"row_image"];
+        [posts setObject:music_type forKey:@"music_type"];
+
+        
+        [self httpPost:@"event.php" withData:posts];
+        
+        
+    } @catch (NSException *e) {
+        
+    }
+        
+}
+
+-(void) deleteEventWithID:(int) eventId {
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"DELETE" forKey:@"action"];
+        [posts setObject:[NSString stringWithFormat:@"%d",eventId] forKey:@"eventid"];
+                
+        
+        [self httpPost:@"event.php" withData:posts];
+
+        
+    } @catch (NSException *e) {
+        
+    }
+    
+}
+
+
+- (int) addRatingWithClubID:(int) clubId andUserID:(int) userId andValue:(float) value andComment:(NSString *) comment {
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"ADD" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:clubId] forKey:@"clubid"];
+        [posts setObject:[NSNumber numberWithInt:userId] forKey:@"userid"];
+        [posts setObject:[NSNumber numberWithFloat:value] forKey:@"value"];
+        [posts setObject:comment forKey:@"comment"];
+                
+        NSString* urlData = [self httpPost:@"rating.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        
+        for (NSDictionary* jd in array) {
+            int rating_id =  [[jd objectForKey:@"NewID"] intValue];
+            return rating_id;
+        }
+        
+    } @catch (NSException *e) {
+        
+    }
+    
+    return 0;
+}
+
+-(void) updateRatingWithClubID:(int) clubId andUserID:(int) userId andValue:(float) value andComment:(NSString *) comment {
+
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"UPDATE" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:clubId] forKey:@"clubid"];
+        [posts setObject:[NSNumber numberWithInt:userId] forKey:@"userid"];
+        [posts setObject:[NSNumber numberWithFloat:value] forKey:@"value"];
+        [posts setObject:comment forKey:@"comment"];
+        
+        [self httpPost:@"rating.php" withData:posts];
+
+        
+    } @catch (NSException *e) {
+        
+    }
+
+}
+
+
+-(NSArray *) getRatingsFromClubID:(int) clubId {
+  
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"GET" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:clubId] forKey:@"clubid"];
+        
+        NSString* urlData = [self httpPost:@"rating.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        
+        NSMutableArray *res = [[NSMutableArray alloc] init];
+        for( NSDictionary* jd in array){
+            Rating *r = [[Rating alloc] initWithUserID:[[ jd objectForKey: @"user_id" ]intValue ] andName:[ jd objectForKey: @"name" ] andValue:[[ jd objectForKey: @"user_id" ]floatValue ] andComment:[ jd objectForKey: @"comment" ] andApproved:[[ jd objectForKey: @"approved" ]intValue ] ];
+            [res addObject:r];
+        }
+        return res;
+        
+    }@catch (NSException *e) {
+        
+    }
+    return nil;
+}
+
+-(NSArray *) getNotApprovedRatings {
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"GETNOTAPPROVED" forKey:@"action"];
+        
+        NSString* urlData = [self httpPost:@"rating.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        
+        NSMutableArray *res = [[NSMutableArray alloc] init];
+        for( NSDictionary* jd in array){
+            AdminRating *r = [[AdminRating alloc]initWithUserID:[[ jd objectForKey: @"user_id" ]intValue ] andUserName:[ jd objectForKey: @"name" ] andValue:[[ jd objectForKey: @"user_id" ]floatValue ] andComment:[ jd objectForKey: @"comment" ] andApproved:[[ jd objectForKey: @"approved" ]intValue ] andClubID:[[ jd objectForKey: @"club_id" ]intValue ] andClubName:[ jd objectForKey: @"clubName" ]];
+            [res addObject:r];
+        }
+        return res;
+        
+    }@catch (NSException *e) {
+        
+    }
+    return nil;
+}
+
+
+-(void)declineRatingWithUserId:(int) userId andClubId:(int) clubId {
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"DECLINERATING" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:clubId] forKey:@"clubid"];
+        [posts setObject:[NSNumber numberWithInt:userId] forKey:@"userid"];
+        
+        [self httpPost:@"rating.php" withData:posts];
+    }@catch (NSException *e) {
+     
+    }
+}
+
+-(void) acceptRatingWithUserId:(int) userId andClubId:(int) clubId {
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"APPROVERATING" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:clubId] forKey:@"clubid"];
+        [posts setObject:[NSNumber numberWithInt:userId] forKey:@"userid"];
+        
+        [self httpPost:@"rating.php" withData:posts];
+    }@catch (NSException *e) {
+        
+    }
+ }
+
+
+-(void) deleteClubWithId:(int) clubId {
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"DELETE" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:clubId] forKey:@"clubid"];
+        
+        [self httpPost:@"club.php" withData:posts];
+    }@catch (NSException *e) {
+        
+    }
+}
+
+
+-(void) updateClubInfoWithId:(int) clubId andName:(NSString *) name andType:(NSString*) type andDescription:(NSString *) description andAddress:(NSString *) address andPhonenumber:(NSString *) phonenumber andEmail:(NSString *) email {
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"UPDATE" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:clubId] forKey:@"clubid"];
+        [posts setObject:name forKey:@"name"];
+        [posts setObject:type forKey:@"type"];
+        [posts setObject:description forKey:@"description"];
+        [posts setObject:address forKey:@"address"];
+        [posts setObject:phonenumber forKey:@"phonenumber"];
+        [posts setObject:email forKey:@"email"];
+        
+        [self httpPost:@"club.php" withData:posts];
+    }@catch (NSException *e) {
+        
+    }
+}
+
+
+-(NSString *)setHighlightExpireWithClubId:(int) clubId andDays:(int) days {
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"SETHIGHLIGHTEXPIRE" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:clubId] forKey:@"clubid"];
+        [posts setObject:[NSString stringWithFormat:@"%d",days] forKey:@"day"];
+        
+        
+        NSString* urlData = [self httpPost:@"club.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        
+        for( NSDictionary* jd in array){
+            NSString * newDate = [NSString stringWithFormat:@"%@", [jd objectForKey:@"highlight_expire"] ];
+            return newDate;
+        }
+        
+    }@catch (NSException *e) {
+        
+    }
+  return @"";
+}
+
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
