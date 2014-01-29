@@ -107,12 +107,20 @@ enum requestTypeEnum requestType = -1;
         NSString* urlData = [self httpPost:@"favorite.php" withData:posts];
         NSError* err = [[NSError alloc] init];
         
-        //NSMutableDictionary* array = [NSJSONSerialization JSONObje]
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        NSMutableArray *res = [[NSMutableArray alloc] init];
+        
+        for( NSDictionary* jd in array){
+            Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ]];
+            [res addObject:c];
+        }
+        return res;
         
     }@catch (NSException *e) {
         ;
     }
     
+    return nil;
     requestType = FAVORITE;
 }
 
@@ -140,18 +148,36 @@ enum requestTypeEnum requestType = -1;
     
     @try{
         NSDictionary* array =[self httpPost:@"club.php" withData:posts];
-
+        
     }@catch (NSException *e) {
         
     }
 }
 
 -(NSMutableArray *) getOwnedClubsFromUserId:(NSInteger *) user_id{
+    //copyright Lamfalusy
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     [posts setObject:@"GETUSERCLUBS" forKey:@"action"];
     [posts setObject:[NSNumber numberWithInt:*user_id] forKey:@"UserID"];
     
-    [self httpPost:@"club.php" withData:posts];
+    @try{
+        NSString* urlData = [self httpPost:@"owner.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        NSMutableArray *res = [[NSMutableArray alloc] init];
+        
+        for( NSDictionary* jd in array){
+            Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ]];
+            [res addObject:c];
+        }
+        return res;
+        
+    }@catch (NSException *e) {
+        ;
+    }
+    
+    return nil;
     
     requestType = OWNED;
 }
@@ -228,8 +254,10 @@ return nil;
     requestType = UPDATEUSER;
 }
 
--(void) registerANewUserWithName:(NSString *) name andPassword:(NSString *) password andEmail:(NSString *)  email andSex:(NSInteger *) sex andBirthday:(NSString *) birthday{
+-(User *) registerANewUserWithName:(NSString *) name andPassword:(NSString *) password andEmail:(NSString *)  email andSex:(NSInteger *) sex andBirthday:(NSString *) birthday{
+    //copyright Lamfalusy
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+    
     [posts setObject:@"ADD" forKey:@"action"];
     [posts setObject:name forKey:@"NickName"];
     [posts setObject:password forKey:@"Password"];
@@ -237,22 +265,34 @@ return nil;
     [posts setObject:[NSNumber numberWithInt:*sex] forKey:@"Sex"];
     [posts setObject:birthday forKey:@"Birthday"];
     
+    @try{
+        NSString* urlData = [self httpPost:@"user.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        
+        for (NSDictionary* jd in array) {
+            User *u =[[User alloc]initWithId:[[jd objectForKey:@"NewID"] intValue] andNickName:name andPassword:password andEmail:email andSex:[[NSNumber numberWithInt:*sex] intValue] andBirthday:birthday andType:0 ];
+            return u;
+        }
+        
+    }@catch (NSException *e) {
+        ;
+    }
     
-    [self httpPost:@"user.php" withData:posts];
-    
+    return nil;
     requestType = NEWUSER;
 }
 
 -(void) setServisesWithClubID:(NSInteger *) club_id andServices:(NSArray *) services{
-    NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
-    
+    //ebbe bele javitottam de nem biztos h frankon :D (Lamfalusy)
     for(NSString* key in services){
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
         [posts setObject:@"ADD" forKey:@"action"];
         [posts setObject:[NSNumber numberWithInt:*club_id] forKey:@"ClubID"];
         [posts setObject:key forKey:@"ServiceName"];
+        [self httpPost:@"service.php" withData:posts];
     }
-    
-    [self httpPost:@"service.php" withData:posts];
     
     requestType = SETSERVICE;
 }
