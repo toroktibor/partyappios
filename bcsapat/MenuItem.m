@@ -27,6 +27,14 @@
     return self;
 }
 
+-(int)getMenuSort{
+    return menu_sort;
+}
+
+-(int)getIdentifier{
+    return identifier;
+}
+
 -(NSString *)getMenuItemName{
     return  name;
 }
@@ -49,6 +57,14 @@
 
 -(int)getDiscount{
     return discount;
+}
+
+-(void)setMenuIdentifier:(int)identifier_{
+    identifier=identifier_;
+}
+
+-(void)setMenuSor:(int)menusort_{
+    menu_sort=menusort_;
 }
 
 -(void)setMenuItemName:(NSString *)name_{

@@ -11,7 +11,7 @@
 @implementation Event
 
 
-- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andDescription:(NSString *) description_ andStartDate:(NSString *) start_date_ andMusic_type:(NSString *) music_type_
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andDescription:(NSString *) description_ andStartDate:(NSString *) start_date_ andMusic_type:(NSString *) music_type_ andApproved:(int)approved_
 {
     self = [super init];
     if(self)
@@ -21,6 +21,7 @@
         description = description_;
         start_date = start_date_;
         music_type = music_type_;
+        approved=approved_;
     }
     return self;
 }
@@ -41,6 +42,10 @@
     music_type=musicType;
 }
 
+-(void)setApproved:(int)approved_{
+    approved=approved_;
+}
+
 -(NSString *)getEventName{
     return name;
 }
@@ -55,5 +60,9 @@
 
 -(NSString *)getMusicType{
     return music_type;
+}
+
+-(int)getApproved{
+    return approved;
 }
 @end

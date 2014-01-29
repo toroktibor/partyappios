@@ -29,4 +29,14 @@
 
 - (id)initWithUserID:(int) userID_ andName:(NSString *) userName_ andValue:(float) value_ andComment:(NSString *) comment_ andApproved:(int) approved_;
 
+-(void)setUserId:(int)userId_;
+
+-(void)setuserName:(NSString*)name;
+
+-(void)setValue:(int)value_;
+
+-(void)setComment:(NSString*)comment_;
+
+-(void)setApproved:(int)approved_;
+
 @end

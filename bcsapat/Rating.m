@@ -44,4 +44,24 @@
     return approved;
 }
 
+-(void)setUserId:(int)userId_{
+    userId=userId_;
+}
+
+-(void)setuserName:(NSString*)name{
+    userName=name;
+}
+
+-(void)setValue:(int)value_{
+    value=value_*2;
+}
+
+-(void)setComment:(NSString *)comment_{
+    comment=comment_;
+}
+
+-(void)setApproved:(int)approved_{
+    approved=approved_;
+}
+
 @end
