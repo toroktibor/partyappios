@@ -95,6 +95,7 @@
 		7AE442041898FE4300BE08A9 /* DatePickerForEventsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE442031898FE4300BE08A9 /* DatePickerForEventsView.m */; };
 		7AF627CC18914F8800A57FA0 /* RatingTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF627CB18914F8800A57FA0 /* RatingTableViewViewController.m */; };
 		7AFFF40618859CEC000B06FD /* SillyCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFF40518859CEC000B06FD /* SillyCommunication.m */; };
+		E358E7A818994FBB007D07B7 /* OwnerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E358E7A718994FBB007D07B7 /* OwnerRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -237,6 +238,8 @@
 		7AFFF40318859CB0000B06FD /* CommunicationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunicationProtocol.h; sourceTree = "<group>"; };
 		7AFFF40418859CEC000B06FD /* SillyCommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SillyCommunication.h; sourceTree = "<group>"; };
 		7AFFF40518859CEC000B06FD /* SillyCommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SillyCommunication.m; sourceTree = "<group>"; };
+		E358E7A618994FBB007D07B7 /* OwnerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnerRequest.h; sourceTree = "<group>"; };
+		E358E7A718994FBB007D07B7 /* OwnerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnerRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,6 +447,8 @@
 				7AD6857D18842CF300D52D4A /* Rating.m */,
 				7AD6857F18842D7D00D52D4A /* Session.h */,
 				7AD6858018842D7D00D52D4A /* Session.m */,
+				E358E7A618994FBB007D07B7 /* OwnerRequest.h */,
+				E358E7A718994FBB007D07B7 /* OwnerRequest.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -657,6 +662,7 @@
 				7A1F981C18983780008E5192 /* MenuItemCategoryPicker.m in Sources */,
 				7A1F982B18985ED8008E5192 /* AddNewMenuItemView.m in Sources */,
 				7AE442041898FE4300BE08A9 /* DatePickerForEventsView.m in Sources */,
+				E358E7A818994FBB007D07B7 /* OwnerRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

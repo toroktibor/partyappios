@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CommunicationProtocol.h"
+#import "OwnerRequest.h"
 
 @interface Communication : NSObject
 

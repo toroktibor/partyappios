@@ -333,4 +333,190 @@ return nil;
     requestType = DELETEFAVORITE;
 }
 
+-(NSMutableArray *) getNotApprovedClubs{
+    NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+    [posts setObject:@"GETNOTAPPROVEDCLUB" forKey:@"action"];
+    
+    @try{
+        NSString* urlData = [self httpPost:@"club.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        NSMutableArray *res = [[NSMutableArray alloc] init];
+        
+        for( NSDictionary* jd in array){
+            Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ]];
+            [res addObject:c];
+        }
+        return res;
+        
+    }@catch (NSException *e) {
+        ;
+    }
+    
+    return nil;
+}
+
+-(void) approveClubWithClubId: (int) club_id{
+    NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+    [posts setObject:@"ACCEPTCLUB" forKey:@"action"];
+    [posts setObject:[NSNumber numberWithInt:club_id] forKey:@"clubid"];
+    
+    [self httpPost:@"club.php" withData:posts];
+}
+
+-(void) declineNewClubWithClubId: (int) club_id{
+    NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+    [posts setObject:@"DECLINECLUB" forKey:@"action"];
+    [posts setObject:[NSNumber numberWithInt:club_id] forKey:@"clubid"];
+    
+    [self httpPost:@"club.php" withData:posts];
+}
+
+-(void) declineOwnerRequestWithClubId: (int) club_id andUserId: (int) user_id{
+    NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+    [posts setObject:@"DELETE" forKey:@"action"];
+    [posts setObject:[NSNumber numberWithInt:club_id] forKey:@"clubid"];
+    [posts setObject:[NSNumber numberWithInt:user_id] forKey:@"userid"];
+    
+    [self httpPost:@"owner.php" withData:posts];
+}
+
+-(void) acceptOwnerRequestWithClubId: (int) club_id andUserId: (int) user_id{
+    NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+    [posts setObject:@"ACCEPT" forKey:@"action"];
+    [posts setObject:[NSNumber numberWithInt:club_id] forKey:@"clubid"];
+    [posts setObject:[NSNumber numberWithInt:user_id] forKey:@"userid"];
+    
+    [self httpPost:@"owner.php" withData:posts];
+}
+
+-(NSMutableArray *) getNotApprovedOwnerRequest{
+    NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+    [posts setObject:@"GET" forKey:@"action"];
+    
+    @try{
+        NSString* urlData = [self httpPost:@"owner.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        NSMutableArray *res = [[NSMutableArray alloc] init];
+        
+        for( NSDictionary* jd in array){
+            OwnerRequest *o = [[OwnerRequest alloc] initWithClub:[[Club alloc] initWithId:[[jd objectForKey:@"club_id"] intValue] andName:[jd objectForKey:@"name"]  andAddress:[jd objectForKey:@"address"] ] andUser:[[User alloc]initWithId:[[jd objectForKey:@"user_id"] intValue] andNickName:[jd objectForKey:@"nick_name"] andPassword:@"" andEmail:[jd objectForKey:@"email"] andSex:0 andBirthday:@"" andType:0]];
+            
+            [res addObject:o];
+        }
+        return res;
+        
+    }@catch (NSException *e) {
+        ;
+    }
+    
+    return nil;
+}
+
+-(int) addANewMenuItemWithClubId: (int) clubid andMenuItem: (MenuItem *) menuItem{
+    NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+    [posts setObject:@"ADDNEW" forKey:@"action"];
+    [posts setObject:[NSNumber numberWithInt:[menuItem getIdentifier]] forKey:@"menuid"];
+    [posts setObject:[menuItem getMenuItemName] forKey:@"name"];
+    [posts setObject:[NSNumber numberWithInt:[menuItem getPrice]] forKey:@"price"];
+    [posts setObject:[menuItem getCurrency] forKey:@"currency"];
+    [posts setObject:[menuItem getUnit] forKey:@"unit"];
+    [posts setObject:[NSNumber numberWithInt:[menuItem getDiscount]] forKey:@"discount"];
+    [posts setObject:[menuItem getMenuItemCategory] forKey:@"menu_category"];
+    [posts setObject:[NSNumber numberWithInt:[menuItem getMenuSort]] forKey:@"menu_sort"];
+    
+    @try{
+        NSString* urlData = [self httpPost:@"menu_item.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        for( NSDictionary* jd in array){
+            return [[jd objectForKey:@"NewID"] intValue];
+        }
+    }@catch (NSException *e) {
+        ;
+    }
+    
+    return 0;
+}
+
+-(NSMutableArray *) getMenuItemsForClubWithClubId:(int) club_id{
+    NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+    [posts setObject:@"GETFROMCLUBID" forKey:@"action"];
+    [posts setObject:[NSNumber numberWithInt:club_id] forKey:@"clubid"];
+    
+    @try{
+        NSString* urlData = [self httpPost:@"menu_item.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        NSMutableArray *res = [[NSMutableArray alloc] init];
+        
+        for( NSDictionary* jd in array){
+            MenuItem *m = [[MenuItem alloc] initWithId:[[jd objectForKey:@"id"] intValue] andName:[jd objectForKey:@"name"] andPrice:[[jd objectForKey:@"price"] intValue]andCurrency:[jd objectForKey:@"currency"] andUnit:[jd objectForKey:@"unit"] andDiscount:[[jd objectForKey:@"discount"] intValue]andMenuCategory:[jd objectForKey:@"menu_category"] andMenuSort:[[jd objectForKey:@"menu_sort"] intValue]];
+            
+            [res addObject:m];
+        }
+        return res;
+        
+    }@catch (NSException *e) {
+        ;
+    }
+    
+    return nil;
+}
+
+-(void) updateAMenuItemWithMenuItem:(MenuItem *) menuItem{
+    NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+    [posts setObject:@"UPDATE" forKey:@"action"];
+    [posts setObject:[NSNumber numberWithInt:[menuItem getIdentifier]] forKey:@"menuid"];
+    [posts setObject:[menuItem getMenuItemName] forKey:@"name"];
+    [posts setObject:[NSNumber numberWithInt:[menuItem getPrice]] forKey:@"price"];
+    [posts setObject:[menuItem getCurrency] forKey:@"currency"];
+    [posts setObject:[menuItem getUnit] forKey:@"unit"];
+    [posts setObject:[NSNumber numberWithInt:[menuItem getDiscount]] forKey:@"discount"];
+    [posts setObject:[menuItem getMenuItemCategory] forKey:@"menu_category"];
+    [posts setObject:[NSNumber numberWithInt:[menuItem getMenuSort]] forKey:@"menu_sort"];
+    
+    
+    [self httpPost:@"menu_item.php" withData:posts];
+}
+
+-(void) removeEMenuItemWithMenuId:(int) menuId{
+    NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+    [posts setObject:@"DELETE" forKey:@"action"];
+    [posts setObject:[NSNumber numberWithInt:menuId] forKey:@"menuid"];
+    
+    [self httpPost:@"menu_item.php" withData:posts];
+}
+
+-(NSMutableArray *) getEventsOfClubWithEventId:(int) eventId{
+    NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+    [posts setObject:@"GETEVENTSOFCLUB" forKey:@"action"];
+    [posts setObject:[NSNumber numberWithInt:eventId] forKey:@"id"];
+    
+    @try{
+        NSString* urlData = [self httpPost:@"event.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        NSMutableArray *res = [[NSMutableArray alloc] init];
+        
+        for( NSDictionary* jd in array){
+            Event *e = [[Event alloc] initWithId:[[jd objectForKey:@"id"] intValue] andName:[jd objectForKey:@"name"] andDescription:[jd objectForKey:@"description"] andStartDate:[jd objectForKey:@"start_date"] andMusic_type:[jd objectForKey:@"music_type"]];
+            
+            [res addObject:e];
+        }
+        return res;
+        
+    }@catch (NSException *e) {
+        ;
+    }
+    
+    return nil;
+}
+
 @end
