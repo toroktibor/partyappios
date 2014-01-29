@@ -7,13 +7,16 @@
 //
 
 #import "EventDetailView.h"
+#import "Session.h"
+#import "Club.h"
+#import "Event.h"
 
 @interface EventDetailView ()
 
 @end
 
 @implementation EventDetailView
-@synthesize eventDateLabel,eventNameLabel,descriptionText,musicTypeLabel;
+@synthesize eventDateLabel,descriptionText,musicTypeLabel,ventNameLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +38,17 @@
     descriptionText.scrollEnabled=NO;
     descriptionText.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0];
     descriptionText.textColor=[UIColor whiteColor];
+    
+    
+    int selectedIndex=[[Session getInstance]getSelectedIndex];
+    Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+    
+    Event * event=[[club getEvents]objectAtIndex:[[Session getInstance]getSelectedEventIndex]];
+    
+    eventDateLabel.text=[event getStartDate];
+    descriptionText.text=[event getDescription];
+    musicTypeLabel.text=[event getMusicType];
+    ventNameLabel.text=[event getEventName];
 }
 
 - (void)didReceiveMemoryWarning
