@@ -48,14 +48,15 @@
 
 
 
-- (IBAction)back:(id)sender {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 - (IBAction)valueChange:(id)sender {
-    
     result =  [NSString stringWithFormat:@"%@",[df stringFromDate:[datePicker date]]];
 	NSLog(@"%@",result);
     [[Session getInstance]setBirthDay:result];
 }
+
+- (IBAction)back:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end

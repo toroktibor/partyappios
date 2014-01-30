@@ -255,7 +255,7 @@
     UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"ClubTabBar"];
     
     
-    tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    tabBar.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     [self presentViewController: tabBar animated: YES completion:nil];
     
     
