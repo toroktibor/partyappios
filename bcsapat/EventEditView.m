@@ -88,6 +88,7 @@
     [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setMusicType:musicTypeLabel.text];
     [selectedEvent setDescription:descriptionText.text];
     
+    [[[Session getInstance] getCommunication] updateEventWithID:[selectedEvent getIdentifier] andName:[selectedEvent getEventName] andDescription:[selectedEvent getDescription] andStartDate:[selectedEvent getStartDate] andRowImage:@"" andType:[selectedEvent getMusicType]];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rendben!"
                                                     message:@"Az esemény módosítása megtörtént!"

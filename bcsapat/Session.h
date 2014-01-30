@@ -30,12 +30,17 @@
     NSString * menuItemCategory;
     int selectedEvent;
     NSString * eventTime;
+    NSString *birthday;
 
 }
 
 +(void)deleteSession;
 
 +(Session *) getInstance;
+
+-(void)setBirthDay:(NSString*)birthday_;
+
+-(NSString *)getBirthday;
 
 -(void)setEventTime:(NSString*)time;
 

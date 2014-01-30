@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xnX-3U-ipj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xnX-3U-ipj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -840,6 +840,64 @@
             </objects>
             <point key="canvasLocation" x="479" y="2149"/>
         </scene>
+        <!--Date Picker For Edit Profile View-->
+        <scene sceneID="asY-zV-ynU">
+            <objects>
+                <viewController storyboardIdentifier="DatePickerForEditProfileView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ebd-FJ-yzt" customClass="DatePickerForEditProfileView" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OuK-Cb-hMv">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="DMJ-5a-RFK">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="HNz-bI-KBb"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="412767309.18549198">
+                                    <!--2014-01-30 09:35:09 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="hu"/>
+                                <timeZone key="timeZone" name="America/Los_Angeles">
+                                    <data key="data">
+VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
+y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
+5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
+8n/BkPNvwKD0X6OQ9U+ioPY/hZD3L4Sg+CiiEPkPZqD6CIQQ+viDIPvoZhD82GUg/chIEP64RyD/qCoQ
+AJgpIAGIDBACeAsgA3EokARhJ6AFUQqQBkEJoAcw7JAHjUOgCRDOkAmtvyAK8LCQC+CvoAzZzRANwJGg
+DrmvEA+priAQmZEQEYmQIBJ5cxATaXIgFFlVEBVJVCAWOTcQFyk2IBgiU5AZCRggGgI1kBryNKAb4heQ
+HNIWoB3B+ZAesfigH6HbkCB2KyAhgb2QIlYNICNq2hAkNe8gJUq8ECYV0SAnKp4QJ/7toCkKgBAp3s+g
+KupiECu+saAs036QLZ6ToC6zYJAvfnWgMJNCkDFnkiAycySQM0d0IDRTBpA1J1YgNjLokDcHOCA4HAUQ
+OOcaIDn75xA6xvwgO9vJEDywGKA9u6sQPo/6oD+bjRBAb9ygQYSpkEJPvqBDZIuQRC+goEVEbZBF89Mg
+Ry2KEEfTtSBJDWwQSbOXIErtThBLnLOgTNZqkE18laBOtkyQT1x3oFCWLpBRPFmgUnYQkFMcO6BUVfKQ
+VPwdoFY11JBW5TogWB7xEFjFHCBZ/tMQWqT+IFvetRBchOAgXb6XEF5kwiBfnnkQYE3eoGGHlZBiLcCg
+Y2d3kGQNoqBlR1mQZe2EoGcnO5BnzWagaQcdkGmtSKBq5v+Qa5ZlIGzQHBBtdkcgbq/+EG9WKSBwj+AQ
+cTYLIHJvwhBzFe0gdE+kEHT/CaB2OMCQdt7roHgYopB4vs2gefiEkHqer6B72GaQfH6RoH24SJB+XnOg
+f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
+</data>
+                                </timeZone>
+                                <connections>
+                                    <action selector="changeDate:" destination="ebd-FJ-yzt" eventType="valueChanged" id="IhW-zc-JuZ"/>
+                                </connections>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DMJ-5a-RFK" firstAttribute="trailing" secondItem="OuK-Cb-hMv" secondAttribute="trailing" type="default" id="21r-PD-4Xp"/>
+                            <constraint firstItem="DMJ-5a-RFK" firstAttribute="leading" secondItem="OuK-Cb-hMv" secondAttribute="leading" type="default" id="NGg-6t-peB"/>
+                            <constraint firstItem="DMJ-5a-RFK" firstAttribute="top" secondItem="OuK-Cb-hMv" secondAttribute="top" constant="105" id="w6x-08-xwF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="22t-Pl-JAF"/>
+                    <connections>
+                        <outlet property="datePicker" destination="DMJ-5a-RFK" id="pyS-1m-HjU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vg0-a4-1db" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1369" y="1480"/>
+        </scene>
         <!--Edit Profile View - Szekesztés-->
         <scene sceneID="YSx-iH-Jlc">
             <objects>
@@ -851,7 +909,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Név:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1AH-Lj-VHp">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="132" id="6yh-TK-7iz"/>
-                                    <constraint firstAttribute="height" constant="30" id="jFY-z9-Ffh"/>
+                                    <constraint firstAttribute="height" constant="30" id="RuV-ww-ESY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -875,9 +933,6 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="E-mail:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTY-rd-MAx">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="toi-iH-UBj"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -891,7 +946,6 @@
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Születési dátum:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v98-Fy-kst">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="132" id="3EX-8w-8nK"/>
                                     <constraint firstAttribute="height" constant="31" id="BoV-cK-ojH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -900,7 +954,8 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Neme:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldg-Xa-1LX">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="xKK-5H-kUC"/>
+                                    <constraint firstAttribute="height" constant="31" id="ZK3-Oh-wP3"/>
+                                    <constraint firstAttribute="width" constant="132" id="vQE-kG-zSP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -912,14 +967,14 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VKM-ir-TWT">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="185" id="nrp-PW-Eg7"/>
+                                    <constraint firstAttribute="width" constant="185" id="jHA-q4-Xi6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Név:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ekS-Oz-uvy">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="132" id="wHA-s8-avg"/>
+                                    <constraint firstAttribute="width" constant="132" id="fqb-0I-gzs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -935,40 +990,60 @@
                                 </segments>
                                 <color key="tintColor" red="0.60392156862745094" green="0.43529411764705883" blue="0.74117647058823533" alpha="0.5" colorSpace="calibratedRGB"/>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="and-zy-ZA2">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="147" id="EMY-h6-LM2"/>
+                                    <constraint firstAttribute="height" constant="44" id="rA9-Wk-qqb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Dátum módosítása" backgroundImage="purple_trans50.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ebd-FJ-yzt" kind="push" id="xiL-YD-k7N"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2DP-3x-xWn" firstAttribute="leading" secondItem="FDO-6N-HdS" secondAttribute="leading" constant="134" id="2XQ-C0-2NJ"/>
-                            <constraint firstItem="VKM-ir-TWT" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="28" id="31j-kq-N9b"/>
-                            <constraint firstItem="7Qy-Z8-Kub" firstAttribute="bottom" secondItem="v98-Fy-kst" secondAttribute="bottom" type="default" id="Au0-IB-QSA"/>
+                            <constraint firstItem="7Qy-Z8-Kub" firstAttribute="centerX" secondItem="v98-Fy-kst" secondAttribute="centerX" type="default" id="6Gi-Qc-OSQ"/>
                             <constraint firstItem="0df-e2-1IP" firstAttribute="centerX" secondItem="FDO-6N-HdS" secondAttribute="centerX" type="default" id="B1K-MV-659"/>
-                            <constraint firstItem="2DP-3x-xWn" firstAttribute="centerX" secondItem="ynk-U9-CCG" secondAttribute="centerX" type="default" id="EKi-UA-4Ve"/>
-                            <constraint firstItem="gTY-rd-MAx" firstAttribute="leading" secondItem="ekS-Oz-uvy" secondAttribute="leading" type="default" id="FyI-9v-UQh"/>
-                            <constraint firstItem="ynk-U9-CCG" firstAttribute="trailing" secondItem="VKM-ir-TWT" secondAttribute="trailing" type="default" id="Is5-MT-bxh"/>
-                            <constraint firstItem="ynk-U9-CCG" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="82" id="JIw-W1-nI3"/>
-                            <constraint firstItem="v98-Fy-kst" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="135" id="Jfz-jw-T7p"/>
-                            <constraint firstItem="0df-e2-1IP" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="269" id="Qht-rQ-KGs"/>
-                            <constraint firstItem="VKM-ir-TWT" firstAttribute="bottom" secondItem="ekS-Oz-uvy" secondAttribute="bottom" type="default" id="QrT-Q6-XMO"/>
-                            <constraint firstItem="ldg-Xa-1LX" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="192" id="Ua7-OG-Bn7"/>
-                            <constraint firstItem="2DP-3x-xWn" firstAttribute="baseline" secondItem="ldg-Xa-1LX" secondAttribute="baseline" type="default" id="aCs-IP-Umr"/>
-                            <constraint firstItem="VKM-ir-TWT" firstAttribute="top" secondItem="ekS-Oz-uvy" secondAttribute="top" type="default" id="bQv-dc-UQe"/>
-                            <constraint firstItem="ynk-U9-CCG" firstAttribute="bottom" secondItem="gTY-rd-MAx" secondAttribute="bottom" type="default" id="eAv-en-FMY"/>
-                            <constraint firstItem="1AH-Lj-VHp" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="232" id="hKP-mq-k9v"/>
-                            <constraint firstItem="ldg-Xa-1LX" firstAttribute="trailing" secondItem="gTY-rd-MAx" secondAttribute="trailing" type="default" id="kJt-a8-uYJ"/>
-                            <constraint firstItem="ldg-Xa-1LX" firstAttribute="leading" secondItem="gTY-rd-MAx" secondAttribute="leading" type="default" id="ogr-Lb-c1J"/>
-                            <constraint firstItem="7Qy-Z8-Kub" firstAttribute="trailing" secondItem="ynk-U9-CCG" secondAttribute="trailing" type="default" id="pO6-DU-pJX"/>
+                            <constraint firstItem="gTY-rd-MAx" firstAttribute="top" secondItem="VKM-ir-TWT" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="CGj-91-mLN"/>
+                            <constraint firstItem="7Qy-Z8-Kub" firstAttribute="bottom" secondItem="and-zy-ZA2" secondAttribute="bottom" type="default" id="DHs-Qu-IJD"/>
+                            <constraint firstItem="1AH-Lj-VHp" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="232" id="F1p-Ty-H5j"/>
+                            <constraint firstItem="ekS-Oz-uvy" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="20" symbolic="YES" type="default" id="GoX-Al-4mK"/>
+                            <constraint firstItem="2DP-3x-xWn" firstAttribute="centerY" secondItem="ldg-Xa-1LX" secondAttribute="centerY" type="default" id="KEu-vl-479"/>
+                            <constraint firstItem="and-zy-ZA2" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="110" id="Q7W-rx-ysx"/>
+                            <constraint firstItem="VKM-ir-TWT" firstAttribute="leading" secondItem="FDO-6N-HdS" secondAttribute="leading" constant="110" id="UaU-Xr-U0o"/>
+                            <constraint firstItem="ynk-U9-CCG" firstAttribute="centerY" secondItem="gTY-rd-MAx" secondAttribute="centerY" type="default" id="UlC-uh-rEq"/>
+                            <constraint firstItem="ynk-U9-CCG" firstAttribute="top" secondItem="ekS-Oz-uvy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="XjU-0Q-ktX"/>
+                            <constraint firstItem="VKM-ir-TWT" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="20" symbolic="YES" type="default" id="bfu-nP-a8h"/>
+                            <constraint firstItem="ldg-Xa-1LX" firstAttribute="leading" secondItem="FDO-6N-HdS" secondAttribute="leading" constant="48" id="f1W-Pa-wfa"/>
+                            <constraint firstItem="ekS-Oz-uvy" firstAttribute="leading" secondItem="FDO-6N-HdS" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="fk4-yy-CgC"/>
+                            <constraint firstItem="1AH-Lj-VHp" firstAttribute="leading" secondItem="FDO-6N-HdS" secondAttribute="leading" constant="-36" id="gOp-Yq-oXd"/>
+                            <constraint firstItem="0df-e2-1IP" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="245" id="ggP-nP-fRc"/>
+                            <constraint firstItem="2DP-3x-xWn" firstAttribute="trailing" secondItem="ynk-U9-CCG" secondAttribute="trailing" type="default" id="haE-KC-PGV"/>
+                            <constraint firstItem="ynk-U9-CCG" firstAttribute="leading" secondItem="VKM-ir-TWT" secondAttribute="leading" type="default" id="iKY-08-2mF"/>
+                            <constraint firstItem="ynk-U9-CCG" firstAttribute="trailing" secondItem="VKM-ir-TWT" secondAttribute="trailing" type="default" id="kHk-sL-GVH"/>
+                            <constraint firstItem="2DP-3x-xWn" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="184" id="kp3-fq-TpL"/>
+                            <constraint firstItem="and-zy-ZA2" firstAttribute="leading" secondItem="7Qy-Z8-Kub" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="oUs-Ld-ysI"/>
                             <constraint firstItem="v98-Fy-kst" firstAttribute="leading" secondItem="FDO-6N-HdS" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="pvs-ZB-IS7"/>
-                            <constraint firstItem="gTY-rd-MAx" firstAttribute="trailing" secondItem="ekS-Oz-uvy" secondAttribute="trailing" type="default" id="rhN-Bd-f5U"/>
-                            <constraint firstItem="ekS-Oz-uvy" firstAttribute="leading" secondItem="FDO-6N-HdS" secondAttribute="leading" constant="48" id="rp7-V9-jca"/>
-                            <constraint firstItem="ldg-Xa-1LX" firstAttribute="centerY" secondItem="2DP-3x-xWn" secondAttribute="centerY" type="default" id="uOG-tb-bMQ"/>
-                            <constraint firstItem="1AH-Lj-VHp" firstAttribute="leading" secondItem="FDO-6N-HdS" secondAttribute="leading" constant="-36" id="y1r-XX-pwL"/>
-                            <constraint firstItem="ynk-U9-CCG" firstAttribute="leading" secondItem="VKM-ir-TWT" secondAttribute="leading" type="default" id="zY0-rB-ABA"/>
+                            <constraint firstItem="gTY-rd-MAx" firstAttribute="trailing" secondItem="v98-Fy-kst" secondAttribute="trailing" type="default" id="rnH-BV-WX7"/>
+                            <constraint firstItem="gTY-rd-MAx" firstAttribute="trailing" secondItem="ekS-Oz-uvy" secondAttribute="trailing" type="default" id="suN-RE-MEl"/>
+                            <constraint firstItem="gTY-rd-MAx" firstAttribute="leading" secondItem="FDO-6N-HdS" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="wp1-C3-QAk"/>
+                            <constraint firstItem="gTY-rd-MAx" firstAttribute="top" secondItem="ekS-Oz-uvy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="x0G-uB-aNb"/>
+                            <constraint firstItem="v98-Fy-kst" firstAttribute="top" secondItem="gTY-rd-MAx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xlq-fE-hpr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Szekesztés" id="Oft-P7-gLO"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="birthDayTextField" destination="7Qy-Z8-Kub" id="0MK-9A-mV7"/>
+                        <outlet property="changeDateButton" destination="and-zy-ZA2" id="LGy-kZ-puR"/>
                         <outlet property="emailTextField" destination="ynk-U9-CCG" id="SzU-Ys-1vm"/>
                         <outlet property="nameTextField" destination="VKM-ir-TWT" id="Ej0-KH-aE3"/>
                         <outlet property="saveButton" destination="0df-e2-1IP" id="Ody-eU-EGT"/>

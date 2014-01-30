@@ -107,9 +107,12 @@
     }
     else{
         menuItem=[[MenuItem alloc]initWithId:100 andName:menuItemNameText.text andPrice:[price intValue]
-                                 andCurrency:@"HUF" andUnit:unitText.text andDiscount:sliderValue andMenuCategory:categroyLabel.text andMenuSort:1];
+                                 andCurrency:@"EUR" andUnit:unitText.text andDiscount:sliderValue andMenuCategory:categroyLabel.text andMenuSort:1];
     }
     
+    int menuItemId = [[[Session getInstance] getCommunication] addANewMenuItemWithClubId:[club getIdentifier] andMenuItem:menuItem];
+    
+    [menuItem setIdentifier:menuItemId];
     
     [club addMenuItem:menuItem];
     
