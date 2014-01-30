@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface DatePickerForRegisterView : UIViewController
-
-@property NSDateFormatter *df;
-@property NSString * result;
-@property (weak, nonatomic) IBOutlet UIButton *okButton;
+- (IBAction)valueChange:(id)sender;
 
 - (IBAction)back:(id)sender;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
-- (IBAction)valueChange:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *okButton;
+@property NSDateFormatter *df;
+@property NSString * result;
+/*@property (weak, nonatomic) IBOutlet UIButton *okButton;
+
+- (IBAction)back:(id)sender;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+- (IBAction)valueChange:(id)sender;*/
 @end

@@ -33,6 +33,14 @@
     
     image = [[Session getInstance]getImage];
     [imageView setImage:image];
+    
+    UIBarButtonItem *nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Következő" style:UIBarButtonItemStyleBordered target:self action:@selector(next)];
+    UIBarButtonItem *prevButton = [[UIBarButtonItem alloc] initWithTitle:@"Előző" style:UIBarButtonItemStyleBordered target:self action:@selector(back)];
+    
+    
+    
+    NSArray *actionButtonItems = @[nextButton, prevButton];
+    self.navigationItem.rightBarButtonItems = actionButtonItems;
    
     
 }
@@ -53,6 +61,17 @@
         NSLog(@"Right Swipe");
         
     }
+}
+
+
+-(void)next{
+    NSLog(@"next");
+}
+
+
+
+-(void)back{
+    NSLog(@"back");
 }
 
 @end

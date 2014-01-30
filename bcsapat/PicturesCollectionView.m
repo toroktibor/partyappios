@@ -123,17 +123,19 @@
             
         case UIImageOrientationLeft:
         case UIImageOrientationLeftMirrored:
-            rotate=90;
+            rotate=-90;
             break;
             
         case UIImageOrientationRight:
         case UIImageOrientationRightMirrored:
-            rotate=-90;
+            rotate=90;
             break;
         case UIImageOrientationUp:
         case UIImageOrientationUpMirrored:
             break;
     }
+    
+    NSLog(@"Forgatas: %d",rotate);
     
     int newImageID=[[[Session getInstance] getCommunication] uploadAnImageWithClubId:[actualClub getIdentifier] andRowImage:encodedImageData andRotate:rotate];
     NSLog(@"A feltoltott kep id-je: %d",newImageID);
@@ -191,10 +193,11 @@
 
 
 - (IBAction)back:(id)sender {
-    UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+   /* UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
     
     
     tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController: tabBar animated: YES completion:nil];
+    [self presentViewController: tabBar animated: YES completion:nil];*/
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

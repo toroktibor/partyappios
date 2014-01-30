@@ -14,4 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+-(void)next;
+-(void)back;
 @end
