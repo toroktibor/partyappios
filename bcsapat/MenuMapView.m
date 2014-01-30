@@ -443,6 +443,18 @@
     for (int i=0; i<[[[Session getInstance]getSearchViewCLubs]count]; ++i) {
         if ([ann.title isEqualToString:[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:i]getClubName]]
             && [ann.subtitle isEqualToString:[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:i]getAddress]]) {
+            
+            //aktuális club adatainak lekérése
+            int club_id = [[[[Session getInstance] getSearchViewCLubs] objectAtIndex:i] getIdentifier];
+            Club *fullClub = [[[Session getInstance]getCommunication] getEverythingFromClubId:club_id];
+            
+            Club * club1 = [[[Session getInstance] getSearchViewCLubs] objectAtIndex:i];            
+            [club1 setRatings:[[[Session getInstance]getCommunication] getRatingsFromClubID:club_id]];
+            [club1 setAddress: [ fullClub getAddress ]];
+            [club1 setPhoneNumber: [ fullClub getPhoneNumber ]];
+            [club1 setEmail: [fullClub getEmail]];
+            [club1 setDescription:[fullClub getDescription]];
+            
             [[Session getInstance]setSelectedIndex:i];
         }
     }

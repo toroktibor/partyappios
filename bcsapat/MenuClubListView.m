@@ -189,22 +189,18 @@
     
     
     
+    //aktuális club adatainak lekérése
     int club_id = [[[[Session getInstance] getSearchViewCLubs] objectAtIndex:indexPath.row] getIdentifier];
     Club *fullClub = [[[Session getInstance]getCommunication] getEverythingFromClubId:club_id];
-    NSMutableArray * ratings =  [[[Session getInstance]getCommunication] getRatingsFromClubID:club_id];
     
     Club * club1 = [[[Session getInstance] getSearchViewCLubs] objectAtIndex:indexPath.row];
-    
-//    [[club1 getRatings] removeAllObjects];
-//    [[club1 getRatings] addObjectsFromArray:ratings];
-    
-    [club1 setRatings:ratings];
+    [club1 setRatings:[[[Session getInstance]getCommunication] getRatingsFromClubID:club_id]];
     [club1 setAddress: [ fullClub getAddress ]];
     [club1 setPhoneNumber: [ fullClub getPhoneNumber ]];
     [club1 setEmail: [fullClub getEmail]];
     [club1 setDescription:[fullClub getDescription]];
     
-        
+    
     UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"ClubTabBar"];
     
     
@@ -282,6 +278,7 @@
         int user_id = [[[Session getInstance] getActualUser] getID];
         NSMutableArray * favoriteClubList = [[[Session getInstance] getCommunication] getFavoriteClubsFromUserId:user_id];
         [[Session getInstance] setSearchViewCLubs:favoriteClubList];
+        
         
         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
         
@@ -495,4 +492,10 @@
         popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
     }
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+        //TODO: lista frissítése
+    
+}
+
 @end

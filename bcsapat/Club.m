@@ -139,9 +139,7 @@
 
 -(float)getAverageRating{
     float sum=0;
-    NSLog(@"ratings: %@",ratings);
     if ([ratings count] == 0) {
-        NSLog(@"0.0");
         return 0;
     }else {
         for (int i=0; i<[ratings count]; ++i) {

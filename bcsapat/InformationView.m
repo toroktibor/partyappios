@@ -36,12 +36,17 @@
 	// Do any additional setup after loading the view.
     
     scrollView.autoresizesSubviews=NO;
-    
-    likeOrNot=NO;
+
     
     int selectedIndex=[[Session getInstance]getSelectedIndex];
     club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
-      
+
+//    if ([[[[Session getInstance]getActualUser]getFavoriteClubs]containsObject:club]) {
+    if ( [[[Session getInstance] getActualUser]isInFavorite:[club getIdentifier]] ) {
+        likeOrNot=YES;
+    } else {
+        likeOrNot=NO;
+    }
     
     starRatingView = [[TQStarRatingView alloc] initWithFrame:CGRectMake(20, 4, 125, 25)
                                                  numberOfStar:5];
@@ -286,10 +291,27 @@
         if (likeOrNot==NO) {
             NSLog(@"kedveli");
             likeOrNot=YES;
+            
+            //kedvec elküldése a szerverre és hozzáadás a session-ben is
+            int userId = [[[Session getInstance]getActualUser]getID];
+            [[[Session getInstance] getCommunication] setFavoriteClubForUserWithUserID:userId andClubID:[club getIdentifier] ];
+            [[[Session getInstance]getActualUser]addFavoriteClub:club];
+            for (Club *c in [[[Session getInstance]getActualUser]getFavoriteClubs]) {
+                NSLog(@"%d",[c getIdentifier]);
+            }
+
+          
         }
         else{
             NSLog(@"nem kedveli");
             likeOrNot=NO;
+            
+            //nem kedvec elküldése a szerverre és hozzáadás a session-ben is
+            int userId = [[[Session getInstance]getActualUser]getID];
+            
+            [[[Session getInstance] getCommunication] deleteFavoriteClub:[club getIdentifier] forUser:userId ];
+            [[[[Session getInstance]getActualUser]getFavoriteClubs ]removeObject:club];
+            
         }
     }
 }
