@@ -140,7 +140,7 @@
     else if(![password.text isEqualToString:passwordAgain.text]){
         
         UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Regisztrációs hiba!"
-                                                             message:@"A megadott jelszevak nem egyezenek!"
+                                                             message:@"A megadott jelszavak nem egyezenek!"
                                                             delegate:nil
                                                    cancelButtonTitle:@"Ok"
                                                    otherButtonTitles: nil];
@@ -151,7 +151,6 @@
       
        user=[[[Session getInstance]getCommunication]registerANewUserWithName:name.text andPassword:password.text
                                                                 andEmail:email.text andSex:[segmentControl selectedSegmentIndex] andBirthday:birthdate.text];
-    
     
        if(!user){
            UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Regisztrációs hiba!"
@@ -177,6 +176,13 @@
                
                tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
                [self presentViewController: tabBar animated: YES completion:nil];
+               
+               UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Rendben!"
+                                                                    message:@"Sikeres regisztráció!"
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"Ok"
+                                                          otherButtonTitles: nil];
+               [alertview show];
                
            }
            else{
@@ -217,6 +223,13 @@
                tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
                [self presentViewController: tabBar animated: YES completion:nil];
                
+               
+               UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Rendben!"
+                                                                        message:@"Sikeres regisztráció!"
+                                                                       delegate:nil
+                                                              cancelButtonTitle:@"Ok"
+                                                              otherButtonTitles: nil];
+               [alertview show];
            }
 
            

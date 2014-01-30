@@ -52,7 +52,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    UIImage *tabBackground = [[UIImage imageNamed:@"tab_bar_mukodj2.png"]
+   /* UIImage *tabBackground = [[UIImage imageNamed:@"tab_bar_mukodj2.png"]
                               resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     [[UITabBar appearance] setBackgroundImage:tabBackground];
     
@@ -69,7 +69,7 @@
       [UIColor whiteColor], UITextAttributeTextColor,
       [UIFont fontWithName:@"" size:0.0], UITextAttributeFont,
       nil]
-                                             forState:UIControlStateNormal];
+                                             forState:UIControlStateNormal];*/
     
     
 }

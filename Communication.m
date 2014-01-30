@@ -257,10 +257,15 @@ return nil;
         NSError* err = [[NSError alloc] init];
         
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
-        NSLog(@"%@",array);
+        NSLog(@"%d",[array count]);
         
+        if ([array count]==0) {
+            return nil;
+        }
+        else{
         User *u =[[User alloc]initWithId:[[array objectForKey:@"NewID"] intValue] andNickName:name andPassword:password andEmail:email andSex:[[NSNumber numberWithInt:sex] intValue] andBirthday:birthday andType:0 ];
         return u;
+        }
         
     }@catch (NSException *e) {
         
