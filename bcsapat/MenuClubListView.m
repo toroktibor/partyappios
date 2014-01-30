@@ -220,6 +220,16 @@
     }
     NSLog(@"Kepek szama: %d",[[club1 getImages] count]);
     
+    //eventek lekérése:
+    NSLog(@"eventek listajanak lekerese");
+    [[club1 getEvents]removeAllObjects];
+    NSMutableArray *e = [[[Session getInstance]getCommunication]getEventsOfClubWithClubId:[club1 getIdentifier]];
+
+    [club1 setEvents:e];
+    
+    for (Event *ev in [club1 getEvents]) {
+        NSLog(@"id: %d name: %@",[ev getIdentifier], [ev getEventName]);
+    }
     
     UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"ClubTabBar"];
     

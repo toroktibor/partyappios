@@ -77,8 +77,8 @@
 -(void)setOwnerIds;
 -(void)setMenuItems:(NSMutableArray*) inMenuItems;
 -(void)setRatings:(NSArray *)rating_;
--(void)setEvents;
--(void)setServices;
+-(void)setEvents:(NSArray *)events_;
+-(void)setServices:(NSArray *)services_;
 -(void)setApproved:(int)approved_;
 
 - (id)initWithId:(int) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_;

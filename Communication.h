@@ -38,7 +38,7 @@
 -(NSMutableArray *) getMenuItemsForClubWithClubId:(int) club_id;
 -(void) updateAMenuItemWithMenuItem:(MenuItem *) menuItem;
 -(void) removeEMenuItemWithMenuId:(int) menuId;
--(NSMutableArray *) getEventsOfClubWithEventId:(int) eventId;
+-(NSMutableArray *) getEventsOfClubWithClubId:(int) clubId;
 -(int) addEventWithClubID:(int) clubid andName:( NSString*) name andDescription:( NSString*) description andStartDate:( NSString*) start_date andRowImage:( NSString*) row_image andType:( NSString*) music_type ;
 - (void) updateEventWithID:(int) eventid andName: (NSString *) name andDescription:( NSString*) description andStartDate:( NSString*) start_date andRowImage:( NSString*) row_image andType:( NSString*) music_type ;
 -(void) deleteEventWithID:(int) eventId ;
