@@ -29,12 +29,32 @@
             NSLog(@"Error: %@",error);
         }
     }
-    
-    
 
-    
-    
     dbConnection = [[MyDatabase alloc]initWithPath:path];
+    
+    
+    
+    
+    UIImage *tabBackground = [[UIImage imageNamed:@"tab_bar_mukodj2.png"]
+                              resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    [[UITabBar appearance] setBackgroundImage:tabBackground];
+    
+    
+    
+    
+    [[UITabBar appearance] setSelectionIndicatorImage:
+     [UIImage imageNamed:@"tab_select_indicator_white"]];
+    [[UITabBar appearance] setSelectedImageTintColor:[UIColor whiteColor]];
+    [[UITabBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    [[UITabBarItem appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor], UITextAttributeTextColor,
+      [UIFont fontWithName:@"" size:0.0], UITextAttributeFont,
+      nil]
+                                             forState:UIControlStateNormal];
+    
+    
     return YES;
 }
 							
