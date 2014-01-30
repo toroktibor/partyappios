@@ -19,6 +19,8 @@
 
 - (id)initWithId:(int) identifier_ andName:(NSString *) name_ andDescription:(NSString *) description_ andStartDate:(NSString *) start_date_ andMusic_type:(NSString *) music_type_ andApproved:(int)approved_;
 
+-(void) setIdentifier:(int) eventId;
+
 -(void)setEventName:(NSString*)eventName;
 
 -(void)setDescription:(NSString*)description_;
@@ -28,6 +30,8 @@
 -(void)setMusicType:(NSString *)musicType;
 
 -(void)setApproved:(int)approved_;
+
+-(int) getIdentifier;
 
 -(NSString *)getEventName;
 
