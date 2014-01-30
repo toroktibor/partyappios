@@ -16,7 +16,7 @@
 
 @implementation PicturesCollectionView
 
-@synthesize index,recipePhotos;
+@synthesize index;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,15 +35,6 @@
     
     [[[self navigationController] navigationBar] setTintColor:[UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(100/255.0) alpha:1.0]];
 
-    recipePhotos=[[NSMutableArray alloc]init];
-    
-   UIImage * image = [UIImage imageNamed: @"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"];
-   UIImage * image2 = [UIImage imageNamed: @"Nightclub-theme.jpg"];
-    UIImage *image3 = [UIImage imageNamed: @"Bar.jpg"];
-    UIImage *image4 = [UIImage imageNamed: @"The-Sun-City-Hotel-photos-Restaurant-Restaurant.jpg"];
-    
-    [recipePhotos addObject:image];
-    [recipePhotos addObject:image2];
     
 }
 
@@ -79,7 +70,6 @@
     Club * actualClub = [[Session getInstance] getSelectedClubAtIndex: [[Session getInstance] getSelectedIndex]];
     recipeImageView.image = [[[actualClub getImages] objectAtIndex:indexPath.row] bitmap_thumbnail];
     [recipeImageView setContentMode:UIViewContentModeScaleAspectFill];
-    //recipeImageView.image = [recipePhotos objectAtIndex:indexPath.row];
     
     return cell;
 }
@@ -88,13 +78,25 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     index=indexPath.row;
     
-    [[Session getInstance]setImage:[recipePhotos objectAtIndex:index]];
+    // [[Session getInstance]setImage:[recipePhotos objectAtIndex:index]];
 
     PictureView *PicturesDetailView=
     [self.storyboard instantiateViewControllerWithIdentifier:@"PictureView"];
+    
+    GaleryImage * actualGaleryImage = [[[[Session getInstance] getSelectedClubAtIndex: [[Session getInstance] getSelectedIndex]] getImages] objectAtIndex:indexPath.row];
+    
+   
+    if( actualGaleryImage.bitmap == nil)
+        [actualGaleryImage downloadBitmap];
+    
     [self.navigationController pushViewController:PicturesDetailView animated:YES];
-    //[PicturesDetailView.imageView setImage:[recipePhotos objectAtIndex:index]];
-        
+    
+    
+    [PicturesDetailView.imageView setImage:[actualGaleryImage bitmap]];
+    [PicturesDetailView.imageView setContentMode:UIViewContentModeScaleAspectFit];
+    [PicturesDetailView.imageView setBackgroundColor:[UIColor blackColor]];
+
+    
 }
 
 
@@ -102,7 +104,31 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSLog(@"kép kiválasztva");
     UIImage * cameraImage  = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    [recipePhotos addObject:cameraImage];
+    //UIImage * cameraImage  = [[[[[Session getInstance] getSelectedClubAtIndex: [[Session getInstance] getSelectedIndex]] getImages] objectAtIndex:0] bitmap_thumbnail];
+    Club * actualClub = [[Session getInstance] getSelectedClubAtIndex: [[Session getInstance] getSelectedIndex]];
+    
+    NSData * imageData = UIImageJPEGRepresentation(cameraImage, 0.3);
+    NSString * encodedImageData = [Base64 encode:imageData];
+
+    //NSLog(@"azadat:%@",encodedImageData);
+    NSLog(@"keszitett meret:%d",encodedImageData.length);
+    
+    // feltöltés helye
+    int newImageID=[[[Session getInstance] getCommunication] uploadAnImageWithClubId:[actualClub getIdentifier] andRowImage:encodedImageData andRotate:0];
+    NSLog(@"A feltoltott kep id-je: %d",newImageID);
+    UIImage * newThumbnail = [[UIImage alloc] initWithData:[Base64 decode: [[[Session getInstance] getCommunication] downLoadAnImageThumbnailWithImageId:newImageID]]];
+
+    
+    GaleryImage * newGaleryImage = [[GaleryImage alloc] initWithId:newImageID andBitmap_thumbnail:newThumbnail];
+    
+
+    [[actualClub getImages] addObject:newGaleryImage];
+    
+
+    
+    
+    
+    
     [self.collectionView reloadData];
     [picker dismissViewControllerAnimated:YES completion:nil];
     

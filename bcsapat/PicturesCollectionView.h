@@ -12,7 +12,6 @@
 
 - (IBAction)showActionSheet:(id)sender;
 @property int index;
-@property NSMutableArray *recipePhotos;
 
 - (IBAction)back:(id)sender;
 @end
