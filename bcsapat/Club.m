@@ -26,7 +26,8 @@
         highlite_expire = highlite_expire_;
         approved=approved_;
         fullDownloaded = NO;
-        ratings = [[Rating alloc]init];
+        ratings = [[NSMutableArray alloc]init];
+        images = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -45,7 +46,8 @@
         highlite_expire = highlite_expire_;
         approved=approved_;
         fullDownloaded = NO;
-        ratings = [[Rating alloc]init];
+        ratings = [[NSMutableArray alloc]init];
+        images = [[NSMutableArray alloc]init];
     }
     return self;
     
@@ -66,7 +68,8 @@
         approved=approved_;
         services=[[NSMutableArray alloc]initWithArray:services_];
         fullDownloaded = NO;
-        ratings = [[Rating alloc]init];
+        ratings = [[NSMutableArray alloc]init];
+        images = [[NSMutableArray alloc]init];
     }
     return self;
     
@@ -81,7 +84,8 @@
         name = name_;
         address = address_;
         fullDownloaded = NO;
-        ratings = [[Rating alloc]init];
+        ratings = [[NSMutableArray alloc]init];
+        images = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -95,7 +99,8 @@
         address = address_;
         approved = approved_;
         fullDownloaded = NO;
-        ratings = [[Rating alloc]init];
+        ratings = [[NSMutableArray alloc]init];
+        images = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -110,7 +115,8 @@
         approved = approved_;
         highlite_expire = highlite_expire_;
         fullDownloaded = NO;
-        ratings = [[Rating alloc]init];
+        ratings = [[NSMutableArray alloc]init];
+        images = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -177,6 +183,11 @@
 -(NSMutableArray *) getEvents{
     return events;
 }
+
+-(NSMutableArray *) getImages{
+    return images;
+}
+
 -(NSMutableArray *) getServices{
     return services;
 }

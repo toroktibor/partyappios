@@ -10,6 +10,7 @@
 #import "Rating.h"
 #import "MenuItem.h"
 #import "Event.h"
+#import "GaleryImage.h"
 
 @interface Club : NSObject{
     int identifier;
@@ -39,6 +40,7 @@
 -(NSMutableArray *) getMenuItems;
 -(NSMutableArray *) getRatings;
 -(NSMutableArray *) getEvents;
+-(NSMutableArray *) getImages;
 -(NSMutableArray *) getServices;
 
 -(NSString *) getAddress;
