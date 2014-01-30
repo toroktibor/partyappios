@@ -111,14 +111,25 @@
     cell.selectedBackgroundView =  customColorView;
     
     
+    
+    
+    UIView *highlite = [[UIView alloc] init];
+    highlite.backgroundColor = [UIColor colorWithRed:197/255.0
+                                                      green:179/255.0
+                                                       blue:88/255.0
+                                                      alpha:0.2];
+    
+    cell.backgroundView=highlite;
+    
+    
     cell.textLabel.textColor=[UIColor whiteColor];
     cell.detailTextLabel.textColor=[UIColor whiteColor];
     
     cell.textLabel.text=[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:indexPath.row]getClubName];
     cell.detailTextLabel.text=[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:indexPath.row]getAddress];
-    cell.imageView.image=[UIImage imageNamed:@"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"];
+   // cell.imageView.image=[UIImage imageNamed:@"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"];
     
-    
+    NSLog(@"%@",[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:indexPath.row]getHighliteExpire]);
     
     UIImage *accessoryImage = [UIImage imageNamed:@"ic_action_next_item.png"];
     UIImageView *accImageView = [[UIImageView alloc] initWithImage:accessoryImage];
