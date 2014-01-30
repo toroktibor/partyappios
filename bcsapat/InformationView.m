@@ -47,6 +47,7 @@
                                                  numberOfStar:5];
     starRatingView.delegate = self;
     
+    
     [starRatingView setScore:[club getAverageRating] withAnimation:NO];
     [ratingBackground addSubview:starRatingView];
     
@@ -68,7 +69,6 @@
     UIImage * image = [UIImage imageNamed: @"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"];
     [imageView setImage:image];
     
-    
     clubNameLabel.text=[club getClubName];
     
     addressField.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
@@ -79,12 +79,16 @@
     emailField.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
     emailField.textColor=[UIColor whiteColor];
     emailField.enabled=NO;
-    emailField.text=[club getEmail];
+    if ((NSNull *)[club getEmail] == [NSNull null] || [[club getEmail] isEqual: @""]) emailField.text=@"nincs megadva";
+        else  emailField.text=[club getEmail];
+    
+
     
     phoneField.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
     phoneField.textColor=[UIColor whiteColor];
     phoneField.enabled=NO;
-    phoneField.text=[club getPhoneNumber];
+    if ((NSNull *)[club getPhoneNumber] == [NSNull null] || [[club getPhoneNumber] isEqual: @""])  phoneField.text=@"nincs megadva";
+        else phoneField.text=[club getPhoneNumber];
     
     ratingBackground.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
     ratingBackground.textColor=[UIColor whiteColor];
@@ -162,7 +166,10 @@
         
         //hívás
         UIDevice *device = [UIDevice currentDevice];
-        if ([[device model] isEqualToString:@"iPhone"] ) {
+        if ((NSNull *)[club getPhoneNumber] == [NSNull null] || [[club getPhoneNumber] isEqual: @""]) {
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"Nincs megadva telefonszám!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        } else if ([[device model] isEqualToString:@"iPhone"] ) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:130-032-2837"]]];
         } else {
             UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"A készülék nem támogatja a telefonhívást!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -173,7 +180,10 @@
     } else if (buttonIndex == 3) {
         
         //email
-        if ([MFMailComposeViewController canSendMail]) {
+        if ((NSNull *)[club getEmail] == [NSNull null] || [[club getEmail] isEqual: @""]) {
+            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"Nincs megadva email cím!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        } else if ([MFMailComposeViewController canSendMail]) {
             
             MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
             mailViewController.mailComposeDelegate = self;

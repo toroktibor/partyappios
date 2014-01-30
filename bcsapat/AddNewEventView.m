@@ -56,7 +56,7 @@
     int selectedIndex=[[Session getInstance]getSelectedIndex];
     Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
     
-    Event *event=[[Event alloc]initWithId:100 andName:eventNameText.text andDescription:descriptionText.text andStartDate:timeLabe.text andMusic_type:musicTypeLabel.text];
+    Event *event=[[Event alloc]initWithId:100 andName:eventNameText.text andDescription:descriptionText.text andStartDate:timeLabe.text andMusic_type:musicTypeLabel.text andApproved:1];
     
     [club addEvent:event];
     

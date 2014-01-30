@@ -81,10 +81,12 @@
     int selectedIndex=[[Session getInstance]getSelectedIndex];
     int seledtedEventIndex=[[Session getInstance]getSelectedEventIndex];
     
+    Event * selectedEvent = [[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex];
+    
     [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setEventName:eventNameText.text];
     [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setStarDate:timeLabe.text];
     [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setMusicType:musicTypeLabel.text];
-    [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setDescription:descriptionText.text];
+    [selectedEvent setDescription:descriptionText.text];
     
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rendben!"

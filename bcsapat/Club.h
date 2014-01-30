@@ -40,11 +40,17 @@
 -(NSMutableArray *) getRatings;
 -(NSMutableArray *) getEvents;
 -(NSMutableArray *) getServices;
+
 -(NSString *) getAddress;
+-(void) setAddress:(NSString *) a;
 -(NSString *) getClubName;
+-(void) setClubName:(NSString *) a;
 -(NSString *) getEmail;
+-(void) setEmail:(NSString *) a;
 -(NSString *) getPhoneNumber;
+-(void) setPhoneNumber:(NSString *) a;
 -(NSString *) getDescription;
+-(void) setDescription:(NSString *) a;
 
 
 -(int)getIdentifier;
@@ -61,7 +67,7 @@
 
 -(void)setOwnerIds;
 -(void)setMenuItems:(NSMutableArray*) inMenuItems;
--(void)setRatings:(Rating *)rating_;
+-(void)setRatings:(NSArray *)rating_;
 -(void)setEvents;
 -(void)setServices;
 -(void)setApproved:(int)approved_;

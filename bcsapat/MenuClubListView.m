@@ -189,9 +189,22 @@
     
     
     
-        [[[Session getInstance] getSearchViewCLubs] objectAtIndex:indexPath.row];
+    int club_id = [[[[Session getInstance] getSearchViewCLubs] objectAtIndex:indexPath.row] getIdentifier];
+    Club *fullClub = [[[Session getInstance]getCommunication] getEverythingFromClubId:club_id];
+    NSMutableArray * ratings =  [[[Session getInstance]getCommunication] getRatingsFromClubID:club_id];
     
+    Club * club1 = [[[Session getInstance] getSearchViewCLubs] objectAtIndex:indexPath.row];
     
+//    [[club1 getRatings] removeAllObjects];
+//    [[club1 getRatings] addObjectsFromArray:ratings];
+    
+    [club1 setRatings:ratings];
+    [club1 setAddress: [ fullClub getAddress ]];
+    [club1 setPhoneNumber: [ fullClub getPhoneNumber ]];
+    [club1 setEmail: [fullClub getEmail]];
+    [club1 setDescription:[fullClub getDescription]];
+    
+        
     UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"ClubTabBar"];
     
     

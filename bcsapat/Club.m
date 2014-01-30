@@ -26,6 +26,7 @@
         highlite_expire = highlite_expire_;
         approved=approved_;
         fullDownloaded = NO;
+        ratings = [[Rating alloc]init];
     }
     return self;
 }
@@ -44,6 +45,7 @@
         highlite_expire = highlite_expire_;
         approved=approved_;
         fullDownloaded = NO;
+        ratings = [[Rating alloc]init];
     }
     return self;
     
@@ -64,6 +66,7 @@
         approved=approved_;
         services=[[NSMutableArray alloc]initWithArray:services_];
         fullDownloaded = NO;
+        ratings = [[Rating alloc]init];
     }
     return self;
     
@@ -78,6 +81,7 @@
         name = name_;
         address = address_;
         fullDownloaded = NO;
+        ratings = [[Rating alloc]init];
     }
     return self;
 }
@@ -91,6 +95,7 @@
         address = address_;
         approved = approved_;
         fullDownloaded = NO;
+        ratings = [[Rating alloc]init];
     }
     return self;
 }
@@ -105,6 +110,7 @@
         approved = approved_;
         highlite_expire = highlite_expire_;
         fullDownloaded = NO;
+        ratings = [[Rating alloc]init];
     }
     return self;
 }
@@ -133,11 +139,17 @@
 
 -(float)getAverageRating{
     float sum=0;
-    for (int i=0; i<[ratings count]; ++i) {
-        Rating *actualRating=[ratings objectAtIndex:i];
-        sum+=actualRating.getValue;
+    NSLog(@"ratings: %@",ratings);
+    if ([ratings count] == 0) {
+        NSLog(@"0.0");
+        return 0;
+    }else {
+        for (int i=0; i<[ratings count]; ++i) {
+            Rating *actualRating=[ratings objectAtIndex:i];
+            sum+=[actualRating getValue];
+        }
+     return (sum/[ratings count])/10;
     }
-    return (sum/[ratings count])/10;
 }
 
 -(void)addEvent:(Event *)event{
@@ -206,8 +218,9 @@
     menuItems = inMenuItems;
 }
 
--(void)setRatings:(Rating *)rating_{
-    [ratings addObject:rating_];
+
+-(void)setRatings:(NSArray *)rating_{
+    ratings =rating_;
 }
 
 
@@ -217,6 +230,26 @@
 
 -(void)setServices{
     
+}
+
+-(void)setClubName:(NSString *) name_{
+    name = name_;
+}
+
+-(void)setDescription:(NSString *) description_{
+    description = description_;
+}
+
+-(void)setAddress:(NSString *) address_{
+    address = address_;
+}
+
+-(void)setEmail:(NSString *) email_{
+    email = email_;
+}
+
+-(void)setPhoneNumber:(NSString *) phonenumber_ {
+    phonenumber = phonenumber_;
 }
 
 

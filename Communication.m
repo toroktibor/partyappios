@@ -610,7 +610,7 @@ return nil;
 }
 
 
--(NSArray *) getRatingsFromClubID:(int) clubId {
+-(NSMutableArray *) getRatingsFromClubID:(int) clubId {
     
     @try {
         NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
@@ -624,7 +624,7 @@ return nil;
         
         NSMutableArray *res = [[NSMutableArray alloc] init];
         for( NSDictionary* jd in array){
-            Rating *r = [[Rating alloc] initWithUserID:[[ jd objectForKey: @"user_id" ]intValue ] andName:[ jd objectForKey: @"name" ] andValue:[[ jd objectForKey: @"user_id" ]floatValue ] andComment:[ jd objectForKey: @"comment" ] andApproved:[[ jd objectForKey: @"approved" ]intValue ] ];
+            Rating *r = [[Rating alloc] initWithUserID:[[ jd objectForKey: @"user_id" ]intValue ] andName:[ jd objectForKey: @"name" ] andValue:[[ jd objectForKey: @"value" ]floatValue ] andComment:[ jd objectForKey: @"comment" ] andApproved:[[ jd objectForKey: @"approved" ]intValue ] ];
             [res addObject:r];
         }
         return res;

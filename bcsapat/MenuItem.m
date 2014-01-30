@@ -93,17 +93,10 @@
     menu_category=category;
 }
 
--(int)getIdentifier{
-    return identifier;
-}
-
 -(void)setIdentifier:(int)id_{
     identifier = id_;
 }
 
--(int)getMenuSort{
-    return menu_sort;
-}
 
 -(void)setMenuSort:(int)menuSort{
     menu_sort=menuSort;
