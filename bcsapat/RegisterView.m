@@ -10,6 +10,7 @@
 #import "MyDatabase.h"
 #import "Session.h"
 #import <QuartzCore/QuartzCore.h>
+#import "DatePickerForRegisterView.h"
 
 @interface RegisterView ()
 
@@ -62,8 +63,8 @@
     email.delegate=self;
     email.tag=3;
     
-    birthdate.delegate=self;
-    birthdate.tag=4;
+    birthdate.text=[[Session getInstance]getBirthday];
+    birthdate.enabled=NO;
     
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
@@ -153,4 +154,15 @@
     return NO; // We do not want UITextField to insert line-breaks.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    birthdate.text=[[Session getInstance]getBirthday];
+    [super viewWillAppear:animated];
+}
+
+- (IBAction)pickDate:(id)sender {
+    
+    DatePickerForRegisterView *DatePickerForRegisterView=
+    [self.storyboard instantiateViewControllerWithIdentifier:@"DatePickerForRegisterView"];
+    [self presentViewController:DatePickerForRegisterView animated:YES completion:nil];
+}
 @end

@@ -96,6 +96,9 @@
             [[[Session getInstance]getActualUser]setSex:0];
         }
         
+        User * au = [[Session getInstance]getActualUser];
+        
+        [[[Session getInstance] getCommunication] modifyUserDataWithId:[au getID] andEmail:[ au getEmail] andBirthday:[au getBirthday] andSex:[au getSex]];
         
         UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Rendben!"
                                                              message:@"Adatok módosítva!"

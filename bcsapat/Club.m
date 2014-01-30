@@ -165,6 +165,9 @@
 }
 
 -(void)addMenuItem:(MenuItem *)menuItem{
+    if((NSNull *) menuItems == [NSNull null]){
+        menuItems = [[NSMutableArray alloc] initWithObjects:menuItem, nil];
+    }
     [menuItems addObject:menuItem];
 }
 
@@ -217,6 +220,22 @@
 
 -(void)setApproved:(int)approved_{
     approved=approved_;
+}
+
+-(NSString *)getType{
+    return type;
+}
+
+-(void)setType:(NSString *)type_{
+    type = type_;
+}
+
+-(NSString *)getHighliteExpire{
+    return highlite_expire;
+}
+
+-(void)setHighliteExpire:(NSString *)highlite_expire_{
+    highlite_expire = highlite_expire_;
 }
 
 -(void)setOwnerIds{

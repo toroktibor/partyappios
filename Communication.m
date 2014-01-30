@@ -149,7 +149,7 @@ NSError *error;
     [posts setObject:[NSNumber numberWithInt:user_id] forKey:@"UserID"];
     
     @try{
-        NSString* urlData = [self httpPost:@"owner.php" withData:posts];
+        NSString* urlData = [self httpPost:@"club.php" withData:posts];
         NSError* err = [[NSError alloc] init];
         
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
@@ -158,6 +158,9 @@ NSError *error;
         for( NSDictionary* jd in array){
             Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ]];
             [res addObject:c];
+//            NSLog(@"id: %d name: %@ address: %@",[c getIdentifier],[c getClubName],[c getAddress]);
+            NSLog(@"%@",jd);
+            NSLog(@"id: %d name: %@ address: %@",[[ jd objectForKey: @"id" ]intValue ],[ jd objectForKey: @"name" ],[c getAddress],[ jd objectForKey: @"address" ]);
         }
         return res;
         
@@ -398,7 +401,7 @@ return nil;
 -(int) addANewMenuItemWithClubId: (int) clubid andMenuItem: (MenuItem *) menuItem{
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     [posts setObject:@"ADDNEW" forKey:@"action"];
-    [posts setObject:[NSNumber numberWithInt:[menuItem getIdentifier]] forKey:@"menuid"];
+    [posts setObject:[NSNumber numberWithInt:clubid] forKey:@"clubid"];
     [posts setObject:[menuItem getMenuItemName] forKey:@"name"];
     [posts setObject:[NSNumber numberWithInt:[menuItem getPrice]] forKey:@"price"];
     [posts setObject:[menuItem getCurrency] forKey:@"currency"];
@@ -412,6 +415,7 @@ return nil;
         NSError* err = [[NSError alloc] init];
         
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        
         for( NSDictionary* jd in array){
             return [[jd objectForKey:@"NewID"] intValue];
         }

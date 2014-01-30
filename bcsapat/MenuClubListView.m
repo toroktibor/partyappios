@@ -297,7 +297,7 @@
         int user_id = [[[Session getInstance] getActualUser] getID];
         NSMutableArray * favoriteClubList = [[[Session getInstance] getCommunication] getFavoriteClubsFromUserId:user_id];
         [[Session getInstance] setSearchViewCLubs:favoriteClubList];
-        
+        [[[Session getInstance] getActualUser] setFavoriteClubs:favoriteClubList];
         
         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
         
@@ -322,6 +322,7 @@
         int user_id = [[[Session getInstance] getActualUser] getID];
         NSMutableArray * ownClubList = [[[Session getInstance] getCommunication] getOwnedClubsFromUserId:user_id];
         [[Session getInstance] setSearchViewCLubs:ownClubList];
+        [[[Session getInstance] getActualUser] setUsersClubs:ownClubList];
         
         
         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
@@ -413,6 +414,7 @@
          int user_id = [[[Session getInstance] getActualUser] getID];
          NSMutableArray * favoriteClubList = [[[Session getInstance] getCommunication] getFavoriteClubsFromUserId:user_id];
          [[Session getInstance] setSearchViewCLubs:favoriteClubList];
+         [[[Session getInstance] getActualUser] setFavoriteClubs:favoriteClubList];
          
          UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
          
@@ -436,8 +438,12 @@
          
          int user_id = [[[Session getInstance] getActualUser] getID];
          NSMutableArray * ownClubList = [[[Session getInstance] getCommunication] getOwnedClubsFromUserId:user_id];
-         [[Session getInstance] setSearchViewCLubs:ownClubList];
+         for (Club *c in ownClubList) {
+             NSLog(@"clubnbame: %@",[c getClubName]);
+         }
          
+         [[Session getInstance] setSearchViewCLubs:ownClubList];
+         [[[Session getInstance] getActualUser] setUsersClubs:ownClubList];
          
          UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
          
@@ -513,8 +519,7 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-        //TODO: lista frissítése
-    
+    [self.tableView reloadData];    
 }
 
 @end
