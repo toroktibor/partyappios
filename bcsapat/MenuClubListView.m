@@ -224,14 +224,14 @@
     
 
     [[club1 getImages] removeAllObjects];
-    NSLog(@"Kepek listajanak lekerese");
+//    NSLog(@"Kepek listajanak lekerese");
     NSMutableArray * imageIDList = [[[Session getInstance] getCommunication] selectClubsImagesIdsWithClubId:[ club1 getIdentifier]];
     for (NSNumber * imageidObj in imageIDList) {
         int imageid = [imageidObj intValue];
-        NSLog(@"Egy imageid, thumbnail letoltese: %d",imageid);
+//        NSLog(@"Egy imageid, thumbnail letoltese: %d",imageid);
         
         NSString * base64image = [[[Session getInstance] getCommunication] downLoadAnImageThumbnailWithImageId:imageid];
-        NSLog(@"letoltott base64 meret: %d",base64image.length);
+//        NSLog(@"letoltott base64 meret: %d",base64image.length);
         //NSLog(@"base64image: %@",base64image);
         NSData * data = [Base64 decode:base64image];
         UIImage * imagethumbnail = [[UIImage alloc] initWithData:data];
@@ -239,18 +239,13 @@
         GaleryImage * newGaleryImage = [[ GaleryImage alloc] initWithId:imageid andBitmap_thumbnail:imagethumbnail ];
         [[club1 getImages] addObject:newGaleryImage];
     }
-    NSLog(@"Kepek szama: %d",[[club1 getImages] count]);
+//    NSLog(@"Kepek szama: %d",[[club1 getImages] count]);
     
     //eventek lekérése:
-    NSLog(@"eventek listajanak lekerese");
     [[club1 getEvents]removeAllObjects];
     NSMutableArray *e = [[[Session getInstance]getCommunication]getEventsOfClubWithClubId:[club1 getIdentifier]];
 
     [club1 setEvents:e];
-    
-    for (Event *ev in [club1 getEvents]) {
-        NSLog(@"id: %d name: %@",[ev getIdentifier], [ev getEventName]);
-    }
     
     UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"ClubTabBar"];
     
@@ -307,7 +302,7 @@
         NSString* address=[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"formatted_address"];
         [[Session getInstance]setUserLocation:address];
         
-        NSLog(@"%@",[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
+//        NSLog(@"%@",[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
         
         NSString* cityName=[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"];
         
@@ -424,7 +419,7 @@
          NSString* address=[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"formatted_address"];
          [[Session getInstance]setUserLocation:address];
          
-         NSLog(@"%@",[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
+//         NSLog(@"%@",[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
          
          NSString* cityName=[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"];
          
@@ -470,9 +465,6 @@
          
          int user_id = [[[Session getInstance] getActualUser] getID];
          NSMutableArray * ownClubList = [[[Session getInstance] getCommunication] getOwnedClubsFromUserId:user_id];
-         for (Club *c in ownClubList) {
-             NSLog(@"clubnbame: %@",[c getClubName]);
-         }
          
          [[Session getInstance] setSearchViewCLubs:ownClubList];
          [[[Session getInstance] getActualUser] setUsersClubs:ownClubList];

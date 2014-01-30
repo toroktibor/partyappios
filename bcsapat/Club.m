@@ -182,8 +182,7 @@
 -(void)addMenuItem:(MenuItem *)menuItem{
     if((NSNull *) menuItems == [NSNull null]){
         menuItems = [[NSMutableArray alloc] initWithObjects:menuItem, nil];
-    }
-    [menuItems addObject:menuItem];
+    } else [menuItems addObject:menuItem];
 }
 
 -(NSMutableArray *) getOwnerName{
@@ -237,6 +236,12 @@
     approved=approved_;
 }
 
+-(void)addRating:(Rating *)newRating{
+    if((NSNull *) ratings == [NSNull null]){
+        ratings = [[NSMutableArray alloc] initWithObjects:newRating];
+    } else [ratings addObject:newRating];
+}
+
 -(NSString *)getType{
     return type;
 }
@@ -264,6 +269,15 @@
 
 -(void)setRatings:(NSArray *)rating_{
     ratings =rating_;
+}
+
+-(Rating *)getRatingForUserWithUserId:(int) userid_{
+    for (Rating * r in ratings ) {
+        if ([r getUserId] == userid_){
+            return r;
+        }
+    }
+    return [NSNull null];
 }
 
 
