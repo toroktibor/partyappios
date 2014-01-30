@@ -18,7 +18,7 @@
 @end
 
 @implementation RegisterView
-@synthesize name,password,passwordAgain,email,birthdate,segmentControl,registerButton,cancelButton,user;
+@synthesize name,password,passwordAgain,email,birthdate,segmentControl,registerButton,cancelButton,user,changeDateButton;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -49,6 +49,9 @@
     //registerButton.layer.borderWidth = 1;
     //registerButton.layer.borderColor = [UIColor grayColor].CGColor;
     registerButton.clipsToBounds = YES;
+    
+    changeDateButton.layer.cornerRadius = 8;
+    changeDateButton.clipsToBounds = YES;
     
    
     //locationmanager a saját helyem meghatározásához

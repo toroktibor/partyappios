@@ -50,7 +50,7 @@
     [birhdayLabel setText:[[[Session getInstance]getActualUser]getBirthday]];
     [emailLabel setText:[[[Session getInstance]getActualUser]getEmail]];
     
-    if ([[[Session getInstance]getActualUser]getSex]==1) {
+    if ([[[Session getInstance]getActualUser]getSex]==0) {
         [sexLabel setText:@"Férfi"];
     }
     else{

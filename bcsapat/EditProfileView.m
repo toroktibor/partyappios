@@ -91,6 +91,7 @@
         
         if ([segmentControl selectedSegmentIndex]==1) {
             [[[Session getInstance]getActualUser]setSex:1];
+            //[[[Session getInstance]set]]
         }
         else{
             [[[Session getInstance]getActualUser]setSex:0];
