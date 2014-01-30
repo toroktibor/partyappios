@@ -89,13 +89,16 @@
         [[[Session getInstance]getActualUser]setEmail:emailTextField.text];
         [[[Session getInstance]getActualUser]setBirthday:birthDayTextField.text];
         
-        if ([segmentControl selectedSegmentIndex]==0) {
+        if ([segmentControl selectedSegmentIndex]==1) {
             [[[Session getInstance]getActualUser]setSex:1];
         }
         else{
             [[[Session getInstance]getActualUser]setSex:0];
         }
         
+        User * au = [[Session getInstance]getActualUser];
+        
+        [[[Session getInstance] getCommunication] modifyUserDataWithId:[au getID] andEmail:[ au getEmail] andBirthday:[au getBirthday] andSex:[au getSex]];
         
         UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Rendben!"
                                                              message:@"Adatok módosítva!"

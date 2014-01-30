@@ -13,7 +13,7 @@
 
 @interface Communication : NSObject
 
--(NSString*) httpPost: (NSString *) file withData: (NSMutableDictionary *) data;
+-(NSData*) httpPost: (NSString *) file withData: (NSMutableDictionary *) data;
 -(User *) authenticationUserWithNickName:(NSString *) nick_name andPassword:(NSString*) password;
 -(NSMutableArray *) getFavoriteClubsFromUserId:(int) user_id;
 -(NSMutableArray *) getClubsFromCityName:(NSString *) cityname;
