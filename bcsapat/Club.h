@@ -82,6 +82,7 @@
 -(void)setApproved:(int)approved_;
 
 - (id)initWithId:(int) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_;
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_ andHighliteExpire:(NSString *)highlite_expire_;
 - (id)initWithId:(int) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_ andApproved:(int)approved_;
 - (id)initWithId:(int) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_ andApproved:(int)approved_ andHighliteExpire:(NSString *) highlite_expire_ ;
 - (id)initWithId:(int) identifier_ andName:(NSString *) name_ andType:(NSString *) type_ andDescription:(NSString *) description_ andAddress:(NSString *) address_ andPhonenumber:(NSString *) phonenumber_ andEmail:(NSString *) email_ andDate:(NSString *) date_ andHighliteExpire:(NSString *) highlite_expire_ andApproved:(int)approved_;
