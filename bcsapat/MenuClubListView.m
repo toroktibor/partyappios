@@ -108,18 +108,30 @@
                                                       green:111/255.0
                                                        blue:189/255.0
                                                       alpha:0.5];
+    
+    
+    UIView *highlight = [[UIView alloc] init];
+    highlight.backgroundColor = [UIColor colorWithRed:197/255.0
+                                               green:179/255.0
+                                                blue:88/255.0
+                                               alpha:0.2];
+    
+    
+    
+    
     cell.selectedBackgroundView =  customColorView;
     
+    NSString * ures=[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:indexPath.row]getHighliteExpire];
     
+    if ((NSNull*)ures!=[NSNull null]) {     
+        cell.backgroundView=highlight;
+        cell.imageView.image=[UIImage imageNamed:@"128px-Featured_Article_Star.svg.png"];
+    }
+    else{
+        cell.backgroundView=nil;
+        cell.imageView.image=nil;
+    }
     
-    
-    UIView *highlite = [[UIView alloc] init];
-    highlite.backgroundColor = [UIColor colorWithRed:197/255.0
-                                                      green:179/255.0
-                                                       blue:88/255.0
-                                                      alpha:0.2];
-    
-    cell.backgroundView=highlite;
     
     
     cell.textLabel.textColor=[UIColor whiteColor];
@@ -127,9 +139,8 @@
     
     cell.textLabel.text=[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:indexPath.row]getClubName];
     cell.detailTextLabel.text=[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:indexPath.row]getAddress];
-   // cell.imageView.image=[UIImage imageNamed:@"2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"];
     
-    NSLog(@"%@",[[[[Session getInstance]getSearchViewCLubs]objectAtIndex:indexPath.row]getHighliteExpire]);
+    
     
     UIImage *accessoryImage = [UIImage imageNamed:@"ic_action_next_item.png"];
     UIImageView *accImageView = [[UIImageView alloc] initWithImage:accessoryImage];
