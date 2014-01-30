@@ -89,7 +89,7 @@
         [[[Session getInstance]getActualUser]setEmail:emailTextField.text];
         [[[Session getInstance]getActualUser]setBirthday:birthDayTextField.text];
         
-        if ([segmentControl selectedSegmentIndex]==0) {
+        if ([segmentControl selectedSegmentIndex]==1) {
             [[[Session getInstance]getActualUser]setSex:1];
         }
         else{

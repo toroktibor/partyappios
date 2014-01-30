@@ -94,7 +94,7 @@
     }
     else{
         
-        [[[Session getInstance] getCommunication] modifyPasswordWithId:[[[Session getInstance]getActualUser] getID] andPassword:[[[Session getInstance]getActualUser] getPassword]];
+        [[[Session getInstance] getCommunication] modifyPasswordWithId:[[[Session getInstance]getActualUser] getID] andPassword: actualPasswordTextField.text];
         
         [[[Session getInstance]getActualUser]setPassword:actualPasswordTextField.text];
         UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Rendben!"
