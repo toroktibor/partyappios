@@ -8,13 +8,14 @@
 
 #import "DatePickerForRegisterView.h"
 #import "Session.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface DatePickerForRegisterView ()
 
 @end
 
 @implementation DatePickerForRegisterView
-@synthesize df,datePicker,result;
+@synthesize df,datePicker,result,okButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +30,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
+    
+    okButton.layer.cornerRadius = 8;
+    okButton.clipsToBounds = YES;
     
     df = [[NSDateFormatter alloc] init];
     [df setDateFormat:@"yyyy-MM-dd"];
