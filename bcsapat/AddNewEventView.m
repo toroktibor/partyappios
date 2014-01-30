@@ -58,6 +58,10 @@
     
     Event *event=[[Event alloc]initWithId:100 andName:eventNameText.text andDescription:descriptionText.text andStartDate:timeLabe.text andMusic_type:musicTypeLabel.text andApproved:1];
     
+    int eventId = [[[Session getInstance] getCommunication] addEventWithClubID:[club getIdentifier] andName:[event getEventName] andDescription:[event getDescription] andStartDate:[event getStartDate] andRowImage:@"" andType:[event getMusicType]];
+    
+    [event setIdentifier:eventId];
+    
     [club addEvent:event];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rendben!"

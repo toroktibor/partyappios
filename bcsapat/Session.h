@@ -11,6 +11,8 @@
 #import "Communication.h"
 #import "MyDatabase.h"
 #import "Club.h"
+#import "GaleryImage.h"
+#import "Base64.h"
 
 @interface Session : NSObject{
     Communication * actualCommunication;

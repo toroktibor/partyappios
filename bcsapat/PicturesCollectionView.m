@@ -60,7 +60,11 @@
 }*/
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return recipePhotos.count;
+    Club * actualClub = [[Session getInstance] getSelectedClubAtIndex: [[Session getInstance] getSelectedIndex]];
+    NSLog(@"Dddd: %@",[actualClub getClubName]);
+    
+    NSLog(@"Dddd: %d",[[actualClub getImages] count]);
+    return [[actualClub getImages] count];
 }
 
 
@@ -70,7 +74,12 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
     UIImageView *recipeImageView = (UIImageView *)[cell viewWithTag:100];
-    recipeImageView.image = [recipePhotos objectAtIndex:indexPath.row];
+    
+    
+    Club * actualClub = [[Session getInstance] getSelectedClubAtIndex: [[Session getInstance] getSelectedIndex]];
+    recipeImageView.image = [[[actualClub getImages] objectAtIndex:indexPath.row] bitmap_thumbnail];
+    [recipeImageView setContentMode:UIViewContentModeScaleAspectFill];
+    //recipeImageView.image = [recipePhotos objectAtIndex:indexPath.row];
     
     return cell;
 }

@@ -398,7 +398,7 @@ return nil;
 -(int) addANewMenuItemWithClubId: (int) clubid andMenuItem: (MenuItem *) menuItem{
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     [posts setObject:@"ADDNEW" forKey:@"action"];
-    [posts setObject:[NSNumber numberWithInt:[menuItem getIdentifier]] forKey:@"menuid"];
+    [posts setObject:[NSNumber numberWithInt:clubid] forKey:@"clubid"];
     [posts setObject:[menuItem getMenuItemName] forKey:@"name"];
     [posts setObject:[NSNumber numberWithInt:[menuItem getPrice]] forKey:@"price"];
     [posts setObject:[menuItem getCurrency] forKey:@"currency"];
@@ -412,6 +412,7 @@ return nil;
         NSError* err = [[NSError alloc] init];
         
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        
         for( NSDictionary* jd in array){
             return [[jd objectForKey:@"NewID"] intValue];
         }

@@ -200,6 +200,26 @@
     [club1 setEmail: [fullClub getEmail]];
     [club1 setDescription:[fullClub getDescription]];
     
+
+    [[club1 getImages] removeAllObjects];
+    NSLog(@"Kepek listajanak lekerese");
+    NSMutableArray * imageIDList = [[[Session getInstance] getCommunication] selectClubsImagesIdsWithClubId:[ club1 getIdentifier]];
+    for (NSNumber * imageidObj in imageIDList) {
+        int imageid = [imageidObj intValue];
+        NSLog(@"Egy imageid, thumbnail letoltese: %d",imageid);
+        
+        NSString * base64image = [[[Session getInstance] getCommunication] downLoadAnImageThumbnailWithImageId:imageid];
+        //NSLog(@"base64image: %@",base64image);
+        NSData * data = [Base64 decode:base64image];
+        UIImage * imagethumbnail = [[UIImage alloc] initWithData:data];
+        //[self.test_kep setImage:image];
+        GaleryImage * newGaleryImage = [[ GaleryImage alloc] initWithId:imageid andBitmap_thumbnail:imagethumbnail ];
+        [[club1 getImages] addObject:newGaleryImage];
+        NSLog(@"Kepek szama: %d",[[club1 getImages] count]);
+        NSLog(@"Kep hozzaadva");
+    }
+    NSLog(@"Kepek szama: %d",[[club1 getImages] count]);
+    
     
     UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"ClubTabBar"];
     

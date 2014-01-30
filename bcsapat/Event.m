@@ -65,4 +65,12 @@
 -(int)getApproved{
     return approved;
 }
+
+-(void)setIdentifier:(int)eventId{
+    identifier=eventId;
+}
+
+-(int)getIdentifier{
+    return identifier;
+}
 @end

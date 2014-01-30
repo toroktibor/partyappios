@@ -88,6 +88,7 @@
     [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getEvents]objectAtIndex:seledtedEventIndex]setMusicType:musicTypeLabel.text];
     [selectedEvent setDescription:descriptionText.text];
     
+    [[[Session getInstance] getCommunication] updateEventWithID:[selectedEvent getIdentifier] andName:[selectedEvent getEventName] andDescription:[selectedEvent getDescription] andStartDate:[selectedEvent getStartDate] andRowImage:@"" andType:[selectedEvent getMusicType]];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rendben!"
                                                     message:@"Az esemény módosítása megtörtént!"
@@ -95,5 +96,15 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    /*if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [_objects removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+    }*/
 }
 @end
