@@ -12,7 +12,7 @@
 #import "Rating.h"
 #import "TQStarRatingView.h"
 #import "RatingDetailUsersView.h"
-
+#import "RatingDetailView.h"
 
 
 @interface RatingTableViewViewController ()
@@ -171,8 +171,17 @@
     
     RatingDetailUsersView *RatingDetailUsersView=
     [self.storyboard instantiateViewControllerWithIdentifier:@"RatingDetailUsersView"];
+    
+    RatingDetailView *RatingDetailView = [self.storyboard instantiateViewControllerWithIdentifier:@"RatingDetailView"];
     //TODO:ha a userID megegyezik akkor a szerkesztésre dobjon
-    [self.navigationController pushViewController:RatingDetailUsersView animated:YES];
+    int userid = [[[Session getInstance]getActualUser]getID];
+    Rating *r = [[[[[Session getInstance]getSearchViewCLubs]objectAtIndex: [[Session getInstance]getSelectedIndex]]getRatings]objectAtIndex: indexPath.row];
+    if ([r getUserId] == userid) {
+        [self.navigationController pushViewController:RatingDetailView animated:YES];
+    } else {
+        [self.navigationController pushViewController:RatingDetailUsersView animated:YES];
+    }
+
     
     
 }
