@@ -209,14 +209,13 @@
         NSLog(@"Egy imageid, thumbnail letoltese: %d",imageid);
         
         NSString * base64image = [[[Session getInstance] getCommunication] downLoadAnImageThumbnailWithImageId:imageid];
+        NSLog(@"letoltott base64 meret: %d",base64image.length);
         //NSLog(@"base64image: %@",base64image);
         NSData * data = [Base64 decode:base64image];
         UIImage * imagethumbnail = [[UIImage alloc] initWithData:data];
         //[self.test_kep setImage:image];
         GaleryImage * newGaleryImage = [[ GaleryImage alloc] initWithId:imageid andBitmap_thumbnail:imagethumbnail ];
         [[club1 getImages] addObject:newGaleryImage];
-        NSLog(@"Kepek szama: %d",[[club1 getImages] count]);
-        NSLog(@"Kep hozzaadva");
     }
     NSLog(@"Kepek szama: %d",[[club1 getImages] count]);
     
@@ -298,7 +297,7 @@
         int user_id = [[[Session getInstance] getActualUser] getID];
         NSMutableArray * favoriteClubList = [[[Session getInstance] getCommunication] getFavoriteClubsFromUserId:user_id];
         [[Session getInstance] setSearchViewCLubs:favoriteClubList];
-        
+        [[[Session getInstance] getActualUser] setFavoriteClubs:favoriteClubList];
         
         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
         
@@ -323,6 +322,7 @@
         int user_id = [[[Session getInstance] getActualUser] getID];
         NSMutableArray * ownClubList = [[[Session getInstance] getCommunication] getOwnedClubsFromUserId:user_id];
         [[Session getInstance] setSearchViewCLubs:ownClubList];
+        [[[Session getInstance] getActualUser] setUsersClubs:ownClubList];
         
         
         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
@@ -414,6 +414,7 @@
          int user_id = [[[Session getInstance] getActualUser] getID];
          NSMutableArray * favoriteClubList = [[[Session getInstance] getCommunication] getFavoriteClubsFromUserId:user_id];
          [[Session getInstance] setSearchViewCLubs:favoriteClubList];
+         [[[Session getInstance] getActualUser] setFavoriteClubs:favoriteClubList];
          
          UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
          
@@ -437,8 +438,12 @@
          
          int user_id = [[[Session getInstance] getActualUser] getID];
          NSMutableArray * ownClubList = [[[Session getInstance] getCommunication] getOwnedClubsFromUserId:user_id];
-         [[Session getInstance] setSearchViewCLubs:ownClubList];
+         for (Club *c in ownClubList) {
+             NSLog(@"clubnbame: %@",[c getClubName]);
+         }
          
+         [[Session getInstance] setSearchViewCLubs:ownClubList];
+         [[[Session getInstance] getActualUser] setUsersClubs:ownClubList];
          
          UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
          
@@ -514,8 +519,7 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-        //TODO: lista frissítése
-    
+    [self.tableView reloadData];    
 }
 
 @end

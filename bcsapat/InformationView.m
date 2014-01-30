@@ -297,9 +297,6 @@
             int userId = [[[Session getInstance]getActualUser]getID];
             [[[Session getInstance] getCommunication] setFavoriteClubForUserWithUserID:userId andClubID:[club getIdentifier] ];
             [[[Session getInstance]getActualUser]addFavoriteClub:club];
-            for (Club *c in [[[Session getInstance]getActualUser]getFavoriteClubs]) {
-                NSLog(@"%d",[c getIdentifier]);
-            }
 
           
         }
@@ -312,6 +309,7 @@
             
             [[[Session getInstance] getCommunication] deleteFavoriteClub:[club getIdentifier] forUser:userId ];
             [[[[Session getInstance]getActualUser]getFavoriteClubs ]removeObject:club];
+            [[[Session getInstance]getSearchViewCLubs]removeObject:club];
             
         }
     }

@@ -93,6 +93,9 @@
         [alertview show];
     }
     else{
+        
+        [[[Session getInstance] getCommunication] modifyPasswordWithId:[[[Session getInstance]getActualUser] getID] andPassword: actualPasswordTextField.text];
+        
         [[[Session getInstance]getActualUser]setPassword:actualPasswordTextField.text];
         UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Rendben!"
                                                              message:@"A jelszó megváltozott!"

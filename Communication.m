@@ -14,7 +14,7 @@
 NSString * mainUrl = @"http://95.85.19.48/";
 NSError *error;
 
--(NSString*) httpPost: (NSString *) file withData: (NSMutableDictionary *) data{
+-(NSData*) httpPost: (NSString *) file withData: (NSMutableDictionary *) data{
     NSMutableString *post = [NSMutableString string];
     for (NSString* key in [data allKeys]){
         if ([post length]>0)
@@ -37,7 +37,7 @@ NSError *error;
     
     NSHTTPURLResponse *response = nil;
     NSError *error = [[NSError alloc] init];
-    NSString *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     
     return urlData;
@@ -149,7 +149,7 @@ NSError *error;
     [posts setObject:[NSNumber numberWithInt:user_id] forKey:@"UserID"];
     
     @try{
-        NSString* urlData = [self httpPost:@"owner.php" withData:posts];
+        NSString* urlData = [self httpPost:@"club.php" withData:posts];
         NSError* err = [[NSError alloc] init];
         
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
@@ -158,6 +158,9 @@ NSError *error;
         for( NSDictionary* jd in array){
             Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ]];
             [res addObject:c];
+//            NSLog(@"id: %d name: %@ address: %@",[c getIdentifier],[c getClubName],[c getAddress]);
+            NSLog(@"%@",jd);
+            NSLog(@"id: %d name: %@ address: %@",[[ jd objectForKey: @"id" ]intValue ],[ jd objectForKey: @"name" ],[c getAddress],[ jd objectForKey: @"address" ]);
         }
         return res;
         
@@ -749,15 +752,12 @@ return nil;
         [posts setObject:rowImage forKey:@"rawImage"];
         [posts setObject:[NSNumber numberWithInt:rotate] forKey:@"rotate"];
         
-        NSString* urlData = [self httpPost:@"image.php" withData:posts];
+        NSData* urlData = [self httpPost:@"image.php" withData:posts];
         NSError* err = [[NSError alloc] init];
         
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
         
-        for (NSDictionary* jd in array) {
-            int image_id =  [[jd objectForKey:@"NewID"] intValue];
-            return image_id;
-        }
+        return [[array objectForKey:@"NewID"] intValue];
         
     } @catch (NSException *e) {
         
@@ -772,7 +772,7 @@ return nil;
         [posts setObject:@"GET" forKey:@"action"];
         [posts setObject:[NSNumber numberWithInt:imageId] forKey:@"imageid"];
         
-        NSString* urlData = [self httpPost:@"image.php" withData:posts];
+        NSData* urlData = [self httpPost:@"image.php" withData:posts];
         NSError* err = [[NSError alloc] init];
         
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
