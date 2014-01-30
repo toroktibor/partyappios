@@ -14,7 +14,7 @@
 NSString * mainUrl = @"http://95.85.19.48/";
 NSError *error;
 
--(NSString*) httpPost: (NSString *) file withData: (NSMutableDictionary *) data{
+-(NSData*) httpPost: (NSString *) file withData: (NSMutableDictionary *) data{
     NSMutableString *post = [NSMutableString string];
     for (NSString* key in [data allKeys]){
         if ([post length]>0)
@@ -37,7 +37,7 @@ NSError *error;
     
     NSHTTPURLResponse *response = nil;
     NSError *error = [[NSError alloc] init];
-    NSString *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
     
     
     return urlData;
@@ -750,15 +750,12 @@ return nil;
         [posts setObject:rowImage forKey:@"rawImage"];
         [posts setObject:[NSNumber numberWithInt:rotate] forKey:@"rotate"];
         
-        NSString* urlData = [self httpPost:@"image.php" withData:posts];
+        NSData* urlData = [self httpPost:@"image.php" withData:posts];
         NSError* err = [[NSError alloc] init];
         
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
         
-        for (NSDictionary* jd in array) {
-            int image_id =  [[jd objectForKey:@"NewID"] intValue];
-            return image_id;
-        }
+        return [[array objectForKey:@"NewID"] intValue];
         
     } @catch (NSException *e) {
         
@@ -773,7 +770,7 @@ return nil;
         [posts setObject:@"GET" forKey:@"action"];
         [posts setObject:[NSNumber numberWithInt:imageId] forKey:@"imageid"];
         
-        NSString* urlData = [self httpPost:@"image.php" withData:posts];
+        NSData* urlData = [self httpPost:@"image.php" withData:posts];
         NSError* err = [[NSError alloc] init];
         
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
