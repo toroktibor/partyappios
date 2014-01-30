@@ -10,6 +10,7 @@
 #import "Session.h"
 #import "Club.h"
 #import "Event.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface EventDetailView ()
 
@@ -36,7 +37,7 @@
     
     descriptionText.editable=NO;
     descriptionText.scrollEnabled=NO;
-    descriptionText.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0];
+    descriptionText.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
     descriptionText.textColor=[UIColor whiteColor];
     
     
@@ -46,9 +47,24 @@
     Event * event=[[club getEvents]objectAtIndex:[[Session getInstance]getSelectedEventIndex]];
     
     eventDateLabel.text=[event getStartDate];
+    eventDateLabel.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    eventDateLabel.layer.cornerRadius=8;
+    eventDateLabel.clipsToBounds=YES;
+    
     descriptionText.text=[event getDescription];
+    descriptionText.layer.cornerRadius=8;
+    descriptionText.clipsToBounds = YES;
+    
+    
     musicTypeLabel.text=[event getMusicType];
+    musicTypeLabel.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    musicTypeLabel.layer.cornerRadius=8;
+    musicTypeLabel.clipsToBounds=YES;
+    
     ventNameLabel.text=[event getEventName];
+    ventNameLabel.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    ventNameLabel.layer.cornerRadius=8;
+    ventNameLabel.clipsToBounds=YES;
 }
 
 - (void)didReceiveMemoryWarning
