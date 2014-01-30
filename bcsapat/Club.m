@@ -159,6 +159,9 @@
 }
 
 -(void)addMenuItem:(MenuItem *)menuItem{
+    if((NSNull *) menuItems == [NSNull null]){
+        menuItems = [[NSMutableArray alloc] initWithObjects:menuItem, nil];
+    }
     [menuItems addObject:menuItem];
 }
 
