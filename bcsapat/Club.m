@@ -90,6 +90,21 @@
     return self;
 }
 
+- (id)initWithId:(int) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_ andHighliteExpire:(NSString *)highlite_expire_{
+    self = [super init];
+    if(self)
+    {
+        identifier = identifier_;
+        name = name_;
+        address = address_;
+        highlite_expire = highlite_expire_;
+        fullDownloaded = NO;
+        ratings = [[NSMutableArray alloc]init];
+        images = [[NSMutableArray alloc]init];
+    }
+    return self;
+}
+
 - (id)initWithId:(int) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_ andApproved:(int)approved_{
     self = [super init];
     if(self)

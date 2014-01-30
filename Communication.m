@@ -90,7 +90,7 @@ NSError *error;
         NSMutableArray *res = [[NSMutableArray alloc] init];
         
         for( NSDictionary* jd in array){
-            Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ]];
+            Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ] andHighliteExpire:[ jd objectForKey: @"address" ]];
             [res addObject:c];
         }
         return res;
