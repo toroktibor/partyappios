@@ -90,7 +90,7 @@ NSError *error;
         NSMutableArray *res = [[NSMutableArray alloc] init];
         
         for( NSDictionary* jd in array){
-            Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ] andHighliteExpire:[ jd objectForKey: @"address" ]];
+            Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ] andHighliteExpire:[ jd objectForKey: @"highlight_expire" ]];
             [res addObject:c];
         }
         return res;
@@ -156,7 +156,7 @@ NSError *error;
         NSMutableArray *res = [[NSMutableArray alloc] init];
         
         for( NSDictionary* jd in array){
-            Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ]];
+            Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ] andHighliteExpire:[ jd objectForKey: @"highlight_expire" ]];
             [res addObject:c];
 //            NSLog(@"id: %d name: %@ address: %@",[c getIdentifier],[c getClubName],[c getAddress]);
             NSLog(@"%@",jd);
@@ -207,7 +207,7 @@ return nil;
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options: NSJSONReadingMutableContainers error: &err];
         NSMutableArray *res = [[NSMutableArray alloc] init];
     for (NSDictionary* jd in array) {
-        Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ]];
+        Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ] andHighliteExpire:[ jd objectForKey: @"highlight_expire" ]];
         [res addObject:c];
     }
     return res;
