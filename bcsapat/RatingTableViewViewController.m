@@ -171,6 +171,7 @@
     
     RatingDetailUsersView *RatingDetailUsersView=
     [self.storyboard instantiateViewControllerWithIdentifier:@"RatingDetailUsersView"];
+    //TODO:ha a userID megegyezik akkor a szerkesztésre dobjon
     [self.navigationController pushViewController:RatingDetailUsersView animated:YES];
     
     

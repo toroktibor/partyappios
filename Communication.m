@@ -158,9 +158,6 @@ NSError *error;
         for( NSDictionary* jd in array){
             Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ] andHighliteExpire:[ jd objectForKey: @"highlight_expire" ]];
             [res addObject:c];
-//            NSLog(@"id: %d name: %@ address: %@",[c getIdentifier],[c getClubName],[c getAddress]);
-            NSLog(@"%@",jd);
-            NSLog(@"id: %d name: %@ address: %@",[[ jd objectForKey: @"id" ]intValue ],[ jd objectForKey: @"name" ],[c getAddress],[ jd objectForKey: @"address" ]);
         }
         return res;
         
@@ -257,7 +254,6 @@ return nil;
         NSError* err = [[NSError alloc] init];
         
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
-        NSLog(@"%d",[array count]);
         
         if ([array count]==0) {
             return nil;

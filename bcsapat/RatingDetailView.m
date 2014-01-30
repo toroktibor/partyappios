@@ -49,7 +49,19 @@
     ratingButton.clipsToBounds = YES;
     
     ratingText.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    
+    //volt-e már értékelés
+    Club *club = [[[Session getInstance]getSearchViewCLubs]objectAtIndex:[[Session getInstance]getSelectedIndex]];
+    int userId = [[[Session getInstance]getActualUser]getID];
+    
+    Rating *oldRating = [club getRatingForUserWithUserId:userId];
+    
+    if ((NSNull *)oldRating != [NSNull null]){
+        ratingText.text = [oldRating getComment];
+        [starRatingView setScore:[oldRating getValue]/10.0 withAnimation:NO];
+    }
 
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,11 +82,23 @@
     
     User * user=[[Session getInstance]getActualUser];
     
-    //Rating * newRating=[[Rating alloc]initWithUserName:[user getName] andValue:myScore andComment:ratingText.text];
+    Rating *newRating = [[Rating alloc]initWithUserID:[user getID] andName:[user getName] andValue:myScore andComment:ratingText.text andApproved:0];
     
     int selectedIndex=[[Session getInstance]getSelectedIndex];
     Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
-    //[club setRatings:newRating];
+    Rating *oldRating = [club getRatingForUserWithUserId:[user getID]];
+    
+        if ((NSNull *)oldRating != [NSNull null]){
+            [[[Session getInstance]getCommunication]updateRatingWithClubID:[club getIdentifier] andUserID:[newRating getUserId] andValue:[newRating getValue]/2.0 andComment:[newRating getComment] ];
+            [[club getRatings] removeObject:oldRating];
+            [[club getRatings] addObject:newRating];
+            NSLog(@"volt már ilyen");
+        } else{
+            [[[Session getInstance]getCommunication]addRatingWithClubID:[club getIdentifier] andUserID:[newRating getUserId] andValue:[newRating getValue]/2.0 andComment:[newRating getComment]];
+            [club addRating:newRating];
+             NSLog(@"nem volt még ilyen");
+        }
+    
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rendben!"
                                                     message:@"Az értékelésed hozzáadtuk!"
@@ -83,7 +107,7 @@
                                           otherButtonTitles:nil];
     [alert show];
 
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

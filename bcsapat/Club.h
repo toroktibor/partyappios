@@ -80,6 +80,8 @@
 -(void)setEvents:(NSArray *)events_;
 -(void)setServices:(NSArray *)services_;
 -(void)setApproved:(int)approved_;
+-(void)addRating:(Rating *)newRating;
+-(Rating *)getRatingForUserWithUserId:(int) userid_;
 
 - (id)initWithId:(int) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_;
 - (id)initWithId:(int) identifier_ andName:(NSString *) name_ andAddress:(NSString *) address_ andHighliteExpire:(NSString *)highlite_expire_;
