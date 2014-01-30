@@ -176,8 +176,17 @@ static Session * _instance = nil;
         image=[[UIImage alloc]init];
         menuItemCategory=@"Kategória";
         eventTime=@"Esemény időpontja";
+        birthday=@"Születési dátum";
     }
     return self;
+}
+
+-(NSString *)getBirthday{
+    return birthday;
+}
+
+-(void)setBirthDay:(NSString *)birthday_{
+    birthday=birthday_;
 }
 
 -(void)setSearchViewCLubs:(NSMutableArray *)inputClubsList{

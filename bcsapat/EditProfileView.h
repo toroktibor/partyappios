@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *birthDayTextField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
+@property (weak, nonatomic) IBOutlet UIButton *changeDateButton;
 
 - (IBAction)saveChanges:(id)sender;
 - (IBAction)cancel:(id)sender;
