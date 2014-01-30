@@ -66,6 +66,13 @@
 
 -(void)addMenuItem:(MenuItem *)menuItem;
 
+-(NSString *)getType;
+
+-(void)setType:(NSString *)type_;
+
+-(NSString *)getHighliteExpire;
+
+-(void)setHighliteExpire:(NSString *)highlite_expire_;
 
 -(void)setOwnerIds;
 -(void)setMenuItems:(NSMutableArray*) inMenuItems;
