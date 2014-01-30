@@ -252,12 +252,12 @@
 }
 
 
--(void)setEvents{
-    
+-(void)setEvents:(NSArray *)events_{
+    events = events_;
 }
 
--(void)setServices{
-    
+-(void)setServices:(NSArray *)services_{
+    services = services_;
 }
 
 -(void)setClubName:(NSString *) name_{

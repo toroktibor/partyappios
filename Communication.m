@@ -479,10 +479,10 @@ return nil;
     [self httpPost:@"menu_item.php" withData:posts];
 }
 
--(NSMutableArray *) getEventsOfClubWithEventId:(int) eventId{
+-(NSMutableArray *) getEventsOfClubWithClubId:(int) clubId{
     NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
     [posts setObject:@"GETEVENTSOFCLUB" forKey:@"action"];
-    [posts setObject:[NSNumber numberWithInt:eventId] forKey:@"id"];
+    [posts setObject:[NSNumber numberWithInt:clubId] forKey:@"id"];
     
     @try{
         NSString* urlData = [self httpPost:@"event.php" withData:posts];
@@ -490,7 +490,7 @@ return nil;
         
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
         NSMutableArray *res = [[NSMutableArray alloc] init];
-        
+
         for( NSDictionary* jd in array){
             Event *e = [[Event alloc] initWithId:[[jd objectForKey:@"id"] intValue] andName:[jd objectForKey:@"name"] andDescription:[jd objectForKey:@"description"] andStartDate:[jd objectForKey:@"start_date"] andMusic_type:[jd objectForKey:@"music_type"] andApproved:1];
             
