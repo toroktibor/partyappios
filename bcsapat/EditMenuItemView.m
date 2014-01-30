@@ -111,6 +111,9 @@
         [[[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getMenuItems]objectAtIndex:itemIndex]setMenuItemCurreny:@"EUR"];
     }
     
+    MenuItem * modifyMenuItem = [[[[Session getInstance]getSelectedClubAtIndex:selectedIndex]getMenuItems]objectAtIndex:itemIndex];
+    [[[Session getInstance] getCommunication] updateAMenuItemWithMenuItem:modifyMenuItem];
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rendben!"
                                                     message:@"A tétel adatinak a frissítése megtörtént!"
                                                    delegate:nil
