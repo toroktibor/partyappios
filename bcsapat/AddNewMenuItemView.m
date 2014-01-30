@@ -41,7 +41,7 @@
                                 forState:UIControlStateNormal];
     
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"website-background-1024x576.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
     
     changeButton.layer.cornerRadius = 8;
     changeButton.clipsToBounds = YES;
@@ -111,6 +111,8 @@
     }
     
     int menuItemId = [[[Session getInstance] getCommunication] addANewMenuItemWithClubId:[club getIdentifier] andMenuItem:menuItem];
+    
+    NSLog(@"%d menu item id",menuItemId);
     
     [menuItem setIdentifier:menuItemId];
     

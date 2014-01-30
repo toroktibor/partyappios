@@ -27,4 +27,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *discountLabel;
 - (IBAction)sliderChangeValue:(id)sender;
 - (IBAction)sliderValueChange:(UISlider *)sender;
+
+- (void)doneButtonDidPressed:(id)sender;
 @end

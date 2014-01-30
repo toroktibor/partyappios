@@ -222,6 +222,8 @@
     [club1 setEmail: [fullClub getEmail]];
     [club1 setDescription:[fullClub getDescription]];
     
+    [club1 setMenuItems:[[[Session getInstance]getCommunication]getMenuItemsForClubWithClubId:club_id]];
+    
 
     [[club1 getImages] removeAllObjects];
 //    NSLog(@"Kepek listajanak lekerese");
