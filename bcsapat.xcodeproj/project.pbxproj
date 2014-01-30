@@ -49,7 +49,6 @@
 		7AD054271889596C0058B94E /* ChangePasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD054261889596C0058B94E /* ChangePasswordView.m */; };
 		7AD0542A18896F1B0058B94E /* PickerForSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD0542918896F1B0058B94E /* PickerForSearchView.m */; };
 		7AD0542C1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AD0542B1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg */; };
-		7AD0DB3A1891343A007DBB1E /* InfoAboutTheApplicationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD0DB391891343A007DBB1E /* InfoAboutTheApplicationView.m */; };
 		7AD421EB188C510E0028A04B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AD421EA188C510E0028A04B /* MessageUI.framework */; };
 		7AD4C8F3188FDEE1001E8D91 /* ProfileTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD4C8F2188FDEE1001E8D91 /* ProfileTableView.m */; };
 		7AD4C8F6189002FC001E8D91 /* ClubMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD4C8F5189002FC001E8D91 /* ClubMapView.m */; };
@@ -169,8 +168,6 @@
 		7AD0542818896F1B0058B94E /* PickerForSearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerForSearchView.h; sourceTree = "<group>"; };
 		7AD0542918896F1B0058B94E /* PickerForSearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerForSearchView.m; sourceTree = "<group>"; };
 		7AD0542B1889734C0058B94E /* 2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2050-halloween-debrecen-halloween-napok-az-erdospuszta-club-hotelben.jpg"; sourceTree = "<group>"; };
-		7AD0DB381891343A007DBB1E /* InfoAboutTheApplicationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoAboutTheApplicationView.h; sourceTree = "<group>"; };
-		7AD0DB391891343A007DBB1E /* InfoAboutTheApplicationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoAboutTheApplicationView.m; sourceTree = "<group>"; };
 		7AD421EA188C510E0028A04B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		7AD4C8F1188FDEE1001E8D91 /* ProfileTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTableView.h; sourceTree = "<group>"; };
 		7AD4C8F2188FDEE1001E8D91 /* ProfileTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTableView.m; sourceTree = "<group>"; };
@@ -366,8 +363,6 @@
 				7AC9ECB518801D0100DBEEDB /* LoginView.m */,
 				7AE0D99518854FE50089CE3D /* RegisterView.h */,
 				7AE0D99618854FE50089CE3D /* RegisterView.m */,
-				7AD0DB381891343A007DBB1E /* InfoAboutTheApplicationView.h */,
-				7AD0DB391891343A007DBB1E /* InfoAboutTheApplicationView.m */,
 				7A43B912189A618C005B33A7 /* DatePickerForRegisterView.h */,
 				7A43B913189A618C005B33A7 /* DatePickerForRegisterView.m */,
 			);
@@ -675,7 +670,6 @@
 				7A04F57718901CA9009FAA3B /* SearchTableView.m in Sources */,
 				7A04F57A18904B94009FAA3B /* FoodsAndDrinksTableView.m in Sources */,
 				7AC9205A1890641B0061E61A /* Communication.m in Sources */,
-				7AD0DB3A1891343A007DBB1E /* InfoAboutTheApplicationView.m in Sources */,
 				7AF627CC18914F8800A57FA0 /* RatingTableViewViewController.m in Sources */,
 				7A4FA9E5189160D000222870 /* DrinkOrFoodView.m in Sources */,
 				7A4FA9E81891963900222870 /* AddNewClubTableView.m in Sources */,

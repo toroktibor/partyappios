@@ -11,13 +11,14 @@
 #import "Session.h"
 #import <QuartzCore/QuartzCore.h>
 #import "DatePickerForRegisterView.h"
+#import "User.h"
 
 @interface RegisterView ()
 
 @end
 
 @implementation RegisterView
-@synthesize name,password,passwordAgain,email,birthdate,segmentControl,registerButton,cancelButton;
+@synthesize name,password,passwordAgain,email,birthdate,segmentControl,registerButton,cancelButton,user;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -49,7 +50,14 @@
     //registerButton.layer.borderColor = [UIColor grayColor].CGColor;
     registerButton.clipsToBounds = YES;
     
-  
+   
+    //locationmanager a saját helyem meghatározásához
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
+    
     
     name.delegate=self;
     name.tag=0;
@@ -129,15 +137,94 @@
                                                    otherButtonTitles: nil];
         [alertview show];
     }
-   else{
-      
+    else if(![password.text isEqualToString:passwordAgain.text]){
         
+        UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Regisztrációs hiba!"
+                                                             message:@"A megadott jelszevak nem egyezenek!"
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"Ok"
+                                                   otherButtonTitles: nil];
+        [alertview show];
         
     }
+   else{
+      
+       user=[[[Session getInstance]getCommunication]registerANewUserWithName:name.text andPassword:password.text
+                                                                andEmail:email.text andSex:[segmentControl selectedSegmentIndex] andBirthday:birthdate.text];
+    
+    
+       if(!user){
+           UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Regisztrációs hiba!"
+                                                                message:@"A felhasználónév már foglalt!"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Ok"
+                                                      otherButtonTitles: nil];
+    
+  
+           [alertview show];
+       }
+       else{
+  
+                [[Session getInstance]setActualUser:user];
+           
+           
+           if (locationManager.location.coordinate.latitude==0 && locationManager.location.coordinate.longitude==0) {
+               NSMutableArray * inputClubList = [[[Session getInstance] getCommunication] getClubsFromCityName:@"Debrecen"];
+               [[Session getInstance] setSearchViewCLubs:inputClubList];
+               
+               
+               UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+               
+               tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+               [self presentViewController: tabBar animated: YES completion:nil];
+               
+           }
+           else{
+               //location managerből kiszedjük a kordinátákat
+               NSString *lat=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.latitude];
+               NSString *lon=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.longitude];
+               
+               
+               //a meghívandó url string-be behegesztjük a kordinátákat
+               NSString *urlstring=[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?latlng=%@,%@&sensor=false",lat,lon];
+               
+               //az url stringből létrehozunk egy urlt
+               NSURL *url = [NSURL URLWithString:urlstring];
+               
+               //NSLog(@"%@",urlstring);
+               
+               //az url-ből visszakapunk egy egy json-t
+               NSData *jsonData = [NSData dataWithContentsOfURL:url];
+               NSError *error;
+               
+               //json-t átadjuk egy szótárnak
+               NSDictionary *decoded= [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+               
+               NSLog(@"%@",[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
+               
+               NSString* cityName=[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"];
+               
+               NSString* address=[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"formatted_address"];
+               [[Session getInstance]setUserLocation:address];
+               //NSLog(@"%@",address);
+               
+               NSMutableArray * inputClubList = [[[Session getInstance] getCommunication] getClubsFromCityName:cityName];
+               [[Session getInstance] setSearchViewCLubs:inputClubList];
+               
+               
+               UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+               
+               tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+               [self presentViewController: tabBar animated: YES completion:nil];
+               
+           }
+
+           
+       }
+           
+        
 }
-
-
-
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -157,6 +244,11 @@
 -(void)viewWillAppear:(BOOL)animated{
     birthdate.text=[[Session getInstance]getBirthday];
     [super viewWillAppear:animated];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [[Session getInstance]setBirthDay:@""];
+    [super viewWillDisappear:animated];
 }
 
 - (IBAction)pickDate:(id)sender {

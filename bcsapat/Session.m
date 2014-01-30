@@ -176,7 +176,7 @@ static Session * _instance = nil;
         image=[[UIImage alloc]init];
         menuItemCategory=@"Kategória";
         eventTime=@"Esemény időpontja";
-        birthday=@"Születési dátum";
+        birthday=@"";
     }
     return self;
 }

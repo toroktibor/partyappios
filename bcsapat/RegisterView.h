@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import "User.h"
 
-@interface RegisterView : UIViewController<UITextFieldDelegate>
-
+@interface RegisterView : UIViewController<CLLocationManagerDelegate,UITextFieldDelegate>{
+    CLLocationManager *locationManager;
+}
 - (IBAction)cancel:(id)sender;
 - (IBAction)register:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *name;
@@ -22,4 +25,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *changeDateButton;
 - (IBAction)pickDate:(id)sender;
+
+@property User * user;
 @end
