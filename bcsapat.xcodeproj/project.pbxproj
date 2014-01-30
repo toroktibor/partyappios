@@ -34,6 +34,7 @@
 		7A43B8E7187C46F500725428 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A43B8E5187C46F500725428 /* MainStoryboard_iPhone.storyboard */; };
 		7A43B8EA187C46F500725428 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A43B8E8187C46F500725428 /* MainStoryboard_iPad.storyboard */; };
 		7A43B8F4187C519600725428 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A43B8F3187C519600725428 /* MapKit.framework */; };
+		7A43B911189A55B3005B33A7 /* DatePickerForEditProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A43B910189A55B3005B33A7 /* DatePickerForEditProfileView.m */; };
 		7A4FA9E5189160D000222870 /* DrinkOrFoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FA9E4189160D000222870 /* DrinkOrFoodView.m */; };
 		7A4FA9E81891963900222870 /* AddNewClubTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FA9E71891963900222870 /* AddNewClubTableView.m */; };
 		7AC9205A1890641B0061E61A /* Communication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC920591890641B0061E61A /* Communication.m */; };
@@ -138,6 +139,8 @@
 		7A43B8E6187C46F500725428 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		7A43B8E9187C46F500725428 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		7A43B8F3187C519600725428 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7A43B90F189A55B3005B33A7 /* DatePickerForEditProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerForEditProfileView.h; sourceTree = "<group>"; };
+		7A43B910189A55B3005B33A7 /* DatePickerForEditProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerForEditProfileView.m; sourceTree = "<group>"; };
 		7A4FA9E3189160D000222870 /* DrinkOrFoodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkOrFoodView.h; sourceTree = "<group>"; };
 		7A4FA9E4189160D000222870 /* DrinkOrFoodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkOrFoodView.m; sourceTree = "<group>"; };
 		7A4FA9E61891963900222870 /* AddNewClubTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewClubTableView.h; sourceTree = "<group>"; };
@@ -385,6 +388,8 @@
 				7ACCC65718931872006B0A0C /* AdminTableView.m */,
 				7ADBD2FD18957FE2008A2261 /* NotificationDetailView.h */,
 				7ADBD2FE18957FE2008A2261 /* NotificationDetailView.m */,
+				7A43B90F189A55B3005B33A7 /* DatePickerForEditProfileView.h */,
+				7A43B910189A55B3005B33A7 /* DatePickerForEditProfileView.m */,
 			);
 			name = ReachFromActionSheet;
 			sourceTree = "<group>";
@@ -689,6 +694,7 @@
 				7ADA4568189940D00071DFB3 /* AdminRating.m in Sources */,
 				7AE4420718997D5A00BE08A9 /* GaleryImage.m in Sources */,
 				7AE4420B1899834A00BE08A9 /* Base64.m in Sources */,
+				7A43B911189A55B3005B33A7 /* DatePickerForEditProfileView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

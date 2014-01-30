@@ -16,7 +16,7 @@
 @end
 
 @implementation EditProfileView
-@synthesize nameTextField,emailTextField,birthDayTextField,segmentControl,saveButton;
+@synthesize nameTextField,emailTextField,birthDayTextField,segmentControl,saveButton,changeDateButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,6 +57,9 @@
     
     saveButton.layer.cornerRadius = 8;
     saveButton.clipsToBounds = YES;
+    
+    changeDateButton.layer.cornerRadius = 8;
+    changeDateButton.clipsToBounds = YES;
     
 	// Do any additional setup after loading the view.
 }
@@ -120,4 +123,10 @@
     }
     return NO; // We do not want UITextField to insert line-breaks.
 }
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    [birthDayTextField setText:[[[Session getInstance]getActualUser]getBirthday]];
+}
+
 @end
