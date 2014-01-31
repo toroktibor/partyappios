@@ -16,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *unitLabel;
 @property (weak, nonatomic) IBOutlet UILabel *discountLabel;
 
+-(void)moveToTrash;
+-(void)edit;
 @end

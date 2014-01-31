@@ -10,6 +10,7 @@
 #import "Session.h"
 #import "Club.h"
 #import "MenuItem.h"
+#import "EditMenuItemView.h"
 
 @interface DrinkOrFoodView ()
 
@@ -37,6 +38,15 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    UIBarButtonItem *Szerk = [[UIBarButtonItem alloc] initWithTitle:@"Szerk." style:UIBarButtonItemStyleBordered target:self action:@selector(edit)];
+    UIBarButtonItem *delete = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(moveToTrash)];
+    
+    
+    
+    NSArray *actionButtonItems = @[Szerk, delete];
+    self.navigationItem.rightBarButtonItems = actionButtonItems;
+    
+    
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bricskok.png"]];
     
     self.tableView.backgroundView = imageView;
@@ -52,7 +62,7 @@
     if (!([user isThisUserOwnerOfClub:[club getIdentifier]] || [user getType]==1))
         
         if ([[[Session getInstance]getActualUser]getType]==0) {
-            self.navigationItem.rightBarButtonItem=nil;
+            self.navigationItem.rightBarButtonItems=nil;
         }
     
     
@@ -220,5 +230,30 @@
     
     [super viewWillAppear:animated];
 }
+
+
+-(void)edit{
+    EditMenuItemView *EditMenuItemView =
+    [self.storyboard instantiateViewControllerWithIdentifier:@"EditMenuItemView"];
+    [self.navigationController pushViewController:EditMenuItemView  animated:YES];
+}
+
+-(void)moveToTrash{
+    NSLog(@"trash");
+    NSMutableArray * menuItemsArray=[[NSMutableArray alloc]init];
+    int selectedIndex=[[Session getInstance]getSelectedIndex];
+    Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+    menuItemsArray=[club getMenuItems];
+    
+    int itemIndex=[[Session getInstance]getMenuItemIndex];
+    
+    MenuItem *item=[menuItemsArray objectAtIndex:itemIndex];
+    
+    
+    [[[Session getInstance]getCommunication] removeEMenuItemWithMenuId:[item getIdentifier]];
+    
+    [menuItemsArray removeObjectAtIndex:selectedIndex];
+}
+
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="13A598" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xnX-3U-ipj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xnX-3U-ipj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -2490,13 +2490,7 @@ EEVzZW3DqW55ZWs
                             <outlet property="delegate" destination="sUt-M8-Fmt" id="vDb-uY-1K2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Étel, ital" id="J5I-VT-qoY">
-                        <barButtonItem key="rightBarButtonItem" title="Szerk." id="gjx-NP-Lp1">
-                            <connections>
-                                <segue destination="21Y-1h-3hc" kind="push" id="ccq-Dm-RhM"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Étel, ital" id="J5I-VT-qoY"/>
                     <connections>
                         <outlet property="categoryLabel" destination="CFK-6k-fS7" id="TBN-cZ-7aK"/>
                         <outlet property="currencyLabel" destination="3TO-Tx-2d4" id="FM7-g1-Bmz"/>
@@ -2504,6 +2498,7 @@ EEVzZW3DqW55ZWs
                         <outlet property="nameLabel" destination="GVz-lj-TS0" id="cm2-K0-87h"/>
                         <outlet property="priceLabel" destination="9uo-oi-xiW" id="7CQ-zW-TuV"/>
                         <outlet property="unitLabel" destination="OdV-4K-qiG" id="wRO-3x-CDT"/>
+                        <segue destination="21Y-1h-3hc" kind="push" id="Hu8-yW-o85"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfz-N1-09l" userLabel="First Responder" sceneMemberID="firstResponder"/>
