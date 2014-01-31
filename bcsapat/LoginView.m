@@ -125,6 +125,8 @@
     } else {
         // Not found, so remove keyboard.
         [textField resignFirstResponder];
+        [self loginButtonPressed: nil];
+        
     }
     return NO; // We do not want UITextField to insert line-breaks.
 }
