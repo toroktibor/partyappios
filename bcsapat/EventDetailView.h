@@ -15,4 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *musicTypeLabel;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionText;
 
+-(void)edit;
+-(void)moveToTrash;
+
 @end
