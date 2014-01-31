@@ -1,5 +1,5 @@
 //
-//  PendingOwnerRequestViewController.h
+//  PendingOwnerRequestController.h
 //  bcsapat
 //
 //  Created by Remek Elek on 31/01/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PendingOwnerRequestViewController : UITableViewController
+@interface PendingOwnerRequestController : UITableViewCell
 
 @end

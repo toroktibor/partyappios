@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PendingImageViewController : UIViewController
+@interface PendingImageViewController : UITableViewController
 
 @end

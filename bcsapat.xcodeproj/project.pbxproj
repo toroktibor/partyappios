@@ -102,10 +102,10 @@
 		7AF627CC18914F8800A57FA0 /* RatingTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF627CB18914F8800A57FA0 /* RatingTableViewViewController.m */; };
 		7AFFF40618859CEC000B06FD /* SillyCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFF40518859CEC000B06FD /* SillyCommunication.m */; };
 		E326C559189BE0AC007F578D /* PendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E326C558189BE0AC007F578D /* PendingViewController.m */; };
-		E326C55C189BE58C007F578D /* PendingNewClubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E326C55B189BE58C007F578D /* PendingNewClubViewController.m */; };
-		E326C55F189BE6BE007F578D /* PendingOwnerRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E326C55E189BE6BE007F578D /* PendingOwnerRequestViewController.m */; };
-		E326C562189BE755007F578D /* PendingRatingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E326C561189BE755007F578D /* PendingRatingsViewController.m */; };
-		E326C565189BE785007F578D /* PendingImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E326C564189BE785007F578D /* PendingImageViewController.m */; };
+		E326C56E189BF0A7007F578D /* PendingNewClubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E326C56D189BF0A7007F578D /* PendingNewClubViewController.m */; };
+		E326C571189BF0F2007F578D /* PendingOwnerRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E326C570189BF0F2007F578D /* PendingOwnerRequestViewController.m */; };
+		E326C574189BF10E007F578D /* PendingRatingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E326C573189BF10E007F578D /* PendingRatingsViewController.m */; };
+		E326C577189BF407007F578D /* PendingImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E326C576189BF407007F578D /* PendingImageViewController.m */; };
 		E358E7A818994FBB007D07B7 /* OwnerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E358E7A718994FBB007D07B7 /* OwnerRequest.m */; };
 /* End PBXBuildFile section */
 
@@ -261,14 +261,14 @@
 		7AFFF40518859CEC000B06FD /* SillyCommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SillyCommunication.m; sourceTree = "<group>"; };
 		E326C557189BE0AC007F578D /* PendingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingViewController.h; sourceTree = "<group>"; };
 		E326C558189BE0AC007F578D /* PendingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingViewController.m; sourceTree = "<group>"; };
-		E326C55A189BE58C007F578D /* PendingNewClubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingNewClubViewController.h; sourceTree = "<group>"; };
-		E326C55B189BE58C007F578D /* PendingNewClubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingNewClubViewController.m; sourceTree = "<group>"; };
-		E326C55D189BE6BE007F578D /* PendingOwnerRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingOwnerRequestViewController.h; sourceTree = "<group>"; };
-		E326C55E189BE6BE007F578D /* PendingOwnerRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingOwnerRequestViewController.m; sourceTree = "<group>"; };
-		E326C560189BE755007F578D /* PendingRatingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingRatingsViewController.h; sourceTree = "<group>"; };
-		E326C561189BE755007F578D /* PendingRatingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingRatingsViewController.m; sourceTree = "<group>"; };
-		E326C563189BE785007F578D /* PendingImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingImageViewController.h; sourceTree = "<group>"; };
-		E326C564189BE785007F578D /* PendingImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingImageViewController.m; sourceTree = "<group>"; };
+		E326C56C189BF0A7007F578D /* PendingNewClubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingNewClubViewController.h; sourceTree = "<group>"; };
+		E326C56D189BF0A7007F578D /* PendingNewClubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingNewClubViewController.m; sourceTree = "<group>"; };
+		E326C56F189BF0F2007F578D /* PendingOwnerRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingOwnerRequestViewController.h; sourceTree = "<group>"; };
+		E326C570189BF0F2007F578D /* PendingOwnerRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingOwnerRequestViewController.m; sourceTree = "<group>"; };
+		E326C572189BF10E007F578D /* PendingRatingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingRatingsViewController.h; sourceTree = "<group>"; };
+		E326C573189BF10E007F578D /* PendingRatingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingRatingsViewController.m; sourceTree = "<group>"; };
+		E326C575189BF407007F578D /* PendingImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingImageViewController.h; sourceTree = "<group>"; };
+		E326C576189BF407007F578D /* PendingImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingImageViewController.m; sourceTree = "<group>"; };
 		E358E7A618994FBB007D07B7 /* OwnerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnerRequest.h; sourceTree = "<group>"; };
 		E358E7A718994FBB007D07B7 /* OwnerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnerRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -411,14 +411,14 @@
 				7A43B910189A55B3005B33A7 /* DatePickerForEditProfileView.m */,
 				E326C557189BE0AC007F578D /* PendingViewController.h */,
 				E326C558189BE0AC007F578D /* PendingViewController.m */,
-				E326C55A189BE58C007F578D /* PendingNewClubViewController.h */,
-				E326C55B189BE58C007F578D /* PendingNewClubViewController.m */,
-				E326C55D189BE6BE007F578D /* PendingOwnerRequestViewController.h */,
-				E326C55E189BE6BE007F578D /* PendingOwnerRequestViewController.m */,
-				E326C560189BE755007F578D /* PendingRatingsViewController.h */,
-				E326C561189BE755007F578D /* PendingRatingsViewController.m */,
-				E326C563189BE785007F578D /* PendingImageViewController.h */,
-				E326C564189BE785007F578D /* PendingImageViewController.m */,
+				E326C56C189BF0A7007F578D /* PendingNewClubViewController.h */,
+				E326C56D189BF0A7007F578D /* PendingNewClubViewController.m */,
+				E326C56F189BF0F2007F578D /* PendingOwnerRequestViewController.h */,
+				E326C570189BF0F2007F578D /* PendingOwnerRequestViewController.m */,
+				E326C572189BF10E007F578D /* PendingRatingsViewController.h */,
+				E326C573189BF10E007F578D /* PendingRatingsViewController.m */,
+				E326C575189BF407007F578D /* PendingImageViewController.h */,
+				E326C576189BF407007F578D /* PendingImageViewController.m */,
 			);
 			name = ReachFromActionSheet;
 			sourceTree = "<group>";
@@ -729,10 +729,10 @@
 				7A43B911189A55B3005B33A7 /* DatePickerForEditProfileView.m in Sources */,
 				7A43B914189A618C005B33A7 /* DatePickerForRegisterView.m in Sources */,
 				E326C559189BE0AC007F578D /* PendingViewController.m in Sources */,
-				E326C55C189BE58C007F578D /* PendingNewClubViewController.m in Sources */,
-				E326C55F189BE6BE007F578D /* PendingOwnerRequestViewController.m in Sources */,
-				E326C562189BE755007F578D /* PendingRatingsViewController.m in Sources */,
-				E326C565189BE785007F578D /* PendingImageViewController.m in Sources */,
+				E326C56E189BF0A7007F578D /* PendingNewClubViewController.m in Sources */,
+				E326C571189BF0F2007F578D /* PendingOwnerRequestViewController.m in Sources */,
+				E326C574189BF10E007F578D /* PendingRatingsViewController.m in Sources */,
+				E326C577189BF407007F578D /* PendingImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
