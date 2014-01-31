@@ -47,10 +47,15 @@
     
     int selectedIndex=[[Session getInstance]getSelectedIndex];
     Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+    User * user=[[Session getInstance]getActualUser];
     
     menuItemsArray=[club getMenuItems];
     
     //jobb felső sarokban hozzáadás gomb elrejtése, adminra van vizsgálva, majd átt kell írni user-ra
+    
+    
+    if (!([user isThisUserOwnerOfClub:[club getIdentifier]] || [user getType]==1))
+    
     if ([[[Session getInstance]getActualUser]getType]==0) {
         self.navigationItem.rightBarButtonItem=nil;
     }

@@ -47,8 +47,17 @@
     
     int selectedIndex=[[Session getInstance]getSelectedIndex];
     Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+    User * user=[[Session getInstance]getActualUser];
+    
+    if (!([user isThisUserOwnerOfClub:[club getIdentifier]] || [user getType]==1))
+        
+        if ([[[Session getInstance]getActualUser]getType]==0) {
+            self.navigationItem.rightBarButtonItem=nil;
+        }
+    
     
     eventsArray=[club getEvents];
+    
 }
 
 - (void)didReceiveMemoryWarning
