@@ -17,7 +17,7 @@
 @end
 
 @implementation LoginView
-@synthesize userName,password,loginButton,registerButton;
+@synthesize userName,password,loginButton,registerButton,scrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -243,6 +243,13 @@
     NSMutableArray * usersClubList = [[[Session getInstance] getCommunication] getOwnedClubsFromUserId:user_id];
     [[[Session getInstance] getActualUser] setUsersClubs:usersClubList];
     [[Session getInstance] setSearchViewCLubs:inputClubList];*/
+}
+
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [self.scrollView setContentSize:CGSizeMake(320, 400)];
 }
 
 @end
