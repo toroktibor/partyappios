@@ -609,7 +609,7 @@
         <!--Table View Controller - Jóváhagyandó klubok-->
         <scene sceneID="PXU-Cm-bsP">
             <objects>
-                <tableViewController title="Jóváhagyandó klubok" id="kct-sS-pN9" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PendingNewClubViewController" title="Jóváhagyandó klubok" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kct-sS-pN9" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zPr-zl-hvk">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -639,7 +639,7 @@
         <!--Table View Controller - Jóváhagyandó képek-->
         <scene sceneID="4PV-gS-9M2">
             <objects>
-                <tableViewController title="Jóváhagyandó képek" id="5u1-B8-yM2" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PendingImageViewController" title="Jóváhagyandó képek" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5u1-B8-yM2" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="x8W-rh-rVD">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -669,7 +669,7 @@
         <!--Table View Controller - Jóváhagyandó értékelések-->
         <scene sceneID="cZL-Yk-Fvq">
             <objects>
-                <tableViewController title="Jóváhagyandó értékelések" id="NeE-gx-RfN" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PendingRatingsViewController" title="Jóváhagyandó értékelések" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NeE-gx-RfN" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="exB-N0-wZY">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -699,7 +699,7 @@
         <!--Table View Controller - Jóváhagyandó tulajdonosok-->
         <scene sceneID="TS5-fe-d1I">
             <objects>
-                <tableViewController title="Jóváhagyandó tulajdonosok" id="Pgg-YM-580" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PendingOwnerRequestViewController" title="Jóváhagyandó tulajdonosok" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pgg-YM-580" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Mj9-gw-2nb">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
