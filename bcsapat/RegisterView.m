@@ -18,7 +18,7 @@
 @end
 
 @implementation RegisterView
-@synthesize name,password,passwordAgain,email,birthdate,segmentControl,registerButton,cancelButton,user,changeDateButton;
+@synthesize name,password,passwordAgain,email,birthdate,segmentControl,registerButton,cancelButton,user,changeDateButton,scrollView;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -39,6 +39,8 @@
     
     segmentControl.segmentedControlStyle = UISegmentedControlStyleBar;
     
+    [changeDateButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [changeDateButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
 
     cancelButton.layer.cornerRadius = 8;
     //loginButton.layer.borderWidth = 1;
@@ -260,8 +262,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     birthdate = [[Session getInstance]getBirthday];
-        changeDateButton.tintColor = [UIColor colorWithRed:(154/255.0)   green:(111/255.0)  blue:(189/255.0)  alpha:0.5];
     [changeDateButton setTitle: birthdate forState:UIControlStateNormal ];
+    [changeDateButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [changeDateButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [super viewWillAppear:animated];
 }
 
@@ -275,5 +278,13 @@
     DatePickerForRegisterView *DatePickerForRegisterView=
     [self.storyboard instantiateViewControllerWithIdentifier:@"DatePickerForRegisterView"];
     [self presentViewController:DatePickerForRegisterView animated:YES completion:nil];
+}
+
+
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [self.scrollView setContentSize:CGSizeMake(320, 400)];
 }
 @end

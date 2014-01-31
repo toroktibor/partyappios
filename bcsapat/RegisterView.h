@@ -26,5 +26,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *changeDateButton;
 - (IBAction)pickDate:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property User * user;
 @end
