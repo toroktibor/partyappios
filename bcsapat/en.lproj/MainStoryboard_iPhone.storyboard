@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xnX-3U-ipj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xnX-3U-ipj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -2272,11 +2272,84 @@ EEVzZW3DqW55ZWs
                         <segue destination="Cdo-Iw-CQO" kind="push" identifier="ShowClubMap" id="cKr-Tp-6P5"/>
                         <segue destination="dhk-Ba-REB" kind="push" id="Uw0-I0-Nt6"/>
                         <segue destination="Rk4-3e-D59" kind="push" id="18s-fS-n37"/>
+                        <segue destination="sGv-6H-RnO" kind="push" id="R3n-l2-slv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E7E-Z7-CNg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1921" y="-2543"/>
+        </scene>
+        <!--High Ligh Request View - Kiemelés-->
+        <scene sceneID="9tb-vV-y6k">
+            <objects>
+                <viewController storyboardIdentifier="HighLighRequestView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sGv-6H-RnO" customClass="HighLighRequestView" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wJn-rb-Z0d">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nhd-gd-ubR">
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YkW-4u-SBQ">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="216" id="9W7-Jq-Ghl"/>
+                                        </constraints>
+                                    </pickerView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hány napra kéred a kiemelést?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lxc-lb-G83">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="290" id="gjx-ef-hUz"/>
+                                            <constraint firstAttribute="height" constant="21" id="nxT-HO-sS5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pzd-qe-S8F">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Rendben">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addHighLight:" destination="sGv-6H-RnO" eventType="touchUpInside" id="kII-by-3Qo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="YkW-4u-SBQ" firstAttribute="trailing" secondItem="Nhd-gd-ubR" secondAttribute="trailing" type="default" id="0IL-BL-92w"/>
+                                    <constraint firstItem="YkW-4u-SBQ" firstAttribute="leading" secondItem="Nhd-gd-ubR" secondAttribute="leading" type="default" id="5Cj-rZ-Kjk"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pzd-qe-S8F" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="7v6-qo-1pR"/>
+                                    <constraint firstItem="lxc-lb-G83" firstAttribute="centerX" secondItem="Nhd-gd-ubR" secondAttribute="centerX" type="default" id="FCd-4M-YXZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pzd-qe-S8F" secondAttribute="bottom" constant="121" id="GQQ-CB-2Or"/>
+                                    <constraint firstItem="lxc-lb-G83" firstAttribute="top" secondItem="Nhd-gd-ubR" secondAttribute="top" constant="20" symbolic="YES" type="default" id="HVt-gr-GGN"/>
+                                    <constraint firstItem="Pzd-qe-S8F" firstAttribute="leading" secondItem="Nhd-gd-ubR" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ejF-Be-pgr"/>
+                                    <constraint firstItem="YkW-4u-SBQ" firstAttribute="centerX" secondItem="lxc-lb-G83" secondAttribute="centerX" type="default" id="giJ-Ra-7sS"/>
+                                    <constraint firstItem="YkW-4u-SBQ" firstAttribute="top" secondItem="Nhd-gd-ubR" secondAttribute="top" constant="54" id="mzM-Mi-aWk"/>
+                                    <constraint firstItem="Pzd-qe-S8F" firstAttribute="top" secondItem="Nhd-gd-ubR" secondAttribute="top" constant="291" id="ogT-Ok-4Xm"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nhd-gd-ubR" firstAttribute="leading" secondItem="wJn-rb-Z0d" secondAttribute="leading" type="default" id="WkI-lR-8LX"/>
+                            <constraint firstItem="Nhd-gd-ubR" firstAttribute="top" secondItem="wJn-rb-Z0d" secondAttribute="top" type="default" id="ht7-wy-NwP"/>
+                            <constraint firstItem="Nhd-gd-ubR" firstAttribute="bottom" secondItem="wJn-rb-Z0d" secondAttribute="bottom" type="default" id="tou-gp-WPY"/>
+                            <constraint firstItem="Nhd-gd-ubR" firstAttribute="trailing" secondItem="wJn-rb-Z0d" secondAttribute="trailing" type="default" id="twn-Yr-CVd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Kiemelés" id="i1Y-G8-xKn"/>
+                    <connections>
+                        <outlet property="a" destination="Nhd-gd-ubR" id="KsJ-PO-hAt"/>
+                        <outlet property="button" destination="Pzd-qe-S8F" id="PhR-i0-xz7"/>
+                        <outlet property="label" destination="lxc-lb-G83" id="INh-KV-vgP"/>
+                        <outlet property="typePicker" destination="YkW-4u-SBQ" id="vfP-Lz-nMe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Mn-fh-3GK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1921" y="-1802"/>
         </scene>
         <!--Foods And Drinks Table View - Étlap, itallap-->
         <scene sceneID="YMU-aa-dDu">

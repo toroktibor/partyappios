@@ -15,6 +15,7 @@
 #import "FoodsAndDrinksTableView.h"
 #import "RatingTableViewViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "HighLighRequestView.h"
 
 @interface InformationView ()
 @end
@@ -248,6 +249,10 @@
         else if (buttonIndex == 6){
             
             NSLog(@"kiemelés kérése");
+            HighLighRequestView *HighLighRequestView=
+            [self.storyboard instantiateViewControllerWithIdentifier:@"HighLighRequestView"];
+            [self.navigationController pushViewController:HighLighRequestView animated:YES];
+           
         }
         
         
