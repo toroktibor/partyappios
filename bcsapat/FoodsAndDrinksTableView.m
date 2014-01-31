@@ -55,6 +55,8 @@
         self.navigationItem.rightBarButtonItem=nil;
     }
     
+    NSLog(@"%d menu items",[menuItemsArray count]);
+    
 }
 
 - (void)didReceiveMemoryWarning

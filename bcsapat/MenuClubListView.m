@@ -117,7 +117,11 @@
                                                alpha:0.2];
     
     
-    
+    UIView *design = [[UIView alloc] init];
+    design.backgroundColor = [UIColor colorWithRed:60/255.0
+                                               green:60/255.0
+                                                blue:100/255.0
+                                               alpha:0.5];
     
     cell.selectedBackgroundView =  customColorView;
     
@@ -128,7 +132,7 @@
         cell.imageView.image=[UIImage imageNamed:@"128px-Featured_Article_Star.svg.png"];
     }
     else{
-        cell.backgroundView=nil;
+        cell.backgroundView=design;
         cell.imageView.image=nil;
     }
     
@@ -221,6 +225,8 @@
     [club1 setPhoneNumber: [ fullClub getPhoneNumber ]];
     [club1 setEmail: [fullClub getEmail]];
     [club1 setDescription:[fullClub getDescription]];
+    
+    [club1 setMenuItems:[[[Session getInstance]getCommunication]getMenuItemsForClubWithClubId:club_id]];
     
 
     [[club1 getImages] removeAllObjects];

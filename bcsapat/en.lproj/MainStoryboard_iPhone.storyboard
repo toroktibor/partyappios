@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xnX-3U-ipj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="xnX-3U-ipj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -122,6 +122,7 @@
                         <outlet property="loginButton" destination="eEe-Cn-z81" id="zL0-xg-sIA"/>
                         <outlet property="password" destination="9p9-Fl-FeF" id="g2X-ky-qTO"/>
                         <outlet property="registerButton" destination="rjP-NJ-1hd" id="sqn-6M-GHx"/>
+                        <outlet property="scrollView" destination="JAs-Lz-b8g" id="bd3-jc-6y9"/>
                         <outlet property="userName" destination="0IH-rY-lL0" id="Awd-va-lNy"/>
                     </connections>
                 </viewController>
@@ -1644,53 +1645,85 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Esemény neve" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hF2-dG-xgP">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="ui1-xJ-iOU"/>
+                                    <constraint firstAttribute="height" constant="21" id="gy8-2P-4dH"/>
+                                    <constraint firstAttribute="width" constant="196" id="r67-86-UNm"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Esemény időpontja" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqG-78-AbF">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="Dnf-da-TAi"/>
+                                    <constraint firstAttribute="height" constant="21" id="UNf-Jd-bxY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Zenei stílus" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0F-eN-aBq">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ZjG-ct-hVR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Részletek:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIP-js-DDj">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="SKC-4I-daP"/>
+                                    <constraint firstAttribute="height" constant="21" id="tcS-iJ-Zvp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zgf-lY-pee">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="172" id="SIZ-uD-SZ6"/>
+                                    <constraint firstAttribute="height" constant="115" id="unK-sY-0lA"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Esemény időpontja:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rt0-iQ-fmD">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="183" id="9CQ-bx-6FM"/>
+                                    <constraint firstAttribute="height" constant="21" id="enK-7J-oMC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Zenei stílus:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNh-W6-G07">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="153" id="e2g-tE-FkS"/>
+                                    <constraint firstAttribute="height" constant="21" id="yJd-v0-Hsy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="vqG-78-AbF" firstAttribute="leading" secondItem="w9D-LH-rYd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="3t0-P7-Sd1"/>
-                            <constraint firstItem="vqG-78-AbF" firstAttribute="trailing" secondItem="hF2-dG-xgP" secondAttribute="trailing" type="default" id="4YN-aY-fho"/>
-                            <constraint firstItem="DIP-js-DDj" firstAttribute="top" secondItem="w9D-LH-rYd" secondAttribute="top" constant="176" id="Ivd-zJ-iuM"/>
-                            <constraint firstItem="hF2-dG-xgP" firstAttribute="leading" secondItem="w9D-LH-rYd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Ou2-GP-OLi"/>
-                            <constraint firstItem="vqG-78-AbF" firstAttribute="top" secondItem="w9D-LH-rYd" secondAttribute="top" constant="64" id="PiS-2t-HeQ"/>
-                            <constraint firstItem="Zgf-lY-pee" firstAttribute="top" secondItem="DIP-js-DDj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="TtA-SF-pGN"/>
+                            <constraint firstItem="DIP-js-DDj" firstAttribute="top" secondItem="w9D-LH-rYd" secondAttribute="top" constant="203" id="F8t-h3-itr"/>
+                            <constraint firstItem="E0F-eN-aBq" firstAttribute="top" secondItem="eNh-W6-G07" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="SLg-nJ-Lhc"/>
+                            <constraint firstItem="Zgf-lY-pee" firstAttribute="centerX" secondItem="DIP-js-DDj" secondAttribute="centerX" type="default" id="SlU-4x-7ts"/>
                             <constraint firstItem="E0F-eN-aBq" firstAttribute="leading" secondItem="w9D-LH-rYd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Uwa-z3-Jid"/>
                             <constraint firstItem="vqG-78-AbF" firstAttribute="trailing" secondItem="E0F-eN-aBq" secondAttribute="trailing" type="default" id="VBj-zi-LUP"/>
+                            <constraint firstItem="rt0-iQ-fmD" firstAttribute="leading" secondItem="w9D-LH-rYd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="VcM-fh-hnS"/>
+                            <constraint firstItem="eNh-W6-G07" firstAttribute="top" secondItem="w9D-LH-rYd" secondAttribute="top" constant="131" id="YcQ-bL-B14"/>
                             <constraint firstAttribute="trailing" secondItem="Zgf-lY-pee" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="dIb-zM-ZAc"/>
-                            <constraint firstItem="E0F-eN-aBq" firstAttribute="top" secondItem="w9D-LH-rYd" secondAttribute="top" constant="107" id="l9d-hp-RiT"/>
+                            <constraint firstItem="Zgf-lY-pee" firstAttribute="top" secondItem="DIP-js-DDj" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="hq0-sz-LdT"/>
+                            <constraint firstItem="rt0-iQ-fmD" firstAttribute="top" secondItem="w9D-LH-rYd" secondAttribute="top" constant="64" id="kmA-2W-ZeC"/>
+                            <constraint firstItem="eNh-W6-G07" firstAttribute="leading" secondItem="w9D-LH-rYd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="leD-2Q-gj3"/>
                             <constraint firstItem="Zgf-lY-pee" firstAttribute="leading" secondItem="w9D-LH-rYd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="lr6-EB-oYw"/>
-                            <constraint firstItem="E0F-eN-aBq" firstAttribute="trailing" secondItem="DIP-js-DDj" secondAttribute="trailing" type="default" id="pCZ-Fy-plB"/>
-                            <constraint firstItem="DIP-js-DDj" firstAttribute="leading" secondItem="w9D-LH-rYd" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="we2-tu-c8k"/>
+                            <constraint firstItem="hF2-dG-xgP" firstAttribute="centerX" secondItem="DIP-js-DDj" secondAttribute="centerX" type="default" id="wR6-3d-TQP"/>
                             <constraint firstItem="hF2-dG-xgP" firstAttribute="top" secondItem="w9D-LH-rYd" secondAttribute="top" constant="20" symbolic="YES" type="default" id="wm9-Z5-GCm"/>
+                            <constraint firstItem="vqG-78-AbF" firstAttribute="top" secondItem="rt0-iQ-fmD" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="zIj-NF-FXi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Részletek" id="HbR-ci-ees">
@@ -3566,7 +3599,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstAttribute="width" constant="142" id="P5D-nA-m6c"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VUh-o4-jvx">
                                         <constraints>
@@ -3708,8 +3741,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="Hlj-Vp-otv"/>
         <segue reference="wWz-6N-LQq"/>
         <segue reference="Xhu-YV-zEt"/>
-        <segue reference="Hlj-Vp-otv"/>
     </inferredMetricsTieBreakers>
 </document>

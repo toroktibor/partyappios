@@ -442,9 +442,8 @@ return nil;
         
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
         
-        for( NSDictionary* jd in array){
-            return [[jd objectForKey:@"NewID"] intValue];
-        }
+        return [[array objectForKey:@"NewID"] intValue];
+
     }@catch (NSException *e) {
         ;
     }
@@ -544,10 +543,8 @@ return nil;
         
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
         
-        for (NSDictionary* jd in array) {
-            int event_id =  [[jd objectForKey:@"NewID"] intValue];
-            return event_id;
-        }
+        return [[array objectForKey:@"NewID"] intValue];
+        
         
     } @catch (NSException *e) {
         
