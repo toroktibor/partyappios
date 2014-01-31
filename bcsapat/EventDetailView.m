@@ -11,6 +11,7 @@
 #import "Club.h"
 #import "Event.h"
 #import <QuartzCore/QuartzCore.h>
+#import "EventEditView.h"
 
 @interface EventDetailView ()
 
@@ -103,10 +104,62 @@
 
 -(void)edit{
     
+    EventEditView *EventEditView=
+    [self.storyboard instantiateViewControllerWithIdentifier:@"EventEditView"];
+    [self.navigationController pushViewController:EventEditView animated:YES];
 }
 
 
 -(void)moveToTrash{
+    
+    UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Biztos, hogy törölni akarod?"
+                                                         message:nil
+                                                        delegate:self
+                                               cancelButtonTitle:@"Nem"
+                                               otherButtonTitles:@"Igen", nil];
+    [alertview show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0){
+        NSLog(@"mégse");
+    }
+    else if(buttonIndex==1){
+        /*NSLog(@"trash");
+        NSMutableArray * menuItemsArray=[[NSMutableArray alloc]init];
+        int selectedIndex=[[Session getInstance]getSelectedIndex];
+        Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+        menuItemsArray=[club getMenuItems];
+        
+        int itemIndex=[[Session getInstance]getMenuItemIndex];
+        
+        MenuItem *item=[menuItemsArray objectAtIndex:itemIndex];
+        
+        
+        [[[Session getInstance]getCommunication] removeEMenuItemWithMenuId:[item getIdentifier]];
+        
+        [menuItemsArray removeObjectAtIndex:itemIndex];
+        
+        [self.navigationController popViewControllerAnimated:YES];*/
+        NSLog(@"trash");
+        
+        NSMutableArray * eventsArray=[[NSMutableArray alloc]init];
+        int selectedIndex=[[Session getInstance]getSelectedIndex];
+        Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+        
+        
+        eventsArray=[club getEvents];
+        
+        int eventIndex=[[Session getInstance]getSelectedEventIndex];
+        
+        Event * event=[eventsArray objectAtIndex:eventIndex];
+        
+        [[[Session getInstance]getCommunication]deleteEventWithID:[event getIdentifier]];
+        
+        [eventsArray removeObjectAtIndex:eventIndex];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
     
 }
 
