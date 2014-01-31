@@ -107,6 +107,8 @@
         
         [[[Session getInstance] getCommunication] setHighlightExpireWithClubId:[club getIdentifier] andDays:[result intValue]];
         
+        [club setHighliteExpire:result];
+        
         [self.navigationController popViewControllerAnimated:YES];
     } 
 }
