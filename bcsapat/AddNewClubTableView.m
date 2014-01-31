@@ -60,6 +60,8 @@ BowlingSelected,DjSelected,FoodSelected;
     DartsSelected=NO;
     wifiSelected=NO;
     coctailBarSelected=NO;
+    
+    [[ Session getInstance] setClubTypeForPicer:@"Válassz"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -120,7 +122,7 @@ BowlingSelected,DjSelected,FoodSelected;
     UIImageView *accImageView_next = [[UIImageView alloc] initWithImage:accessoryImage_next];
     accImageView_next.userInteractionEnabled = YES;
     [accImageView_next setFrame:CGRectMake(0, 0, 28.0, 28.0)];
-    NSLog(@"ITT VAGYOK");
+    //NSLog(@"ITT VAGYOK");
     if (indexPath.section==2 && indexPath.row==0) {
         cell.accessoryView = accImageView_next;
     }
@@ -360,13 +362,71 @@ BowlingSelected,DjSelected,FoodSelected;
     else if (indexPath.section==4 && indexPath.row==0){
         NSLog(@"Hozzáadás gomb");
         
-        /*if( [[typeLabel text] isEqual: @"Bármelyik"] ){
-            
-        }*/
+        if( [[nameText text] isEqual:@""] ){
+            [[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"Nem adtál meg nevet!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+            return;
+        }
         
-        [[[Session getInstance] getCommunication] sendANewClubRequestWithClubname:[nameText text] andAddress:[addressText text] andType:[typeLabel text] andOwnerUserId:-1 andServices:@"wifi,menu"];
+        if( [[addressText text] isEqual:@""] ){
+            [[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"Nem adtál meg címet!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+            return;
+        }
+        
+        if( [[typeLabel text] isEqual: @"Bármelyik"] ){
+            [[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"Nem válaszottál típust!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+                return;
+        }
+        
+        NSMutableString *services = [[NSMutableString alloc]init];
+        if (danceSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"dance"];
+        }
+        if (liveMusicSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"livemusic"];
+        }
+        if (sportBroadcastSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"sporttv"];
+        }
+        if (snookerSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"billiard"];
+        }
+        if (FoodSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"menu"];
+        }
+        if (DjSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"dj"];
+        }
+        if (BowlingSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"bowling"];
+        }
+        if (DartsSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"darts"];
+        }
+        if (wifiSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"wifi"];
+        }
+        if(coctailBarSelected ==YES){
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"coctailbar"];
+        }
+        
+        [[[Session getInstance] getCommunication] sendANewClubRequestWithClubname:[nameText text] andAddress:[addressText text] andType:[typeLabel text] andOwnerUserId:-1 andServices:services];
+        
+        [[ Session getInstance] setClubTypeForPicer:@"Bármelyik"]; // Picker visszaállítása a keresőhöz
         
         [self dismissViewControllerAnimated:YES completion:nil];
+        
+        [[[UIAlertView alloc] initWithTitle:@"Siker" message:@"A hely hozzá lett adva, várj, míg egy moderátor elfogadja!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+
     }
 }
 
@@ -387,5 +447,10 @@ BowlingSelected,DjSelected,FoodSelected;
     typeLabel.text=[[Session getInstance]getClubTypeForPicker];
     [super viewWillAppear:animated];
 }
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [[ Session getInstance] setClubTypeForPicer:@"Bármelyik"]; // picker visszaállítása a keresőhöz
+}
+
 
 @end
