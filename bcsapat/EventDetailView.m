@@ -46,6 +46,15 @@
     
     Event * event=[[club getEvents]objectAtIndex:[[Session getInstance]getSelectedEventIndex]];
     
+    User * user=[[Session getInstance]getActualUser];
+    
+    if (!([user isThisUserOwnerOfClub:[club getIdentifier]] || [user getType]==1))
+        
+        if ([[[Session getInstance]getActualUser]getType]==0) {
+            self.navigationItem.rightBarButtonItem=nil;
+        }
+    
+    
     eventDateLabel.text=[event getStartDate];
     eventDateLabel.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
     eventDateLabel.layer.cornerRadius=8;
