@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PendingOwnerRequestViewController : UITableViewController
+@interface PendingOwnerRequestViewController : UITableViewController<UIAlertViewDelegate>
 
 @property (strong,nonatomic) NSMutableArray * OwnerRequestsArray;
+@property int index;
 
 @end

@@ -9,12 +9,15 @@
 #import "PendingOwnerRequestViewController.h"
 #import "Session.h"
 #import "OwnerRequest.h"
+#import "User.h"
+#import "Club.h"
 
 @interface PendingOwnerRequestViewController ()
 
 @end
 
 @implementation PendingOwnerRequestViewController
+@synthesize index;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -83,6 +86,12 @@
                                               blue:100/255.0
                                              alpha:0.5];
     
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping; // Pre-iOS6 use UILineBreakModeWordWrap
+    cell.textLabel.numberOfLines = 0;  // 0 means no max.
+    
+    cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping; // Pre-iOS6 use UILineBreakModeWordWrap
+    cell.detailTextLabel.numberOfLines = 0;  // 0 means no max.
+    
     cell.backgroundView = design;
     cell.selectedBackgroundView =  customColorView;
     
@@ -149,6 +158,46 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    index=indexPath.row;
+    
+    UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Jóváhagyás"
+                                                         message:@"Biztosan jóváhagyod az értékelést?"
+                                                        delegate:self cancelButtonTitle:@"Mégse"
+                                               otherButtonTitles:@"Igen",@"Nem",nil];
+    [Notpermitted show];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0){
+        NSLog(@"mégse");
+    }
+    else if(buttonIndex==1){
+        NSLog(@"igen");
+        NSLog(@"%d",index);
+        User *user=[[_OwnerRequestsArray objectAtIndex:index]getUser];
+        Club *club=[[_OwnerRequestsArray objectAtIndex:index]getClub];
+        [[[Session getInstance]getCommunication] acceptOwnerRequestWithClubId:[club getIdentifier] andUserId:[user getID]];
+        [_OwnerRequestsArray removeObjectAtIndex:index];
+        [self.tableView reloadData];
+        [self.tableView setNeedsDisplay];
+    }
+    else if (buttonIndex==2){
+        NSLog(@"nem");
+        User *user=[[_OwnerRequestsArray objectAtIndex:index]getUser];
+        Club *club=[[_OwnerRequestsArray objectAtIndex:index]getClub];
+        [[[Session getInstance]getCommunication]declineOwnerRequestWithClubId:[club getIdentifier] andUserId:[user getID]];
+        [_OwnerRequestsArray removeObjectAtIndex:index];
+        [self.tableView reloadData];
+        [self.tableView setNeedsDisplay];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 150;
+    
 }
 
 @end
