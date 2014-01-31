@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DrinkOrFoodView : UITableViewController
+@interface DrinkOrFoodView : UITableViewController<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;

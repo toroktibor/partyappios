@@ -239,21 +239,41 @@
 }
 
 -(void)moveToTrash{
-    NSLog(@"trash");
-    NSMutableArray * menuItemsArray=[[NSMutableArray alloc]init];
-    int selectedIndex=[[Session getInstance]getSelectedIndex];
-    Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
-    menuItemsArray=[club getMenuItems];
-    
-    int itemIndex=[[Session getInstance]getMenuItemIndex];
-    
-    MenuItem *item=[menuItemsArray objectAtIndex:itemIndex];
-    
-    
-    [[[Session getInstance]getCommunication] removeEMenuItemWithMenuId:[item getIdentifier]];
-    
-    [menuItemsArray removeObjectAtIndex:selectedIndex];
+ 
+    UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Biztos hogy törölni akarod?"
+                                                         message:nil
+                                                        delegate:self
+                                               cancelButtonTitle:@"Nem"
+                                               otherButtonTitles:@"Igen", nil];
+    [alertview show];
+
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0){
+        NSLog(@"mégse");
+    }
+    else if(buttonIndex==1){
+        NSLog(@"trash");
+        NSMutableArray * menuItemsArray=[[NSMutableArray alloc]init];
+        int selectedIndex=[[Session getInstance]getSelectedIndex];
+        Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+        menuItemsArray=[club getMenuItems];
+        
+        int itemIndex=[[Session getInstance]getMenuItemIndex];
+        
+        MenuItem *item=[menuItemsArray objectAtIndex:itemIndex];
+        
+        
+        [[[Session getInstance]getCommunication] removeEMenuItemWithMenuId:[item getIdentifier]];
+        
+        [menuItemsArray removeObjectAtIndex:itemIndex];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+     
+}
+
 
 
 @end
