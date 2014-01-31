@@ -16,6 +16,7 @@
 #import "AddNewClubTableView.h"
 #import "User.h"
 #import "AdminTableView.h"
+#import "PendingViewController.h"
 
 @interface MenuMapView ()
 
@@ -359,8 +360,8 @@
         else if (buttonIndex == 6) {
             //Jóváhagyások
             
-            AdminTableView *AdminTableView=
-            [self.storyboard instantiateViewControllerWithIdentifier:@"AdminTableView"];
+            PendingViewController *AdminTableView=
+            [self.storyboard instantiateViewControllerWithIdentifier:@"PendingViewController"];
             UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:AdminTableView];
             [self presentViewController:navController animated:YES completion:nil];
             

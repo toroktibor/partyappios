@@ -101,6 +101,7 @@
 		7AE4420B1899834A00BE08A9 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE4420A1899834A00BE08A9 /* Base64.m */; };
 		7AF627CC18914F8800A57FA0 /* RatingTableViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF627CB18914F8800A57FA0 /* RatingTableViewViewController.m */; };
 		7AFFF40618859CEC000B06FD /* SillyCommunication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AFFF40518859CEC000B06FD /* SillyCommunication.m */; };
+		E326C559189BE0AC007F578D /* PendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E326C558189BE0AC007F578D /* PendingViewController.m */; };
 		E358E7A818994FBB007D07B7 /* OwnerRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E358E7A718994FBB007D07B7 /* OwnerRequest.m */; };
 /* End PBXBuildFile section */
 
@@ -254,6 +255,8 @@
 		7AFFF40318859CB0000B06FD /* CommunicationProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommunicationProtocol.h; sourceTree = "<group>"; };
 		7AFFF40418859CEC000B06FD /* SillyCommunication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SillyCommunication.h; sourceTree = "<group>"; };
 		7AFFF40518859CEC000B06FD /* SillyCommunication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SillyCommunication.m; sourceTree = "<group>"; };
+		E326C557189BE0AC007F578D /* PendingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingViewController.h; sourceTree = "<group>"; };
+		E326C558189BE0AC007F578D /* PendingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PendingViewController.m; sourceTree = "<group>"; };
 		E358E7A618994FBB007D07B7 /* OwnerRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OwnerRequest.h; sourceTree = "<group>"; };
 		E358E7A718994FBB007D07B7 /* OwnerRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OwnerRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -394,6 +397,8 @@
 				7ADBD2FE18957FE2008A2261 /* NotificationDetailView.m */,
 				7A43B90F189A55B3005B33A7 /* DatePickerForEditProfileView.h */,
 				7A43B910189A55B3005B33A7 /* DatePickerForEditProfileView.m */,
+				E326C557189BE0AC007F578D /* PendingViewController.h */,
+				E326C558189BE0AC007F578D /* PendingViewController.m */,
 			);
 			name = ReachFromActionSheet;
 			sourceTree = "<group>";
@@ -703,6 +708,7 @@
 				7AE4420B1899834A00BE08A9 /* Base64.m in Sources */,
 				7A43B911189A55B3005B33A7 /* DatePickerForEditProfileView.m in Sources */,
 				7A43B914189A618C005B33A7 /* DatePickerForRegisterView.m in Sources */,
+				E326C559189BE0AC007F578D /* PendingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
