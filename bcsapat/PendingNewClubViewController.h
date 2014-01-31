@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PendingNewClubViewController : UIViewController
+@interface PendingNewClubViewController : UITableViewController
 
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PendingRatingsViewController : UIViewController
+@interface PendingRatingsViewController : UITableViewController
 
 @end
