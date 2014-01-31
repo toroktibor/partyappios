@@ -35,6 +35,11 @@
 {
     [super viewDidLoad];
     
+    //[[UITabBar appearance] setBackgroundColor:[UIColor clearColor]];
+    [[UITabBar appearance] setTintColor:[[UIColor alloc] initWithRed:0 green:0 blue:0 alpha:0.2]];
+    //[[UITabBar appearance] setAlpha:0.0];
+
+
     [[[self navigationController] navigationBar] setTintColor:[UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(100/255.0) alpha:1.0]];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bricskok.png"]];
