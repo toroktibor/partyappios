@@ -78,7 +78,7 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     index=indexPath.row;
     
-    // [[Session getInstance]setImage:[recipePhotos objectAtIndex:index]];
+    [[Session getInstance]setImage:indexPath.row];
 
     PictureView *PicturesDetailView=
     [self.storyboard instantiateViewControllerWithIdentifier:@"PictureView"];
