@@ -37,8 +37,15 @@
     /*image = [[Session getInstance]getImage];
     [imageView setImage:image];*/
     
-    nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Következő" style:UIBarButtonItemStyleBordered target:self action:@selector(next)];
-    prevButton = [[UIBarButtonItem alloc] initWithTitle:@"Előző" style:UIBarButtonItemStyleBordered target:self action:@selector(back)];
+    UIImage * nextImage=[UIImage imageNamed:@"ic_action_next_item.png"];
+    UIImage * prevImage=[UIImage imageNamed:@"ic_action_previous_item.png"];
+    
+    nextButton = [[UIBarButtonItem alloc] initWithImage:nextImage style:UIBarButtonItemStyleBordered target:self action:@selector(next)];
+    prevButton = [[UIBarButtonItem alloc] initWithImage:prevImage style:UIBarButtonItemStyleBordered target:self action:@selector(back)];;
+
+    
+    //nextButton = [[UIBarButtonItem alloc] initWithTitle:@"Következő" style:UIBarButtonItemStyleBordered target:self action:@selector(next)];
+    //prevButton = [[UIBarButtonItem alloc] initWithTitle:@"Előző" style:UIBarButtonItemStyleBordered target:self action:@selector(back)];
     
     
     
@@ -80,14 +87,18 @@
     }
     if( newImageIndex==0 ){
         [prevButton setEnabled:false];
+        [prevButton setTintColor:[UIColor colorWithRed:(40/255.0) green:(40/255.0) blue:(40/255.0) alpha:1]];
     }else{
         [prevButton setEnabled:true];
+        [prevButton setTintColor:[UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(100/255.0) alpha:1]];
     }
     
     if( newImageIndex== [[[[Session getInstance] getSelectedClubAtIndex: [[Session getInstance] getSelectedIndex]] getImages] count]-1 ){
         [nextButton setEnabled:false];
+        [nextButton setTintColor:[UIColor colorWithRed:(40/255.0) green:(40/255.0) blue:(40/255.0) alpha:1]];
     }else{
         [nextButton setEnabled:true];
+        [nextButton setTintColor:[UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(100/255.0) alpha:1]];
     }
     
     [[Session getInstance] setImage:newImageIndex];
