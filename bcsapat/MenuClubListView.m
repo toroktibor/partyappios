@@ -138,7 +138,7 @@
     
     if ((NSNull*)ures!=[NSNull null]) {     
         cell.backgroundView=highlight;
-        cell.imageView.image=[UIImage imageNamed:@"128px-Featured_Article_Star.svg.png"];
+        cell.imageView.image=[UIImage imageNamed:@"favorite_star-1.png"];
     }
     else{
         cell.backgroundView=design;

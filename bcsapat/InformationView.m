@@ -47,7 +47,7 @@
     if ( [[[Session getInstance] getActualUser]isInFavorite:[club getIdentifier]] ) {
         likeOrNot=YES;
         UIBarButtonItem *actionItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
-        UIBarButtonItem *likeB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_action_favorite_red.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(like)];
+        UIBarButtonItem *likeB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"piros.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(like)];
         
         
         
@@ -383,6 +383,7 @@
     club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
     User * user=[[Session getInstance]getActualUser];
     
+    NSLog([user isThisUserOwnerOfClub:[club getIdentifier]] ? @"Yes" : @"No");
     
     if ([user isThisUserOwnerOfClub:[club getIdentifier]] || [user getType]==1) {
         UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
@@ -464,7 +465,7 @@
         if ( likeOrNot==YES ) {
             
             UIBarButtonItem *actionItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
-            UIBarButtonItem *likeB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_action_favorite_red.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(like)];
+            UIBarButtonItem *likeB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"piros.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(like)];
             
             
             

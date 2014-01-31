@@ -38,7 +38,7 @@
     [imageView setImage:image];*/
     
     UIImage * nextImage=[UIImage imageNamed:@"ic_action_next_item.png"];
-    UIImage * prevImage=[UIImage imageNamed:@"ic_action_previous_item.png"];
+    UIImage * prevImage=[UIImage imageNamed:@"previous.png"];
     
     nextButton = [[UIBarButtonItem alloc] initWithImage:nextImage style:UIBarButtonItemStyleBordered target:self action:@selector(next)];
     prevButton = [[UIBarButtonItem alloc] initWithImage:prevImage style:UIBarButtonItemStyleBordered target:self action:@selector(back)];;

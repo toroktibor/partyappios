@@ -168,6 +168,11 @@
         }
         else{
             [[Session getInstance]setActualUser:user];
+            int user_id = [[[Session getInstance] getActualUser] getID];
+            NSMutableArray * favoriteClubList = [[[Session getInstance] getCommunication] getFavoriteClubsFromUserId:user_id];
+            [[[Session getInstance] getActualUser] setFavoriteClubs:favoriteClubList];
+            NSMutableArray * ownClubList = [[[Session getInstance] getCommunication] getOwnedClubsFromUserId:user_id];
+            [[[Session getInstance] getActualUser] setUsersClubs:ownClubList];
             [self synchronise];
             
            UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
