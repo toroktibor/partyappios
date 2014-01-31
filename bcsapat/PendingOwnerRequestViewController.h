@@ -10,4 +10,6 @@
 
 @interface PendingOwnerRequestViewController : UITableViewController
 
+@property (strong,nonatomic) NSMutableArray * OwnerRequestsArray;
+
 @end
