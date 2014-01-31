@@ -34,15 +34,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     
     scrollView.autoresizesSubviews=NO;
-
+    
     
     int selectedIndex=[[Session getInstance]getSelectedIndex];
     club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
-
-//    if ([[[[Session getInstance]getActualUser]getFavoriteClubs]containsObject:club]) {
+    
+    //    if ([[[[Session getInstance]getActualUser]getFavoriteClubs]containsObject:club]) {
     if ( [[[Session getInstance] getActualUser]isInFavorite:[club getIdentifier]] ) {
         likeOrNot=YES;
     } else {
@@ -50,7 +50,7 @@
     }
     
     starRatingView = [[TQStarRatingView alloc] initWithFrame:CGRectMake(23, 4, 125, 25)
-                                                 numberOfStar:5];
+                                                numberOfStar:5];
     starRatingView.delegate = self;
     
     
@@ -64,7 +64,7 @@
     
     [[[self navigationController] navigationBar] setTintColor:[UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(100/255.0) alpha:1.0]];
     
-
+    
     
     
     descriptionView.editable=NO;
@@ -88,15 +88,15 @@
     emailField.textColor=[UIColor whiteColor];
     emailField.enabled=NO;
     if ((NSNull *)[club getEmail] == [NSNull null] || [[club getEmail] isEqual: @""]) emailField.text=@"nincs megadva";
-        else  emailField.text=[club getEmail];
+    else  emailField.text=[club getEmail];
     
-
+    
     
     phoneField.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
     phoneField.textColor=[UIColor whiteColor];
     phoneField.enabled=NO;
     if ((NSNull *)[club getPhoneNumber] == [NSNull null] || [[club getPhoneNumber] isEqual: @""])  phoneField.text=@"nincs megadva";
-        else phoneField.text=[club getPhoneNumber];
+    else phoneField.text=[club getPhoneNumber];
     
     ratingBackground.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
     ratingBackground.textColor=[UIColor whiteColor];
@@ -150,115 +150,247 @@
 
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
+    
+    
+    int selectedIndex=[[Session getInstance]getSelectedIndex];
+    club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+    User * user=[[Session getInstance]getActualUser];
+    
+    //admin vagy tulaj ág
+    if ([user isThisUserOwnerOfClub:[club getIdentifier]] || [user getType]==1) {
         
-        //tulajdonos vagyok
+        
+        if (buttonIndex == 0) {
+            
+            //helyem szerkesztése
+            NSLog(@"helyem szerkesztése");
+            
+        }
+        
+        if (buttonIndex == 1) {
+            
+            //tékép nézet
+            
+            ClubMapView *ClubMapView=
+            [self.storyboard instantiateViewControllerWithIdentifier:@"ClubMapView"];
+            [self.navigationController pushViewController:ClubMapView animated:YES];
+            
+            
+            
+            
+        } else if (buttonIndex == 2) {
+            
+            //hívás
+            UIDevice *device = [UIDevice currentDevice];
+            if ((NSNull *)[club getPhoneNumber] == [NSNull null] || [[club getPhoneNumber] isEqual: @""]) {
+                UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"Nincs megadva telefonszám!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            } else if ([[device model] isEqualToString:@"iPhone"] ) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:130-032-2837"]]];
+            } else {
+                UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"A készülék nem támogatja a telefonhívást!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [Notpermitted show];
+            }
+            
+            
+        } else if (buttonIndex == 3) {
+            
+            //email
+            if ((NSNull *)[club getEmail] == [NSNull null] || [[club getEmail] isEqual: @""]) {
+                UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"Nincs megadva email cím!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            } else if ([MFMailComposeViewController canSendMail]) {
+                
+                MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+                mailViewController.mailComposeDelegate = self;
+                NSArray *toRecipients = [NSArray arrayWithObjects:[club getEmail],nil];
+                [mailViewController setToRecipients:toRecipients];
+                //[mailViewController setSubject:@"Subject Goes Here."];
+                //[mailViewController setMessageBody:@"Your message goes here." isHTML:NO];
+                
+                [self presentViewController:mailViewController animated:YES completion:nil];
+                
+            }
+            
+            else {
+                
+                NSLog(@"Device is unable to send email in its current state.");
+                UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"A készülék jelenleg nem tud üzenetet küldeni!" delegate:nil
+                                                           cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [Notpermitted show];
+                
+                
+            }
+            
+        } else if (buttonIndex == 4) {
+            
+            FoodsAndDrinksTableView *FoodsAndDrinksTableView=
+            [self.storyboard instantiateViewControllerWithIdentifier:@"FoodsAndDrinksTableView"];
+            [self.navigationController pushViewController:FoodsAndDrinksTableView animated:YES];
+            
+        }
+        
+        else if (buttonIndex == 5){
+            
+            RatingTableViewViewController *RatingTableView=
+            [self.storyboard instantiateViewControllerWithIdentifier:@"RatingTableView"];
+            [self.navigationController pushViewController:RatingTableView animated:YES];
+        }
+        
+        
+        else if (buttonIndex == 6){
+            
+            NSLog(@"kiemelés kérése");
+        }
         
         
         
+        else if (buttonIndex == 7) {
+            
+            //mégse
+        }
         
     }
     
-    if (buttonIndex == 1) {
+    
+    
+    
+    //user ág
+    else{
         
-        //tékép nézet
-        
-        ClubMapView *ClubMapView=
-        [self.storyboard instantiateViewControllerWithIdentifier:@"ClubMapView"];
-        [self.navigationController pushViewController:ClubMapView animated:YES];
-
-        
-        
-        
-    } else if (buttonIndex == 2) {
-        
-        //hívás
-        UIDevice *device = [UIDevice currentDevice];
-        if ((NSNull *)[club getPhoneNumber] == [NSNull null] || [[club getPhoneNumber] isEqual: @""]) {
-            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"Nincs megadva telefonszám!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
-        } else if ([[device model] isEqualToString:@"iPhone"] ) {
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:130-032-2837"]]];
-        } else {
-            UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"A készülék nem támogatja a telefonhívást!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [Notpermitted show];
-        }
-
-        
-    } else if (buttonIndex == 3) {
-        
-        //email
-        if ((NSNull *)[club getEmail] == [NSNull null] || [[club getEmail] isEqual: @""]) {
-            UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"Nincs megadva email cím!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
-        } else if ([MFMailComposeViewController canSendMail]) {
+        if (buttonIndex == 0) {
             
-            MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
-            mailViewController.mailComposeDelegate = self;
-            NSArray *toRecipients = [NSArray arrayWithObjects:[club getEmail],nil];
-            [mailViewController setToRecipients:toRecipients];
-            //[mailViewController setSubject:@"Subject Goes Here."];
-            //[mailViewController setMessageBody:@"Your message goes here." isHTML:NO];
+            //tulajdonos vagyok
+            int selectedIndex=[[Session getInstance]getSelectedIndex];
+            club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+            User * user=[[Session getInstance]getActualUser];
+            [[[Session getInstance]getCommunication]setOwnerForClubWithUserID:[user getID] andClubID:[club getIdentifier]];
             
-            [self presentViewController:mailViewController animated:YES completion:nil];
-            
-        }
-        
-        else {
-            
-            NSLog(@"Device is unable to send email in its current state.");
-            UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"A készülék jelenleg nem tud üzenetet küldeni!" delegate:nil
+            UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Rendben!" message:@"A tulajdonosi kérelmedet rögzítettük! Kérlek várj türelemmel!" delegate:nil
                                                        cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [Notpermitted show];
-        
-        
-        }
-        
-    } else if (buttonIndex == 4) {
-        
-        FoodsAndDrinksTableView *FoodsAndDrinksTableView=
-        [self.storyboard instantiateViewControllerWithIdentifier:@"FoodsAndDrinksTableView"];
-        [self.navigationController pushViewController:FoodsAndDrinksTableView animated:YES];
             
         }
-    
-    else if (buttonIndex == 5){
         
-        RatingTableViewViewController *RatingTableView=
-        [self.storyboard instantiateViewControllerWithIdentifier:@"RatingTableView"];
-        [self.navigationController pushViewController:RatingTableView animated:YES];
+        if (buttonIndex == 1) {
+            
+            //tékép nézet
+            
+            ClubMapView *ClubMapView=
+            [self.storyboard instantiateViewControllerWithIdentifier:@"ClubMapView"];
+            [self.navigationController pushViewController:ClubMapView animated:YES];
+            
+            
+            
+            
+        } else if (buttonIndex == 2) {
+            
+            //hívás
+            UIDevice *device = [UIDevice currentDevice];
+            if ((NSNull *)[club getPhoneNumber] == [NSNull null] || [[club getPhoneNumber] isEqual: @""]) {
+                UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"Nincs megadva telefonszám!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            } else if ([[device model] isEqualToString:@"iPhone"] ) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:130-032-2837"]]];
+            } else {
+                UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"A készülék nem támogatja a telefonhívást!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [Notpermitted show];
+            }
+            
+            
+        } else if (buttonIndex == 3) {
+            
+            //email
+            if ((NSNull *)[club getEmail] == [NSNull null] || [[club getEmail] isEqual: @""]) {
+                UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"Nincs megadva email cím!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            } else if ([MFMailComposeViewController canSendMail]) {
+                
+                MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+                mailViewController.mailComposeDelegate = self;
+                NSArray *toRecipients = [NSArray arrayWithObjects:[club getEmail],nil];
+                [mailViewController setToRecipients:toRecipients];
+                //[mailViewController setSubject:@"Subject Goes Here."];
+                //[mailViewController setMessageBody:@"Your message goes here." isHTML:NO];
+                
+                [self presentViewController:mailViewController animated:YES completion:nil];
+                
+            }
+            
+            else {
+                
+                NSLog(@"Device is unable to send email in its current state.");
+                UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Hiba" message:@"A készülék jelenleg nem tud üzenetet küldeni!" delegate:nil
+                                                           cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [Notpermitted show];
+                
+                
+            }
+            
+        } else if (buttonIndex == 4) {
+            
+            FoodsAndDrinksTableView *FoodsAndDrinksTableView=
+            [self.storyboard instantiateViewControllerWithIdentifier:@"FoodsAndDrinksTableView"];
+            [self.navigationController pushViewController:FoodsAndDrinksTableView animated:YES];
+            
+        }
+        
+        else if (buttonIndex == 5){
+            
+            RatingTableViewViewController *RatingTableView=
+            [self.storyboard instantiateViewControllerWithIdentifier:@"RatingTableView"];
+            [self.navigationController pushViewController:RatingTableView animated:YES];
+        }
+        
+        
+        
+        else if (buttonIndex == 6) {
+            
+            //mégse
+        }
     }
-
-        
-    
-    else if (buttonIndex == 6) {
-        
-        //mégse
-    }
-
 }
 
 
 - (IBAction)back:(id)sender {
     
     /*UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
-    
-    
-    tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController: tabBar animated: YES completion:nil];*/
+     
+     
+     tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+     [self presentViewController: tabBar animated: YES completion:nil];*/
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
+
+
 - (void)showActionSheet{
     
-    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
-                                              destructiveButtonTitle:nil otherButtonTitles:@"Tulajdonos vagyok",@"Mutasd a térképen", @"Hívás",@"Email küldése",@"Árlista",@"Értékelések", nil];
+    int selectedIndex=[[Session getInstance]getSelectedIndex];
+    club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+    User * user=[[Session getInstance]getActualUser];
     
-    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-    [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
-    popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
+    
+    if ([user isThisUserOwnerOfClub:[club getIdentifier]] || [user getType]==1) {
+        UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
+                                                  destructiveButtonTitle:nil otherButtonTitles:@"Helyem szerkesztése",@"Mutasd a térképen", @"Hívás",@"Email küldése",@"Árlista",@"Értékelések",@"Kiemelés kérése", nil];
+        
+        popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
+        popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
+    }
+    else{
+        UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
+                                                  destructiveButtonTitle:nil otherButtonTitles:@"Tulajdonos vagyok",@"Mutasd a térképen", @"Hívás",@"Email küldése",@"Árlista",@"Értékelések", nil];
+        
+        popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
+        popupQuery.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height-popupQuery.frame.size.height, [UIScreen mainScreen].bounds.size.width, popupQuery.frame.size.height);
+    }
 }
+
+
 
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -276,7 +408,7 @@
                                                             delegate:self cancelButtonTitle:@"Mégse"
                                                    otherButtonTitles:@"Ok",nil];
         [Notpermitted show];
-
+        
     }
     else{
         UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Kedvencek"
@@ -300,8 +432,8 @@
             int userId = [[[Session getInstance]getActualUser]getID];
             [[[Session getInstance] getCommunication] setFavoriteClubForUserWithUserID:userId andClubID:[club getIdentifier] ];
             [[[Session getInstance]getActualUser]addFavoriteClub:club];
-
-          
+            
+            
         }
         else{
             NSLog(@"nem kedveli");

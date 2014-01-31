@@ -63,8 +63,10 @@
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(userlocation, 2000, 2000);
     [map setRegion:viewRegion animated: YES];*/
     
+    
+    
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder geocodeAddressString:@"Hungary" completionHandler:^(NSArray* placemarks, NSError* error){
+    [geocoder geocodeAddressString:[[Session getInstance]getUserLocation] completionHandler:^(NSArray* placemarks, NSError* error){
         for (CLPlacemark* aPlacemark in placemarks)
         {
             CLLocationCoordinate2D theCoordinate;
@@ -72,38 +74,18 @@
             theCoordinate.latitude=aPlacemark.location.coordinate.latitude;
             theCoordinate.longitude=aPlacemark.location.coordinate.longitude;
             
+    
             
-            MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(theCoordinate, 300000, 300000);
-            [map setRegion:viewRegion animated: YES];
-            
-            /*MKPointAnnotation *needle = [[MKPointAnnotation alloc] init];
+            MKPointAnnotation *needle = [[MKPointAnnotation alloc] init];
             needle.coordinate = theCoordinate;
             needle.title =@"Itt vagyok most!";
             needle.subtitle=[[Session getInstance]getUserLocation];
-            [map addAnnotation:needle];*/
+            [map addAnnotation:needle];
         }
     }];
     
     
-    
-    
-    
-    /*[geocoder geocodeAddressString:[[Session getInstance]getUserLocation] completionHandler:^(NSArray* placemarks, NSError* error){
-        for (CLPlacemark* aPlacemark in placemarks)
-        {
-            CLLocationCoordinate2D theCoordinate;
-            
-            theCoordinate.latitude=aPlacemark.location.coordinate.latitude;
-            theCoordinate.longitude=aPlacemark.location.coordinate.longitude;
-            
-            
-            MKPointAnnotation *needle = [[MKPointAnnotation alloc] init];
-             needle.coordinate = theCoordinate;
-             needle.title =@"Itt vagyok most!";
-             needle.subtitle=[[Session getInstance]getUserLocation];
-             [map addAnnotation:needle];
-        }
-    }];*/
+
     
     
     
@@ -125,6 +107,18 @@
             [self setLocations:[[[Session getInstance]getSearchViewCLubs]objectAtIndex:i]];
     }
 
+    
+    
+    MKMapRect zoomRect = MKMapRectNull;
+    for (id <MKAnnotation> annotation in map.annotations)
+    {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+        zoomRect = MKMapRectUnion(zoomRect, pointRect);
+    }
+    [map setVisibleMapRect:zoomRect animated:YES];
+    
+    
 
 }
 
@@ -398,6 +392,16 @@
             annotation.approved=[club getApproved];
             //[container addObject:annotation];
             [map addAnnotation:annotation];
+            
+            
+            MKMapRect zoomRect = MKMapRectNull;
+            for (id <MKAnnotation> annotation in map.annotations)
+            {
+                MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+                MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+                zoomRect = MKMapRectUnion(zoomRect, pointRect);
+            }
+            [map setVisibleMapRect:zoomRect animated:YES];
         }
     }];
 
@@ -440,7 +444,7 @@
     
     //az én helyzetem színe lil
     if ([annotation.title isEqualToString:@"Itt vagyok most!"]) {
-        newAnnotation.pinColor = MKPinAnnotationColorPurple;
+        newAnnotation.pinColor = MKPinAnnotationColorGreen;
     }
     //a nem elfogadott helyek színe piros
     /*else if ([(MyAnnotation*)annotation getApproved]==0){
@@ -449,7 +453,7 @@
     }
     //az elfogadott helyek színe zölt*/
     else{
-        newAnnotation.pinColor = MKPinAnnotationColorGreen;
+        newAnnotation.pinColor = MKPinAnnotationColorPurple;
         newAnnotation.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     }
     
