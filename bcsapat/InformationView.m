@@ -45,8 +45,22 @@
     //    if ([[[[Session getInstance]getActualUser]getFavoriteClubs]containsObject:club]) {
     if ( [[[Session getInstance] getActualUser]isInFavorite:[club getIdentifier]] ) {
         likeOrNot=YES;
+        UIBarButtonItem *actionItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
+        UIBarButtonItem *likeB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_action_favorite_red.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(like)];
+        
+        
+        
+        NSArray *actionButtonItems = @[actionItem, likeB];
+        self.navigationItem.rightBarButtonItems = actionButtonItems;
     } else {
         likeOrNot=NO;
+        UIBarButtonItem *actionItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
+        UIBarButtonItem *likeB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_action_favorite.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(like)];
+        
+        
+        
+        NSArray *actionButtonItems = @[actionItem, likeB];
+        self.navigationItem.rightBarButtonItems = actionButtonItems;
     }
     
     starRatingView = [[TQStarRatingView alloc] initWithFrame:CGRectMake(23, 4, 125, 25)
@@ -103,13 +117,7 @@
     ratingBackground.enabled=NO;
     
     
-    UIBarButtonItem *actionItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
-    UIBarButtonItem *likeB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_action_favorite.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(like)];
     
-    
-    
-    NSArray *actionButtonItems = @[actionItem, likeB];
-    self.navigationItem.rightBarButtonItems = actionButtonItems;
     
 }
 
@@ -397,6 +405,8 @@
     [starRatingView setScore:[club getAverageRating] withAnimation:NO];
     
     [super viewWillAppear:animated];
+    
+    
 }
 
 
@@ -446,6 +456,24 @@
             [[[[Session getInstance]getActualUser]getFavoriteClubs ]removeObject:club];
             [[[Session getInstance]getSearchViewCLubs]removeObject:club];
             
+        }
+        if ( likeOrNot==YES ) {
+            
+            UIBarButtonItem *actionItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
+            UIBarButtonItem *likeB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_action_favorite_red.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(like)];
+            
+            
+            
+            NSArray *actionButtonItems = @[actionItem, likeB];
+            self.navigationItem.rightBarButtonItems = actionButtonItems;
+        } else {
+            UIBarButtonItem *actionItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActionSheet)];
+            UIBarButtonItem *likeB = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_action_favorite.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(like)];
+            
+            
+            
+            NSArray *actionButtonItems = @[actionItem, likeB];
+            self.navigationItem.rightBarButtonItems = actionButtonItems;
         }
     }
 }
