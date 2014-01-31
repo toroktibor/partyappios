@@ -121,9 +121,7 @@ NSError *error;
     [posts setObject:newClubName forKey:@"Name"];
     [posts setObject:newClubType forKey:@"Type"];
     [posts setObject:newClubAddress forKey:@"Address"];
-    
-    //TODO:services és owner beállítása
-    
+        
     @try{
         NSDictionary* array =[self httpPost:@"club.php" withData:posts];
         if ([array isEqual:@"FAILED"]) {
@@ -208,6 +206,35 @@ return nil;
         [res addObject:c];
     }
     return res;
+    }
+    @catch (NSException *e) {
+        
+    }
+    return nil;
+}
+
+-(NSMutableArray *) searchClubsWithName:(NSString *) name andCityname:(NSString *) cityname andType:(NSString *) type andServices:(NSString *) services{
+    NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+    [posts setObject:@"SEARCH" forKey:@"action"];
+    [posts setObject:name forKey:@"name"];
+    [posts setObject:cityname forKey:@"cityname"];
+    if ([type isEqual:@"Bármelyik"]) type =@"";
+    [posts setObject:type forKey:@"type"];
+    [posts setObject:services forKey:@"services"];
+    [posts setObject:[NSNumber numberWithInt:0] forKey:@"offset"];
+    [posts setObject:[NSNumber numberWithInt:0] forKey:@"limit"];
+    
+    @try{
+        NSString* urlData =[self httpPost:@"club.php" withData:posts];
+        NSError *err = [[NSError alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options: NSJSONReadingMutableContainers error: &err];
+        NSMutableArray *res = [[NSMutableArray alloc] init];
+        for (NSDictionary* jd in array) {
+            Club *c = [[Club alloc]initWithId:[[ jd objectForKey: @"id" ]intValue ]andName:[ jd objectForKey: @"name" ] andAddress:[ jd objectForKey: @"address" ] andHighliteExpire:[ jd objectForKey: @"highlight_expire" ]];
+            [res addObject:c];
+        }
+        return res;
     }
     @catch (NSException *e) {
         

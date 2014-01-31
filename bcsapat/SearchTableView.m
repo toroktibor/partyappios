@@ -194,16 +194,56 @@ BowlingSelected,DjSelected,FoodSelected;
     accImageView_accept.userInteractionEnabled = YES;
     [accImageView_accept setFrame:CGRectMake(0, 0, 28.0, 28.0)];
     
-    
-
-    
-    
+   
     if (indexPath.section==4 && indexPath.row==0) {
         //session tömb újratöltése kell!!!!!!
-        
-    
         [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+        
+        NSMutableString *services = [[NSMutableString alloc]init];
+        if (danceSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"dance"];
+        }
+        if (liveMusicSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"livemusic"];
+        }
+        if (sportBroadcastSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"sporttv"];
+        }
+        if (snookerSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"billiard"];
+        }
+        if (FoodSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"menu"];
+        }
+        if (DjSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"dj"];
+        }
+        if (BowlingSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"bowling"];
+        }
+        if (DartsSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"darts"];
+        }
+        if (wifiSelected ==YES) {
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"wifi"];
+        }
+        if(coctailBarSelected ==YES){
+            if (![services isEqual: @""]) [services appendString:@","];
+            [services appendString:@"coctailbar"];
+        }
+        
+        
+        [[Session getInstance]setSearchViewCLubs: [[[Session getInstance]getCommunication]searchClubsWithName:nameTextField.text andCityname:addressTextField.text andType:typeLabel.text andServices:services ] ];
         
         tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         [self presentViewController: tabBar animated: YES completion:nil];
@@ -360,19 +400,19 @@ BowlingSelected,DjSelected,FoodSelected;
         }
     }
     else if (indexPath.section==3 && indexPath.row==9){
-        if (DartsSelected==NO) {
+        if (danceSelected==NO) {
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             //cell.accessoryType=UITableViewCellAccessoryCheckmark;
             cell.accessoryView = accImageView_accept;
             [self.tableView reloadData];
-            DartsSelected=YES;
+            danceSelected=YES;
         }
         else{
             UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             cell.accessoryView=nil;
             //cell.accessoryType=UITableViewCellAccessoryNone;
             [self.tableView reloadData];
-            DartsSelected=NO;
+            danceSelected=NO;
         }
     }
 }

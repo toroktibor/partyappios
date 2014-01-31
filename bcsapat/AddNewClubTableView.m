@@ -120,7 +120,7 @@ BowlingSelected,DjSelected,FoodSelected;
     UIImageView *accImageView_next = [[UIImageView alloc] initWithImage:accessoryImage_next];
     accImageView_next.userInteractionEnabled = YES;
     [accImageView_next setFrame:CGRectMake(0, 0, 28.0, 28.0)];
-    
+    NSLog(@"ITT VAGYOK");
     if (indexPath.section==2 && indexPath.row==0) {
         cell.accessoryView = accImageView_next;
     }

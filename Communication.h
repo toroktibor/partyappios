@@ -55,4 +55,5 @@
 -(NSString *) downLoadAnImageWithId:(int) imageId;
 -(NSMutableArray *) selectClubsImagesIdsWithClubId:(int) clubId;
 -(NSString*) downLoadAnImageThumbnailWithImageId:(int) imageId;
+-(NSMutableArray *) searchClubsWithName:(NSString *) name andCityname:(NSString *) cityname andType:(NSString *) type andServices:(NSString *) services;
 @end
