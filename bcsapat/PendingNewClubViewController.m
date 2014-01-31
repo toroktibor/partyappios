@@ -92,11 +92,11 @@
     cell.textLabel.text=[[_ClubsArray objectAtIndex:indexPath.row] getClubName];
     cell.detailTextLabel.text=[[_ClubsArray objectAtIndex:indexPath.row] getAddress];
     
-    UIImage *accessoryImage = [UIImage imageNamed:@"ic_action_next_item.png"];
+    /*UIImage *accessoryImage = [UIImage imageNamed:@"ic_action_next_item.png"];
     UIImageView *accImageView = [[UIImageView alloc] initWithImage:accessoryImage];
     accImageView.userInteractionEnabled = YES;
     [accImageView setFrame:CGRectMake(0, 0, 28.0, 28.0)];
-    cell.accessoryView = accImageView;
+    cell.accessoryView = accImageView;*/
     
     return cell;
 }
