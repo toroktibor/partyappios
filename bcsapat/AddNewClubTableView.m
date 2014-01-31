@@ -359,6 +359,11 @@ BowlingSelected,DjSelected,FoodSelected;
     }
     else if (indexPath.section==4 && indexPath.row==0){
         NSLog(@"Hozzáadás gomb");
+        
+        /*if( [[typeLabel text] isEqual: @"Bármelyik"] ){
+            
+        }*/
+        
         [[[Session getInstance] getCommunication] sendANewClubRequestWithClubname:[nameText text] andAddress:[addressText text] andType:[typeLabel text] andOwnerUserId:-1 andServices:@"wifi,menu"];
         
         [self dismissViewControllerAnimated:YES completion:nil];
