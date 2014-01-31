@@ -10,4 +10,6 @@
 
 @interface PendingNewClubViewController : UITableViewController
 
+@property (strong,nonatomic) NSMutableArray * ClubsArray;
+
 @end

@@ -44,6 +44,7 @@
 		7A4AB597189C129A008CBE1A /* navBarShadowcopy.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4AB596189C129A008CBE1A /* navBarShadowcopy.png */; };
 		7A4FA9E5189160D000222870 /* DrinkOrFoodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FA9E4189160D000222870 /* DrinkOrFoodView.m */; };
 		7A4FA9E81891963900222870 /* AddNewClubTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FA9E71891963900222870 /* AddNewClubTableView.m */; };
+		7AA2134F189BFF06000DADDF /* ic_action_favorite_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AA2134E189BFF06000DADDF /* ic_action_favorite_red.png */; };
 		7AC9205A1890641B0061E61A /* Communication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC920591890641B0061E61A /* Communication.m */; };
 		7AC9ECAD188015B800DBEEDB /* NotificationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECAC188015B800DBEEDB /* NotificationsView.m */; };
 		7AC9ECB618801D0100DBEEDB /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECB518801D0100DBEEDB /* LoginView.m */; };
@@ -164,6 +165,7 @@
 		7A4FA9E4189160D000222870 /* DrinkOrFoodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkOrFoodView.m; sourceTree = "<group>"; };
 		7A4FA9E61891963900222870 /* AddNewClubTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewClubTableView.h; sourceTree = "<group>"; };
 		7A4FA9E71891963900222870 /* AddNewClubTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewClubTableView.m; sourceTree = "<group>"; };
+		7AA2134E189BFF06000DADDF /* ic_action_favorite_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_action_favorite_red.png; sourceTree = "<group>"; };
 		7AC920581890641B0061E61A /* Communication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Communication.h; sourceTree = "<group>"; };
 		7AC920591890641B0061E61A /* Communication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Communication.m; sourceTree = "<group>"; };
 		7AC9ECAB188015B800DBEEDB /* NotificationsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsView.h; sourceTree = "<group>"; };
