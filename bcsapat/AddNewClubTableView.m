@@ -357,6 +357,12 @@ BowlingSelected,DjSelected,FoodSelected;
             DartsSelected=NO;
         }
     }
+    else if (indexPath.section==4 && indexPath.row==0){
+        NSLog(@"Hozzáadás gomb");
+        [[[Session getInstance] getCommunication] sendANewClubRequestWithClubname:[nameText text] andAddress:[addressText text] andType:[typeLabel text] andOwnerUserId:-1 andServices:@"wifi,menu"];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (IBAction)back:(id)sender {
