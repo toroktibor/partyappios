@@ -39,7 +39,7 @@
     
     _OwnerRequestsArray = [[NSMutableArray alloc] init];
     
-    _OwnerRequestsArray = [[[Session getInstance] getCommunication] getNotApprovedClubs];
+    _OwnerRequestsArray = [[[Session getInstance] getCommunication] getNotApprovedOwnerRequest];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,14 +52,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [_OwnerRequestsArray count];
 }
@@ -90,6 +88,8 @@
     
     cell.textLabel.textColor=[UIColor whiteColor];
     cell.detailTextLabel.textColor=[UIColor whiteColor];
+    
+    //NSString
     
     cell.textLabel.text=[[[_OwnerRequestsArray objectAtIndex:indexPath.row] getClub] getClubName];
     cell.detailTextLabel.text=[[[_OwnerRequestsArray objectAtIndex:indexPath.row] getUser] getName];
