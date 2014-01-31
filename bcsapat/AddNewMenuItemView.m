@@ -60,7 +60,12 @@
     
     menuItemNameText.delegate=self;
     unitText.delegate=self;
-    priceText.delegate=self;  
+    priceText.delegate=self;
+    
+    UIBarButtonItem *doneItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonDidPressed:)];
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
+    [toolbar setItems:[NSArray arrayWithObjects:doneItem, nil]];
+    priceText.inputAccessoryView = toolbar;
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,36 +98,65 @@
 
 - (IBAction)addMenuItem:(id)sender {
     
-    int selectedIndex=[[Session getInstance]getSelectedIndex];
-    Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
     
-    NSString *price=priceText.text;
     
-    MenuItem * menuItem;
     
-    if ([currencySegmentControl selectedSegmentIndex]==0) {
-        menuItem=[[MenuItem alloc]initWithId:100 andName:menuItemNameText.text andPrice:[price intValue]
-                                 andCurrency:@"HUF" andUnit:unitText.text andDiscount:sliderValue andMenuCategory:categroyLabel.text andMenuSort:1];
-        
+    if ( (menuItemNameText.text == nil ||
+          [menuItemNameText.text isEqualToString:@""]) || (priceText.text == nil ||
+                                                           [priceText.text isEqualToString:@""])
+        || (unitText.text == nil ||
+            [unitText.text isEqualToString:@""]) ||(categroyLabel.text == nil ||
+                                                    [categroyLabel.text isEqualToString:@""])){
+            
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hiba!"
+                                                            message:@"Minden mező kitöltése kötelező!"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            
+            [alert show];
+            
     }
     else{
-        menuItem=[[MenuItem alloc]initWithId:100 andName:menuItemNameText.text andPrice:[price intValue]
-                                 andCurrency:@"EUR" andUnit:unitText.text andDiscount:sliderValue andMenuCategory:categroyLabel.text andMenuSort:1];
+        int selectedIndex=[[Session getInstance]getSelectedIndex];
+        Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+        
+        NSString *price=priceText.text;
+        
+        MenuItem * menuItem;
+        
+        if ([currencySegmentControl selectedSegmentIndex]==0) {
+            menuItem=[[MenuItem alloc]initWithId:100 andName:menuItemNameText.text andPrice:[price intValue]
+                                     andCurrency:@"HUF" andUnit:unitText.text andDiscount:sliderValue andMenuCategory:categroyLabel.text andMenuSort:1];
+            
+        }
+        else{
+            menuItem=[[MenuItem alloc]initWithId:100 andName:menuItemNameText.text andPrice:[price intValue]
+                                     andCurrency:@"EUR" andUnit:unitText.text andDiscount:sliderValue andMenuCategory:categroyLabel.text andMenuSort:1];
+        }
+        
+        int menuItemId = [[[Session getInstance] getCommunication] addANewMenuItemWithClubId:[club getIdentifier] andMenuItem:menuItem];
+        
+        NSLog(@"%d menu item id",menuItemId);
+        
+        [menuItem setIdentifier:menuItemId];
+        
+        [club addMenuItem:menuItem];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rendben!"
+                                                        message:@"A tétel hozzáadása megtörtént!"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+        [self.navigationController popViewControllerAnimated:YES];
     }
-    
-    int menuItemId = [[[Session getInstance] getCommunication] addANewMenuItemWithClubId:[club getIdentifier] andMenuItem:menuItem];
-    
-    NSLog(@"%d menu item id",menuItemId);
-    
-    [menuItem setIdentifier:menuItemId];
-    
-    [club addMenuItem:menuItem];
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rendben!"
-                                                    message:@"A tétel hozzáadása megtörtént!"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+}
+
+
+-(void)doneButtonDidPressed:(id)sender{
+    [priceText resignFirstResponder];
 }
 @end

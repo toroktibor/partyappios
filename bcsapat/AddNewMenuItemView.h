@@ -23,5 +23,6 @@
 - (IBAction)sliderValueChange:(UISlider *)sender;
 - (IBAction)addMenuItem:(id)sender;
 
+- (void)doneButtonDidPressed:(id)sender;
 @end
 //menuItemNameText,categoryButton,changeButton,unitText,priceText,currencySegmentControl,categroyLabel,sliderValue,discountLabel;
