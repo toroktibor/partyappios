@@ -32,6 +32,12 @@
 {
     [super viewDidLoad];
     
+    UIBarButtonItem *Szerk = [[UIBarButtonItem alloc] initWithTitle:@"Szerk." style:UIBarButtonItemStyleBordered target:self action:@selector(edit)];
+    UIBarButtonItem *delete = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(moveToTrash)];
+    
+    NSArray *actionButtonItems = @[Szerk, delete];
+    self.navigationItem.rightBarButtonItems = actionButtonItems;
+    
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
 	// Do any additional setup after loading the view.
     
@@ -51,7 +57,7 @@
     if (!([user isThisUserOwnerOfClub:[club getIdentifier]] || [user getType]==1))
         
         if ([[[Session getInstance]getActualUser]getType]==0) {
-            self.navigationItem.rightBarButtonItem=nil;
+            self.navigationItem.rightBarButtonItems=nil;
         }
     
     
@@ -93,6 +99,14 @@
     descriptionText.text=[event getDescription];
     musicTypeLabel.text=[event getMusicType];
     ventNameLabel.text=[event getEventName];
+}
+
+-(void)edit{
+    
+}
+
+
+-(void)moveToTrash{
     
 }
 
