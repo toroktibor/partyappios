@@ -33,7 +33,6 @@
     [super viewDidLoad];
     
     
-    
    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
     
     /*[[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"shadow.png"]];
