@@ -474,7 +474,7 @@
             
             NSArray *actionButtonItems = @[actionItem, likeB];
             self.navigationItem.rightBarButtonItems = actionButtonItems;
-        }
+        }   
     }
 }
 
