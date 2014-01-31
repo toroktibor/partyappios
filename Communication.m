@@ -121,6 +121,7 @@ NSError *error;
     [posts setObject:newClubName forKey:@"Name"];
     [posts setObject:newClubType forKey:@"Type"];
     [posts setObject:newClubAddress forKey:@"Address"];
+    [posts setObject:services forKey:@"services"];
         
     @try{
         NSDictionary* array =[self httpPost:@"club.php" withData:posts];
@@ -128,7 +129,7 @@ NSError *error;
             //itt baj lesz
         } else{
             int club_id =[[ array objectForKey: @"NewID" ]intValue ];
-            [self setServisesWithClubID:club_id andServices:services];
+            /*[self setServisesWithClubID:club_id andServices:services];*/
             if ( owner_user_id != -1 ) {
                 [self setOwnerForClubWithUserID:owner_user_id andClubID:club_id];
             }
