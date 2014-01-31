@@ -25,7 +25,7 @@
     NSString *clubTypeForPicker;
     int menuItemIndex;
     NSString *musicType;
-    UIImage * image;
+    int image;
     int selectedRating;
     NSString * menuItemCategory;
     int selectedEvent;
@@ -103,9 +103,9 @@
 
 -(NSString *)getMusicType;
 
--(void)setImage:(UIImage *)pics;
+-(void)setImage:(int)pics;
 
--(UIImage *)getImage;
+-(int)getImage;
 
 
 

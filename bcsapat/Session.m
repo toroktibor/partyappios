@@ -201,11 +201,11 @@ static Session * _instance = nil;
     return musicType;
 }
 
--(void)setImage:(UIImage *)pics{
-    image=pics;
+-(void)setImage:(int)picid{
+    image=picid;
 }
 
--(UIImage *)getImage{
+-(int)getImage{
     return image;
 }
 

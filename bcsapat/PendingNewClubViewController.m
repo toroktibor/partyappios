@@ -84,6 +84,7 @@
                                               blue:100/255.0
                                              alpha:0.5];
     
+    cell.backgroundView = design;
     cell.selectedBackgroundView =  customColorView;
         
     cell.textLabel.textColor=[UIColor whiteColor];
