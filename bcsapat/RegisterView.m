@@ -74,27 +74,23 @@
     email.delegate=self;
     email.tag=3;
     
-    birthdate.text=[[Session getInstance]getBirthday];
-    birthdate.enabled=NO;
-    
+    birthdate =[[Session getInstance]getBirthday];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
+    UIColor * myBackgroundColor = [UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    UIColor * myTextColor = [UIColor whiteColor];
     
+    name.backgroundColor = myBackgroundColor;
+    name.textColor = myTextColor;
     
-    name.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
-    name.textColor=[UIColor whiteColor];
+    password.backgroundColor = myBackgroundColor;
+    password.textColor = myTextColor;
     
-    password.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
-    password.textColor=[UIColor whiteColor];
+    passwordAgain.backgroundColor = myBackgroundColor;
+    passwordAgain.textColor = myTextColor;
     
-    passwordAgain.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
-    passwordAgain.textColor=[UIColor whiteColor];
-    
-    email.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
-    email.textColor=[UIColor whiteColor];
-    
-    birthdate.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
-    birthdate.textColor=[UIColor whiteColor];
+    email.backgroundColor = myBackgroundColor;
+    email.textColor = myTextColor;
     
 	// Do any additional setup after loading the view.
    /* NSArray* paths =NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -130,8 +126,8 @@
         || (password.text == nil ||
             [password.text isEqualToString:@""]) ||(email.text == nil ||
                                                     [email.text isEqualToString:@""])
-        || (birthdate.text == nil ||
-            [birthdate.text isEqualToString:@""])) {
+        || (birthdate == nil ||
+            [birthdate isEqualToString:@""])) {
         
         UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Regisztrációs hiba!"
                                                              message:@"Minden mező kitöltése kötelező!"
@@ -152,8 +148,12 @@
     }
    else{
       
-       user=[[[Session getInstance]getCommunication]registerANewUserWithName:name.text andPassword:password.text
-                                                                andEmail:email.text andSex:[segmentControl selectedSegmentIndex] andBirthday:birthdate.text];
+       user=[[[Session getInstance]getCommunication]
+             registerANewUserWithName:name.text
+             andPassword:password.text
+             andEmail:email.text
+             andSex:[segmentControl selectedSegmentIndex]
+        andBirthday:birthdate];
     
        if(!user){
            UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Regisztrációs hiba!"
@@ -253,12 +253,15 @@
     } else {
         // Not found, so remove keyboard.
         [textField resignFirstResponder];
+        [self pickDate:nil];
     }
     return NO; // We do not want UITextField to insert line-breaks.
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    birthdate.text=[[Session getInstance]getBirthday];
+    birthdate = [[Session getInstance]getBirthday];
+        changeDateButton.tintColor = [UIColor colorWithRed:(154/255.0)   green:(111/255.0)  blue:(189/255.0)  alpha:0.5];
+    [changeDateButton setTitle: birthdate forState:UIControlStateNormal ];
     [super viewWillAppear:animated];
 }
 
@@ -268,7 +271,7 @@
 }
 
 - (IBAction)pickDate:(id)sender {
-    
+
     DatePickerForRegisterView *DatePickerForRegisterView=
     [self.storyboard instantiateViewControllerWithIdentifier:@"DatePickerForRegisterView"];
     [self presentViewController:DatePickerForRegisterView animated:YES completion:nil];
