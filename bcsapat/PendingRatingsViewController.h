@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PendingRatingsViewController : UITableViewController
+@interface PendingRatingsViewController : UITableViewController<UIAlertViewDelegate>
 
 @property (strong,nonatomic) NSMutableArray * RatingsArray;
+@property int index;
 
 @end

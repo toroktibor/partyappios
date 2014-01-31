@@ -15,6 +15,7 @@
 @end
 
 @implementation PendingRatingsViewController
+@synthesize index;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -83,6 +84,13 @@
                                               blue:100/255.0
                                              alpha:0.5];
     
+    
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping; // Pre-iOS6 use UILineBreakModeWordWrap
+    cell.textLabel.numberOfLines = 0;  // 0 means no max.
+    
+    cell.detailTextLabel.lineBreakMode = NSLineBreakByWordWrapping; // Pre-iOS6 use UILineBreakModeWordWrap
+    cell.detailTextLabel.numberOfLines = 0;  // 0 means no max.
+      
     cell.backgroundView = design;
     cell.selectedBackgroundView =  customColorView;
     
@@ -145,6 +153,43 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    
+    index=indexPath.row;
+    
+    UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Jóváhagyás"
+                                                         message:@"Biztosan jóváhagyod az értékelést?"
+                                                        delegate:self cancelButtonTitle:@"Mégse"
+                                               otherButtonTitles:@"Igen",@"Nem",nil];
+    [Notpermitted show];
+    
+    
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0){
+        NSLog(@"mégse");
+    }
+    else if(buttonIndex==1){
+        NSLog(@"igen");
+        [[[Session getInstance]getCommunication] acceptRatingWithUserId:[[_RatingsArray objectAtIndex:index] getUserId] andClubId:[[_RatingsArray objectAtIndex:index] getClubId]];
+        [_RatingsArray removeObjectAtIndex:index];
+        [self.tableView reloadData];
+        [self.tableView setNeedsDisplay];
+    }
+    else if (buttonIndex==2){
+        NSLog(@"nem");
+        [[[Session getInstance]getCommunication] declineRatingWithUserId:[[_RatingsArray objectAtIndex:index]getUserId] andClubId:[[_RatingsArray objectAtIndex:index]getClubId]];
+        [_RatingsArray removeObjectAtIndex:index];
+        [self.tableView reloadData];
+        [self.tableView setNeedsDisplay];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 150;
+    
 }
 
 @end
