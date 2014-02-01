@@ -94,21 +94,15 @@
     
     
     
-    UIView *myRating = [[UIView alloc] init];
-    myRating.backgroundColor = [UIColor colorWithRed:60/255.0
-                                                      green:60/255.0
-                                                       blue:100/255.0
-                                                      alpha:0.5];
+    UIView *design = [[UIView alloc] init];
+    design.backgroundColor = [UIColor colorWithRed:60/255.0
+                                             green:60/255.0
+                                              blue:100/255.0
+                                             alpha:0.5];
+    
+    cell.backgroundView=  design;
     
     
-    int userId=[[[Session getInstance]getActualUser]getID];
-    int selectedIndex=[[Session getInstance]getSelectedIndex];
-    Club * club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
-    
-    if ((NSNull *)[club getRatingForUserWithUserId:userId]!=[NSNull null]) {
-        cell.backgroundView=myRating;
-    }
-    [club getRatingForUserWithUserId:userId];
     
     
     cell.selectedBackgroundView =  customColorView;
@@ -220,5 +214,10 @@
 }
 
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 55;
+    
+}
 
 @end

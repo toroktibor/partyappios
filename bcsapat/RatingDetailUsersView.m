@@ -10,6 +10,7 @@
 #import "Session.h"
 #import "Club.h"
 #import "Rating.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface RatingDetailUsersView ()
 
@@ -45,6 +46,8 @@
     ratingText.text=rating.getComment;
     ratingText.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
     ratingText.editable=NO;
+    ratingText.layer.cornerRadius = 8;
+    ratingText.clipsToBounds = YES;
     
     starRatingView = [[TQStarRatingView alloc] initWithFrame:CGRectMake(45, 65, 230, 45)
                                                 numberOfStar:5];

@@ -95,6 +95,14 @@
                                                       alpha:0.5];
     cell.selectedBackgroundView =  customColorView;
     
+    UIView *design = [[UIView alloc] init];
+    design.backgroundColor = [UIColor colorWithRed:60/255.0
+                                             green:60/255.0
+                                              blue:100/255.0
+                                             alpha:0.5];
+    
+    cell.backgroundView=  design;
+    
     UIImage *accessoryImage = [UIImage imageNamed:@"ic_action_next_item.png"];
     UIImageView *accImageView = [[UIImageView alloc] initWithImage:accessoryImage];
     accImageView.userInteractionEnabled = YES;
@@ -182,6 +190,11 @@
 }
 
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 55;
+    
+}
 
 
 
