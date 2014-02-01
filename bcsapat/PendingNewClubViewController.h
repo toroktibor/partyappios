@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PendingNewClubViewController : UITableViewController
+@interface PendingNewClubViewController : UITableViewController<UIAlertViewDelegate>
 
 @property (strong,nonatomic) NSMutableArray * ClubsArray;
+
+@property int index;
 
 @end

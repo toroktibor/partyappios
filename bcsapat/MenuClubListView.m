@@ -84,6 +84,24 @@
 
 #pragma mark - Table view data source
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    if ([[[Session getInstance]getActualUser] getType]==1) {
+        return YES;
+    }
+    
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Club * club_delete=[[[Session getInstance]getSearchViewCLubs] objectAtIndex:indexPath.row];
+    [[[Session getInstance]getCommunication] deleteClubWithId:[club_delete getIdentifier]];
+    [[[Session getInstance]getSearchViewCLubs]removeObjectAtIndex:indexPath.row];
+    [self.tableView reloadData];
+    [self.tableView setNeedsDisplay];
+}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

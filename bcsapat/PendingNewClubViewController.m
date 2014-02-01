@@ -15,6 +15,7 @@
 @end
 
 @implementation PendingNewClubViewController
+@synthesize index;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -153,6 +154,44 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
     
+    index=indexPath.row;
+    
+    UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"Jóváhagyás"
+                                                         message:@"Biztosan jóváhagyod az értékelést?"
+                                                        delegate:self cancelButtonTitle:@"Mégse"
+                                               otherButtonTitles:@"Igen",@"Nem",nil];
+    [Notpermitted show];
+}
+
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 0){
+        NSLog(@"mégse");
+    }
+    else if(buttonIndex==1){
+      NSLog(@"igen");
+        Club *club=[_ClubsArray objectAtIndex:index];
+        [[[Session getInstance]getCommunication]approveClubWithClubId:[club getIdentifier]];
+        [_ClubsArray removeObjectAtIndex:index];
+        [self.tableView reloadData];
+        [self.tableView setNeedsDisplay];
+    }
+    else if (buttonIndex==2){
+       NSLog(@"nem");
+        Club *club=[_ClubsArray objectAtIndex:index];
+        [[[Session getInstance]getCommunication]declineNewClubWithClubId:[club getIdentifier]];
+        [_ClubsArray removeObjectAtIndex:index];
+        [self.tableView reloadData];
+        [self.tableView setNeedsDisplay];
+    }
+}
+
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
     
 }
 
