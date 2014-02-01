@@ -297,15 +297,16 @@ return nil;
     return nil;
 }
 
--(void) setServisesWithClubID:(int) club_id andServices:(NSArray *) services{
+-(void) setServisesWithClubID:(int) club_id andServices:(NSString *) services{
     //ebbe bele javitottam de nem biztos h frankon :D (Lamfalusy)
-    for(NSString* key in services){
+    //for(NSString* key in services){
         NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
-        [posts setObject:@"ADD" forKey:@"action"];
-        [posts setObject:[NSNumber numberWithInt:club_id] forKey:@"ClubID"];
-        [posts setObject:key forKey:@"ServiceName"];
+        [posts setObject:@"SET" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:club_id] forKey:@"clubid"];
+        [posts setObject:services forKey:@"services"];
         [self httpPost:@"service.php" withData:posts];
-    }
+    
+    //}
     
 }
 
@@ -727,7 +728,7 @@ return nil;
 }
 
 
--(void) updateClubInfoWithId:(int) clubId andName:(NSString *) name andType:(NSString*) type andDescription:(NSString *) description andAddress:(NSString *) address andPhonenumber:(NSString *) phonenumber andEmail:(NSString *) email {
+-(void) updateClubInfoWithId:(int) clubId andName:(NSString *) name andType:(NSString*) type andDescription:(NSString *) description andAddress:(NSString *) address andPhonenumber:(NSString *) phonenumber andEmail:(NSString *) email{
     @try {
         NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
         [posts setObject:@"UPDATE" forKey:@"action"];

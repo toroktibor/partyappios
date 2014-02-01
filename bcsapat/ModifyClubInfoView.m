@@ -8,12 +8,15 @@
 
 #import "ModifyClubInfoView.h"
 #import "Session.h"
+#import "MenuClubListView.h"
 
 @interface ModifyClubInfoView ()
 
 @end
 
-@implementation ModifyClubInfoView
+@implementation ModifyClubInfoView{
+    Club * actualClub;
+}
 
 @synthesize nameText,addressText,typeLabel,danceSelected,snookerSelected,liveMusicSelected,sportBroadcastSelected,coctailBarSelected,wifiSelected,DartsSelected,
 BowlingSelected,DjSelected,FoodSelected;
@@ -44,11 +47,27 @@ BowlingSelected,DjSelected,FoodSelected;
     
     self.tableView.backgroundView = imageView;
     
-    
-    
+    int selectedIndex=[[Session getInstance]getSelectedIndex];
+    actualClub=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
     
     addressText.delegate=self;
     nameText.delegate=self;
+    
+/*
+ 
+ Pipák beállítása
+ 
+    UIImage *accessoryImage_accept = [UIImage imageNamed:@"ic_action_accept.png"];
+    UIImageView *accImageView_accept = [[UIImageView alloc] initWithImage:accessoryImage_accept];
+    accImageView_accept.userInteractionEnabled = YES;
+    [accImageView_accept setFrame:CGRectMake(0, 0, 28.0, 28.0)];
+    
+    
+    UITableViewCell *cell = [self.tableView cell];
+    cell.accessoryView = accImageView_accept;
+    
+ */
+    
     
     
     danceSelected=NO;
@@ -62,7 +81,13 @@ BowlingSelected,DjSelected,FoodSelected;
     wifiSelected=NO;
     coctailBarSelected=NO;
     
-    [[ Session getInstance] setClubTypeForPicer:@"Válassz"];
+    [self.tableView c]
+    
+    [addressText setText:[ actualClub getAddress]];
+    
+    [nameText setText:[ actualClub getClubName]];
+    
+    [[Session getInstance] setClubTypeForPicer: [ actualClub getType] ];
 }
 
 - (void)didReceiveMemoryWarning
@@ -421,13 +446,29 @@ BowlingSelected,DjSelected,FoodSelected;
             [services appendString:@"coctailbar"];
         }
         
-        [[[Session getInstance] getCommunication] sendANewClubRequestWithClubname:[nameText text] andAddress:[addressText text] andType:[typeLabel text] andOwnerUserId:-1 andServices:services];
+        /*[[[Session getInstance] getCommunication] sendANewClubRequestWithClubname:[nameText text] andAddress:[addressText text] andType:[typeLabel text] andOwnerUserId:-1 andServices:services];
+        */
+        
+        // TODO: Plusz mezők felvétele
+        
+        [[[Session getInstance] getCommunication] updateClubInfoWithId:[actualClub getIdentifier] andName:[nameText text] andType: [typeLabel text] andDescription:@"" andAddress:[addressText text] andPhonenumber:@"" andEmail:@""];
+        
+        [actualClub setClubName:[nameText text]];
+        [actualClub setAddress:[addressText text]];
+        [actualClub setType:[typeLabel text]];
+        
+        
+        [[[Session getInstance] getCommunication] setServisesWithClubID:[actualClub getIdentifier] andServices:services];
+        
+        MenuClubListView* mclv = [self.storyboard instantiateViewControllerWithIdentifier:@"MenuClubListView"];
+        [mclv.tableView reloadData];
+        
         
         [[ Session getInstance] setClubTypeForPicer:@"Bármelyik"]; // Picker visszaállítása a keresőhöz
         
         [self dismissViewControllerAnimated:YES completion:nil];
         
-        [[[UIAlertView alloc] initWithTitle:@"Siker" message:@"A hely hozzá lett adva, várj, míg egy moderátor elfogadja!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+        [[[UIAlertView alloc] initWithTitle:@"Siker" message:@"A hely adatai sikeresen módosítva!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
         
     }
 }
