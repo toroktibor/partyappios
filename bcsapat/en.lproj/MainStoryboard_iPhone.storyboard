@@ -525,10 +525,13 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7G-dd-fJO">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7G-dd-fJO">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="xtv-5G-f9C"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Szórakozóhelyek">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Szórakozóhelyek" backgroundImage="purple_trans50.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -538,10 +541,13 @@
                                     <segue destination="kct-sS-pN9" kind="push" id="cGY-A1-Md7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPC-P9-Iwd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPC-P9-Iwd">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="eFA-2A-JI9"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Tulajdonosi kérelmek">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Tulajdonosi kérelmek" backgroundImage="purple_trans50.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -551,10 +557,13 @@
                                     <segue destination="Pgg-YM-580" kind="push" id="dNf-bn-he6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrP-SE-YTH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrP-SE-YTH">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="73W-Mb-Qdx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Vélemények">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Vélemények" backgroundImage="purple_trans50.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -585,6 +594,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="rate" destination="mrP-SE-YTH" id="kkr-fE-WHh"/>
+                        <outlet property="szh" destination="m7G-dd-fJO" id="25A-id-FZ4"/>
+                        <outlet property="tul" destination="xPC-P9-Iwd" id="3MW-wZ-iYO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a5b-Zi-iwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1079,7 +1093,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="E-mail:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTY-rd-MAx">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="132" id="1wy-wC-ids"/>
-                                    <constraint firstAttribute="height" constant="30" id="TFI-kC-4c0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1127,7 +1140,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="and-zy-ZA2" firstAttribute="centerX" secondItem="0df-e2-1IP" secondAttribute="centerX" type="default" id="Dz8-zC-cHS"/>
                             <constraint firstItem="0df-e2-1IP" firstAttribute="bottom" secondItem="1AH-Lj-VHp" secondAttribute="bottom" type="default" id="FMQ-ec-lVG"/>
                             <constraint firstItem="ynk-U9-CCG" firstAttribute="baseline" secondItem="gTY-rd-MAx" secondAttribute="baseline" type="default" id="GZ2-Or-Oek"/>
-                            <constraint firstItem="gTY-rd-MAx" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="20" symbolic="YES" type="default" id="GhL-2H-0T4"/>
+                            <constraint firstItem="gTY-rd-MAx" firstAttribute="bottom" secondItem="ynk-U9-CCG" secondAttribute="bottom" type="default" id="IVa-lf-dBC"/>
                             <constraint firstItem="and-zy-ZA2" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="124" id="JKJ-43-6Ix"/>
                             <constraint firstItem="v98-Fy-kst" firstAttribute="trailing" secondItem="gTY-rd-MAx" secondAttribute="trailing" type="default" id="MLk-qw-8Tp"/>
                             <constraint firstItem="0df-e2-1IP" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="218" id="PQi-F6-sn3"/>
@@ -1137,6 +1150,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <constraint firstItem="v98-Fy-kst" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="77" id="cEK-Ze-ckF"/>
                             <constraint firstItem="1AH-Lj-VHp" firstAttribute="leading" secondItem="FDO-6N-HdS" secondAttribute="leading" constant="-36" id="gOp-Yq-oXd"/>
                             <constraint firstItem="v98-Fy-kst" firstAttribute="leading" secondItem="FDO-6N-HdS" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="k7c-Ns-n4Q"/>
+                            <constraint firstItem="gTY-rd-MAx" firstAttribute="top" secondItem="ynk-U9-CCG" secondAttribute="top" type="default" id="m3s-K0-5eZ"/>
+                            <constraint firstItem="gTY-rd-MAx" firstAttribute="top" secondItem="FDO-6N-HdS" secondAttribute="top" constant="25" id="tnu-Go-B6P"/>
                             <constraint firstItem="gTY-rd-MAx" firstAttribute="leading" secondItem="FDO-6N-HdS" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="wp1-C3-QAk"/>
                         </constraints>
                     </view>
@@ -1352,13 +1367,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstAttribute="width" constant="129" id="lCh-aV-BZm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zw5-uq-MJL">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="210" id="Cai-H8-Kzo"/>
                                         </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -1367,16 +1383,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstAttribute="width" constant="160" id="VSV-Tv-uzL"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2f-zO-Aq6">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2f-zO-Aq6">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="117" id="7b0-yi-hS1"/>
+                                            <constraint firstAttribute="height" constant="44" id="xZs-XC-Fzr"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Időpont">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Időpont" backgroundImage="purple_trans50.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -1391,15 +1408,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstAttribute="width" constant="134" id="EOc-bD-1Ob"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Esemény leírása." translatesAutoresizingMaskIntoConstraints="NO" id="nzj-e1-08I">
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="9oZ-ab-JEB"/>
-                                            <constraint firstAttribute="width" constant="282" id="e0x-ph-1O3"/>
                                         </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -1409,16 +1426,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstAttribute="width" constant="101" id="Nvu-H3-r7T"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IO0-f8-FHP">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IO0-f8-FHP">
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="2g7-31-FM5"/>
                                             <constraint firstAttribute="width" constant="125" id="GgT-B4-M9n"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Létrehoz">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Létrehoz" backgroundImage="purple_trans50.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -1431,10 +1449,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJJ-mg-7ba">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="117" id="NdC-gb-ORD"/>
+                                            <constraint firstAttribute="height" constant="44" id="vGH-sy-bbj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Típus">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Típus" backgroundImage="purple_trans50.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -1450,23 +1469,25 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <constraint firstItem="nzj-e1-08I" firstAttribute="leading" secondItem="Lku-fo-FLT" secondAttribute="leading" type="default" id="6Tg-Ug-t8I"/>
                                     <constraint firstItem="dCR-aI-wn1" firstAttribute="centerX" secondItem="5Xj-oN-bYd" secondAttribute="centerX" type="default" id="6mE-Hj-NMq"/>
                                     <constraint firstItem="Lku-fo-FLT" firstAttribute="top" secondItem="jeB-LK-hKG" secondAttribute="top" constant="151" id="6ms-zg-beT"/>
-                                    <constraint firstItem="IO0-f8-FHP" firstAttribute="centerX" secondItem="jeB-LK-hKG" secondAttribute="centerX" type="default" id="7Li-Qm-M6u"/>
                                     <constraint firstItem="UPl-fT-aqi" firstAttribute="leading" secondItem="jeB-LK-hKG" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="B1a-it-uER"/>
-                                    <constraint firstAttribute="bottom" secondItem="IO0-f8-FHP" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="CYi-xE-zRV"/>
                                     <constraint firstItem="QJJ-mg-7ba" firstAttribute="baseline" secondItem="5Xj-oN-bYd" secondAttribute="baseline" type="default" id="HRd-Up-Vcf"/>
                                     <constraint firstAttribute="trailing" secondItem="H2f-zO-Aq6" secondAttribute="trailing" constant="16" id="LfW-T8-fat"/>
                                     <constraint firstItem="H2f-zO-Aq6" firstAttribute="top" secondItem="jeB-LK-hKG" secondAttribute="top" constant="96" id="PMI-vS-gAO"/>
                                     <constraint firstItem="dCR-aI-wn1" firstAttribute="leading" secondItem="zw5-uq-MJL" secondAttribute="leading" type="default" id="Pni-Kk-0dp"/>
+                                    <constraint firstItem="5Xj-oN-bYd" firstAttribute="trailing" secondItem="UPl-fT-aqi" secondAttribute="trailing" type="default" id="RAl-LR-yRD"/>
                                     <constraint firstItem="QJJ-mg-7ba" firstAttribute="top" secondItem="jeB-LK-hKG" secondAttribute="top" constant="323" id="SVf-oz-4uQ"/>
                                     <constraint firstItem="QJJ-mg-7ba" firstAttribute="centerY" secondItem="5Xj-oN-bYd" secondAttribute="centerY" type="default" id="U0G-CY-yA7"/>
                                     <constraint firstItem="H2f-zO-Aq6" firstAttribute="leading" secondItem="dCR-aI-wn1" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="WbL-Ja-s9y"/>
                                     <constraint firstItem="dCR-aI-wn1" firstAttribute="baseline" secondItem="H2f-zO-Aq6" secondAttribute="baseline" type="default" id="WsY-z9-1rU"/>
+                                    <constraint firstAttribute="bottom" secondItem="IO0-f8-FHP" secondAttribute="bottom" constant="19" id="Wu9-cs-cag"/>
                                     <constraint firstItem="QJJ-mg-7ba" firstAttribute="leading" secondItem="5Xj-oN-bYd" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Xik-1w-KzR"/>
                                     <constraint firstItem="nzj-e1-08I" firstAttribute="top" secondItem="Lku-fo-FLT" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="eGW-fc-RmE"/>
+                                    <constraint firstItem="dCR-aI-wn1" firstAttribute="top" secondItem="jeB-LK-hKG" secondAttribute="top" constant="107" id="fJv-v2-qAM"/>
                                     <constraint firstItem="zw5-uq-MJL" firstAttribute="top" secondItem="UPl-fT-aqi" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kZM-rL-FUg"/>
                                     <constraint firstItem="IO0-f8-FHP" firstAttribute="top" secondItem="jeB-LK-hKG" secondAttribute="top" constant="392" id="lJc-zl-ZaH"/>
                                     <constraint firstItem="UPl-fT-aqi" firstAttribute="top" secondItem="jeB-LK-hKG" secondAttribute="top" constant="25" id="o2v-gF-8Wq"/>
                                     <constraint firstItem="nzj-e1-08I" firstAttribute="centerX" secondItem="IO0-f8-FHP" secondAttribute="centerX" type="default" id="pCL-Ph-X3j"/>
+                                    <constraint firstItem="nzj-e1-08I" firstAttribute="centerX" secondItem="jeB-LK-hKG" secondAttribute="centerX" type="default" id="q4R-wG-YQU"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -1852,13 +1873,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cng-Tj-igw">
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sh-dp-hg2">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sh-dp-hg2">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="139" id="Exx-zQ-3AK"/>
+                                            <constraint firstAttribute="height" constant="44" id="Z58-Ds-G4i"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Módosít">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Módosít" backgroundImage="purple_trans50.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -1873,7 +1895,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstAttribute="width" constant="101" id="8NB-hE-6LD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qDu-kP-PFn">
@@ -1882,6 +1904,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstAttribute="height" constant="128" id="Cjd-A0-2Vv"/>
                                         </constraints>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -1890,7 +1913,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstAttribute="width" constant="134" id="1ka-G3-ZFm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Esemény időpontja" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rw-X2-Fxq">
@@ -1898,16 +1921,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstAttribute="width" constant="160" id="W1Y-Tz-BA8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPs-6X-YK3">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPs-6X-YK3">
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="ds4-tm-yY0"/>
                                             <constraint firstAttribute="width" constant="117" id="lZf-ph-Flh"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Időpont">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Időpont" backgroundImage="purple_trans50.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -1921,7 +1945,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <constraints>
                                             <constraint firstAttribute="width" constant="225" id="sgg-92-smn"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Esemény neve:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vkf-Ny-PMN">
@@ -1929,16 +1954,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                             <constraint firstAttribute="width" constant="129" id="kye-Gb-sff"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuQ-W5-OKe">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xuQ-W5-OKe">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="117" id="EhW-f6-AGu"/>
+                                            <constraint firstAttribute="height" constant="44" id="ggT-o8-Sho"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Típus">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Típus" backgroundImage="purple_trans50.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -1958,10 +1984,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <constraint firstItem="1Sh-dp-hg2" firstAttribute="centerX" secondItem="qDu-kP-PFn" secondAttribute="centerX" type="default" id="9q6-vM-mnv"/>
                                     <constraint firstItem="BPs-6X-YK3" firstAttribute="top" secondItem="Cng-Tj-igw" secondAttribute="top" constant="96" id="Cif-2z-LN6"/>
                                     <constraint firstItem="Z6P-gf-kUa" firstAttribute="top" secondItem="Vkf-Ny-PMN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="E5c-2Z-YLC"/>
+                                    <constraint firstAttribute="bottom" secondItem="1Sh-dp-hg2" secondAttribute="bottom" constant="27" id="FDe-tW-8CP"/>
+                                    <constraint firstItem="xqb-O8-UVQ" firstAttribute="top" secondItem="Cng-Tj-igw" secondAttribute="top" constant="329" id="HhS-kH-0W6"/>
                                     <constraint firstItem="CYp-0D-IH9" firstAttribute="leading" secondItem="Cng-Tj-igw" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="IPB-4y-lDW"/>
                                     <constraint firstItem="Z6P-gf-kUa" firstAttribute="leading" secondItem="Cng-Tj-igw" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="IS2-a2-E7g"/>
                                     <constraint firstItem="4rw-X2-Fxq" firstAttribute="baseline" secondItem="BPs-6X-YK3" secondAttribute="baseline" type="default" id="MAW-03-rsT"/>
-                                    <constraint firstAttribute="bottom" secondItem="1Sh-dp-hg2" secondAttribute="bottom" constant="28" id="jVx-ew-Heg"/>
+                                    <constraint firstItem="4rw-X2-Fxq" firstAttribute="top" secondItem="Cng-Tj-igw" secondAttribute="top" constant="107" id="ZfH-HP-RnC"/>
                                     <constraint firstAttribute="trailing" secondItem="BPs-6X-YK3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="lUD-KS-5Fg"/>
                                     <constraint firstItem="qDu-kP-PFn" firstAttribute="top" secondItem="CYp-0D-IH9" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="oos-0q-XGp"/>
                                     <constraint firstItem="CYp-0D-IH9" firstAttribute="top" secondItem="Cng-Tj-igw" secondAttribute="top" constant="151" id="pFI-Kr-des"/>
@@ -4537,6 +4565,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PendingViewController.h"/>
             <relationships>
                 <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="rate" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="szh" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tul" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="PickerForSearchView" superclassName="UIViewController">
@@ -4623,6 +4654,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
         </class>
@@ -4633,8 +4667,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Xhu-YV-zEt"/>
+        <segue reference="teb-17-VEk"/>
         <segue reference="i3u-r4-Gc5"/>
-        <segue reference="wWz-6N-LQq"/>
+        <segue reference="1B2-ps-LjI"/>
     </inferredMetricsTieBreakers>
 </document>

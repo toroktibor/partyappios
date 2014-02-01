@@ -10,5 +10,8 @@
 
 @interface PendingViewController : UIViewController
 - (IBAction)back:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *szh;
+@property (strong, nonatomic) IBOutlet UIButton *tul;
+@property (strong, nonatomic) IBOutlet UIButton *rate;
 
 @end

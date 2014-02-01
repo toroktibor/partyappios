@@ -164,8 +164,8 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     
-    int selectedIndex=[[Session getInstance]getSelectedIndex];
-    club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+   /* int selectedIndex=[[Session getInstance]getSelectedIndex];
+    club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];*/
     User * user=[[Session getInstance]getActualUser];
     
     //admin vagy tulaj ág
@@ -400,8 +400,8 @@
 
 - (void)showActionSheet{
     
-    int selectedIndex=[[Session getInstance]getSelectedIndex];
-    club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+    /*int selectedIndex=[[Session getInstance]getSelectedIndex];
+    club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];*/
     User * user=[[Session getInstance]getActualUser];
     
     NSLog([user isThisUserOwnerOfClub:[club getIdentifier]] ? @"Yes" : @"No");
@@ -511,5 +511,9 @@
     [super viewDidLayoutSubviews];
     [self.scrollView setContentSize:CGSizeMake(320, 550)];
 }
+
+/*-(void)viewDidDisappear:(BOOL)animated{
+    [[club getImages] removeAllObjects];   
+}*/
 
 @end

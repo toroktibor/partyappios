@@ -7,12 +7,14 @@
 //
 
 #import "PendingViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface PendingViewController ()
 
 @end
 
 @implementation PendingViewController
+@synthesize szh,tul,rate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +28,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];	}
+    [[[self navigationController] navigationBar] setTintColor:[UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(100/255.0) alpha:1.0]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
+    
+    szh.layer.cornerRadius = 8;
+    szh.clipsToBounds = YES;
+    
+    tul.layer.cornerRadius = 8;
+    tul.clipsToBounds = YES;
+    
+    rate.layer.cornerRadius = 8;
+    rate.clipsToBounds = YES;
+}
 
 - (void)didReceiveMemoryWarning
 {

@@ -10,6 +10,7 @@
 #import "Session.h"
 #import "Event.h"
 #import "Club.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AddNewEventView ()
 
@@ -30,13 +31,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
 	// Do any additional setup after loading the view.
     
     eventNameText.delegate=self;
+    eventNameText.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    
     descriptionText.delegate=self;
+    descriptionText.scrollEnabled=NO;
+    descriptionText.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    descriptionText.layer.cornerRadius = 8;
+    descriptionText.clipsToBounds = YES;
     
     musicTypeLabel.text=[[Session getInstance]getMusicType];
     timeLabe.text=[[Session getInstance]getEventTime];
+    
+    typeButton.layer.cornerRadius = 8;
+    typeButton.clipsToBounds = YES;
+    
+    createButton.layer.cornerRadius = 8;
+    createButton.clipsToBounds = YES;
+    
+    timeButton.layer.cornerRadius = 8;
+    timeButton.clipsToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,6 +88,8 @@
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
     [alert show];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 
