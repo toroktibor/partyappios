@@ -252,6 +252,7 @@
     [club1 setPhoneNumber: [ fullClub getPhoneNumber ]];
     [club1 setEmail: [fullClub getEmail]];
     [club1 setDescription:[fullClub getDescription]];
+    [club1 setType:[fullClub getType]];
     
     [club1 setMenuItems:[[[Session getInstance]getCommunication]getMenuItemsForClubWithClubId:club_id]];
     

@@ -24,7 +24,7 @@
 -(void) modifyPasswordWithId:(int) id andPassword:(NSString *) password;
 -(void) modifyUserDataWithId:(int) id andEmail:(NSString *) email andBirthday:(NSString *) birthday andSex:(int) sex;
 -(User *) registerANewUserWithName:(NSString *) name andPassword:(NSString *) password andEmail:(NSString *)  email andSex:(int) sex andBirthday:(NSString *) birthday;
--(void) setServisesWithClubID:(int) club_id andServices:(NSArray *) services;
+-(void) setServisesWithClubID:(int) club_id andServices:(NSString *) services;
 -(void) setOwnerForClubWithUserID:(int) user_id andClubID:(int) club_id;
 -(void) setFavoriteClubForUserWithUserID:(int) user_id andClubID:(int) club_id;
 -(void) deleteFavoriteClub:(int) club_id forUser:(int) user_id;
@@ -56,4 +56,8 @@
 -(NSMutableArray *) selectClubsImagesIdsWithClubId:(int) clubId;
 -(NSString*) downLoadAnImageThumbnailWithImageId:(int) imageId;
 -(NSMutableArray *) searchClubsWithName:(NSString *) name andCityname:(NSString *) cityname andType:(NSString *) type andServices:(NSString *) services;
+-(void) deleteImageWithImageId:(int) imageId;
+-(NSMutableArray *)  getNotApprovedImages;
+-(void) declineImageWithImageId:(int) imageid;
+-(void) acceptImageWithImageId:(int) imageid;
 @end
