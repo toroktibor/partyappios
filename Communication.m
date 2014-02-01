@@ -864,6 +864,63 @@ return nil;
     return @"";
 }
 
+-(void) deleteImageWithImageId:(int) imageId{
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"DELETE" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:imageId] forKey:@"imageid"];
+        
+        [self httpPost:@"image.php" withData:posts];
+    }@catch (NSException *e) {
+        
+    }
+}
+-(NSMutableArray *)  getNotApprovedImages{
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"GETNOTAPPROVEDIDS" forKey:@"action"];
+        
+        NSString* urlData = [self httpPost:@"image.php" withData:posts];
+        NSError* err = [[NSError alloc] init];
+        NSMutableArray *res = [[NSMutableArray alloc] init];
+        
+        NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        
+        for (NSDictionary* jd in array) {
+            NSNumber * imageId = [jd objectForKey:@"imageid"];
+            [res addObject:imageId];
+        }
+        return res;
+        
+    } @catch (NSException *e) {
+        
+    }
+    
+    return nil;
+}
+-(void) declineImageWithImageId:(int) imageid{
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"DECLINEIMAGE" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:imageid] forKey:@"imageid"];
+        
+        [self httpPost:@"image.php" withData:posts];
+    }@catch (NSException *e) {
+        
+    }
+}
+-(void) acceptImageWithImageId:(int) imageid{
+    @try {
+        NSMutableDictionary * posts = [[NSMutableDictionary alloc] init];
+        [posts setObject:@"ACCEPTIMAGE" forKey:@"action"];
+        [posts setObject:[NSNumber numberWithInt:imageid] forKey:@"imageid"];
+        
+        [self httpPost:@"image.php" withData:posts];
+    }@catch (NSException *e) {
+        
+    }
+}
+
 @end
 
 

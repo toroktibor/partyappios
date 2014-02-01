@@ -56,4 +56,8 @@
 -(NSMutableArray *) selectClubsImagesIdsWithClubId:(int) clubId;
 -(NSString*) downLoadAnImageThumbnailWithImageId:(int) imageId;
 -(NSMutableArray *) searchClubsWithName:(NSString *) name andCityname:(NSString *) cityname andType:(NSString *) type andServices:(NSString *) services;
+-(void) deleteImageWithImageId:(int) imageId;
+-(NSMutableArray *)  getNotApprovedImages;
+-(void) declineImageWithImageId:(int) imageid;
+-(void) acceptImageWithImageId:(int) imageid;
 @end
