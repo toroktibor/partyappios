@@ -218,17 +218,8 @@
             
             
             
-        }   else if (buttonIndex == 4) {
-            
-            //értesítések nézet
-            NotificationsView *NotificationsView=
-            [self.storyboard instantiateViewControllerWithIdentifier:@"NotificationsView"];
-            
-            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:NotificationsView];
-            [self presentViewController:navController animated:YES completion:nil];
-            
         }
-        else if (buttonIndex == 5) {
+        else if (buttonIndex == 4) {
             
             //profilom nézet
             ProfileTableView *ProfileTableView=
@@ -236,7 +227,7 @@
             UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ProfileTableView];
             [self presentViewController:navController animated:YES completion:nil];
         }
-        else if (buttonIndex == 6) {
+        else if (buttonIndex == 5) {
             //kijelentkezés
             
             [Session deleteSession];
@@ -244,7 +235,7 @@
             [self.storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
             [self presentViewController:LoginView animated:YES completion:nil];
         }
-        else if (buttonIndex == 7) {
+        else if (buttonIndex == 6) {
             // NSLog(@"Mégse");
         }
     }
@@ -333,17 +324,8 @@
             
             
             
-        }   else if (buttonIndex == 4) {
-            
-            //értesítések nézet
-            NotificationsView *NotificationsView=
-            [self.storyboard instantiateViewControllerWithIdentifier:@"NotificationsView"];
-            
-            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:NotificationsView];
-            [self presentViewController:navController animated:YES completion:nil];
-            
         }
-        else if (buttonIndex == 5) {
+        else if (buttonIndex == 4) {
             
             //profilom nézet
             ProfileTableView *ProfileTableView=
@@ -351,7 +333,7 @@
             UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ProfileTableView];
             [self presentViewController:navController animated:YES completion:nil];
         }
-        else if (buttonIndex == 6) {
+        else if (buttonIndex == 5) {
             //Jóváhagyások
             
             PendingViewController *AdminTableView=
@@ -360,7 +342,7 @@
             [self presentViewController:navController animated:YES completion:nil];
             
         }
-        else if (buttonIndex == 7) {
+        else if (buttonIndex == 6) {
             //kijelentkezés
             
             [Session deleteSession];
@@ -369,7 +351,7 @@
             [self presentViewController:LoginView animated:YES completion:nil];
         }
         
-        else if (buttonIndex == 8) {
+        else if (buttonIndex == 7) {
             // mégse
         }
     }
@@ -515,7 +497,7 @@
     //admin action sheet
     if ([[[Session getInstance]getActualUser]getType]==1) {
         UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
-                                                  destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Helyeim",@"Hely hozzáadása",@"Értesítések",@"Profilom",@"Jóváhagyások",@"Kijelentkezés", nil];
+                                                  destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Helyeim",@"Hely hozzáadása",@"Profilom",@"Jóváhagyások",@"Kijelentkezés", nil];
         
         popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
         [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
@@ -524,7 +506,7 @@
     //user action sheet
     else{
         UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Mégse"
-                                                  destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Helyeim",@"Hely hozzáadása",@"Értesítések",@"Profilom",@"Kijelentkezés", nil];
+                                                  destructiveButtonTitle:nil otherButtonTitles:@"Közeli helyek",@"Kedvencek", @"Helyeim",@"Hely hozzáadása",@"Profilom",@"Kijelentkezés", nil];
         
         popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
         [popupQuery showInView:[UIApplication sharedApplication].keyWindow];
