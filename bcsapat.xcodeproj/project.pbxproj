@@ -47,6 +47,7 @@
 		7A4FA9E81891963900222870 /* AddNewClubTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4FA9E71891963900222870 /* AddNewClubTableView.m */; };
 		7A527D35189C610E000369FE /* piros.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A527D34189C610E000369FE /* piros.png */; };
 		7A527D37189C616C000369FE /* previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A527D36189C616C000369FE /* previous.png */; };
+		7AA21358189C70E8000DADDF /* ModifyClubInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA21357189C70E8000DADDF /* ModifyClubInfoView.m */; };
 		7AC9205A1890641B0061E61A /* Communication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC920591890641B0061E61A /* Communication.m */; };
 		7AC9ECAD188015B800DBEEDB /* NotificationsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECAC188015B800DBEEDB /* NotificationsView.m */; };
 		7AC9ECB618801D0100DBEEDB /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC9ECB518801D0100DBEEDB /* LoginView.m */; };
@@ -171,6 +172,8 @@
 		7A4FA9E71891963900222870 /* AddNewClubTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewClubTableView.m; sourceTree = "<group>"; };
 		7A527D34189C610E000369FE /* piros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piros.png; sourceTree = "<group>"; };
 		7A527D36189C616C000369FE /* previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previous.png; sourceTree = "<group>"; };
+		7AA21356189C70E8000DADDF /* ModifyClubInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyClubInfoView.h; sourceTree = "<group>"; };
+		7AA21357189C70E8000DADDF /* ModifyClubInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyClubInfoView.m; sourceTree = "<group>"; };
 		7AC920581890641B0061E61A /* Communication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Communication.h; sourceTree = "<group>"; };
 		7AC920591890641B0061E61A /* Communication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Communication.m; sourceTree = "<group>"; };
 		7AC9ECAB188015B800DBEEDB /* NotificationsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationsView.h; sourceTree = "<group>"; };
@@ -565,6 +568,8 @@
 				7AE442031898FE4300BE08A9 /* DatePickerForEventsView.m */,
 				7A4AB59C189C4729008CBE1A /* HighLighRequestView.h */,
 				7A4AB59D189C4729008CBE1A /* HighLighRequestView.m */,
+				7AA21356189C70E8000DADDF /* ModifyClubInfoView.h */,
+				7AA21357189C70E8000DADDF /* ModifyClubInfoView.m */,
 			);
 			name = BarsAndPubsAndRestaurants;
 			sourceTree = "<group>";
@@ -763,6 +768,7 @@
 				E326C574189BF10E007F578D /* PendingRatingsViewController.m in Sources */,
 				E326C577189BF407007F578D /* PendingImageViewController.m in Sources */,
 				7A4AB59E189C4729008CBE1A /* HighLighRequestView.m in Sources */,
+				7AA21358189C70E8000DADDF /* ModifyClubInfoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

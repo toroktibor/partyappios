@@ -16,6 +16,7 @@
 #import "RatingTableViewViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "HighLighRequestView.h"
+#import "ModifyClubInfoView.h"
 
 @interface InformationView ()
 @end
@@ -173,6 +174,13 @@
             
             //helyem szerkesztése
             NSLog(@"helyem szerkesztése");
+            
+            ModifyClubInfoView * modifyView =
+            [self.storyboard instantiateViewControllerWithIdentifier:@"ModifyClubInfoView"];
+            [self.navigationController pushViewController:modifyView animated:YES];
+            
+            
+            
             
         }
         
