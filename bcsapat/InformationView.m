@@ -258,10 +258,21 @@
         
         else if (buttonIndex == 6){
             
-            NSLog(@"kiemelés kérése");
-            HighLighRequestView *HighLighRequestView=
-            [self.storyboard instantiateViewControllerWithIdentifier:@"HighLighRequestView"];
-            [self.navigationController pushViewController:HighLighRequestView animated:YES];
+            int selectedIndex=[[Session getInstance]getSelectedIndex];
+            club=[[Session getInstance]getSelectedClubAtIndex:selectedIndex];
+            
+            if ((NSNull*)[club getHighliteExpire]==[NSNull null]) {
+                
+                NSLog(@"kiemelés kérése");
+                HighLighRequestView *HighLighRequestView=
+                [self.storyboard instantiateViewControllerWithIdentifier:@"HighLighRequestView"];
+                [self.navigationController pushViewController:HighLighRequestView animated:YES];
+            }
+            else{
+                UIAlertView *Notpermitted=[[UIAlertView alloc] initWithTitle:@"A klubbon már van kiemelés!" message:nil delegate:nil
+                                                           cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [Notpermitted show];
+            }   
            
         }
         

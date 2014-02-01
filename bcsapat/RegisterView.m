@@ -18,7 +18,7 @@
 @end
 
 @implementation RegisterView
-@synthesize name,password,passwordAgain,email,birthdate,segmentControl,registerButton,cancelButton,user,changeDateButton,scrollView;
+@synthesize name,password,passwordAgain,email,birthdate,registerButton,cancelButton,user,changeDateButton,scrollView;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -34,10 +34,6 @@
 {
     [super viewDidLoad];
     
-
-    segmentControl.tintColor = [UIColor colorWithRed:(154/255.0)   green:(111/255.0)  blue:(189/255.0)  alpha:0.5];
-    
-    segmentControl.segmentedControlStyle = UISegmentedControlStyleBar;
     
     [changeDateButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [changeDateButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
@@ -62,6 +58,7 @@
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [locationManager startUpdatingLocation];
+    
     
     
     name.delegate=self;
@@ -150,12 +147,13 @@
     }
    else{
       
-       user=[[[Session getInstance]getCommunication]
-             registerANewUserWithName:name.text
-             andPassword:password.text
-             andEmail:email.text
-             andSex:[segmentControl selectedSegmentIndex]
-        andBirthday:birthdate];
+                user=[[[Session getInstance]getCommunication]
+                      registerANewUserWithName:name.text
+                      andPassword:password.text
+                      andEmail:email.text
+                      andSex:1
+                      andBirthday:birthdate];
+     
     
        if(!user){
            UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Regisztrációs hiba!"

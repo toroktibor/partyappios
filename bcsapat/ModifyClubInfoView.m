@@ -81,7 +81,6 @@ BowlingSelected,DjSelected,FoodSelected;
     wifiSelected=NO;
     coctailBarSelected=NO;
     
-    [self.tableView c]
     
     [addressText setText:[ actualClub getAddress]];
     

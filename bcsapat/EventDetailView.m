@@ -78,9 +78,9 @@
     musicTypeLabel.clipsToBounds=YES;
     
     ventNameLabel.text=[event getEventName];
-    ventNameLabel.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
+    /*ventNameLabel.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
     ventNameLabel.layer.cornerRadius=8;
-    ventNameLabel.clipsToBounds=YES;
+    ventNameLabel.clipsToBounds=YES;*/
 }
 
 - (void)didReceiveMemoryWarning

@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordAgain;
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) NSString *birthdate;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *changeDateButton;

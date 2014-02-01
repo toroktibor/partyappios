@@ -78,14 +78,9 @@
     
     newAnnotation.canShowCallout = YES;
     
-    //a nem elfogadott hely színe piros
-    if ([(MyAnnotation*)annotation getApproved]==0){
-        newAnnotation.pinColor = MKPinAnnotationColorRed;
-    }
-    //az elfogadott helyek színe zölt
-    else{
-        newAnnotation.pinColor = MKPinAnnotationColorGreen;
-    }
+ 
+    newAnnotation.pinColor = MKPinAnnotationColorPurple;
+
 
     return newAnnotation;
     

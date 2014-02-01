@@ -9,6 +9,7 @@
 #import "HighLighRequestView.h"
 #import "Session.h"
 #import "Club.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface HighLighRequestView ()
 
@@ -30,6 +31,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
     
     types=[[NSMutableArray alloc] init];
     
@@ -40,6 +42,9 @@
     typePicker.delegate = self;
     typePicker.dataSource = self;
     typePicker.showsSelectionIndicator = YES;
+    
+    button.layer.cornerRadius = 8;
+    button.clipsToBounds = YES;
    
 }
 

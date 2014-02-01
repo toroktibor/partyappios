@@ -43,6 +43,8 @@
     [self.view addSubview:starRatingView];
  
     ratingText.delegate=self;
+    ratingText.layer.cornerRadius = 8;
+    ratingText.clipsToBounds = YES;
     
     ratingButton.layer.cornerRadius = 8;
 

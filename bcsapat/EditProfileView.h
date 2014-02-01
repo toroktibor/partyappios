@@ -9,10 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface EditProfileView : UIViewController<UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *birthDayTextField;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 @property (weak, nonatomic) IBOutlet UIButton *changeDateButton;
 
 - (IBAction)saveChanges:(id)sender;

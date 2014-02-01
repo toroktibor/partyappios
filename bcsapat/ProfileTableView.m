@@ -16,7 +16,7 @@
 @end
 
 @implementation ProfileTableView
-@synthesize nameLabel,emailLabel,birhdayLabel,sexLabel,tblTable;
+@synthesize nameLabel,emailLabel,birhdayLabel,tblTable;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -50,12 +50,6 @@
     [birhdayLabel setText:[[[Session getInstance]getActualUser]getBirthday]];
     [emailLabel setText:[[[Session getInstance]getActualUser]getEmail]];
     
-    if ([[[Session getInstance]getActualUser]getSex]==0) {
-        [sexLabel setText:@"Férfi"];
-    }
-    else{
-        [sexLabel setText:@"Nő"];
-    }
     
 }
 

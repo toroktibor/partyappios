@@ -16,7 +16,7 @@
 @end
 
 @implementation EditProfileView
-@synthesize nameTextField,emailTextField,birthDayTextField,segmentControl,saveButton,changeDateButton;
+@synthesize emailTextField,birthDayTextField,saveButton,changeDateButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,27 +31,22 @@
 {
     [super viewDidLoad];
     
-    nameTextField.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
-    nameTextField.textColor=[UIColor whiteColor];
+ 
     
     emailTextField.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
     emailTextField.textColor=[UIColor whiteColor];
     
     birthDayTextField.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
     birthDayTextField.textColor=[UIColor whiteColor];
+    birthDayTextField.enabled=NO;
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
     
-    nameTextField.delegate=self;
-    nameTextField.tag=0;
+ 
     
     emailTextField.delegate=self;
-    emailTextField.tag=1;
     
-    birthDayTextField.delegate=self;
-    birthDayTextField.tag=2;
     
-    [nameTextField setText:[[[Session getInstance]getActualUser]getName]];
     [emailTextField setText:[[[Session getInstance]getActualUser]getEmail]];
     [birthDayTextField setText:[[[Session getInstance]getActualUser]getBirthday]];
     
@@ -71,8 +66,7 @@
 }
 
 - (IBAction)saveChanges:(id)sender {
-    if ( (nameTextField.text == nil ||
-          [nameTextField.text isEqualToString:@""]) || (emailTextField.text == nil ||
+    if (  (emailTextField.text == nil ||
                                                                [emailTextField.text isEqualToString:@""])
         || (birthDayTextField.text == nil ||
             [birthDayTextField.text isEqualToString:@""])) {
@@ -85,17 +79,12 @@
             [alertview show];
         }
     else{
-        [[[Session getInstance]getActualUser]setName:nameTextField.text];
         [[[Session getInstance]getActualUser]setEmail:emailTextField.text];
         [[[Session getInstance]getActualUser]setBirthday:birthDayTextField.text];
         
-        if ([segmentControl selectedSegmentIndex]==1) {
-            [[[Session getInstance]getActualUser]setSex:1];
-            //[[[Session getInstance]set]]
-        }
-        else{
-            [[[Session getInstance]getActualUser]setSex:0];
-        }
+
+        [[[Session getInstance]getActualUser]setSex:1];
+
         
         User * au = [[Session getInstance]getActualUser];
         

@@ -15,7 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 @property (weak, nonatomic) IBOutlet UILabel *birhdayLabel;
-@property (weak, nonatomic) IBOutlet UILabel *sexLabel;
 
 @property(nonatomic, retain) UITableView *tblTable;
 

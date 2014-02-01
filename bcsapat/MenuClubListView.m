@@ -100,6 +100,13 @@
     [[[Session getInstance]getSearchViewCLubs]removeObjectAtIndex:indexPath.row];
     [self.tableView reloadData];
     [self.tableView setNeedsDisplay];
+    
+    UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Szórakozóhely törölve!"
+                                                         message:nil
+                                                        delegate:nil
+                                               cancelButtonTitle:@"Ok"
+                                               otherButtonTitles: nil];
+    [alertview show];
 }
 
 
@@ -561,6 +568,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [self.tableView reloadData];
     [super viewWillAppear:animated];
+    [self.tableView setNeedsDisplay];
 }
 
 @end
