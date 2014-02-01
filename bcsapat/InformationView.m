@@ -84,7 +84,9 @@
     
     
     descriptionView.editable=NO;
-    [descriptionView setText:[club getDescription]];
+    if ((NSNull *)[club getDescription] == [NSNull null] || [[club getDescription] isEqual: @""]) descriptionView.text=@"nincs megadva";
+    else  descriptionView.text=[club getDescription];
+    //[descriptionView setText:[club getDescription]];
     descriptionView.backgroundColor=[UIColor colorWithRed:(154/255.0) green:(111/255.0) blue:(189/255.0) alpha:0.5];
     descriptionView.textColor=[UIColor whiteColor];
     descriptionView.layer.cornerRadius=8;
