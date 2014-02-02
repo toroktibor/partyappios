@@ -566,4 +566,54 @@
     }
     
 }
+
+
+
+
+/*- (void)purgeMapMemory
+{
+    // Switching map types causes cache purging, so switch to a different map type
+    map.mapType = MKMapTypeStandard;
+    [map removeFromSuperview];
+    map = nil;
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    // This is for a bug in MKMapView for iOS6
+    [self purgeMapMemory];
+}*/
+
+
+/*- (void)applyMapViewMemoryHotFix{
+    
+    switch (self.map.mapType) {
+        case MKMapTypeHybrid:
+        {
+            self.map.mapType = MKMapTypeStandard;
+        }
+            
+            break;
+        case MKMapTypeStandard:
+        {
+            self.map.mapType = MKMapTypeHybrid;
+        }
+            
+            break;
+        default:
+            break;
+    }
+    self.map.showsUserLocation = NO;
+    self.map.delegate = nil;
+    [self.map removeFromSuperview];
+    self.map = nil;
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [self applyMapViewMemoryHotFix];
+}*/
+
 @end
