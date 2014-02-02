@@ -34,7 +34,8 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bricskok.png"]];
     
     //a types tömbben tároljuk a lehetesőg, amelyek közül lehet pickelni
-    types = [[NSArray alloc] initWithObjects:@"Előétel", @"Főétel", @"Desszert",@"Leves",@"Köret",@"Ital",@"Turmix",@"Pizza",nil];
+    types = [[NSArray alloc] initWithObjects:@"Előétel", @"Főétel", @"Desszert",@"Leves",@"Köret",@"Ital",@"Turmix",@"Pizza",@"Étel",
+             @"Egyéb","Koktél",nil];
     
     typePicker.delegate = self;
     typePicker.dataSource = self;

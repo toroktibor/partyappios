@@ -128,10 +128,10 @@ NSError *error;
         if ([array isEqual:@"FAILED"]) {
             //itt baj lesz
         } else{
-            int club_id =[[ array objectForKey: @"NewID" ]intValue ];
+            //int club_id =[[ array objectForKey: @"NewID" ]intValue ];
             /*[self setServisesWithClubID:club_id andServices:services];*/
             if ( owner_user_id != -1 ) {
-                [self setOwnerForClubWithUserID:owner_user_id andClubID:club_id];
+                //[self setOwnerForClubWithUserID:owner_user_id andClubID:club_id];
             }
                 
         }
