@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ModifyClubInfoView : UITableViewController<UITextFieldDelegate>
+@interface ModifyClubInfoView : UITableViewController<UITextFieldDelegate,UITextViewDelegate>
 - (IBAction)back:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITextField *nameText;
 @property (weak, nonatomic) IBOutlet UITextField *addressText;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+@property (strong, nonatomic) IBOutlet UITextField *emailText;
+@property (strong, nonatomic) IBOutlet UITextField *phoneText;
+@property (strong, nonatomic) IBOutlet UITextView *descriptionText;
 
 
 @property BOOL liveMusicSelected;

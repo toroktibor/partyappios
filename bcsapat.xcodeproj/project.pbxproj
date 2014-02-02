@@ -80,6 +80,7 @@
 		7AD8D146188EE27C00783AE5 /* Bar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AD8D145188EE27C00783AE5 /* Bar.jpg */; };
 		7AD8D148188EE28400783AE5 /* Nightclub-theme.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7AD8D147188EE28400783AE5 /* Nightclub-theme.jpg */; };
 		7AD9411518885EF100EC78C9 /* InformationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD9411418885EF100EC78C9 /* InformationView.m */; };
+		7ADA35B3189ECB0700CF2440 /* ModifyClubPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADA35B2189ECB0700CF2440 /* ModifyClubPickerView.m */; };
 		7ADA3AD21897F8FE00CB34D5 /* PartyICONlila.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADA3AD11897F8FE00CB34D5 /* PartyICONlila.png */; };
 		7ADA3ADF1898210E00CB34D5 /* RatingDetailUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADA3ADE1898210E00CB34D5 /* RatingDetailUsersView.m */; };
 		7ADA3AE21898324700CB34D5 /* EditMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ADA3AE11898324700CB34D5 /* EditMenuItemView.m */; };
@@ -229,6 +230,8 @@
 		7AD8D147188EE28400783AE5 /* Nightclub-theme.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Nightclub-theme.jpg"; sourceTree = "<group>"; };
 		7AD9411318885EF100EC78C9 /* InformationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationView.h; sourceTree = "<group>"; };
 		7AD9411418885EF100EC78C9 /* InformationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationView.m; sourceTree = "<group>"; };
+		7ADA35B1189ECB0700CF2440 /* ModifyClubPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyClubPickerView.h; sourceTree = "<group>"; };
+		7ADA35B2189ECB0700CF2440 /* ModifyClubPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyClubPickerView.m; sourceTree = "<group>"; };
 		7ADA3AD11897F8FE00CB34D5 /* PartyICONlila.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PartyICONlila.png; sourceTree = "<group>"; };
 		7ADA3ADD1898210E00CB34D5 /* RatingDetailUsersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingDetailUsersView.h; sourceTree = "<group>"; };
 		7ADA3ADE1898210E00CB34D5 /* RatingDetailUsersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingDetailUsersView.m; sourceTree = "<group>"; };
@@ -570,6 +573,8 @@
 				7A4AB59D189C4729008CBE1A /* HighLighRequestView.m */,
 				7AA21356189C70E8000DADDF /* ModifyClubInfoView.h */,
 				7AA21357189C70E8000DADDF /* ModifyClubInfoView.m */,
+				7ADA35B1189ECB0700CF2440 /* ModifyClubPickerView.h */,
+				7ADA35B2189ECB0700CF2440 /* ModifyClubPickerView.m */,
 			);
 			name = BarsAndPubsAndRestaurants;
 			sourceTree = "<group>";
@@ -769,6 +774,7 @@
 				E326C577189BF407007F578D /* PendingImageViewController.m in Sources */,
 				7A4AB59E189C4729008CBE1A /* HighLighRequestView.m in Sources */,
 				7AA21358189C70E8000DADDF /* ModifyClubInfoView.m in Sources */,
+				7ADA35B3189ECB0700CF2440 /* ModifyClubPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

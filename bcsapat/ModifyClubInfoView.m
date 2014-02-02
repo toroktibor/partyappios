@@ -9,6 +9,7 @@
 #import "ModifyClubInfoView.h"
 #import "Session.h"
 #import "MenuClubListView.h"
+#import "ModifyClubPickerView.h"
 
 @interface ModifyClubInfoView ()
 
@@ -19,7 +20,7 @@
 }
 
 @synthesize nameText,addressText,typeLabel,danceSelected,snookerSelected,liveMusicSelected,sportBroadcastSelected,coctailBarSelected,wifiSelected,DartsSelected,
-BowlingSelected,DjSelected,FoodSelected;
+BowlingSelected,DjSelected,FoodSelected,emailText,phoneText,descriptionText;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -81,12 +82,44 @@ BowlingSelected,DjSelected,FoodSelected;
     wifiSelected=NO;
     coctailBarSelected=NO;
     
+    addressText.delegate=self;
+    nameText.delegate=self;
+    phoneText.delegate=self;
+    emailText.delegate=self;
+    descriptionText.delegate=self;
+    
+    
+    
+    descriptionText.scrollEnabled=NO;
+    descriptionText.backgroundColor=[UIColor colorWithWhite:1.0 alpha:0];
     
     [addressText setText:[ actualClub getAddress]];
     
     [nameText setText:[ actualClub getClubName]];
     
     [[Session getInstance] setClubTypeForPicer: [ actualClub getType] ];
+    
+    if ((NSNull *)[actualClub getPhoneNumber] == [NSNull null]){
+        phoneText.text=@"";
+    }
+    else{
+        [phoneText setText:[ actualClub getPhoneNumber]];
+    }
+    
+    
+    if ((NSNull *)[ actualClub getEmail] == [NSNull null]){
+        emailText.text=@"";
+    }
+    else{
+        [emailText setText:[ actualClub getEmail]];
+    }
+    
+    if ((NSNull *)[ actualClub getDescription] == [NSNull null]){
+        descriptionText.text=@"";
+    }
+    else{
+        [descriptionText setText:[ actualClub getDescription]];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -130,6 +163,34 @@ BowlingSelected,DjSelected,FoodSelected;
     }
     if (section==3) {
         titleLabel.text = @"Szolgáltatások";
+        
+        titleLabel.textColor = [UIColor whiteColor];
+        
+        titleLabel.backgroundColor = [UIColor colorWithRed:154.0 green:111.0 blue:189.0 alpha:0];
+        
+        [headerView addSubview:titleLabel];
+    }
+    
+    if (section==4) {
+        titleLabel.text = @"Email cím";
+        
+        titleLabel.textColor = [UIColor whiteColor];
+        
+        titleLabel.backgroundColor = [UIColor colorWithRed:154.0 green:111.0 blue:189.0 alpha:0];
+        
+        [headerView addSubview:titleLabel];
+    }
+    if (section==5) {
+        titleLabel.text = @"Telefonszám";
+        
+        titleLabel.textColor = [UIColor whiteColor];
+        
+        titleLabel.backgroundColor = [UIColor colorWithRed:154.0 green:111.0 blue:189.0 alpha:0];
+        
+        [headerView addSubview:titleLabel];
+    }
+    if (section==6) {
+        titleLabel.text = @"Leírás";
         
         titleLabel.textColor = [UIColor whiteColor];
         
@@ -220,10 +281,9 @@ BowlingSelected,DjSelected,FoodSelected;
     
     if (indexPath.section==2 && indexPath.row==0) {
         //picker megnyitása
-        /*NewTypePickerView *NewTypePickerView=
-        [self.storyboard instantiateViewControllerWithIdentifier:@"NewTypePickerView"];
-        [self.navigationController pushViewController:NewTypePickerView animated:YES];
-    */
+        ModifyClubPickerView *ModifyClubPickerView=
+        [self.storyboard instantiateViewControllerWithIdentifier:@"ModifyClubPickerView"];
+        [self.navigationController pushViewController:ModifyClubPickerView animated:YES];
     }
     else if (indexPath.section==3 && indexPath.row==0){
         if (sportBroadcastSelected==NO) {
@@ -385,7 +445,7 @@ BowlingSelected,DjSelected,FoodSelected;
             DartsSelected=NO;
         }
     }
-    else if (indexPath.section==4 && indexPath.row==0){
+    else if (indexPath.section==7 && indexPath.row==0){
         NSLog(@"Hozzáadás gomb");
         
         if( [[nameText text] isEqual:@""] ){
@@ -450,7 +510,7 @@ BowlingSelected,DjSelected,FoodSelected;
         
         // TODO: Plusz mezők felvétele
         
-        [[[Session getInstance] getCommunication] updateClubInfoWithId:[actualClub getIdentifier] andName:[nameText text] andType: [typeLabel text] andDescription:@"" andAddress:[addressText text] andPhonenumber:@"" andEmail:@""];
+        [[[Session getInstance] getCommunication] updateClubInfoWithId:[actualClub getIdentifier] andName:[nameText text] andType: [typeLabel text] andDescription:descriptionText.text andAddress:[addressText text] andPhonenumber:phoneText.text andEmail:emailText.text];
         
         [actualClub setClubName:[nameText text]];
         [actualClub setAddress:[addressText text]];
@@ -492,6 +552,16 @@ BowlingSelected,DjSelected,FoodSelected;
 
 -(void)viewWillDisappear:(BOOL)animated{
     [[ Session getInstance] setClubTypeForPicer:@"Bármelyik"]; // picker visszaállítása a keresőhöz
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if([text isEqualToString:@"\n"])
+    {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
 }
 
 @end
