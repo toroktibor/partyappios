@@ -142,7 +142,7 @@
         [alert show];
         return ;
     }
-    if([passwordString isEqualToString:@""]){
+    else if([passwordString isEqualToString:@""]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Nem adtál meg jelszót!"
                                                         message:@"Kérlek add meg a jelszavad a belépéshez."
                                                        delegate:nil
@@ -151,10 +151,18 @@
         [alert show];
         return ;
     }
+    else if (![[Session getInstance]isNetworAvaiable]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Csak online módban tudsz bejelentkezni!"
+                                                        message:nil
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
     
     
    
-    if ([[Session getInstance]isNetworAvaiable]) {
+    else if ([[Session getInstance]isNetworAvaiable]) {
         //login online
         User * user=[[[Session getInstance]getCommunication]authenticationUserWithNickName:userNameString andPassword:passwordString];
         if(user==nil){

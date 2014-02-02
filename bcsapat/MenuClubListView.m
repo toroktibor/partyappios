@@ -317,6 +317,25 @@
     if ([[[Session getInstance]getActualUser]getType]==0) {
 
         if (buttonIndex == 0) {
+            
+            
+            if (locationManager.location.coordinate.latitude==0 && locationManager.location.coordinate.longitude==0) {
+                [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
+                NSMutableArray * inputClubList = [[[Session getInstance] getCommunication] getClubsFromCityName:@"Debrecen"];
+                [[Session getInstance] setSearchViewCLubs:inputClubList];
+                
+                NSLog(@"input elotte: %d",[inputClubList count]);
+                inputClubList=nil;
+                NSLog(@"input utana: %d",[inputClubList count]);
+                
+                UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+                
+                tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+                [self presentViewController: tabBar animated: YES completion:nil];
+
+                
+            }
+            else{
 
         //lista frissitése közeli helyekre
         
@@ -350,11 +369,16 @@
         NSMutableArray * inputClubList = [[[Session getInstance] getCommunication] getClubsFromCityName:cityName];
         [[Session getInstance] setSearchViewCLubs:inputClubList];
         
+                
+                NSLog(@"input elotte: %d",[inputClubList count]);
+                inputClubList=nil;
+                NSLog(@"input utana: %d",[inputClubList count]);
+        
         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
         
         tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         [self presentViewController: tabBar animated: YES completion:nil];
-        
+            }
     }
 
        else if (buttonIndex == 1) {
@@ -366,6 +390,7 @@
         NSMutableArray * favoriteClubList = [[[Session getInstance] getCommunication] getFavoriteClubsFromUserId:user_id];
         [[Session getInstance] setSearchViewCLubs:favoriteClubList];
         [[[Session getInstance] getActualUser] setFavoriteClubs:favoriteClubList];
+
         
         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
         
@@ -427,40 +452,61 @@
          
          //lista frissitése közeli helyekre
          
-         [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
-         NSString *lat=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.latitude];
-         NSString *lon=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.longitude];
-         
-         
-         //a meghívandó url string-be behegesztjük a kordinátákat
-         NSString *urlstring=[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?latlng=%@,%@&sensor=false",lat,lon];
-         
-         //az url stringből létrehozunk egy urlt
-         NSURL *url = [NSURL URLWithString:urlstring];
-         
-         //NSLog(@"%@",urlstring);
-         
-         //az url-ből visszakapunk egy egy json-t
-         NSData *jsonData = [NSData dataWithContentsOfURL:url];
-         NSError *error;
-         
-         //json-t átadjuk egy szótárnak
-         NSDictionary *decoded= [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
-         
-         NSString* address=[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"formatted_address"];
-         [[Session getInstance]setUserLocation:address];
-         
-//         NSLog(@"%@",[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
-         
-         NSString* cityName=[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"];
-         
-         NSMutableArray * inputClubList = [[[Session getInstance] getCommunication] getClubsFromCityName:cityName];
-         [[Session getInstance] setSearchViewCLubs:inputClubList];
-         
-         UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
-         
-         tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-         [self presentViewController: tabBar animated: YES completion:nil];
+         if (locationManager.location.coordinate.latitude==0 && locationManager.location.coordinate.longitude==0) {
+             [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
+             NSMutableArray * inputClubList = [[[Session getInstance] getCommunication] getClubsFromCityName:@"Debrecen"];
+             [[Session getInstance] setSearchViewCLubs:inputClubList];
+             
+             NSLog(@"input elotte: %d",[inputClubList count]);
+             inputClubList=nil;
+             NSLog(@"input utana: %d",[inputClubList count]);
+             
+             UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+             
+             tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+             [self presentViewController: tabBar animated: YES completion:nil];
+             
+             
+         }
+         else{
+             
+             //lista frissitése közeli helyekre
+             
+             [[[Session getInstance]getSearchViewCLubs]removeAllObjects];
+             NSString *lat=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.latitude];
+             NSString *lon=[NSString stringWithFormat:@"%f",locationManager.location.coordinate.longitude];
+             
+             
+             //a meghívandó url string-be behegesztjük a kordinátákat
+             NSString *urlstring=[NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?latlng=%@,%@&sensor=false",lat,lon];
+             
+             //az url stringből létrehozunk egy urlt
+             NSURL *url = [NSURL URLWithString:urlstring];
+             
+             //NSLog(@"%@",urlstring);
+             
+             //az url-ből visszakapunk egy egy json-t
+             NSData *jsonData = [NSData dataWithContentsOfURL:url];
+             NSError *error;
+             
+             //json-t átadjuk egy szótárnak
+             NSDictionary *decoded= [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+             
+             NSString* address=[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"formatted_address"];
+             [[Session getInstance]setUserLocation:address];
+             
+             //        NSLog(@"%@",[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"]);
+             
+             NSString* cityName=[[[[[decoded objectForKey:@"results"]objectAtIndex:0]objectForKey:@"address_components"]objectAtIndex:2]objectForKey:@"long_name"];
+             
+             NSMutableArray * inputClubList = [[[Session getInstance] getCommunication] getClubsFromCityName:cityName];
+             [[Session getInstance] setSearchViewCLubs:inputClubList];
+             
+             UITabBarController *tabBar = [[UIStoryboard storyboardWithName:@"MainStoryboard_iPhone" bundle:nil] instantiateViewControllerWithIdentifier:@"mainMenuTabBar"];
+             
+             tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+             [self presentViewController: tabBar animated: YES completion:nil];
+         }
          
      }
      

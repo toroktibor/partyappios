@@ -190,7 +190,9 @@ static Session * _instance = nil;
 }
 
 -(void)setSearchViewCLubs:(NSMutableArray *)inputClubsList{
+    NSLog(@"elotte: %d",[searchViewCLubs count]);
     [searchViewCLubs addObjectsFromArray:inputClubsList];
+    NSLog(@"utana: %d",[searchViewCLubs count]);
 }
 
 -(void)setMusicType:(NSString *)music{

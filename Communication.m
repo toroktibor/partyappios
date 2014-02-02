@@ -606,11 +606,12 @@ return nil;
         NSError* err = [[NSError alloc] init];
         
         NSMutableDictionary* array = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error: &err];
+        return  [[array objectForKey:@"NewID"] intValue];
         
-        for (NSDictionary* jd in array) {
+        /*for (NSDictionary* jd in array) {
             int rating_id =  [[jd objectForKey:@"NewID"] intValue];
             return rating_id;
-        }
+        }*/
         
     } @catch (NSException *e) {
         

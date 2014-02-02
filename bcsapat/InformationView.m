@@ -392,6 +392,7 @@
      
      tabBar.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
      [self presentViewController: tabBar animated: YES completion:nil];*/
+    [[club getImages] removeAllObjects]; 
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

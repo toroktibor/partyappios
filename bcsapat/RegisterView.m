@@ -145,6 +145,14 @@
         [alertview show];
         
     }
+    else if (![[Session getInstance]isNetworAvaiable]){
+        UIAlertView * alertview = [[UIAlertView alloc] initWithTitle:@"Regisztrációs hiba!"
+                                                             message:@"Csak online módban tudsz regisztrálni!"
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"Ok"
+                                                   otherButtonTitles: nil];
+        [alertview show];
+    }
    else{
       
                 user=[[[Session getInstance]getCommunication]
